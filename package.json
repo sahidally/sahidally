@@ -1,0 +1,12 @@
+{
+  "name": "medan-smart-city-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Medan Smart City Simulator demo",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
