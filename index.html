@@ -4,33 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#071426" />
-  <title>Medan Smart City Simulator 3D</title>
+  <title>Medan Smart City Simulator 3D & Peta Menyeluruh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root{--bg:#071426;--panel:#0c1d33;--panel2:#102641;--line:#1b3857;--text:#edf6ff;--muted:#8ca7c4;--cyan:#36d9ff;--blue:#4388ff;--green:#4ce0a1;--yellow:#ffd166;--red:#ff647c}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}.pill{font-size:10px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;color:#a8c5e1;white-space:nowrap}.map-wrap{height:480px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}#map,#canvas3d{height:100%;width:100%;z-index:1;position:absolute;top:0;left:0}#canvas3d{display:block} /* Default tampil agar langsung jalan */
-    .map-overlay{position:absolute;z-index:500;left:12px;bottom:12px;background:#071426e8;border:1px solid #24415e;padding:10px 12px;border-radius:10px;font-size:11px;color:#c5d9ee;backdrop-filter:blur(8px)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}
     
-    /* Sistem Himbauan Banner di Atas 3D */
-    .advisory-banner{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(12,29,51,0.95);border:1px solid var(--cyan);padding:8px 16px;border-radius:20px;font-size:11px;color:#e8faff;box-shadow:0 4px 20px rgba(54,217,255,0.2);display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px);white-space:nowrap;}
-    .advisory-banner span.dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 8px var(--yellow);animation:pulse 1.5s infinite;}
+    /* Tombol Tab Switcher 2D / 3D */
+    .tab-switcher{display:flex;gap:8px;background:#081726;padding:4px;border-radius:10px;border:1px solid #1c3854;}
+    .tab-btn{border:0;background:transparent;color:var(--muted);padding:8px 14px;border-radius:8px;font-size:11px;font-weight:600;transition:.2s;}
+    .tab-btn.active{background:var(--cyan);color:#041426;box-shadow:0 0 12px rgba(54,217,255,0.3);}
+
+    /* Container Peta & Visualisasi 3D */
+    .map-box{height:520px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}
+    #map2dContainer, #canvas3dContainer{height:100%;width:100%;position:absolute;top:0;left:0;display:none;}
+    #map2dContainer.active, #canvas3dContainer.active{display:block;}
+    #map2d, #canvas3d{height:100%;width:100%;}
+    
+    .map-overlay{position:absolute;z-index:500;left:10px;bottom:10px;background:#071426e8;border:1px solid #24415e;padding:6px 10px;border-radius:8px;font-size:10px;color:#c5d9ee;backdrop-filter:blur(8px)}
+    
+    /* Panel Deteksi Cuaca di Peta 2D */
+    .weather-radar-badge{position:absolute;top:10px;left:10px;z-index:500;background:rgba(12,29,51,0.9);border:1px solid var(--cyan);padding:6px 12px;border-radius:10px;font-size:10px;color:#e8faff;backdrop-filter:blur(6px);display:flex;align-items:center;gap:6px;}
+    .weather-radar-badge span.pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);animation:pulse 1.5s infinite;}
+
+    /* Overlay Animasi Hujan 2D */
+    .map-rain-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:450;pointer-events:none;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(54,217,255,0.08) 10px,rgba(54,217,255,0.08) 12px);opacity:0;transition:opacity 0.3s;}
+    .map-rain-overlay.active{opacity:1;animation:rainSlide 0.6s linear infinite;}
+    @keyframes rainSlide{0%{background-position:0 0}100%{background-position:20px 20px}}
+
+    .advisory-banner{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(12,29,51,0.88);border:1px solid var(--cyan);padding:5px 12px;border-radius:14px;font-size:10px;color:#e8faff;box-shadow:0 2px 10px rgba(54,217,255,0.15);display:flex;align-items:center;gap:6px;backdrop-filter:blur(6px);white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis;}
+    .advisory-banner span.dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);box-shadow:0 0 6px var(--yellow);animation:pulse 1.5s infinite;flex-shrink:0;}
     @keyframes pulse{0%{opacity:1}50%{opacity:0.4}100%{opacity:1}}
 
-    /* Kolom Tanya Jawab / FAQ */
     .faq-section{margin-top:20px;display:grid;gap:12px;}
-    .faq-item{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;cursor:pointer;transition:.2s}
+    .faq-item{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;transition:.2s}
     .faq-item:hover{border-color:var(--cyan)}
     .faq-question{font:600 13px "Space Grotesk";color:var(--cyan);display:flex;justify-content:space-between;align-items:center}
     .faq-answer{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;}
 
-    .legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#102640;color:#eaf5ff}.leaflet-popup-content{font-family:"DM Sans";font-size:12px}.leaflet-control-attribution{font-size:9px!important}
-    .view-toggle { display: flex; gap: 6px; }
-    .view-toggle button { background: #112944; border: 1px solid #24415e; color: var(--muted); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; }
-    .view-toggle button.active { background: var(--cyan); color: #041426; border-color: var(--cyan); }
-    @media(max-width:1050px){.app{grid-template-columns:205px minmax(0,1fr)}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}.map-wrap{height:360px}}@media(max-width:700px){.app{display:block}.sidebar{padding:13px 14px;display:block;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0}.nav-label,.side-bottom{display:none}.nav{display:flex;overflow:auto;margin-top:13px;gap:5px}.nav a{white-space:nowrap;padding:9px 10px;font-size:11px}.nav .ico{font-size:14px}.main{padding:22px 14px}.topbar{align-items:flex-start}.top-actions{flex-direction:column;align-items:flex-end}.status{font-size:10px}.topbar h1{font-size:24px}.sub{max-width:260px;line-height:1.5}.metrics{gap:9px}.metric{padding:13px}.metric-value{font-size:24px}.metric-head{font-size:10px}.metric-foot{font-size:10px}.content-grid,.lower-grid{grid-template-columns:1fr}.map-wrap{height:320px}.panel{padding:14px}.footer{font-size:9px}}
+    .legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.footer{font-size:9px}
+    @media(max-width:700px){.app{display:block}.sidebar{padding:13px 14px;display:block;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0}.nav-label,.side-bottom{display:none}.nav{display:flex;overflow:auto;margin-top:13px;gap:5px}.nav a{white-space:nowrap;padding:9px 10px;font-size:11px}.nav .ico{font-size:14px}.main{padding:22px 14px}.topbar{align-items:flex-start}.top-actions{flex-direction:column;align-items:flex-end}.status{font-size:10px}.topbar h1{font-size:24px}.sub{max-width:260px;line-height:1.5}.metrics{gap:9px}.metric{padding:13px}.metric-value{font-size:24px}.metric-head{font-size:10px}.metric-foot{font-size:10px}.content-grid,.lower-grid{grid-template-columns:1fr}.map-box{height:360px}.panel{padding:14px}}
   </style>
 </head>
 <body>
@@ -41,15 +57,14 @@
       <div class="nav-label">Menu utama</div>
       <nav class="nav">
         <a href="#dashboard" class="active"><span class="ico">▦</span>Dashboard</a>
-        <a href="#peta"><span class="ico">⌖</span>Peta & 3D Kota</a>
+        <a href="#peta"><span class="ico">⌖</span>Peta & Visualisasi 3D</a>
         <a href="#simulator"><span class="ico">◈</span>Simulator</a>
-        <a href="#lingkungan"><span class="ico">♧</span>Lingkungan</a>
         <a href="#tanyajawab"><span class="ico">❓</span>Tanya Jawab</a>
       </nav>
     </div>
     <div class="side-bottom">
       <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Sistem simulator aktif</div>
-      <p>Mode demonstrasi Realistis 3D & Live Simulation aktif.</p>
+      <p>Mode Peta 2D (Deteksi Cuaca) & Satelit 3D HD Menyeluruh aktif.</p>
     </div>
     <div class="team-box">
       <strong>Tim Pengembang:</strong>
@@ -60,8 +75,8 @@
   </aside>
   <main class="main" id="dashboard">
     <header class="topbar">
-      <div><div class="eyebrow">Pusat kendali perkotaan</div><h1>Medan Smart City</h1><div class="sub">Simulator kota cerdas 3D · Kota Medan, Sumatera Utara</div></div>
-      <div class="top-actions"><div class="status"><span class="live-dot"></span>SIMULASI 3D REALISTIS</div><button class="btn" id="resetBtn">↻ Reset simulasi</button></div>
+      <div><div class="eyebrow">Pusat kendali perkotaan</div><h1>Medan Smart City</h1><div class="sub">Simulator Kota Medan dengan Lampu Merah Interaktif, Kendaraan Berhenti & Sistem Himbauan Pintar</div></div>
+      <div class="top-actions"><div class="status"><span class="live-dot"></span>PETA 2D / 3D AKTIF</div><button class="btn" id="resetBtn">↻ Reset simulasi</button></div>
     </header>
     <section class="metrics">
       <article class="metric"><div class="metric-head">Kepadatan lalu lintas <span class="metric-icon">🚦</span></div><div class="metric-value" id="trafficMetric">42<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="positive" id="trafficState">● Lancar</span> · indeks simulasi</div></article>
@@ -69,40 +84,62 @@
       <article class="metric"><div class="metric-head">Kualitas udara <span class="metric-icon">🌿</span></div><div class="metric-value" id="airMetric">32 <span style="font-size:15px;color:var(--muted)">AQI</span></div><div class="metric-foot"><span class="positive" id="airState">● Baik</span> · nilai contoh</div></article>
       <article class="metric"><div class="metric-head">Kapasitas sampah <span class="metric-icon">♻️</span></div><div class="metric-value" id="wasteMetric">64<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="warning" id="wasteState">● Perlu dipantau</span> · kapasitas contoh</div></article>
     </section>
+    
     <section class="content-grid">
-      <article class="panel" id="peta">
+      <article class="panel" id="peta" style="grid-column: 1 / -1;">
         <div class="panel-head">
-          <div><h2>Peta & Visualisasi 3D Skala Luas</h2><div class="panel-desc">Simulasi Kota Medan dengan Lampu Merah Interaktif, Kendaraan Berhenti & Sistem Himbauan Pintar</div></div>
-          <div class="view-toggle">
-            <button id="mapViewBtn">Peta 2D</button>
-            <button id="sim3dViewBtn" class="active">Simulasi 3D Realistis</button>
+          <div>
+            <h2>Peta & Visualisasi 3D Skala Luas</h2>
+            <div class="panel-desc">Simulasi Kota Medan dengan Lampu Merah Interaktif, Kendaraan Berhenti & Sistem Himbauan Pintar</div>
+          </div>
+          <!-- Tab Switcher Peta 2D / Simulasi 3D Realistis -->
+          <div class="tab-switcher">
+            <button class="tab-btn" id="btnMap2D">Peta 2D</button>
+            <button class="tab-btn active" id="btnSim3D">Simulasi 3D Realistis</button>
           </div>
         </div>
-        <div class="map-wrap">
-          <div id="map" style="display:none;"></div>
-          <div id="canvas3d" style="display:block;"></div>
-          <!-- Sistem Himbauan Pintar (Live Advisory Banner di atas 3D) -->
-          <div class="advisory-banner" id="advisoryBanner">
-            <span class="dot" id="advisoryDot"></span>
-            <strong id="advisoryTitle">Sistem Himbauan Kota:</strong>&nbsp;<span id="advisoryText">Memuat status lalu lintas...</span>
+        
+        <div class="map-box">
+          <!-- Tampilan Peta 2D -->
+          <div id="map2dContainer">
+            <div id="map2d"></div>
+            <div class="weather-radar-badge" id="weatherRadarBadge">
+              <span class="pulse-dot"></span>
+              <strong id="radarStatusText">Deteksi Cuaca: Cerah / Normal</strong>
+            </div>
+            <div class="map-rain-overlay" id="mapRainOverlay"></div>
+            <div class="map-overlay">⌖ Peta Wilayah 2D & Radar Cuaca Kota Medan</div>
           </div>
-          <div class="map-overlay" id="mapOverlayInfo">⌖ <span id="mapStatus">Simulasi 3D Skala Luas: Lampu Merah, Kendaraan Berhenti & Sistem Himbauan</span></div>
+
+          <!-- Tampilan Simulasi 3D Realistis -->
+          <div id="canvas3dContainer" class="active">
+            <div id="canvas3d"></div>
+            <div class="advisory-banner" id="advisoryBanner">
+              <span class="dot" id="advisoryDot"></span>
+              <span id="advisoryText">Memuat status lalu lintas...</span>
+            </div>
+            <div class="map-overlay">⌖ Simulasi Satelit 3D Menyeluruh Seluruh Medan</div>
+          </div>
         </div>
-        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Lampu Merah & Sistem Himbauan Pintar (Three.js)</span></div>
+        
+        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Terhubung ke sistem parameter interaktif</span></div>
       </article>
+    </section>
+
+    <section class="content-grid" style="grid-template-columns: 1fr;">
       <article class="panel" id="simulator">
         <div class="panel-head"><div><h2>Kontrol Simulasi</h2><div class="panel-desc">Ubah parameter atau jalankan simulasi gerak otomatis</div></div><span class="pill">INTERAKTIF</span></div>
         <div class="control-list">
           <div class="control"><div class="control-top"><strong>🚗 Kepadatan kendaraan (Kecepatan Mobil 3D)</strong><output id="trafficOut">42%</output></div><input type="range" id="trafficRange" min="0" max="100" value="42"><div class="range-labels"><span>Sepi</span><span>Padat</span></div><div class="control-note">Mengatur jumlah lalu lintas dan kecepatan mobil yang bergerak di model 3D kota.</div></div>
-          <div class="control"><div class="control-top"><strong>🌧️ Intensitas curah hujan</strong><output id="rainOut">25 mm/jam</output></div><input type="range" id="rainRange" min="0" max="150" value="25"><div class="range-labels"><span>0 mm</span><span>150 mm</span></div><div class="control-note">Mengubah efek turunnya hujan secara real-time di animasi 3D.</div></div>
+          <div class="control"><div class="control-top"><strong>🌧️ Intensitas curah hujan</strong><output id="rainOut">25 mm/jam</output></div><input type="range" id="rainRange" min="0" max="150" value="25"><div class="range-labels"><span>0 mm</span><span>150 mm</span></div><div class="control-note">Mengubah efek turunnya hujan secara real-time di animasi 3D dan peta 2D.</div></div>
           <div class="control"><div class="control-top"><strong>♻️ Volume sampah</strong><output id="wasteOut">64%</output></div><input type="range" id="wasteRange" min="0" max="100" value="64"><div class="range-labels"><span>Rendah</span><span>Penuh</span></div></div>
         </div>
         <div class="run-row"><button class="btn primary" id="runBtn">▶ Jalankan simulasi</button><button class="btn" id="randomBtn">Acak skenario</button></div>
         <div class="scenario" id="scenarioText">Skenario awal: arus lalu lintas sedang, curah hujan ringan, dan kapasitas sampah perlu dipantau. Semua nilai adalah data simulasi.</div>
       </article>
     </section>
-    
-    <!-- Kolom Pertanyaan / Tanya Jawab (FAQ) Baru -->
+
+    <!-- Kolom Pertanyaan / Tanya Jawab (FAQ) -->
     <section class="panel" id="tanyajawab" style="margin-bottom:20px;">
       <div class="panel-head">
         <div>
@@ -113,19 +150,19 @@
       </div>
       <div class="faq-section">
         <div class="faq-item">
-          <div class="faq-question">1. Apa itu Medan Smart City? <span>▼</span></div>
+          <div class="faq-question">1. Apa itu Medan Smart City?</div>
           <div class="faq-answer">Medan Smart City adalah sebuah konsep pengembangan perkotaan berbasis teknologi informasi dan komunikasi (TIK) yang bertujuan untuk mengoptimalkan pengelolaan sumber daya kota, meningkatkan efisiensi pelayanan publik, serta memberikan kenyamanan dan keamanan bagi warga Kota Medan.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">2. Apa kegunaan utama dari Simulator 3D ini? <span>▼</span></div>
-          <div class="faq-answer">Simulator 3D ini berguna sebagai pusat kendali visual (dashboard digital) untuk memantau simulasi kondisi perkotaan secara real-time, termasuk manajemen kepadatan lalu lintas, mitigasi risiko genangan air/banjir, kualitas udara, pemantauan volume sampah, hingga simulasi lampu merah dan pergerakan pejalan kaki.</div>
+          <div class="faq-question">2. Bagaimana cara kerja Tab Switcher Peta 2D & 3D?</div>
+          <div class="faq-answer">Pengguna dapat dengan mudah beralih antara tampilan Peta 2D berdeteksi radar cuaca dan Simulasi 3D Realistis secara langsung di pojok kanan atas panel tanpa kehilangan status simulasi yang sedang berjalan.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">3. Bagaimana cara kerja Sistem Himbauan Pintar? <span>▼</span></div>
+          <div class="faq-question">3. Bagaimana cara kerja Sistem Himbauan Pintar?</div>
           <div class="faq-answer">Sistem himbauan otomatis mendeteksi status lampu merah, tingkat kepadatan kendaraan, serta intensitas curah hujan secara real-time, lalu memunculkan banner peringatan atau instruksi keselamatan secara langsung di layar simulator untuk pengendara dan warga.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">4. Siapa pengembang proyek demonstrasi ini? <span>▼</span></div>
+          <div class="faq-question">4. Siapa pengembang proyek demonstrasi ini?</div>
           <div class="faq-answer">Proyek demonstrasi ini dikembangkan oleh tim di bawah pimpinan Sahid Ally (Leader), Andrea Gilbert (Deputy Leader), dan Fany Yosevin S. (Manajer) dari PT Masa Depan Telkom University.</div>
         </div>
       </div>
@@ -137,7 +174,7 @@
         <div class="service"><div class="service-icon">🚦</div><div class="service-info"><strong>Transportasi pintar</strong><small>Indeks arus kendaraan</small></div><div class="service-value" id="serviceTraffic">42%<small>kepadatan</small></div></div>
         <div class="service"><div class="service-icon">💧</div><div class="service-info"><strong>Mitigasi genangan</strong><small>Risiko berdasarkan skenario hujan</small></div><div class="service-value" id="serviceFlood">18%<small>risiko</small></div></div>
         <div class="service"><div class="service-icon">🌬️</div><div class="service-info"><strong>Pemantauan udara</strong><small>Indeks kualitas udara contoh</small></div><div class="service-value" id="serviceAir">32 AQI<small>baik</small></div></div>
-        <div class="service"><div class="service-icon">🗑️</div><div class="service-info"><strong>Pengelolaan sampah</strong><small>Perkiraan kapasitas wadah</small></div><div class="service-value" id="serviceWaste">64%<small>terisi</small></div></div>
+        <div class="service"><div class="service-icon">♻️</div><div class="service-info"><strong>Pengelolaan sampah</strong><small>Perkiraan kapasitas wadah</small></div><div class="service-value" id="serviceWaste">64%<small>terisi</small></div></div>
       </div></article>
     </section>
     <footer class="footer"><span>© 2026 Medan Smart City Simulator 3D · Proyek demonstrasi</span><span>PT MASA DEPAN TELKOM UNIVERSITY</span></footer>
@@ -152,49 +189,95 @@
 (() => {
   const $ = id => document.getElementById(id);
   const controls = {traffic:$('trafficRange'), rain:$('rainRange'), waste:$('wasteRange')};
-  let map, markers = [];
-  let scene, camera, renderer, cars = [], pedestrians = [], trafficLights = [], rainDrops = [], clouds = [], is3DActive = true, animationFrameId;
+  let map2d, markers = [];
+  let scene, camera, renderer, cars = [], pedestrians = [], trafficLights = [], rainDrops = [], clouds = [], animationFrameId;
   let isAutoRunning = false, autoInterval = null;
   let trafficLightTimer = 0;
   let trafficLightState = 'GREEN';
 
+  // --- Logika Tab Switcher Peta 2D / 3D ---
+  const btnMap2D = $('btnMap2D');
+  const btnSim3D = $('btnSim3D');
+  const map2dContainer = $('map2dContainer');
+  const canvas3dContainer = $('canvas3dContainer');
+
+  btnMap2D.onclick = () => {
+    btnMap2D.classList.add('active');
+    btnSim3D.classList.remove('active');
+    map2dContainer.classList.add('active');
+    canvas3dContainer.classList.remove('active');
+    if (map2d) setTimeout(() => map2d.invalidateSize(), 200);
+  };
+
+  btnSim3D.onclick = () => {
+    btnSim3D.classList.add('active');
+    btnMap2D.classList.remove('active');
+    canvas3dContainer.classList.add('active');
+    map2dContainer.classList.remove('active');
+  };
+
   const zones = [
-    {name:'Lapangan Merdeka (titik simulasi)', lat:3.5897, lng:98.6738},
-    {name:'Area Medan Sunggal (titik simulasi)', lat:3.5768, lng:98.6250},
-    {name:'Area Medan Johor (titik simulasi)', lat:3.5240, lng:98.6660},
-    {name:'Area Medan Tembung (titik simulasi)', lat:3.6140, lng:98.7180},
-    {name:'Area Medan Denai (titik simulasi)', lat:3.5580, lng:98.7040}
+    {name:'Pusat Kota Medan', lat:3.5897, lng:98.6738},
+    {name:'Kecamatan Medan Sunggal', lat:3.5768, lng:98.6250},
+    {name:'Kecamatan Medan Johor', lat:3.5240, lng:98.6660},
+    {name:'Kecamatan Medan Tembung', lat:3.6140, lng:98.7180},
+    {name:'Kecamatan Medan Denai', lat:3.5580, lng:98.7040}
   ];
 
-  function initMap(){
+  function initMap2D() {
     if (!window.L) return;
-    map = L.map('map',{zoomControl:true}).setView([3.5897,98.6738],12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
-    refreshMarkers(42,18);
+    map2d = L.map('map2d', {zoomControl: true}).setView([3.5897, 98.6738], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map2d);
+    refreshMarkers(42, 18);
   }
 
-  function refreshMarkers(traffic,flood){
-    if(!map) return;
-    markers.forEach(m=>map.removeLayer(m)); markers=[];
-    zones.forEach((z,i)=>{
-      const score = Math.min(100,Math.round((traffic*(0.45+(i%3)*.12))+(flood*(0.35+(i%2)*.15))));
-      const color = score>65?'#ff647c':score>35?'#ffd166':'#4ce0a1';
-      const icon=L.divIcon({className:'',html:`<div style="width:17px;height:17px;border-radius:50%;background:${color};border:3px solid #fff;box-shadow:0 0 0 5px ${color}40"></div>`,iconSize:[17,17],iconAnchor:[8,8]});
-      const marker=L.marker([z.lat,z.lng],{icon}).addTo(map);
+  function refreshMarkers(traffic, flood) {
+    if (!map2d) return;
+    markers.forEach(m => map2d.removeLayer(m));
+    markers = [];
+    zones.forEach((z, i) => {
+      const score = Math.min(100, Math.round((traffic * (0.45 + (i % 3) * .12)) + (flood * (0.35 + (i % 2) * .15))));
+      const color = score > 65 ? '#ff647c' : score > 35 ? '#ffd166' : '#4ce0a1';
+      const icon = L.divIcon({
+        className: '',
+        html: `<div style="width:17px;height:17px;border-radius:50%;background:${color};border:3px solid #fff;box-shadow:0 0 0 5px ${color}40"></div>`,
+        iconSize: [17, 17],
+        iconAnchor: [8, 8]
+      });
+      const marker = L.marker([z.lat, z.lng], {icon}).addTo(map2d);
       marker.bindPopup(`<b>${z.name}</b><br>Indeks skenario: ${score}/100<br><small>Data simulasi Medan Smart City.</small>`);
       markers.push(marker);
     });
+  }
+
+  function updateWeatherDetection(rainVal) {
+    const radarBadgeText = $('radarStatusText');
+    const rainOverlay = $('mapRainOverlay');
+
+    if (rainVal > 80) {
+      radarBadgeText.textContent = `Deteksi Cuaca: Hujan Lebat (${rainVal} mm/jam)`;
+      rainOverlay.classList.add('active');
+    } else if (rainVal > 20) {
+      radarBadgeText.textContent = `Deteksi Cuaca: Hujan Ringan (${rainVal} mm/jam)`;
+      rainOverlay.classList.add('active');
+    } else {
+      radarBadgeText.textContent = `Deteksi Cuaca: Cerah / Normal (${rainVal} mm/jam)`;
+      rainOverlay.classList.remove('active');
+    }
   }
 
   function init3D(){
     if (scene) return; 
     const container = $('canvas3d');
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x060e18);
-    scene.fog = new THREE.FogExp2(0x060e18, 0.004);
+    scene.background = new THREE.Color(0x040b14);
+    scene.fog = new THREE.FogExp2(0x040b14, 0.0015);
 
-    camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 55, 85);
+    camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1800);
+    camera.position.set(0, 110, 160);
     camera.lookAt(0, 0, 0);
 
     renderer = new THREE.WebGLRenderer({antialias: true});
@@ -202,39 +285,45 @@
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
+    renderer.toneMappingExposure = 1.35;
     container.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0x1a2d42, 0.9);
+    const ambientLight = new THREE.AmbientLight(0x1a2d42, 1.1);
     scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xfffaed, 1.6);
-    dirLight.position.set(70, 90, 60);
+    const dirLight = new THREE.DirectionalLight(0xfffaed, 1.9);
+    dirLight.position.set(140, 160, 120);
     dirLight.castShadow = true;
     dirLight.shadow.mapSize.width = 2048;
     dirLight.shadow.mapSize.height = 2048;
     dirLight.shadow.camera.near = 10;
-    dirLight.shadow.camera.far = 300;
-    const d = 120;
+    dirLight.shadow.camera.far = 600;
+    const d = 280;
     dirLight.shadow.camera.left = -d;
     dirLight.shadow.camera.right = d;
     dirLight.shadow.camera.top = d;
     dirLight.shadow.camera.bottom = -d;
     scene.add(dirLight);
 
-    const groundMat = new THREE.MeshStandardMaterial({color: 0x0c131d, roughness: 0.85});
-    const ground = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), groundMat);
+    const groundMat = new THREE.MeshStandardMaterial({color: 0x080e16, roughness: 0.9});
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(800, 800), groundMat);
     ground.rotation.x = -Math.PI / 2;
     ground.receiveShadow = true;
     scene.add(ground);
 
-    const roadMat = new THREE.MeshStandardMaterial({color: 0x141d2b, roughness: 0.5});
-    const road1 = new THREE.Mesh(new THREE.BoxGeometry(300, 0.1, 20), roadMat);
-    road1.position.y = 0.05; road1.receiveShadow = true; scene.add(road1);
-    const road2 = new THREE.Mesh(new THREE.BoxGeometry(20, 0.1, 300), roadMat);
-    road2.position.y = 0.05; road2.receiveShadow = true; scene.add(road2);
+    const roadMat = new THREE.MeshStandardMaterial({color: 0x111924, roughness: 0.5});
+    const roadMain1 = new THREE.Mesh(new THREE.BoxGeometry(800, 0.1, 32), roadMat);
+    roadMain1.position.y = 0.05; roadMain1.receiveShadow = true; scene.add(roadMain1);
+    const roadMain2 = new THREE.Mesh(new THREE.BoxGeometry(32, 0.1, 800), roadMat);
+    roadMain2.position.y = 0.05; roadMain2.receiveShadow = true; scene.add(roadMain2);
 
-    // Pohon
+    [-200, 200].forEach(offset => {
+      const roadSub1 = new THREE.Mesh(new THREE.BoxGeometry(800, 0.08, 20), roadMat);
+      roadSub1.position.set(0, 0.04, offset); roadSub1.receiveShadow = true; scene.add(roadSub1);
+      const roadSub2 = new THREE.Mesh(new THREE.BoxGeometry(20, 0.08, 800), roadMat);
+      roadSub2.position.set(offset, 0.04, 0); roadSub2.receiveShadow = true; scene.add(roadSub2);
+    });
+
     function createTree() {
       const group = new THREE.Group();
       const trunkMat = new THREE.MeshStandardMaterial({color: 0x5c4033, roughness: 0.9});
@@ -247,18 +336,17 @@
       return group;
     }
 
-    for(let x = -130; x <= 130; x += 18) {
-      if(Math.abs(x) < 20) continue;
-      const t1 = createTree(); t1.position.set(x, 0, 12.5); scene.add(t1);
-      const t2 = createTree(); t2.position.set(x, 0, -12.5); scene.add(t2);
+    for(let x = -350; x <= 350; x += 28) {
+      if(Math.abs(x) < 35) continue;
+      const t1 = createTree(); t1.position.set(x, 0, 18.5); scene.add(t1);
+      const t2 = createTree(); t2.position.set(x, 0, -18.5); scene.add(t2);
     }
-    for(let z = -130; z <= 130; z += 18) {
-      if(Math.abs(z) < 20) continue;
-      const t3 = createTree(); t3.position.set(12.5, 0, z); scene.add(t3);
-      const t4 = createTree(); t4.position.set(-12.5, 0, z); scene.add(t4);
+    for(let z = -350; z <= 350; z += 28) {
+      if(Math.abs(z) < 35) continue;
+      const t3 = createTree(); t3.position.set(18.5, 0, z); scene.add(t3);
+      const t4 = createTree(); t4.position.set(-18.5, 0, z); scene.add(t4);
     }
 
-    // Lampu Merah
     function createTrafficLight() {
       const group = new THREE.Group();
       const poleMat = new THREE.MeshStandardMaterial({color: 0x222222, metalness: 0.8});
@@ -285,29 +373,27 @@
       return group;
     }
 
-    const tl1 = createTrafficLight(); tl1.position.set(11, 0, 11); tl1.rotation.y = -Math.PI/4; scene.add(tl1); trafficLights.push(tl1);
-    const tl2 = createTrafficLight(); tl2.position.set(-11, 0, 11); tl2.rotation.y = Math.PI/4; scene.add(tl2); trafficLights.push(tl2);
-    const tl3 = createTrafficLight(); tl3.position.set(-11, 0, -11); tl3.rotation.y = 3*Math.PI/4; scene.add(tl3); trafficLights.push(tl3);
-    const tl4 = createTrafficLight(); tl4.position.set(11, 0, -11); tl4.rotation.y = -3*Math.PI/4; scene.add(tl4); trafficLights.push(tl4);
+    const tl1 = createTrafficLight(); tl1.position.set(17, 0, 17); tl1.rotation.y = -Math.PI/4; scene.add(tl1); trafficLights.push(tl1);
+    const tl2 = createTrafficLight(); tl2.position.set(-17, 0, 17); tl2.rotation.y = Math.PI/4; scene.add(tl2); trafficLights.push(tl2);
+    const tl3 = createTrafficLight(); tl3.position.set(-17, 0, -17); tl3.rotation.y = 3*Math.PI/4; scene.add(tl3); trafficLights.push(tl3);
+    const tl4 = createTrafficLight(); tl4.position.set(17, 0, -17); tl4.rotation.y = -3*Math.PI/4; scene.add(tl4); trafficLights.push(tl4);
 
-    // Gedung
     const bColors = [0x1e3552, 0x14273d, 0x244263, 0x19304a, 0x2b4f75];
-    for(let x = -100; x <= 100; x += 22) {
-      for(let z = -100; z <= 100; z += 22) {
-        if(Math.abs(x) < 22 || Math.abs(z) < 22) continue; 
-        const height = 20 + Math.random() * 45;
+    for(let x = -340; x <= 340; x += 36) {
+      for(let z = -340; z <= 340; z += 36) {
+        if(Math.abs(x) < 36 || Math.abs(z) < 36) continue; 
+        const height = 35 + Math.random() * 85;
         const bMat = new THREE.MeshStandardMaterial({color: bColors[Math.floor(Math.random()*bColors.length)], roughness: 0.15, metalness: 0.6});
-        const building = new THREE.Mesh(new THREE.BoxGeometry(15, height, 15), bMat);
+        const building = new THREE.Mesh(new THREE.BoxGeometry(22, height, 22), bMat);
         building.position.set(x, height / 2, z); building.castShadow = true; building.receiveShadow = true;
         scene.add(building);
 
         const roofMat = new THREE.MeshBasicMaterial({color: Math.random() > 0.5 ? 0x36d9ff : 0xff647c});
-        const roofBeacon = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.5, 2.5), roofMat);
+        const roofBeacon = new THREE.Mesh(new THREE.BoxGeometry(3, 0.5, 3), roofMat);
         roofBeacon.position.set(x, height + 0.3, z); scene.add(roofBeacon);
       }
     }
 
-    // Mobil HD
     function createDetailedCar(colorHex) {
       const group = new THREE.Group();
       const bodyMat = new THREE.MeshStandardMaterial({color: colorHex, metalness: 0.85, roughness: 0.2});
@@ -339,18 +425,17 @@
     }
 
     const carColors = [0xffd166, 0xff526d, 0x36d9ff, 0x4ce0a1, 0xf0f4f8, 0x4388ff];
-    for(let i = 0; i < 16; i++) {
+    for(let i = 0; i < 40; i++) {
       const isOpposite = i % 2 === 0;
       const car = createDetailedCar(carColors[i % carColors.length]);
-      const startX = -120 + (i * 15);
-      const startZ = isOpposite ? 4.8 : -4.8;
+      const startX = -360 + (i * 18);
+      const startZ = isOpposite ? 7.5 : -7.5;
       car.position.set(startX, 0, startZ);
       if(!isOpposite) car.rotation.y = Math.PI;
       scene.add(car);
       cars.push({mesh: car, direction: isOpposite ? 1 : -1, speedOffset: 0.8 + Math.random()*0.4});
     }
 
-    // Orang HD
     function createHD_Pedestrian() {
       const group = new THREE.Group();
       const clothesColors = [0x36d9ff, 0xffd166, 0xff647c, 0xf0f4f8, 0x4ce0a1, 0x9b59b6];
@@ -377,28 +462,28 @@
       return group;
     }
 
-    for(let i = 0; i < 16; i++) {
+    for(let i = 0; i < 30; i++) {
       const p = createHD_Pedestrian();
-      const startZ = -110 + (i * 14);
-      p.position.set(14.5, 0, startZ);
+      const startZ = -340 + (i * 22);
+      p.position.set(20.5, 0, startZ);
       scene.add(p);
       pedestrians.push({mesh: p, speed: 0.025 + Math.random() * 0.015});
     }
 
     const cloudMat = new THREE.MeshStandardMaterial({color: 0x8cb7ff, transparent: true, opacity: 0.25, roughness: 1.0});
-    for(let i = 0; i < 10; i++) {
-      const cloud = new THREE.Mesh(new THREE.DodecahedronGeometry(12 + Math.random()*10), cloudMat);
-      cloud.position.set((Math.random()-0.5)*220, 50 + Math.random()*15, (Math.random()-0.5)*220);
+    for(let i = 0; i < 25; i++) {
+      const cloud = new THREE.Mesh(new THREE.DodecahedronGeometry(20 + Math.random()*15), cloudMat);
+      cloud.position.set((Math.random()-0.5)*700, 100 + Math.random()*30, (Math.random()-0.5)*700);
       scene.add(cloud); clouds.push(cloud);
     }
 
     const rainGeo = new THREE.BufferGeometry();
-    const rainCount = 1200;
+    const rainCount = 2500;
     const rainPositions = new Float32Array(rainCount * 3);
     for(let i = 0; i < rainCount * 3; i += 3) {
-      rainPositions[i] = (Math.random() - 0.5) * 240;
-      rainPositions[i+1] = Math.random() * 100;
-      rainPositions[i+2] = (Math.random() - 0.5) * 240;
+      rainPositions[i] = (Math.random() - 0.5) * 720;
+      rainPositions[i+1] = Math.random() * 180;
+      rainPositions[i+2] = (Math.random() - 0.5) * 720;
     }
     rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPositions, 3));
     const rainMat = new THREE.PointsMaterial({color: 0x36d9ff, size: 0.6, transparent: true, opacity: 0.85});
@@ -415,26 +500,25 @@
     const rainVal = +controls.rain.value;
 
     if (trafficLightState === 'RED') {
-      bannerText.textContent = "Himbauan Dishub Medan: Lampu Merah Menyala. Kendaraan Berhenti di Garis Hentian Persimpangan.";
+      bannerText.textContent = "Himbauan Dishub: Lampu Merah Menyala. Kendaraan Berhenti di Garis Hentian.";
       bannerDot.style.background = 'var(--red)';
-      bannerDot.style.boxShadow = '0 0 8px var(--red)';
+      bannerDot.style.boxShadow = '0 0 6px var(--red)';
     } else if (trafficVal > 75) {
-      bannerText.textContent = "Himbauan ATCS: Lalu Lintas Padat Terdeteksi. Gunakan Jalur Alternatif Kota Medan.";
+      bannerText.textContent = "Himbauan ATCS: Lalu Lintas Padat. Gunakan Jalur Alternatif Kota.";
       bannerDot.style.background = 'var(--yellow)';
-      bannerDot.style.boxShadow = '0 0 8px var(--yellow)';
+      bannerDot.style.boxShadow = '0 0 6px var(--yellow)';
     } else if (rainVal > 60) {
-      bannerText.textContent = "Peringatan Dini Cuaca: Hujan Lebat. Waspada Potensi Genangan di Titik Rendah Kota.";
+      bannerText.textContent = "Peringatan Dini Cuaca: Hujan Lebat. Waspada Potensi Genangan Air.";
       bannerDot.style.background = 'var(--cyan)';
-      bannerDot.style.boxShadow = '0 0 8px var(--cyan)';
+      bannerDot.style.boxShadow = '0 0 6px var(--cyan)';
     } else {
-      bannerText.textContent = "Sistem Cerdas Medan: Arus Lalu Lintas Terkendali & Lancar. Patuhi Rambu Jalan.";
+      bannerText.textContent = "Sistem Cerdas: Arus Lalu Lintas Terkendali & Lancar.";
       bannerDot.style.background = 'var(--green)';
-      bannerDot.style.boxShadow = '0 0 8px var(--green)';
+      bannerDot.style.boxShadow = '0 0 6px var(--green)';
     }
   }
 
   function animate3D() {
-    if (!is3DActive) return;
     animationFrameId = requestAnimationFrame(animate3D);
 
     trafficLightTimer += 1;
@@ -461,16 +545,16 @@
       let currentSpeed = 0.05 + congestionFactor * 0.4;
       
       if (trafficLightState === 'RED') {
-        if (c.direction === -1 && c.mesh.position.x > 12 && c.mesh.position.x < 35) {
+        if (c.direction === -1 && c.mesh.position.x > 18 && c.mesh.position.x < 48) {
           currentSpeed = 0; 
-        } else if (c.direction === 1 && c.mesh.position.x < -12 && c.mesh.position.x > -35) {
+        } else if (c.direction === 1 && c.mesh.position.x < -18 && c.mesh.position.x > -48) {
           currentSpeed = 0; 
         }
       }
 
       c.mesh.position.x += currentSpeed * c.speedOffset;
-      if (c.mesh.position.x > 135) c.mesh.position.x = -135;
-      if (c.mesh.position.x < -135) c.mesh.position.x = 135;
+      if (c.mesh.position.x > 380) c.mesh.position.x = -380;
+      if (c.mesh.position.x < -380) c.mesh.position.x = 380;
     });
 
     pedestrians.forEach(p => {
@@ -480,12 +564,12 @@
       p.mesh.userData.legRight.rotation.x = -walkCycle * 0.5;
       p.mesh.position.y = Math.abs(walkCycle) * 0.08;
 
-      if (p.mesh.position.z > 120) p.mesh.position.z = -120;
+      if (p.mesh.position.z > 360) p.mesh.position.z = -360;
     });
 
     clouds.forEach(cl => {
       cl.position.x += 0.015;
-      if(cl.position.x > 120) cl.position.x = -120;
+      if(cl.position.x > 360) cl.position.x = -360;
     });
 
     const rainVal = +controls.rain.value;
@@ -497,36 +581,20 @@
         const fallSpeed = 1.2 + (rainVal / 150) * 3.5;
         for(let i = 1; i < positions.length; i += 3) {
           positions[i] -= fallSpeed;
-          if(positions[i] < 0) positions[i] = 100;
+          if(positions[i] < 0) positions[i] = 180;
         }
         rainSystem.geometry.attributes.position.needsUpdate = true;
       }
     }
 
-    const time = Date.now() * 0.00015;
-    camera.position.x = Math.cos(time) * 85;
-    camera.position.z = Math.sin(time) * 85;
-    camera.position.y = 48 + Math.sin(time * 2) * 8;
+    const time = Date.now() * 0.00008;
+    camera.position.x = Math.cos(time) * 170;
+    camera.position.z = Math.sin(time) * 170;
+    camera.position.y = 105 + Math.sin(time * 2) * 15;
     camera.lookAt(0, 4, 0);
 
     renderer.render(scene, camera);
   }
-
-  $('mapViewBtn').addEventListener('click', () => {
-    is3DActive = false;
-    cancelAnimationFrame(animationFrameId);
-    $('map').style.display = 'block';$('canvas3d').style.display = 'none';
-    $('advisoryBanner').style.display = 'none';$('mapViewBtn').classList.add('active');
-    $('sim3dViewBtn').classList.remove('active');$('mapStatus').textContent = 'Menampilkan titik pantau simulasi (2D)';
-  });
-
-  $('sim3dViewBtn').addEventListener('click', () => {
-    is3DActive = true;
-    $('map').style.display = 'none';$('canvas3d').style.display = 'block';
-    $('advisoryBanner').style.display = 'flex';$('sim3dViewBtn').classList.add('active');
-    $('mapViewBtn').classList.remove('active');$('mapStatus').textContent = 'Simulasi 3D Skala Luas: Lampu Merah, Kendaraan Berhenti & Sistem Himbauan';
-    init3D();
-  });
 
   function airIndex(traffic,rain){return Math.max(12,Math.min(180,Math.round(22+traffic*.72+Math.max(0,30-rain)*.22)))}
   function floodIndex(rain){return Math.min(98,Math.round(Math.max(0,rain-5)*.62+Math.max(0,rain-55)*.18+8))}
@@ -552,7 +620,8 @@
     const vals=[Math.max(8,100-t),Math.max(8,100-f),Math.max(8,100-Math.min(100,a)),Math.max(8,100-w)];
     const names=['Lalu lintas','Genangan','Udara','Sampah'];
     $('chart').innerHTML=vals.map((v,i)=>`<div class="bar-group"><div class="bar-value">${v}</div><div class="bar" style="height:${v}%"></div><div class="bar-label">${names[i]}</div></div>`).join('');
-    refreshMarkers(t,f);
+    refreshMarkers(t, f);
+    updateWeatherDetection(r);
   }
 
   function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2500)}
@@ -596,8 +665,8 @@
     toast('Skenario acak berhasil dimuat.');
   });
 
-  initMap();
-  init3D(); // Langsung aktifkan 3D saat halaman dimuat
+  initMap2D();
+  init3D();
   render();
 })();
 </script>
