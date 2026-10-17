@@ -21,4 +21,384 @@
 <body>
 <div class="app">
   <aside class="sidebar">
-    <div class="brand"><div class
+    <div class="brand"><div class="brand-mark">⌁</div><div><strong>MEDAN<span style="color:var(--cyan)">.SMART</span></strong><small>Urban Simulator v1.0</small></div></div>
+    <div>
+      <div class="nav-label">Menu utama</div>
+      <nav class="nav">
+        <a href="#dashboard" class="active"><span class="ico">▦</span>Dashboard</a>
+        <a href="#peta"><span class="ico">⌖</span>Peta & 3D Kota</a>
+        <a href="#simulator"><span class="ico">◈</span>Simulator</a>
+        <a href="#lingkungan"><span class="ico">♧</span>Lingkungan</a>
+      </nav>
+    </div>
+    <div class="side-bottom">
+      <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Sistem simulator aktif</div>
+      <p>Mode demonstrasi Realistis 3D & Live Simulation aktif.</p>
+    </div>
+    <div class="team-box">
+      <strong>Tim Pengembang:</strong>
+      • Leader: Sahid Ally<br>
+      • Deputy Leader: Andrea Gilbert<br>
+      • Manajer: Fany Yosevin S.
+    </div>
+  </aside>
+  <main class="main" id="dashboard">
+    <header class="topbar">
+      <div><div class="eyebrow">Pusat kendali perkotaan</div><h1>Medan Smart City</h1><div class="sub">Simulator kota cerdas 3D · Kota Medan, Sumatera Utara</div></div>
+      <div class="top-actions"><div class="status"><span class="live-dot"></span>SIMULASI 3D REALISTIS</div><button class="btn" id="resetBtn">↻ Reset simulasi</button></div>
+    </header>
+    <section class="metrics">
+      <article class="metric"><div class="metric-head">Kepadatan lalu lintas <span class="metric-icon">🚦</span></div><div class="metric-value" id="trafficMetric">42<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="positive" id="trafficState">● Lancar</span> · indeks simulasi</div></article>
+      <article class="metric"><div class="metric-head">Risiko genangan <span class="metric-icon">🌧️</span></div><div class="metric-value" id="floodMetric">18<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="positive" id="floodState">● Rendah</span> · indeks simulasi</div></article>
+      <article class="metric"><div class="metric-head">Kualitas udara <span class="metric-icon">🌿</span></div><div class="metric-value" id="airMetric">32 <span style="font-size:15px;color:var(--muted)">AQI</span></div><div class="metric-foot"><span class="positive" id="airState">● Baik</span> · nilai contoh</div></article>
+      <article class="metric"><div class="metric-head">Kapasitas sampah <span class="metric-icon">♻️</span></div><div class="metric-value" id="wasteMetric">64<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="warning" id="wasteState">● Perlu dipantau</span> · kapasitas contoh</div></article>
+    </section>
+    <section class="content-grid">
+      <article class="panel" id="peta">
+        <div class="panel-head">
+          <div><h2>Peta & Visualisasi 3D Ultra Realistis</h2><div class="panel-desc">Beralih antara peta wilayah Medan dan Simulasi 3D Realistis (Bayangan, Lampu, Mobil & Cuaca)</div></div>
+          <div class="view-toggle">
+            <button id="mapViewBtn" class="active">Peta 2D</button>
+            <button id="sim3dViewBtn">Simulasi 3D Realistis</button>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <div id="map"></div>
+          <div id="canvas3d"></div>
+          <div class="map-overlay" id="mapOverlayInfo">⌖ <span id="mapStatus">Menampilkan titik pantau simulasi</span><br><span style="color:#7f9bb8">Pilih marker untuk detail</span></div>
+        </div>
+        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Realistic Lighting & Shadows (Three.js)</span></div>
+      </article>
+      <article class="panel" id="simulator">
+        <div class="panel-head"><div><h2>Kontrol Simulasi</h2><div class="panel-desc">Ubah parameter atau jalankan simulasi gerak otomatis</div></div><span class="pill">INTERAKTIF</span></div>
+        <div class="control-list">
+          <div class="control"><div class="control-top"><strong>🚗 Kepadatan kendaraan (Kecepatan Mobil 3D)</strong><output id="trafficOut">42%</output></div><input type="range" id="trafficRange" min="0" max="100" value="42"><div class="range-labels"><span>Sepi</span><span>Padat</span></div><div class="control-note">Mengatur jumlah lalu lintas dan kecepatan mobil yang bergerak di model 3D kota.</div></div>
+          <div class="control"><div class="control-top"><strong>🌧️ Intensitas curah hujan</strong><output id="rainOut">25 mm/jam</output></div><input type="range" id="rainRange" min="0" max="150" value="25"><div class="range-labels"><span>0 mm</span><span>150 mm</span></div><div class="control-note">Mengubah efek turunnya hujan secara real-time di animasi 3D.</div></div>
+          <div class="control"><div class="control-top"><strong>♻️ Volume sampah</strong><output id="wasteOut">64%</output></div><input type="range" id="wasteRange" min="0" max="100" value="64"><div class="range-labels"><span>Rendah</span><span>Penuh</span></div></div>
+        </div>
+        <div class="run-row"><button class="btn primary" id="runBtn">▶ Jalankan simulasi</button><button class="btn" id="randomBtn">Acak skenario</button></div>
+        <div class="scenario" id="scenarioText">Skenario awal: arus lalu lintas sedang, curah hujan ringan, dan kapasitas sampah perlu dipantau. Semua nilai adalah data simulasi.</div>
+      </article>
+    </section>
+    <section class="lower-grid" id="lingkungan">
+      <article class="panel"><div class="panel-head"><div><h2>Indeks kondisi wilayah</h2><div class="panel-desc">Perbandingan indikator simulasi per zona</div></div><span class="pill">SKOR 0–100</span></div><div class="chart" id="chart"></div><div class="legend"><span><i style="background:var(--cyan)"></i>Indeks kondisi ilustratif</span><span>Nilai lebih tinggi = kondisi lebih baik</span></div></article>
+      <article class="panel"><div class="panel-head"><div><h2>Status layanan kota</h2><div class="panel-desc">Ringkasan layanan berbasis data simulasi</div></div><span class="pill">4 LAYANAN</span></div><div class="service-list">
+        <div class="service"><div class="service-icon">🚦</div><div class="service-info"><strong>Transportasi pintar</strong><small>Indeks arus kendaraan</small></div><div class="service-value" id="serviceTraffic">42%<small>kepadatan</small></div></div>
+        <div class="service"><div class="service-icon">💧</div><div class="service-info"><strong>Mitigasi genangan</strong><small>Risiko berdasarkan skenario hujan</small></div><div class="service-value" id="serviceFlood">18%<small>risiko</small></div></div>
+        <div class="service"><div class="service-icon">🌬️</div><div class="service-info"><strong>Pemantauan udara</strong><small>Indeks kualitas udara contoh</small></div><div class="service-value" id="serviceAir">32 AQI<small>baik</small></div></div>
+        <div class="service"><div class="service-icon">🗑️</div><div class="service-info"><strong>Pengelolaan sampah</strong><small>Perkiraan kapasitas wadah</small></div><div class="service-value" id="serviceWaste">64%<small>terisi</small></div></div>
+      </div></article>
+    </section>
+    <footer class="footer"><span>© 2026 Medan Smart City Simulator 3D · Proyek demonstrasi</span><span>PT MASA DEPAN TELKOM UNIVERSITY</span></footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const controls = {traffic:$('trafficRange'), rain:$('rainRange'), waste:$('wasteRange')};
+  let map, markers = [];
+  let scene, camera, renderer, cars = [], rainDrops = [], clouds = [], is3DActive = false, animationFrameId;
+  let isAutoRunning = false, autoInterval = null;
+
+  const zones = [
+    {name:'Lapangan Merdeka (titik simulasi)', lat:3.5897, lng:98.6738},
+    {name:'Area Medan Sunggal (titik simulasi)', lat:3.5768, lng:98.6250},
+    {name:'Area Medan Johor (titik simulasi)', lat:3.5240, lng:98.6660},
+    {name:'Area Medan Tembung (titik simulasi)', lat:3.6140, lng:98.7180},
+    {name:'Area Medan Denai (titik simulasi)', lat:3.5580, lng:98.7040}
+  ];
+
+  function initMap(){
+    if (!window.L) { $('map').innerHTML='<div style="padding:25px;color:#c5d9ee">Peta tidak dapat dimuat.</div>'; return; }
+    map = L.map('map',{zoomControl:true}).setView([3.5897,98.6738],12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
+    refreshMarkers(42,18);
+  }
+
+  function refreshMarkers(traffic,flood){
+    if(!map) return;
+    markers.forEach(m=>map.removeLayer(m)); markers=[];
+    zones.forEach((z,i)=>{
+      const score = Math.min(100,Math.round((traffic*(0.45+(i%3)*.12))+(flood*(0.35+(i%2)*.15))));
+      const color = score>65?'#ff647c':score>35?'#ffd166':'#4ce0a1';
+      const icon=L.divIcon({className:'',html:`<div style="width:17px;height:17px;border-radius:50%;background:${color};border:3px solid #fff;box-shadow:0 0 0 5px ${color}40"></div>`,iconSize:[17,17],iconAnchor:[8,8]});
+      const marker=L.marker([z.lat,z.lng],{icon}).addTo(map);
+      marker.bindPopup(`<b>${z.name}</b><br>Indeks skenario: ${score}/100<br><small>Data simulasi Medan Smart City.</small>`);
+      markers.push(marker);
+    });
+  }
+
+  function init3D(){
+    if (scene) return; 
+    const container = $('canvas3d');
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x060e18);
+    scene.fog = new THREE.FogExp2(0x060e18, 0.006);
+
+    camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.set(0, 45, 65);
+    camera.lookAt(0, 0, 0);
+
+    renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
+    container.appendChild(renderer.domElement);
+
+    const ambientLight = new THREE.AmbientLight(0x1a2d42, 0.8);
+    scene.add(ambientLight);
+
+    const dirLight = new THREE.DirectionalLight(0xfffaed, 1.5);
+    dirLight.position.set(50, 70, 40);
+    dirLight.castShadow = true;
+    dirLight.shadow.mapSize.width = 2048;
+    dirLight.shadow.mapSize.height = 2048;
+    dirLight.shadow.camera.near = 10;
+    dirLight.shadow.camera.far = 250;
+    const d = 80;
+    dirLight.shadow.camera.left = -d;
+    dirLight.shadow.camera.right = d;
+    dirLight.shadow.camera.top = d;
+    dirLight.shadow.camera.bottom = -d;
+    scene.add(dirLight);
+
+    const groundMat = new THREE.MeshStandardMaterial({color: 0x0c131d, roughness: 0.85});
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(180, 180), groundMat);
+    ground.rotation.x = -Math.PI / 2;
+    ground.receiveShadow = true;
+    scene.add(ground);
+
+    const roadMat = new THREE.MeshStandardMaterial({color: 0x141d2b, roughness: 0.5});
+    const road1 = new THREE.Mesh(new THREE.BoxGeometry(180, 0.1, 16), roadMat);
+    road1.position.y = 0.05; road1.receiveShadow = true; scene.add(road1);
+    const road2 = new THREE.Mesh(new THREE.BoxGeometry(16, 0.1, 180), roadMat);
+    road2.position.y = 0.05; road2.receiveShadow = true; scene.add(road2);
+
+    const bColors = [0x1e3552, 0x14273d, 0x244263, 0x19304a, 0x2b4f75];
+    for(let x = -60; x <= 60; x += 18) {
+      for(let z = -60; z <= 60; z += 18) {
+        if(Math.abs(x) < 16 || Math.abs(z) < 16) continue; 
+        const height = 16 + Math.random() * 38;
+        const bMat = new THREE.MeshStandardMaterial({
+          color: bColors[Math.floor(Math.random()*bColors.length)], 
+          roughness: 0.15, 
+          metalness: 0.6
+        });
+        const building = new THREE.Mesh(new THREE.BoxGeometry(12, height, 12), bMat);
+        building.position.set(x, height / 2, z);
+        building.castShadow = true;
+        building.receiveShadow = true;
+        scene.add(building);
+
+        const roofMat = new THREE.MeshBasicMaterial({color: Math.random() > 0.5 ? 0x36d9ff : 0xff647c});
+        const roofBeacon = new THREE.Mesh(new THREE.BoxGeometry(2, 0.5, 2), roofMat);
+        roofBeacon.position.set(x, height + 0.3, z);
+        scene.add(roofBeacon);
+      }
+    }
+
+    function createDetailedCar(colorHex) {
+      const group = new THREE.Group();
+      const bodyMat = new THREE.MeshStandardMaterial({color: colorHex, metalness: 0.85, roughness: 0.2});
+      const glassMat = new THREE.MeshStandardMaterial({color: 0x050505, roughness: 0.1});
+      
+      const body = new THREE.Mesh(new THREE.BoxGeometry(4.2, 1.1, 2.1), bodyMat);
+      body.position.y = 0.6; body.castShadow = true; group.add(body);
+      
+      const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.3, 0.85, 1.8), glassMat);
+      cabin.position.set(-0.2, 1.4, 0); group.add(cabin);
+
+      const hlMat = new THREE.MeshBasicMaterial({color: 0xffffff});
+      const hl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat);
+      hl1.position.set(2.1, 0.7, 0.65); group.add(hl1);
+      const hl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat);
+      hl2.position.set(2.1, 0.7, -0.65); group.add(hl2);
+
+      const tailMat = new THREE.MeshBasicMaterial({color: 0xff1a3c});
+      const tl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat);
+      tl1.position.set(-2.1, 0.7, 0.65); group.add(tl1);
+      const tl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat);
+      tl2.position.set(-2.1, 0.7, -0.65); group.add(tl2);
+
+      return group;
+    }
+
+    const carColors = [0xffd166, 0xff526d, 0x36d9ff, 0x4ce0a1, 0xf0f4f8, 0x4388ff];
+    for(let i = 0; i < 12; i++) {
+      const isOpposite = i % 2 === 0;
+      const car = createDetailedCar(carColors[i % carColors.length]);
+      const startX = -75 + (i * 13);
+      const startZ = isOpposite ? 3.8 : -3.8;
+      car.position.set(startX, 0, startZ);
+      if(!isOpposite) car.rotation.y = Math.PI;
+      scene.add(car);
+      cars.push({mesh: car, direction: isOpposite ? 1 : -1, speedOffset: 0.8 + Math.random()*0.4});
+    }
+
+    const cloudMat = new THREE.MeshStandardMaterial({color: 0x8cb7ff, transparent: true, opacity: 0.25, roughness: 1.0});
+    for(let i = 0; i < 8; i++) {
+      const cloud = new THREE.Mesh(new THREE.DodecahedronGeometry(10 + Math.random()*8), cloudMat);
+      cloud.position.set((Math.random()-0.5)*140, 40 + Math.random()*12, (Math.random()-0.5)*140);
+      scene.add(cloud);
+      clouds.push(cloud);
+    }
+
+    const rainGeo = new THREE.BufferGeometry();
+    const rainCount = 1000;
+    const rainPositions = new Float32Array(rainCount * 3);
+    for(let i = 0; i < rainCount * 3; i += 3) {
+      rainPositions[i] = (Math.random() - 0.5) * 160;
+      rainPositions[i+1] = Math.random() * 80;
+      rainPositions[i+2] = (Math.random() - 0.5) * 160;
+    }
+    rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPositions, 3));
+    const rainMat = new THREE.PointsMaterial({color: 0x36d9ff, size: 0.6, transparent: true, opacity: 0.85});
+    const rainSystem = new THREE.Points(rainGeo, rainMat);
+    scene.add(rainSystem);
+    rainDrops.push(rainSystem);
+
+    animate3D();
+  }
+
+  function animate3D() {
+    if (!is3DActive) return;
+    animationFrameId = requestAnimationFrame(animate3D);
+
+    const trafficVal = +controls.traffic.value;
+    const congestionFactor = trafficVal > 70 ? 0.3 : (100 - trafficVal) / 100;
+    const baseSpeed = 0.05 + congestionFactor * 0.35;
+
+    cars.forEach(c => {
+      const currentSpeed = baseSpeed * c.speedOffset;
+      c.mesh.position.x += currentSpeed * c.direction;
+      if (c.mesh.position.x > 85) c.mesh.position.x = -85;
+      if (c.mesh.position.x < -85) c.mesh.position.x = 85;
+    });
+
+    clouds.forEach(cl => {
+      cl.position.x += 0.015;
+      if(cl.position.x > 90) cl.position.x = -90;
+    });
+
+    const rainVal = +controls.rain.value;
+    if(rainDrops.length > 0) {
+      const rainSystem = rainDrops[0];
+      rainSystem.visible = rainVal > 2;
+      if(rainSystem.visible) {
+        const positions = rainSystem.geometry.attributes.position.array;
+        const fallSpeed = 1.2 + (rainVal / 150) * 3.5;
+        for(let i = 1; i < positions.length; i += 3) {
+          positions[i] -= fallSpeed;
+          if(positions[i] < 0) positions[i] = 80;
+        }
+        rainSystem.geometry.attributes.position.needsUpdate = true;
+      }
+    }
+
+    const time = Date.now() * 0.00018;
+    camera.position.x = Math.cos(time) * 62;
+    camera.position.z = Math.sin(time) * 62;
+    camera.position.y = 38 + Math.sin(time * 2) * 6;
+    camera.lookAt(0, 4, 0);
+
+    renderer.render(scene, camera);
+  }
+
+  $('mapViewBtn').addEventListener('click', () => {
+    is3DActive = false;
+    cancelAnimationFrame(animationFrameId);
+    $('map').style.display = 'block';
+    $('canvas3d').style.display = 'none';$('mapViewBtn').classList.add('active');
+    $('sim3dViewBtn').classList.remove('active');$('mapStatus').textContent = 'Menampilkan titik pantau simulasi (2D)';
+  });
+
+  $('sim3dViewBtn').addEventListener('click', () => {
+    is3DActive = true;
+    $('map').style.display = 'none';
+    $('canvas3d').style.display = 'block';$('sim3dViewBtn').classList.add('active');
+    $('mapViewBtn').classList.remove('active');$('mapStatus').textContent = 'Simulasi 3D Realistis: Gedung, Bayangan, Pohon & Mobil Medan';
+    init3D();
+  });
+
+  function airIndex(traffic,rain){return Math.max(12,Math.min(180,Math.round(22+traffic*.72+Math.max(0,30-rain)*.22)))}
+  function floodIndex(rain){return Math.min(98,Math.round(Math.max(0,rain-5)*.62+Math.max(0,rain-55)*.18+8))}
+  function labelClass(el, text, level){el.textContent='● '+text;el.className=level}
+  
+  function render(){
+    const t=+controls.traffic.value, r=+controls.rain.value, w=+controls.waste.value;
+    const f=floodIndex(r), a=airIndex(t,r);
+    $('trafficOut').textContent=t+'\%';$('rainOut').textContent=r+' mm/jam'; $('wasteOut').textContent=w+'\%';$('trafficMetric').innerHTML=t+'<span style="font-size:15px;color:var(--muted)">%</span>';
+    $('floodMetric').innerHTML=f+'<span style="font-size:15px;color:var(--muted)">%</span>';
+    $('airMetric').innerHTML=a+' <span style="font-size:15px;color:var(--muted)">AQI</span>';
+    $('wasteMetric').innerHTML=w+'<span style="font-size:15px;color:var(--muted)">%</span>';
+    labelClass($('trafficState'),t<35?'Lancar':t<68?'Mulai padat':'Padat',t<35?'positive':t<68?'warning':'danger');
+    labelClass($('floodState'),f<30?'Rendah':f<65?'Sedang':'Tinggi',f<30?'positive':f<65?'warning':'danger');
+    labelClass($('airState'),a<=50?'Baik':a<=100?'Sedang':'Kurang sehat',a<=50?'positive':a<=100?'warning':'danger');
+    labelClass($('wasteState'),w<50?'Terkendali':w<80?'Perlu dipantau':'Hampir penuh',w<50?'positive':w<80?'warning':'danger');
+    $('serviceTraffic').innerHTML=t+'\%<small>kepadatan</small>';$('serviceFlood').innerHTML=f+'%<small>risiko</small>';
+    $('serviceAir').innerHTML=a+' AQI<small>'+(a<=50?'baik':a<=100?'sedang':'perlu perhatian')+'</small>';$('serviceWaste').innerHTML=w+'%<small>terisi</small>';
+    const condition= t>68?'lalu lintas padat':t>35?'arus lalu lintas sedang':'arus lalu lintas lancar';
+    const rainText=f>65?'risiko genangan tinggi':f>30?'risiko genangan sedang':'risiko genangan rendah';
+    const wasteText=w>80?'kapasitas sampah hampir penuh':w>50?'kapasitas sampah perlu dipantau':'kapasitas sampah masih terkendali';
+    $('scenarioText').textContent=`Hasil skenario: ${condition}, ${rainText} (${r} mm/jam), dan ${wasteText}. Seluruh elemen terhubung dengan simulator 3D realistis.`;
+    const vals=[Math.max(8,100-t),Math.max(8,100-f),Math.max(8,100-Math.min(100,a)),Math.max(8,100-w)];
+    const names=['Lalu lintas','Genangan','Udara','Sampah'];
+    $('chart').innerHTML=vals.map((v,i)=>`<div class="bar-group"><div class="bar-value">${v}</div><div class="bar" style="height:${v}%"></div><div class="bar-label">${names[i]}</div></div>`).join('');
+    refreshMarkers(t,f);
+  }
+
+  function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2500)}
+  Object.values(controls).forEach(el=>el.addEventListener('input',render));
+
+  // --- Fitur Auto-Simulation (Gerak Otomatis / Live Loop) ---
+  function toggleAutoSimulation() {
+    isAutoRunning = !isAutoRunning;
+    const runBtn = $('runBtn');
+    
+    if (isAutoRunning) {
+      runBtn.textContent = '⏸ Jeda simulasi gerak';
+      runBtn.style.background = 'linear-gradient(120deg, #ff647c, #ffd166)';
+      toast('Simulasi gerak otomatis diaktifkan.');
+      
+      autoInterval = setInterval(() => {
+        let t = parseInt(controls.traffic.value) + (Math.floor(Math.random() * 21) - 10);
+        let r = parseInt(controls.rain.value) + (Math.floor(Math.random() * 15) - 7);
+        let w = parseInt(controls.waste.value) + (Math.floor(Math.random() * 9) - 4);
+
+        controls.traffic.value = Math.max(10, Math.min(95, t));
+        controls.rain.value = Math.max(0, Math.min(130, r));
+        controls.waste.value = Math.max(20, Math.min(90, w));
+
+        render();
+      }, 2500);
+    } else {
+      runBtn.textContent = '▶ Jalankan simulasi';
+      runBtn.style.background = '';
+      clearInterval(autoInterval);
+      toast('Simulasi bergerak dijeda.');
+    }
+  }
+
+  $('runBtn').onclick = toggleAutoSimulation;
+
+  $('randomBtn').addEventListener('click', () => {
+    controls.traffic.value = Math.floor(Math.random() * 101);
+    controls.rain.value = Math.floor(Math.random() * 151);
+    controls.waste.value = Math.floor(Math.random() * 101);
+    render();
+    toast('Skenario acak berhasil dimuat.');
+  });
+
+  initMap();
+  render();
+})();
+</script>
+</body>
+</html>
