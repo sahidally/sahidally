@@ -11,7 +11,22 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root{--bg:#071426;--panel:#0c1d33;--panel2:#102641;--line:#1b3857;--text:#edf6ff;--muted:#8ca7c4;--cyan:#36d9ff;--blue:#4388ff;--green:#4ce0a1;--yellow:#ffd166;--red:#ff647c}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}.pill{font-size:10px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;color:#a8c5e1;white-space:nowrap}.map-wrap{height:460px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}#map,#canvas3d{height:100%;width:100%;z-index:1;position:absolute;top:0;left:0}#canvas3d{display:none} .map-overlay{position:absolute;z-index:500;left:12px;bottom:12px;background:#071426e8;border:1px solid #24415e;padding:10px 12px;border-radius:10px;font-size:10px;color:#c5d9ee;backdrop-filter:blur(8px)}.legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#102640;color:#eaf5ff}.leaflet-popup-content{font-family:"DM Sans";font-size:12px}.leaflet-control-attribution{font-size:9px!important}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}.pill{font-size:10px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;color:#a8c5e1;white-space:nowrap}.map-wrap{height:480px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}#map,#canvas3d{height:100%;width:100%;z-index:1;position:absolute;top:0;left:0}#canvas3d{display:block} /* Default tampil agar langsung jalan */
+    .map-overlay{position:absolute;z-index:500;left:12px;bottom:12px;background:#071426e8;border:1px solid #24415e;padding:10px 12px;border-radius:10px;font-size:11px;color:#c5d9ee;backdrop-filter:blur(8px)}
+    
+    /* Sistem Himbauan Banner di Atas 3D */
+    .advisory-banner{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(12,29,51,0.95);border:1px solid var(--cyan);padding:8px 16px;border-radius:20px;font-size:11px;color:#e8faff;box-shadow:0 4px 20px rgba(54,217,255,0.2);display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px);white-space:nowrap;}
+    .advisory-banner span.dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 8px var(--yellow);animation:pulse 1.5s infinite;}
+    @keyframes pulse{0%{opacity:1}50%{opacity:0.4}100%{opacity:1}}
+
+    /* Kolom Tanya Jawab / FAQ */
+    .faq-section{margin-top:20px;display:grid;gap:12px;}
+    .faq-item{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;cursor:pointer;transition:.2s}
+    .faq-item:hover{border-color:var(--cyan)}
+    .faq-question{font:600 13px "Space Grotesk";color:var(--cyan);display:flex;justify-content:space-between;align-items:center}
+    .faq-answer{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;}
+
+    .legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#102640;color:#eaf5ff}.leaflet-popup-content{font-family:"DM Sans";font-size:12px}.leaflet-control-attribution{font-size:9px!important}
     .view-toggle { display: flex; gap: 6px; }
     .view-toggle button { background: #112944; border: 1px solid #24415e; color: var(--muted); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; }
     .view-toggle button.active { background: var(--cyan); color: #041426; border-color: var(--cyan); }
@@ -29,6 +44,7 @@
         <a href="#peta"><span class="ico">⌖</span>Peta & 3D Kota</a>
         <a href="#simulator"><span class="ico">◈</span>Simulator</a>
         <a href="#lingkungan"><span class="ico">♧</span>Lingkungan</a>
+        <a href="#tanyajawab"><span class="ico">❓</span>Tanya Jawab</a>
       </nav>
     </div>
     <div class="side-bottom">
@@ -56,18 +72,23 @@
     <section class="content-grid">
       <article class="panel" id="peta">
         <div class="panel-head">
-          <div><h2>Peta & Visualisasi 3D Ultra Realistis (Luas)</h2><div class="panel-desc">Beralih antara peta wilayah Medan dan Simulasi 3D Skala Luas (Lampu Merah Aktif, Pejalan Kaki HD, Pohon & Mobil)</div></div>
+          <div><h2>Peta & Visualisasi 3D Skala Luas</h2><div class="panel-desc">Simulasi Kota Medan dengan Lampu Merah Interaktif, Kendaraan Berhenti & Sistem Himbauan Pintar</div></div>
           <div class="view-toggle">
-            <button id="mapViewBtn" class="active">Peta 2D</button>
-            <button id="sim3dViewBtn">Simulasi 3D Realistis</button>
+            <button id="mapViewBtn">Peta 2D</button>
+            <button id="sim3dViewBtn" class="active">Simulasi 3D Realistis</button>
           </div>
         </div>
         <div class="map-wrap">
-          <div id="map"></div>
-          <div id="canvas3d"></div>
-          <div class="map-overlay" id="mapOverlayInfo">⌖ <span id="mapStatus">Menampilkan titik pantau simulasi</span><br><span style="color:#7f9bb8">Pilih marker untuk detail</span></div>
+          <div id="map" style="display:none;"></div>
+          <div id="canvas3d" style="display:block;"></div>
+          <!-- Sistem Himbauan Pintar (Live Advisory Banner di atas 3D) -->
+          <div class="advisory-banner" id="advisoryBanner">
+            <span class="dot" id="advisoryDot"></span>
+            <strong id="advisoryTitle">Sistem Himbauan Kota:</strong>&nbsp;<span id="advisoryText">Memuat status lalu lintas...</span>
+          </div>
+          <div class="map-overlay" id="mapOverlayInfo">⌖ <span id="mapStatus">Simulasi 3D Skala Luas: Lampu Merah, Kendaraan Berhenti & Sistem Himbauan</span></div>
         </div>
-        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Lampu Merah & Pejalan Kaki HD (Three.js)</span></div>
+        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Lampu Merah & Sistem Himbauan Pintar (Three.js)</span></div>
       </article>
       <article class="panel" id="simulator">
         <div class="panel-head"><div><h2>Kontrol Simulasi</h2><div class="panel-desc">Ubah parameter atau jalankan simulasi gerak otomatis</div></div><span class="pill">INTERAKTIF</span></div>
@@ -80,6 +101,36 @@
         <div class="scenario" id="scenarioText">Skenario awal: arus lalu lintas sedang, curah hujan ringan, dan kapasitas sampah perlu dipantau. Semua nilai adalah data simulasi.</div>
       </article>
     </section>
+    
+    <!-- Kolom Pertanyaan / Tanya Jawab (FAQ) Baru -->
+    <section class="panel" id="tanyajawab" style="margin-bottom:20px;">
+      <div class="panel-head">
+        <div>
+          <h2>Informasi & Tanya Jawab Seputar Medan Smart City</h2>
+          <div class="panel-desc">Penjelasan lengkap mengenai definisi, kegunaan, dan fitur sistem simulasi kota cerdas</div>
+        </div>
+        <span class="pill">FAQ</span>
+      </div>
+      <div class="faq-section">
+        <div class="faq-item">
+          <div class="faq-question">1. Apa itu Medan Smart City? <span>▼</span></div>
+          <div class="faq-answer">Medan Smart City adalah sebuah konsep pengembangan perkotaan berbasis teknologi informasi dan komunikasi (TIK) yang bertujuan untuk mengoptimalkan pengelolaan sumber daya kota, meningkatkan efisiensi pelayanan publik, serta memberikan kenyamanan dan keamanan bagi warga Kota Medan.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">2. Apa kegunaan utama dari Simulator 3D ini? <span>▼</span></div>
+          <div class="faq-answer">Simulator 3D ini berguna sebagai pusat kendali visual (dashboard digital) untuk memantau simulasi kondisi perkotaan secara real-time, termasuk manajemen kepadatan lalu lintas, mitigasi risiko genangan air/banjir, kualitas udara, pemantauan volume sampah, hingga simulasi lampu merah dan pergerakan pejalan kaki.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">3. Bagaimana cara kerja Sistem Himbauan Pintar? <span>▼</span></div>
+          <div class="faq-answer">Sistem himbauan otomatis mendeteksi status lampu merah, tingkat kepadatan kendaraan, serta intensitas curah hujan secara real-time, lalu memunculkan banner peringatan atau instruksi keselamatan secara langsung di layar simulator untuk pengendara dan warga.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">4. Siapa pengembang proyek demonstrasi ini? <span>▼</span></div>
+          <div class="faq-answer">Proyek demonstrasi ini dikembangkan oleh tim di bawah pimpinan Sahid Ally (Leader), Andrea Gilbert (Deputy Leader), dan Fany Yosevin S. (Manajer) dari PT Masa Depan Telkom University.</div>
+        </div>
+      </div>
+    </section>
+
     <section class="lower-grid" id="lingkungan">
       <article class="panel"><div class="panel-head"><div><h2>Indeks kondisi wilayah</h2><div class="panel-desc">Perbandingan indikator simulasi per zona</div></div><span class="pill">SKOR 0–100</span></div><div class="chart" id="chart"></div><div class="legend"><span><i style="background:var(--cyan)"></i>Indeks kondisi ilustratif</span><span>Nilai lebih tinggi = kondisi lebih baik</span></div></article>
       <article class="panel"><div class="panel-head"><div><h2>Status layanan kota</h2><div class="panel-desc">Ringkasan layanan berbasis data simulasi</div></div><span class="pill">4 LAYANAN</span></div><div class="service-list">
@@ -102,10 +153,10 @@
   const $ = id => document.getElementById(id);
   const controls = {traffic:$('trafficRange'), rain:$('rainRange'), waste:$('wasteRange')};
   let map, markers = [];
-  let scene, camera, renderer, cars = [], pedestrians = [], trafficLights = [], rainDrops = [], clouds = [], is3DActive = false, animationFrameId;
+  let scene, camera, renderer, cars = [], pedestrians = [], trafficLights = [], rainDrops = [], clouds = [], is3DActive = true, animationFrameId;
   let isAutoRunning = false, autoInterval = null;
   let trafficLightTimer = 0;
-  let trafficLightState = 'GREEN'; // 'GREEN' atau 'RED'
+  let trafficLightState = 'GREEN';
 
   const zones = [
     {name:'Lapangan Merdeka (titik simulasi)', lat:3.5897, lng:98.6738},
@@ -116,7 +167,7 @@
   ];
 
   function initMap(){
-    if (!window.L) { $('map').innerHTML='<div style="padding:25px;color:#c5d9ee">Peta tidak dapat dimuat.</div>'; return; }
+    if (!window.L) return;
     map = L.map('map',{zoomControl:true}).setView([3.5897,98.6738],12);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
     refreshMarkers(42,18);
@@ -171,7 +222,6 @@
     dirLight.shadow.camera.bottom = -d;
     scene.add(dirLight);
 
-    // --- Peta Luas (Ground & Jalan Raya Lebih Lebar) ---
     const groundMat = new THREE.MeshStandardMaterial({color: 0x0c131d, roughness: 0.85});
     const ground = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), groundMat);
     ground.rotation.x = -Math.PI / 2;
@@ -184,20 +234,16 @@
     const road2 = new THREE.Mesh(new THREE.BoxGeometry(20, 0.1, 300), roadMat);
     road2.position.y = 0.05; road2.receiveShadow = true; scene.add(road2);
 
-    // --- Pohon (Trees) di Area Luas ---
+    // Pohon
     function createTree() {
       const group = new THREE.Group();
       const trunkMat = new THREE.MeshStandardMaterial({color: 0x5c4033, roughness: 0.9});
       const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.7, 3.5, 6), trunkMat);
-      trunk.position.y = 1.75;
-      trunk.castShadow = true;
-      group.add(trunk);
+      trunk.position.y = 1.75; trunk.castShadow = true; group.add(trunk);
 
       const leavesMat = new THREE.MeshStandardMaterial({color: 0x2e8b57, roughness: 0.6});
       const leaves = new THREE.Mesh(new THREE.DodecahedronGeometry(2.6), leavesMat);
-      leaves.position.y = 4.2;
-      leaves.castShadow = true;
-      group.add(leaves);
+      leaves.position.y = 4.2; leaves.castShadow = true; group.add(leaves);
       return group;
     }
 
@@ -212,71 +258,56 @@
       const t4 = createTree(); t4.position.set(-12.5, 0, z); scene.add(t4);
     }
 
-    // --- Lampu Merah (Traffic Light) ---
+    // Lampu Merah
     function createTrafficLight() {
       const group = new THREE.Group();
       const poleMat = new THREE.MeshStandardMaterial({color: 0x222222, metalness: 0.8});
       const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 5, 8), poleMat);
-      pole.position.y = 2.5;
-      pole.castShadow = true;
-      group.add(pole);
+      pole.position.y = 2.5; pole.castShadow = true; group.add(pole);
 
       const boxMat = new THREE.MeshStandardMaterial({color: 0x111111});
       const box = new THREE.Mesh(new THREE.BoxGeometry(0.6, 1.4, 0.5), boxMat);
-      box.position.set(0, 4.5, 0);
-      group.add(box);
+      box.position.set(0, 4.5, 0); group.add(box);
 
-      // Lampu (Merah, Kuning, Hijau)
       const redMat = new THREE.MeshBasicMaterial({color: 0xff3333});
       const redLight = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), redMat);
-      redLight.position.set(0, 5.0, 0.28);
-      group.add(redLight);
+      redLight.position.set(0, 5.0, 0.28); group.add(redLight);
 
       const yellowMat = new THREE.MeshBasicMaterial({color: 0x555500});
       const yellowLight = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), yellowMat);
-      yellowLight.position.set(0, 4.5, 0.28);
-      group.add(yellowLight);
+      yellowLight.position.set(0, 4.5, 0.28); group.add(yellowLight);
 
       const greenMat = new THREE.MeshBasicMaterial({color: 0x00ff55});
       const greenLight = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), greenMat);
-      greenLight.position.set(0, 4.0, 0.28);
-      group.add(greenLight);
+      greenLight.position.set(0, 4.0, 0.28); group.add(greenLight);
 
       group.userData = {redLight, redMat, greenLight, greenMat};
       return group;
     }
 
-    // Tempatkan 4 tiang lampu merah di tiap sudut perempatan
     const tl1 = createTrafficLight(); tl1.position.set(11, 0, 11); tl1.rotation.y = -Math.PI/4; scene.add(tl1); trafficLights.push(tl1);
     const tl2 = createTrafficLight(); tl2.position.set(-11, 0, 11); tl2.rotation.y = Math.PI/4; scene.add(tl2); trafficLights.push(tl2);
     const tl3 = createTrafficLight(); tl3.position.set(-11, 0, -11); tl3.rotation.y = 3*Math.PI/4; scene.add(tl3); trafficLights.push(tl3);
     const tl4 = createTrafficLight(); tl4.position.set(11, 0, -11); tl4.rotation.y = -3*Math.PI/4; scene.add(tl4); trafficLights.push(tl4);
 
-    // --- Gedung-Gedung Kota Lebih Luas ---
+    // Gedung
     const bColors = [0x1e3552, 0x14273d, 0x244263, 0x19304a, 0x2b4f75];
     for(let x = -100; x <= 100; x += 22) {
       for(let z = -100; z <= 100; z += 22) {
         if(Math.abs(x) < 22 || Math.abs(z) < 22) continue; 
         const height = 20 + Math.random() * 45;
-        const bMat = new THREE.MeshStandardMaterial({
-          color: bColors[Math.floor(Math.random()*bColors.length)], 
-          roughness: 0.15, 
-          metalness: 0.6
-        });
+        const bMat = new THREE.MeshStandardMaterial({color: bColors[Math.floor(Math.random()*bColors.length)], roughness: 0.15, metalness: 0.6});
         const building = new THREE.Mesh(new THREE.BoxGeometry(15, height, 15), bMat);
-        building.position.set(x, height / 2, z);
-        building.castShadow = true;
-        building.receiveShadow = true;
+        building.position.set(x, height / 2, z); building.castShadow = true; building.receiveShadow = true;
         scene.add(building);
 
         const roofMat = new THREE.MeshBasicMaterial({color: Math.random() > 0.5 ? 0x36d9ff : 0xff647c});
         const roofBeacon = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.5, 2.5), roofMat);
-        roofBeacon.position.set(x, height + 0.3, z);
-        scene.add(roofBeacon);
+        roofBeacon.position.set(x, height + 0.3, z); scene.add(roofBeacon);
       }
     }
 
-    // --- Model Mobil Lebih Detail & HD ---
+    // Mobil HD
     function createDetailedCar(colorHex) {
       const group = new THREE.Group();
       const bodyMat = new THREE.MeshStandardMaterial({color: colorHex, metalness: 0.85, roughness: 0.2});
@@ -289,27 +320,20 @@
       const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.9, 1.8), glassMat);
       cabin.position.set(-0.2, 1.45, 0); group.add(cabin);
 
-      // Roda HD
       [-1.4, 1.4].forEach(wx => {
         [-1.15, 1.15].forEach(wz => {
           const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.25, 12), wheelMat);
-          wheel.rotation.x = Math.PI / 2;
-          wheel.position.set(wx, 0.38, wz);
-          group.add(wheel);
+          wheel.rotation.x = Math.PI / 2; wheel.position.set(wx, 0.38, wz); group.add(wheel);
         });
       });
 
       const hlMat = new THREE.MeshBasicMaterial({color: 0xffffff});
-      const hl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat);
-      hl1.position.set(2.2, 0.7, 0.7); group.add(hl1);
-      const hl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat);
-      hl2.position.set(2.2, 0.7, -0.7); group.add(hl2);
+      const hl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat); hl1.position.set(2.2, 0.7, 0.7); group.add(hl1);
+      const hl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat); hl2.position.set(2.2, 0.7, -0.7); group.add(hl2);
 
       const tailMat = new THREE.MeshBasicMaterial({color: 0xff1a3c});
-      const tl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat);
-      tl1.position.set(-2.2, 0.7, 0.7); group.add(tl1);
-      const tl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat);
-      tl2.position.set(-2.2, 0.7, -0.7); group.add(tl2);
+      const tl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat); tl1.position.set(-2.2, 0.7, 0.7); group.add(tl1);
+      const tl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat); tl2.position.set(-2.2, 0.7, -0.7); group.add(tl2);
 
       return group;
     }
@@ -323,10 +347,10 @@
       car.position.set(startX, 0, startZ);
       if(!isOpposite) car.rotation.y = Math.PI;
       scene.add(car);
-      cars.push({mesh: car, direction: isOpposite ? 1 : -1, speedOffset: 0.8 + Math.random()*0.4, defaultZ: startZ});
+      cars.push({mesh: car, direction: isOpposite ? 1 : -1, speedOffset: 0.8 + Math.random()*0.4});
     }
 
-    // --- Orang Berjalan Lebih HD (Dilengkapi Tangan, Kaki, & Tas Ransel) ---
+    // Orang HD
     function createHD_Pedestrian() {
       const group = new THREE.Group();
       const clothesColors = [0x36d9ff, 0xffd166, 0xff647c, 0xf0f4f8, 0x4ce0a1, 0x9b59b6];
@@ -335,28 +359,19 @@
       const skinMat = new THREE.MeshStandardMaterial({color: 0xffdbac, roughness: 0.6});
       const bagMat = new THREE.MeshStandardMaterial({color: 0x5c4033, roughness: 0.8});
 
-      // Kaki Kiri & Kanan
       const legLeft = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.12), pantsMat);
       legLeft.position.set(-0.1, 0.25, 0); group.add(legLeft);
       const legRight = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.12), pantsMat);
       legRight.position.set(0.1, 0.25, 0); group.add(legRight);
 
-      // Badan / Torso
       const body = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.65, 0.22), shirtMat);
-      body.position.y = 0.82;
-      body.castShadow = true;
-      group.add(body);
+      body.position.y = 0.82; body.castShadow = true; group.add(body);
 
-      // Tas Ransel HD di Punggung
       const backpack = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.38, 0.18), bagMat);
-      backpack.position.set(0, 0.85, -0.18);
-      group.add(backpack);
+      backpack.position.set(0, 0.85, -0.18); group.add(backpack);
 
-      // Kepala
       const head = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.28, 0.26), skinMat);
-      head.position.y = 1.32;
-      head.castShadow = true;
-      group.add(head);
+      head.position.y = 1.32; head.castShadow = true; group.add(head);
 
       group.userData = {legLeft, legRight};
       return group;
@@ -367,15 +382,14 @@
       const startZ = -110 + (i * 14);
       p.position.set(14.5, 0, startZ);
       scene.add(p);
-      pedestrians.push({mesh: p, speed: 0.025 + Math.random() * 0.015, zLimit: 120});
+      pedestrians.push({mesh: p, speed: 0.025 + Math.random() * 0.015});
     }
 
     const cloudMat = new THREE.MeshStandardMaterial({color: 0x8cb7ff, transparent: true, opacity: 0.25, roughness: 1.0});
     for(let i = 0; i < 10; i++) {
       const cloud = new THREE.Mesh(new THREE.DodecahedronGeometry(12 + Math.random()*10), cloudMat);
       cloud.position.set((Math.random()-0.5)*220, 50 + Math.random()*15, (Math.random()-0.5)*220);
-      scene.add(cloud);
-      clouds.push(cloud);
+      scene.add(cloud); clouds.push(cloud);
     }
 
     const rainGeo = new THREE.BufferGeometry();
@@ -389,22 +403,44 @@
     rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPositions, 3));
     const rainMat = new THREE.PointsMaterial({color: 0x36d9ff, size: 0.6, transparent: true, opacity: 0.85});
     const rainSystem = new THREE.Points(rainGeo, rainMat);
-    scene.add(rainSystem);
-    rainDrops.push(rainSystem);
+    scene.add(rainSystem); rainDrops.push(rainSystem);
 
     animate3D();
+  }
+
+  function updateAdvisorySystem() {
+    const bannerText = $('advisoryText');
+    const bannerDot = $('advisoryDot');
+    const trafficVal = +controls.traffic.value;
+    const rainVal = +controls.rain.value;
+
+    if (trafficLightState === 'RED') {
+      bannerText.textContent = "Himbauan Dishub Medan: Lampu Merah Menyala. Kendaraan Berhenti di Garis Hentian Persimpangan.";
+      bannerDot.style.background = 'var(--red)';
+      bannerDot.style.boxShadow = '0 0 8px var(--red)';
+    } else if (trafficVal > 75) {
+      bannerText.textContent = "Himbauan ATCS: Lalu Lintas Padat Terdeteksi. Gunakan Jalur Alternatif Kota Medan.";
+      bannerDot.style.background = 'var(--yellow)';
+      bannerDot.style.boxShadow = '0 0 8px var(--yellow)';
+    } else if (rainVal > 60) {
+      bannerText.textContent = "Peringatan Dini Cuaca: Hujan Lebat. Waspada Potensi Genangan di Titik Rendah Kota.";
+      bannerDot.style.background = 'var(--cyan)';
+      bannerDot.style.boxShadow = '0 0 8px var(--cyan)';
+    } else {
+      bannerText.textContent = "Sistem Cerdas Medan: Arus Lalu Lintas Terkendali & Lancar. Patuhi Rambu Jalan.";
+      bannerDot.style.background = 'var(--green)';
+      bannerDot.style.boxShadow = '0 0 8px var(--green)';
+    }
   }
 
   function animate3D() {
     if (!is3DActive) return;
     animationFrameId = requestAnimationFrame(animate3D);
 
-    // --- Logika Lampu Merah Otomatis ---
     trafficLightTimer += 1;
-    if (trafficLightTimer > 180) { // Ganti lampu tiap beberapa detik
+    if (trafficLightTimer > 200) { 
       trafficLightState = trafficLightState === 'GREEN' ? 'RED' : 'GREEN';
       trafficLightTimer = 0;
-      // Perbarui warna lampu visual
       trafficLights.forEach(tl => {
         if (trafficLightState === 'RED') {
           tl.userData.redMat.color.setHex(0xff3333);
@@ -416,18 +452,27 @@
       });
     }
 
+    updateAdvisorySystem();
+
     const trafficVal = +controls.traffic.value;
     const congestionFactor = trafficVal > 70 ? 0.3 : (100 - trafficVal) / 100;
-    const baseSpeed = (trafficLightState === 'RED') ? 0 : (0.05 + congestionFactor * 0.4);
 
     cars.forEach(c => {
-      const currentSpeed = baseSpeed * c.speedOffset;
-      c.mesh.position.x += currentSpeed * c.direction;
+      let currentSpeed = 0.05 + congestionFactor * 0.4;
+      
+      if (trafficLightState === 'RED') {
+        if (c.direction === -1 && c.mesh.position.x > 12 && c.mesh.position.x < 35) {
+          currentSpeed = 0; 
+        } else if (c.direction === 1 && c.mesh.position.x < -12 && c.mesh.position.x > -35) {
+          currentSpeed = 0; 
+        }
+      }
+
+      c.mesh.position.x += currentSpeed * c.speedOffset;
       if (c.mesh.position.x > 135) c.mesh.position.x = -135;
       if (c.mesh.position.x < -135) c.mesh.position.x = 135;
     });
 
-    // Animasi Pejalan Kaki HD berjalan & ayunan kaki
     pedestrians.forEach(p => {
       p.mesh.position.z += p.speed;
       const walkCycle = Math.sin(Date.now() * 0.02 + p.mesh.position.z);
@@ -435,9 +480,7 @@
       p.mesh.userData.legRight.rotation.x = -walkCycle * 0.5;
       p.mesh.position.y = Math.abs(walkCycle) * 0.08;
 
-      if (p.mesh.position.z > 120) {
-        p.mesh.position.z = -120;
-      }
+      if (p.mesh.position.z > 120) p.mesh.position.z = -120;
     });
 
     clouds.forEach(cl => {
@@ -472,16 +515,16 @@
   $('mapViewBtn').addEventListener('click', () => {
     is3DActive = false;
     cancelAnimationFrame(animationFrameId);
-    $('map').style.display = 'block';
-    $('canvas3d').style.display = 'none';$('mapViewBtn').classList.add('active');
+    $('map').style.display = 'block';$('canvas3d').style.display = 'none';
+    $('advisoryBanner').style.display = 'none';$('mapViewBtn').classList.add('active');
     $('sim3dViewBtn').classList.remove('active');$('mapStatus').textContent = 'Menampilkan titik pantau simulasi (2D)';
   });
 
   $('sim3dViewBtn').addEventListener('click', () => {
     is3DActive = true;
-    $('map').style.display = 'none';
-    $('canvas3d').style.display = 'block';$('sim3dViewBtn').classList.add('active');
-    $('mapViewBtn').classList.remove('active');$('mapStatus').textContent = 'Simulasi 3D Skala Luas: Lampu Merah, Pejalan Kaki HD, Pohon & Mobil';
+    $('map').style.display = 'none';$('canvas3d').style.display = 'block';
+    $('advisoryBanner').style.display = 'flex';$('sim3dViewBtn').classList.add('active');
+    $('mapViewBtn').classList.remove('active');$('mapStatus').textContent = 'Simulasi 3D Skala Luas: Lampu Merah, Kendaraan Berhenti & Sistem Himbauan';
     init3D();
   });
 
@@ -554,6 +597,7 @@
   });
 
   initMap();
+  init3D(); // Langsung aktifkan 3D saat halaman dimuat
   render();
 })();
 </script>
