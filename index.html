@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root{--bg:#071426;--panel:#0c1d33;--panel2:#102641;--line:#1b3857;--text:#edf6ff;--muted:#8ca7c4;--cyan:#36d9ff;--blue:#4388ff;--green:#4ce0a1;--yellow:#ffd166;--red:#ff647c}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}.pill{font-size:10px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;color:#a8c5e1;white-space:nowrap}.map-wrap{height:340px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}#map,#canvas3d{height:100%;width:100%;z-index:1;position:absolute;top:0;left:0}#canvas3d{display:none} .map-overlay{position:absolute;z-index:500;left:12px;bottom:12px;background:#071426e8;border:1px solid #24415e;padding:10px 12px;border-radius:10px;font-size:10px;color:#c5d9ee;backdrop-filter:blur(8px)}.legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#102640;color:#eaf5ff}.leaflet-popup-content{font-family:"DM Sans";font-size:12px}.leaflet-control-attribution{font-size:9px!important}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173755;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}.pill{font-size:10px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;color:#a8c5e1;white-space:nowrap}.map-wrap{height:380px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}#map,#canvas3d{height:100%;width:100%;z-index:1;position:absolute;top:0;left:0}#canvas3d{display:none} .map-overlay{position:absolute;z-index:500;left:12px;bottom:12px;background:#071426e8;border:1px solid #24415e;padding:10px 12px;border-radius:10px;font-size:10px;color:#c5d9ee;backdrop-filter:blur(8px)}.legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#102640;color:#eaf5ff}.leaflet-popup-content{font-family:"DM Sans";font-size:12px}.leaflet-control-attribution{font-size:9px!important}
     .view-toggle { display: flex; gap: 6px; }
     .view-toggle button { background: #112944; border: 1px solid #24415e; color: var(--muted); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; }
     .view-toggle button.active { background: var(--cyan); color: #041426; border-color: var(--cyan); }
@@ -33,7 +33,7 @@
     </div>
     <div class="side-bottom">
       <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Sistem simulator aktif</div>
-      <p>Mode demonstrasi 3D bergerak aktif. Data di dashboard ini adalah simulasi interaktif.</p>
+      <p>Mode demonstrasi Realistis 3D aktif. Data di dashboard ini adalah simulasi interaktif.</p>
     </div>
     <div class="team-box">
       <strong>Tim Pengembang:</strong>
@@ -45,7 +45,7 @@
   <main class="main" id="dashboard">
     <header class="topbar">
       <div><div class="eyebrow">Pusat kendali perkotaan</div><h1>Medan Smart City</h1><div class="sub">Simulator kota cerdas 3D · Kota Medan, Sumatera Utara</div></div>
-      <div class="top-actions"><div class="status"><span class="live-dot"></span>SIMULASI 3D AKTIF</div><button class="btn" id="resetBtn">↻ Reset simulasi</button></div>
+      <div class="top-actions"><div class="status"><span class="live-dot"></span>SIMULASI 3D REALISTIS</div><button class="btn" id="resetBtn">↻ Reset simulasi</button></div>
     </header>
     <section class="metrics">
       <article class="metric"><div class="metric-head">Kepadatan lalu lintas <span class="metric-icon">🚦</span></div><div class="metric-value" id="trafficMetric">42<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="positive" id="trafficState">● Lancar</span> · indeks simulasi</div></article>
@@ -56,10 +56,10 @@
     <section class="content-grid">
       <article class="panel" id="peta">
         <div class="panel-head">
-          <div><h2>Peta & Visualisasi 3D Bergerak</h2><div class="panel-desc">Beralih antara peta wilayah Medan dan Simulasi Gedung, Mobil, & Cuaca 3D Dinamis</div></div>
+          <div><h2>Peta & Visualisasi 3D Ultra Realistis</h2><div class="panel-desc">Beralih antara peta wilayah Medan dan Simulasi 3D Realistis (Bayangan, Lampu, Mobil & Cuaca)</div></div>
           <div class="view-toggle">
             <button id="mapViewBtn" class="active">Peta 2D</button>
-            <button id="sim3dViewBtn">Simulasi 3D</button>
+            <button id="sim3dViewBtn">Simulasi 3D Realistis</button>
           </div>
         </div>
         <div class="map-wrap">
@@ -67,7 +67,7 @@
           <div id="canvas3d"></div>
           <div class="map-overlay" id="mapOverlayInfo">⌖ <span id="mapStatus">Menampilkan titik pantau simulasi</span><br><span style="color:#7f9bb8">Pilih marker untuk detail</span></div>
         </div>
-        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Didukung Three.js & Leaflet</span></div>
+        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Realistic Lighting & Shadows (Three.js)</span></div>
       </article>
       <article class="panel" id="simulator">
         <div class="panel-head"><div><h2>Kontrol Simulasi</h2><div class="panel-desc">Ubah parameter dan lihat dampaknya secara langsung</div></div><span class="pill">INTERAKTIF</span></div>
@@ -103,7 +103,7 @@
   const $ = id => document.getElementById(id);
   const controls = {traffic:$('trafficRange'), rain:$('rainRange'), waste:$('wasteRange')};
   let map, markers = [];
-  let scene, camera, renderer, cars = [], rainDrops = [], is3DActive = false, animationFrameId;
+  let scene, camera, renderer, cars = [], rainDrops = [], clouds = [], is3DActive = false, animationFrameId;
 
   const zones = [
     {name:'Lapangan Merdeka (titik simulasi)', lat:3.5897, lng:98.6738},
@@ -133,85 +133,166 @@
     });
   }
 
-  // --- Inisialisasi Kota 3D Interaktif & Dinamis ---
+  // --- Inisialisasi Kota 3D Realistis (Lighting & Shadows) ---
   function init3D(){
     if (scene) return; 
     const container = $('canvas3d');
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x06101d);
+    scene.background = new THREE.Color(0x0a1829);
+    scene.fog = new THREE.FogExp2(0x0a1829, 0.008); // Kabut halus atmosfer
 
     camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 45, 55);
+    camera.position.set(0, 40, 60);
     camera.lookAt(0, 0, 0);
 
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.shadowMap.enabled = true; // Aktifkan Bayangan Realistis
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
 
-    // Pencahayaan Dinamis
-    const ambientLight = new THREE.AmbientLight(0xddeeff, 0.8);
+    // Pencahayaan Utama & Matahari dengan Bayangan
+    const ambientLight = new THREE.AmbientLight(0xddeeff, 0.6);
     scene.add(ambientLight);
-    const dirLight = new THREE.DirectionalLight(0x36d9ff, 1.2);
-    dirLight.position.set(25, 50, 25);
+
+    const dirLight = new THREE.DirectionalLight(0xfff5ea, 1.2);
+    dirLight.position.set(40, 60, 30);
+    dirLight.castShadow = true;
+    dirLight.shadow.mapSize.width = 2048;
+    dirLight.shadow.mapSize.height = 2048;
+    dirLight.shadow.camera.near = 10;
+    dirLight.shadow.camera.far = 200;
+    const d = 70;
+    dirLight.shadow.camera.left = -d;
+    dirLight.shadow.camera.right = d;
+    dirLight.shadow.camera.top = d;
+    dirLight.shadow.camera.bottom = -d;
     scene.add(dirLight);
 
-    // Tanah / Base Kota
-    const groundMat = new THREE.MeshStandardMaterial({color: 0x0e1b2d, roughness: 0.9});
-    const ground = new THREE.Mesh(new THREE.PlaneGeometry(130, 130), groundMat);
+    // Aspal / Tanah Kota
+    const groundMat = new THREE.MeshStandardMaterial({color: 0x111c2a, roughness: 0.8});
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(160, 160), groundMat);
     ground.rotation.x = -Math.PI / 2;
+    ground.receiveShadow = true;
     scene.add(ground);
 
-    // Jalan Raya Utama Medan (Grid Silang)
-    const roadMat = new THREE.MeshStandardMaterial({color: 0x162232});
-    const road1 = new THREE.Mesh(new THREE.BoxGeometry(130, 0.1, 12), roadMat);
-    road1.position.y = 0.05; scene.add(road1);
-    const road2 = new THREE.Mesh(new THREE.BoxGeometry(12, 0.1, 130), roadMat);
-    road2.position.y = 0.05; scene.add(road2);
+    // Jalan Raya Utama Medan dengan Garis Putih Realistis
+    const roadMat = new THREE.MeshStandardMaterial({color: 0x1a2636, roughness: 0.6});
+    const road1 = new THREE.Mesh(new THREE.BoxGeometry(160, 0.1, 14), roadMat);
+    road1.position.y = 0.05; road1.receiveShadow = true; scene.add(road1);
+    const road2 = new THREE.Mesh(new THREE.BoxGeometry(14, 0.1, 160), roadMat);
+    road2.position.y = 0.05; road2.receiveShadow = true; scene.add(road2);
 
-    // Gedung-gedung Perkantoran Kota Medan
-    const bColors = [0x3b82f6, 0x06b6d4, 0x6366f1, 0x3b82f6, 0x1d4ed8, 0x0ea5e9];
-    for(let x = -48; x <= 48; x += 16) {
-      for(let z = -48; z <= 48; z += 16) {
-        if(Math.abs(x) < 14 || Math.abs(z) < 14) continue; 
-        const height = 12 + Math.random() * 28;
-        const bMat = new THREE.MeshStandardMaterial({color: bColors[Math.floor(Math.random()*bColors.length)], roughness: 0.3, metalness: 0.2});
-        const building = new THREE.Mesh(new THREE.BoxGeometry(10, height, 10), bMat);
+    // Garis Marka Jalan Putih Putus-putus
+    const lineMat = new THREE.MeshBasicMaterial({color: 0xffffff});
+    for(let x = -70; x <= 70; x += 10) {
+      if(Math.abs(x) < 8) continue;
+      const stripe1 = new THREE.Mesh(new THREE.PlaneGeometry(4, 0.4), lineMat);
+      stripe1.rotation.x = -Math.PI / 2; stripe1.position.set(x, 0.11, 0); scene.add(stripe1);
+      const stripe2 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 4), lineMat);
+      stripe2.rotation.x = -Math.PI / 2; stripe2.position.set(0, 0.11, x); scene.add(stripe2);
+    }
+
+    // Gedung Bertingkat Medan Realistis (Jendela Kaca Berpendar)
+    const bColors = [0x2f527b, 0x1d3a5c, 0x3b6998, 0x21446a, 0x477cb5];
+    for(let x = -55; x <= 55; x += 18) {
+      for(let z = -55; z <= 55; z += 18) {
+        if(Math.abs(x) < 16 || Math.abs(z) < 16) continue; 
+        const height = 14 + Math.random() * 32;
+        const bMat = new THREE.MeshStandardMaterial({
+          color: bColors[Math.floor(Math.random()*bColors.length)], 
+          roughness: 0.2, metalness: 0.5
+        });
+        const building = new THREE.Mesh(new THREE.BoxGeometry(11, height, 11), bMat);
         building.position.set(x, height / 2, z);
+        building.castShadow = true;
+        building.receiveShadow = true;
         scene.add(building);
 
-        const topLightMat = new THREE.MeshBasicMaterial({color: Math.random() > 0.5 ? 0x36d9ff : 0x4ce0a1});
-        const topLight = new THREE.Mesh(new THREE.BoxGeometry(4, 0.6, 4), topLightMat);
-        topLight.position.set(x, height + 0.3, z);
-        scene.add(topLight);
+        // Atap Gedung Keren
+        const roofMat = new THREE.MeshStandardMaterial({color: 0x36d9ff, roughness: 0.3, emissive: 0x052030});
+        const roof = new THREE.Mesh(new THREE.BoxGeometry(9, 1, 9), roofMat);
+        roof.position.set(x, height + 0.5, z);
+        scene.add(roof);
       }
     }
 
-    // Kendaraan Bergerak Dua Arah
-    const carColor1 = new THREE.MeshStandardMaterial({color: 0xffd166, emissive: 0x332200});
-    const carColor2 = new THREE.MeshStandardMaterial({color: 0xff647c, emissive: 0x330011});
-    
-    for(let i = 0; i < 8; i++) {
-      const isOpposite = i % 2 === 0;
-      const car = new THREE.Mesh(new THREE.BoxGeometry(3.5, 1.2, 1.8), isOpposite ? carColor1 : carColor2);
-      const startX = -60 + (i * 15);
-      const startZ = isOpposite ? 3 : -3;
-      car.position.set(startX, 0.7, startZ);
-      if(!isOpposite) car.rotation.y = Math.PI;
-      scene.add(car);
-      cars.push({mesh: car, direction: isOpposite ? 1 : -1, zPos: startZ});
+    // Pohon-pohon Cerdas Pinggir Jalan (Tree Details)
+    const trunkMat = new THREE.MeshStandardMaterial({color: 0x3d2817});
+    const leafMat = new THREE.MeshStandardMaterial({color: 0x2e8b57, roughness: 0.8});
+    for(let x = -60; x <= 60; x += 15) {
+      if(Math.abs(x) < 10) continue;
+      [8, -8].forEach(z => {
+        const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.4, 3), trunkMat);
+        trunk.position.set(x, 1.5, z); trunk.castShadow = true; scene.add(trunk);
+        const leaves = new THREE.Mesh(new THREE.DodecahedronGeometry(2), leafMat);
+        leaves.position.set(x, 3.5, z); leaves.castShadow = true; scene.add(leaves);
+      });
     }
 
-    // Sistem Partikel Hujan
+    // Mobil Realistis dengan Lampu Depan & Belakang
+    function createDetailedCar(colorHex) {
+      const group = new THREE.Group();
+      const bodyMat = new THREE.MeshStandardMaterial({color: colorHex, metalness: 0.8, roughness: 0.2});
+      const glassMat = new THREE.MeshStandardMaterial({color: 0x111111, roughness: 0.1});
+      
+      // Bodi Mobil
+      const body = new THREE.Mesh(new THREE.BoxGeometry(4, 1.1, 2), bodyMat);
+      body.position.y = 0.6; body.castShadow = true; group.add(body);
+      
+      // Kabin Atas
+      const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.8, 1.8), glassMat);
+      cabin.position.set(-0.2, 1.4, 0); group.add(cabin);
+
+      // Lampu Depan (Depan Kanan & Kiri)
+      const lightMat = new THREE.MeshBasicMaterial({color: 0xffffff});
+      const hl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.3, 0.4), lightMat);
+      hl1.position.set(2, 0.7, 0.6); group.add(hl1);
+      const hl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.3, 0.4), lightMat);
+      hl2.position.set(2, 0.7, -0.6); group.add(hl2);
+
+      // Lampu Belakang Merah
+      const tailMat = new THREE.MeshBasicMaterial({color: 0xff0000});
+      const tl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.3, 0.4), tailMat);
+      tl1.position.set(-2, 0.7, 0.6); group.add(tl1);
+      const tl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.3, 0.4), tailMat);
+      tl2.position.set(-2, 0.7, -0.6); group.add(tl2);
+
+      return group;
+    }
+
+    const carColors = [0xffd166, 0xff647c, 0x36d9ff, 0x4ce0a1, 0xffffff];
+    for(let i = 0; i < 8; i++) {
+      const isOpposite = i % 2 === 0;
+      const car = createDetailedCar(carColors[i % carColors.length]);
+      const startX = -70 + (i * 18);
+      const startZ = isOpposite ? 3.5 : -3.5;
+      car.position.set(startX, 0, startZ);
+      if(!isOpposite) car.rotation.y = Math.PI;
+      scene.add(car);
+      cars.push({mesh: car, direction: isOpposite ? 1 : -1});
+    }
+
+    // Awan Realistis Melayang
+    const cloudMat = new THREE.MeshStandardMaterial({color: 0xddeeff, transparent: true, opacity: 0.45, roughness: 1.0});
+    for(let i = 0; i < 6; i++) {
+      const cloud = new THREE.Mesh(new THREE.DodecahedronGeometry(8 + Math.random()*6), cloudMat);
+      cloud.position.set((Math.random()-0.5)*120, 35 + Math.random()*10, (Math.random()-0.5)*120);
+      scene.add(cloud);
+      clouds.push(cloud);
+    }
+
+    // Sistem Partikel Hujan Realistis
     const rainGeo = new THREE.BufferGeometry();
-    const rainCount = 400;
+    const rainCount = 600;
     const rainPositions = new Float32Array(rainCount * 3);
     for(let i = 0; i < rainCount * 3; i += 3) {
-      rainPositions[i] = (Math.random() - 0.5) * 120;
-      rainPositions[i+1] = Math.random() * 60;
-      rainPositions[i+2] = (Math.random() - 0.5) * 120;
+      rainPositions[i] = (Math.random() - 0.5) * 140;
+      rainPositions[i+1] = Math.random() * 70;
+      rainPositions[i+2] = (Math.random() - 0.5) * 140;
     }
     rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPositions, 3));
-    const rainMat = new THREE.PointsMaterial({color: 0x36d9ff, size: 0.6, transparent: true, opacity: 0.6});
+    const rainMat = new THREE.PointsMaterial({color: 0x36d9ff, size: 0.5, transparent: true, opacity: 0.7});
     const rainSystem = new THREE.Points(rainGeo, rainMat);
     scene.add(rainSystem);
     rainDrops.push(rainSystem);
@@ -223,34 +304,43 @@
     if (!is3DActive) return;
     animationFrameId = requestAnimationFrame(animate3D);
 
+    // Kecepatan Mobil Berdasarkan Slider
     const trafficVal = +controls.traffic.value;
     const currentSpeed = 0.08 + (trafficVal / 100) * 0.4;
 
     cars.forEach(c => {
       c.mesh.position.x += currentSpeed * c.direction;
-      if (c.mesh.position.x > 65) c.mesh.position.x = -65;
-      if (c.mesh.position.x < -65) c.mesh.position.x = 65;
+      if (c.mesh.position.x > 75) c.mesh.position.x = -75;
+      if (c.mesh.position.x < -75) c.mesh.position.x = 75;
     });
 
+    // Awan Bergerak Perlahan
+    clouds.forEach(cl => {
+      cl.position.x += 0.02;
+      if(cl.position.x > 80) cl.position.x = -80;
+    });
+
+    // Hujan Realistis
     const rainVal = +controls.rain.value;
     if(rainDrops.length > 0) {
       const rainSystem = rainDrops[0];
       rainSystem.visible = rainVal > 5;
       if(rainSystem.visible) {
         const positions = rainSystem.geometry.attributes.position.array;
-        const fallSpeed = 0.8 + (rainVal / 150) * 2.5;
+        const fallSpeed = 0.9 + (rainVal / 150) * 3.0;
         for(let i = 1; i < positions.length; i += 3) {
           positions[i] -= fallSpeed;
-          if(positions[i] < 0) positions[i] = 60;
+          if(positions[i] < 0) positions[i] = 70;
         }
         rainSystem.geometry.attributes.position.needsUpdate = true;
       }
     }
 
-    const time = Date.now() * 0.0003;
-    camera.position.x = Math.cos(time) * 52;
-    camera.position.z = Math.sin(time) * 52;
-    camera.lookAt(0, 4, 0);
+    // Rotasi Kamera Sinematik Mengelilingi Kota
+    const time = Date.now() * 0.00025;
+    camera.position.x = Math.cos(time) * 58;
+    camera.position.z = Math.sin(time) * 58;
+    camera.lookAt(0, 5, 0);
 
     renderer.render(scene, camera);
   }
@@ -267,7 +357,7 @@
     is3DActive = true;
     $('map').style.display = 'none';
     $('canvas3d').style.display = 'block';$('sim3dViewBtn').classList.add('active');
-    $('mapViewBtn').classList.remove('active');$('mapStatus').textContent = 'Simulasi 3D Bergerak: Gedung, Mobil & Cuaca Kota Medan';
+    $('mapViewBtn').classList.remove('active');$('mapStatus').textContent = 'Simulasi 3D Realistis: Gedung, Bayangan, Pohon & Mobil Medan';
     init3D();
   });
 
@@ -291,7 +381,7 @@
     const condition= t>68?'lalu lintas padat':t>35?'arus lalu lintas sedang':'arus lalu lintas lancar';
     const rainText=f>65?'risiko genangan tinggi':f>30?'risiko genangan sedang':'risiko genangan rendah';
     const wasteText=w>80?'kapasitas sampah hampir penuh':w>50?'kapasitas sampah perlu dipantau':'kapasitas sampah masih terkendali';
-    $('scenarioText').textContent=`Hasil skenario: ${condition}, ${rainText} (${r} mm/jam), dan ${wasteText}. Seluruh elemen terhubung dengan simulator 3D bergerak.`;
+    $('scenarioText').textContent=`Hasil skenario: ${condition}, ${rainText} (${r} mm/jam), dan ${wasteText}. Seluruh elemen terhubung dengan simulator 3D realistis.`;
     const vals=[Math.max(8,100-t),Math.max(8,100-f),Math.max(8,100-Math.min(100,a)),Math.max(8,100-w)];
     const names=['Lalu lintas','Genangan','Udara','Sampah'];
     $('chart').innerHTML=vals.map((v,i)=>`<div class="bar-group"><div class="bar-value">${v}</div><div class="bar" style="height:${v}%"></div><div class="bar-label">${names[i]}</div></div>`).join('');
@@ -300,8 +390,8 @@
 
   function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2500)}
   Object.values(controls).forEach(el=>el.addEventListener('input',render));
-  $('runBtn').addEventListener('click',()=>{render();toast('Simulasi 3D bergerak & parameter diperbarui.')});
-  $('randomBtn').addEventListener('click',()=>{controls.traffic.value=Math.floor(Math.random()*101);controls.rain.value=Math.floor(Math.random()*151);controls.waste.value=20+Math.floor(Math.random()*81);render();toast('Skenario acak 3D bergerak berhasil dibuat.')});$('resetBtn').addEventListener('click',()=>{controls.traffic.value=42;controls.rain.value=25;controls.waste.value=64;render();if(map)map.setView([3.5897,98.6738],12);toast('Parameter kembali ke kondisi awal.')});
+  $('runBtn').addEventListener('click',()=>{render();toast('Simulasi 3D realistis & parameter diperbarui.')});
+  $('randomBtn').addEventListener('click',()=>{controls.traffic.value=Math.floor(Math.random()*101);controls.rain.value=Math.floor(Math.random()*151);controls.waste.value=20+Math.floor(Math.random()*81);render();toast('Skenario acak 3D realistis berhasil dibuat.')});$('resetBtn').addEventListener('click',()=>{controls.traffic.value=42;controls.rain.value=25;controls.waste.value=64;render();if(map)map.setView([3.5897,98.6738],12);toast('Parameter kembali ke kondisi awal.')});
   
   initMap();render();
 })();
