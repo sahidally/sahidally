@@ -4,40 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#071426" />
-  <title>Medan Smart City Simulator 3D & Peta Menyeluruh</title>
+  <title>Medan Smart City Simulator 3D & AI Urban Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
-    :root{--bg:#071426;--panel:#0c1d33;--panel2:#102641;--line:#1b3857;--text:#edf6ff;--muted:#8ca7c4;--cyan:#36d9ff;--blue:#4388ff;--green:#4ce0a1;--yellow:#ffd166;--red:#ff647c}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}
+    :root{--bg:#071426;--panel:#0c1d33;--panel2:#102641;--line:#1b3857;--text:#edf6ff;--muted:#8ca7c4;--cyan:#36d9ff;--blue:#4388ff;--green:#4ce0a1;--yellow:#ffd166;--red:#ff647c;--purple:#a855f7;--pink:#ec4899}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),radial-gradient(ellipse at -10% 50%,#1a1033 0,transparent 35%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s;display:inline-flex;align-items:center;gap:6px}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.btn.ai-btn{border:0;background:linear-gradient(120deg,var(--purple),var(--pink));color:#fff}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:1fr;gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}
     
-    /* Tombol Tab Switcher 2D / 3D */
     .tab-switcher{display:flex;gap:8px;background:#081726;padding:4px;border-radius:10px;border:1px solid #1c3854;}
     .tab-btn{border:0;background:transparent;color:var(--muted);padding:8px 14px;border-radius:8px;font-size:11px;font-weight:600;transition:.2s;}
     .tab-btn.active{background:var(--cyan);color:#041426;box-shadow:0 0 12px rgba(54,217,255,0.3);}
 
-    /* Container Peta & Visualisasi 3D */
-    .map-box{height:520px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}
+    .map-box{height:560px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}
     #map2dContainer, #canvas3dContainer{height:100%;width:100%;position:absolute;top:0;left:0;display:none;}
     #map2dContainer.active, #canvas3dContainer.active{display:block;}
     #map2d, #canvas3d{height:100%;width:100%;}
     
-    .map-overlay{position:absolute;z-index:500;left:10px;bottom:10px;background:#071426e8;border:1px solid #24415e;padding:6px 10px;border-radius:8px;font-size:10px;color:#c5d9ee;backdrop-filter:blur(8px)}
+    .map-overlay{position:absolute;z-index:500;left:10px;bottom:10px;background:#071426e8;border:1px solid #24415e;padding:6px 12px;border-radius:8px;font-size:11px;color:#c5d9ee;backdrop-filter:blur(8px);display:flex;align-items:center;gap:8px}
     
-    /* Panel Deteksi Cuaca di Peta 2D */
     .weather-radar-badge{position:absolute;top:10px;left:10px;z-index:500;background:rgba(12,29,51,0.9);border:1px solid var(--cyan);padding:6px 12px;border-radius:10px;font-size:10px;color:#e8faff;backdrop-filter:blur(6px);display:flex;align-items:center;gap:6px;}
     .weather-radar-badge span.pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);animation:pulse 1.5s infinite;}
 
-    /* Overlay Animasi Hujan 2D */
     .map-rain-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:450;pointer-events:none;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(54,217,255,0.08) 10px,rgba(54,217,255,0.08) 12px);opacity:0;transition:opacity 0.3s;}
     .map-rain-overlay.active{opacity:1;animation:rainSlide 0.6s linear infinite;}
     @keyframes rainSlide{0%{background-position:0 0}100%{background-position:20px 20px}}
 
-    .advisory-banner{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(12,29,51,0.88);border:1px solid var(--cyan);padding:5px 12px;border-radius:14px;font-size:10px;color:#e8faff;box-shadow:0 2px 10px rgba(54,217,255,0.15);display:flex;align-items:center;gap:6px;backdrop-filter:blur(6px);white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis;}
-    .advisory-banner span.dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);box-shadow:0 0 6px var(--yellow);animation:pulse 1.5s infinite;flex-shrink:0;}
+    .advisory-banner{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(12,29,51,0.88);border:1px solid var(--cyan);padding:5px 14px;border-radius:14px;font-size:11px;color:#e8faff;box-shadow:0 2px 10px rgba(54,217,255,0.15);display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px);white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis;}
+    .advisory-banner span.dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 6px var(--yellow);animation:pulse 1.5s infinite;flex-shrink:0;}
     @keyframes pulse{0%{opacity:1}50%{opacity:0.4}100%{opacity:1}}
+
+    .ai-sensor-widget{position:absolute;top:12px;right:12px;z-index:500;background:rgba(7,20,38,0.85);border:1px solid rgba(54,217,255,0.3);padding:8px 14px;border-radius:12px;backdrop-filter:blur(10px);display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+    .sensor-signal{width:36px;height:16px;display:flex;align-items:flex-end;gap:3px}
+    .signal-bar{flex:1;background:var(--cyan);border-radius:2px;animation:signalPulse 1.2s infinite ease-in-out alternate}
+    .signal-bar:nth-child(1){height:40%;animation-delay:0.1s}
+    .signal-bar:nth-child(2){height:80%;animation-delay:0.3s}
+    .signal-bar:nth-child(3){height:60%;animation-delay:0.5s}
+    .signal-bar:nth-child(4){height:100%;animation-delay:0.2s}
+    @keyframes signalPulse{0%{opacity:0.3;transform:scaleY(0.5)}100%{opacity:1;transform:scaleY(1)}}
+
+    .ai-card-bottom{background:linear-gradient(145deg,rgba(18,12,36,0.92),rgba(9,27,47,0.95));border:1px solid rgba(168,85,247,0.3);position:relative;overflow:hidden;margin-bottom:17px;border-radius:16px;padding:20px}
+    .ai-card-bottom::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink))}
+    .ai-grid-layout{display:grid;grid-template-columns:1.4fr 0.6fr;gap:20px}
+    .ai-chat-box{height:220px;overflow-y:auto;padding:12px;background:rgba(5,15,28,0.7);border-radius:12px;border:1px solid rgba(27,56,87,0.6);display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+    .ai-chat-box::-webkit-scrollbar{width:4px}
+    .ai-chat-box::-webkit-scrollbar-thumb{background:rgba(168,85,247,0.4);border-radius:10px}
+    .msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:11px;line-height:1.5;animation:fadeIn 0.25s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+    .msg.bot{background:#102641;border:1px solid rgba(54,217,255,0.25);color:#edf6ff;align-self:flex-start}
+    .msg.user{background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;align-self:flex-end;box-shadow:0 3px 10px rgba(168,85,247,0.2)}
+    .msg-ai-header{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--cyan);font-weight:700;margin-bottom:4px;text-transform:uppercase}
+    .ai-input-wrap{display:flex;gap:8px}
+    .ai-input{flex:1;background:#081829;border:1px solid rgba(168,85,247,0.3);border-radius:10px;padding:10px 14px;color:#fff;font-size:12px;outline:none;transition:.2s}
+    .ai-input:focus{border-color:var(--cyan)}
+    .quick-prompts{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-top:8px}
+    .quick-prompts::-webkit-scrollbar{height:2px}
+    .quick-prompts::-webkit-scrollbar-thumb{background:var(--line)}
+    .q-btn{background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.3);color:var(--muted);padding:6px 12px;border-radius:8px;font-size:11px;white-space:nowrap;transition:.2s}
+    .q-btn:hover{background:rgba(168,85,247,0.25);color:#fff}
+
+    .ai-side-panel{display:flex;flex-direction:column;gap:12px;justify-content:center}
+    .ai-predict-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .predict-item{background:#081829;border:1px solid rgba(54,217,255,0.2);padding:12px;border-radius:10px;text-align:center}
+    .predict-item small{font-size:10px;color:var(--muted);display:block}
+    .predict-item strong{font:700 14px "Space Grotesk";color:var(--cyan);margin-top:3px;display:block}
+
+    .radar-anim-card{background:rgba(8,24,41,0.6);border:1px solid rgba(54,217,255,0.2);border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden}
+    .radar-circle{width:50px;height:50px;border-radius:50%;border:2px solid var(--cyan);position:relative;display:grid;place-items:center;flex-shrink:0}
+    .radar-sweep{position:absolute;width:100%;height:100%;border-radius:50%;background:conic-gradient(from 0deg, transparent 0%, transparent 75%, rgba(54,217,255,0.4) 100%);animation:radarSpin 2s linear infinite}
+    @keyframes radarSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    .pill{padding:3px 8px;border-radius:12px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(54,217,255,0.1);color:var(--cyan);border:1px solid rgba(54,217,255,0.2)}
+    .pill.ai{background:rgba(168,85,247,0.15);color:var(--purple);border-color:rgba(168,85,247,0.3)}
 
     .faq-section{margin-top:20px;display:grid;gap:12px;}
     .faq-item{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;transition:.2s}
@@ -45,26 +84,27 @@
     .faq-question{font:600 13px "Space Grotesk";color:var(--cyan);display:flex;justify-content:space-between;align-items:center}
     .faq-answer{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;}
 
-    .legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.footer{font-size:9px}
-    @media(max-width:700px){.app{display:block}.sidebar{padding:13px 14px;display:block;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0}.nav-label,.side-bottom{display:none}.nav{display:flex;overflow:auto;margin-top:13px;gap:5px}.nav a{white-space:nowrap;padding:9px 10px;font-size:11px}.nav .ico{font-size:14px}.main{padding:22px 14px}.topbar{align-items:flex-start}.top-actions{flex-direction:column;align-items:flex-end}.status{font-size:10px}.topbar h1{font-size:24px}.sub{max-width:260px;line-height:1.5}.metrics{gap:9px}.metric{padding:13px}.metric-value{font-size:24px}.metric-head{font-size:10px}.metric-foot{font-size:10px}.content-grid,.lower-grid{grid-template-columns:1fr}.map-box{height:360px}.panel{padding:14px}}
+    .legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.control-list{display:grid;gap:16px}.control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}.control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}.control-top strong{font-size:12px}.control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}.control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.run-row{display:flex;gap:8px;margin-top:14px}.run-row .btn{flex:1;justify-content:center}.scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}.lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px}.chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}.bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s;box-shadow:0 0 18px #36d9ff1c}.bar-label{font-size:9px;color:var(--muted);white-space:nowrap}.bar-value{font-size:9px;color:#d6ebff}.service-list{display:grid;gap:3px}.service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}.service:last-child{border:0}.service-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#173754}.service-info{flex:1;min-width:0}.service-info strong{font-size:12px;display:block}.service-info small{font-size:10px;color:var(--muted)}.service-value{text-align:right;font:600 13px "Space Grotesk"}.service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}.team-box{margin-top:15px;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:11px;color:var(--muted);line-height:1.6}.team-box strong{color:var(--text);display:block;margin-bottom:6px}.footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.footer{font-size:9px}
+    @media(max-width:900px){.app{display:block}.sidebar{padding:13px 14px;display:block;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0}.nav-label,.side-bottom{display:none}.nav{display:flex;overflow:auto;margin-top:13px;gap:5px}.nav a{white-space:nowrap;padding:9px 10px;font-size:11px}.nav .ico{font-size:14px}.main{padding:22px 14px}.topbar{align-items:flex-start}.top-actions{flex-direction:column;align-items:flex-end}.status{font-size:10px}.topbar h1{font-size:24px}.sub{max-width:260px;line-height:1.5}.metrics{gap:9px;grid-template-columns:repeat(2,1fr)}.metric{padding:13px}.metric-value{font-size:24px}.metric-head{font-size:10px}.metric-foot{font-size:10px}.content-grid,.lower-grid,.ai-grid-layout{grid-template-columns:1fr}.map-box{height:400px}.panel{padding:14px}}
   </style>
 </head>
 <body>
 <div class="app">
   <aside class="sidebar">
-    <div class="brand"><div class="brand-mark">⌁</div><div><strong>MEDAN<span style="color:var(--cyan)">.SMART</span></strong><small>Urban Simulator v1.0</small></div></div>
+    <div class="brand"><div class="brand-mark">🤖</div><div><strong>MEDAN<span style="color:var(--cyan)">.AI</span></strong><small>Smart City v2.0</small></div></div>
     <div>
       <div class="nav-label">Menu utama</div>
       <nav class="nav">
         <a href="#dashboard" class="active"><span class="ico">▦</span>Dashboard</a>
         <a href="#peta"><span class="ico">⌖</span>Peta & Visualisasi 3D</a>
+        <a href="#ai-assistant"><span class="ico">🤖</span>Asisten AI Kota</a>
         <a href="#simulator"><span class="ico">◈</span>Simulator</a>
         <a href="#tanyajawab"><span class="ico">❓</span>Tanya Jawab</a>
       </nav>
     </div>
     <div class="side-bottom">
-      <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Sistem simulator aktif</div>
-      <p>Mode Peta 2D (Deteksi Cuaca) & Satelit 3D HD Menyeluruh aktif.</p>
+      <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Sistem AI Simulator Aktif</div>
+      <p>Peta 3D Interaktif (Bisa Zoom & Orbit Rotasi), Peta 2D, & Modul AI Urban Advisory.</p>
     </div>
     <div class="team-box">
       <strong>Tim Pengembang:</strong>
@@ -75,24 +115,27 @@
   </aside>
   <main class="main" id="dashboard">
     <header class="topbar">
-      <div><div class="eyebrow">Pusat kendali perkotaan</div><h1>Medan Smart City</h1><div class="sub">Simulator Kota Medan dengan Lampu Merah Interaktif, Kendaraan Berhenti & Sistem Himbauan Pintar</div></div>
-      <div class="top-actions"><div class="status"><span class="live-dot"></span>PETA 2D / 3D AKTIF</div><button class="btn" id="resetBtn">↻ Reset simulasi</button></div>
+      <div><div class="eyebrow">Pusat kendali perkotaan • Integrated AI Engine</div><h1>Medan Smart City</h1><div class="sub">Simulator Kota Medan dengan Navigasi Kamera 3D, Lampu Merah Interaktif & Asisten AI Chatbot</div></div>
+      <div class="top-actions">
+        <div class="status"><span class="live-dot"></span>3D MAP & AI ONLINE</div>
+        <button class="btn ai-btn" id="aiOptimizeBtn">✨ Optimasi AI</button>
+        <button class="btn" id="resetBtn">↻ Reset simulasi</button>
+      </div>
     </header>
     <section class="metrics">
       <article class="metric"><div class="metric-head">Kepadatan lalu lintas <span class="metric-icon">🚦</span></div><div class="metric-value" id="trafficMetric">42<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="positive" id="trafficState">● Lancar</span> · indeks simulasi</div></article>
-      <article class="metric"><div class="metric-head">Risiko genangan <span class="metric-icon">🌧️</span></div><div class="metric-value" id="floodMetric">18<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="positive" id="floodState">● Rendah</span> · indeks simulasi</div></article>
+      <article class="metric"><div class="metric-head">Risiko genangan <span class="metric-icon">🌧️</span></div><div class="metric-value" id="floodMetric">18<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="positive" id="floodState">● Rendah</span> · prediksi AI</div></article>
       <article class="metric"><div class="metric-head">Kualitas udara <span class="metric-icon">🌿</span></div><div class="metric-value" id="airMetric">32 <span style="font-size:15px;color:var(--muted)">AQI</span></div><div class="metric-foot"><span class="positive" id="airState">● Baik</span> · nilai contoh</div></article>
       <article class="metric"><div class="metric-head">Kapasitas sampah <span class="metric-icon">♻️</span></div><div class="metric-value" id="wasteMetric">64<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="warning" id="wasteState">● Perlu dipantau</span> · kapasitas contoh</div></article>
     </section>
     
     <section class="content-grid">
-      <article class="panel" id="peta" style="grid-column: 1 / -1;">
+      <article class="panel" id="peta">
         <div class="panel-head">
           <div>
-            <h2>Peta & Visualisasi 3D Skala Luas</h2>
-            <div class="panel-desc">Simulasi Kota Medan dengan Lampu Merah Interaktif, Kendaraan Berhenti & Sistem Himbauan Pintar</div>
+            <h2>Peta & Visualisasi 3D Seluruh Kota Medan</h2>
+            <div class="panel-desc">Gunakan Mouse/Touchpad: **Scroll** untuk Zoom-in/Zoom-out, **Klik + Drag** untuk Memutar Sudut Pandang Kota</div>
           </div>
-          <!-- Tab Switcher Peta 2D / Simulasi 3D Realistis -->
           <div class="tab-switcher">
             <button class="tab-btn" id="btnMap2D">Peta 2D</button>
             <button class="tab-btn active" id="btnSim3D">Simulasi 3D Realistis</button>
@@ -100,7 +143,6 @@
         </div>
         
         <div class="map-box">
-          <!-- Tampilan Peta 2D -->
           <div id="map2dContainer">
             <div id="map2d"></div>
             <div class="weather-radar-badge" id="weatherRadarBadge">
@@ -111,22 +153,94 @@
             <div class="map-overlay">⌖ Peta Wilayah 2D & Radar Cuaca Kota Medan</div>
           </div>
 
-          <!-- Tampilan Simulasi 3D Realistis -->
           <div id="canvas3dContainer" class="active">
             <div id="canvas3d"></div>
             <div class="advisory-banner" id="advisoryBanner">
               <span class="dot" id="advisoryDot"></span>
               <span id="advisoryText">Memuat status lalu lintas...</span>
             </div>
-            <div class="map-overlay">⌖ Simulasi Satelit 3D Menyeluruh Seluruh Medan</div>
+            
+            <div class="ai-sensor-widget">
+              <div class="sensor-signal">
+                <div class="signal-bar"></div>
+                <div class="signal-bar"></div>
+                <div class="signal-bar"></div>
+                <div class="signal-bar"></div>
+              </div>
+              <div style="font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:0.5px">LIVE AI TRAFFIC SCANNER</div>
+            </div>
+
+            <div class="map-overlay">
+              <span>🖱️ Scroll: Zoom | Klik + Geser: Putar Kamera Kota 3D</span>
+            </div>
           </div>
         </div>
         
-        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Terhubung ke sistem parameter interaktif</span></div>
+        <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Kamera Orbit 3D Bebas Di-Scroll</span></div>
       </article>
     </section>
 
-    <section class="content-grid" style="grid-template-columns: 1fr;">
+    <section class="ai-card-bottom" id="ai-assistant">
+      <div class="panel-head">
+        <div>
+          <h2 style="font:600 17px 'Space Grotesk';margin:0 0 4px"><span style="color:var(--purple)">🤖 Asisten AI</span> Urban Advisory & Real-Time Intelligence</h2>
+          <div class="panel-desc">Pusat analisis kecerdasan buatan untuk memantau situasi kota Medan, prediksi banjir, dan optimasi jalan secara otomatis.</div>
+        </div>
+        <span class="pill ai">AI POWERED ENGINE</span>
+      </div>
+
+      <div class="ai-grid-layout">
+        <div>
+          <div class="ai-chat-box" id="aiChatBox">
+            <div class="msg bot">
+              <div class="msg-ai-header">🤖 AI Urban Advisory</div>
+              Halo! Saya **Asisten AI Medan Smart City**. Saya dapat membantu memantau situasi kota, memprediksi potensi genangan air, dan memberikan saran optimasi rute secara otomatis. Apa yang ingin Anda tanyakan?
+            </div>
+          </div>
+
+          <div class="ai-input-wrap">
+            <input type="text" id="aiInput" class="ai-input" placeholder="Ketik pertanyaan (misal: 'Kondisi macet?', 'Potensi banjir')..." />
+            <button class="btn ai-btn" id="aiSendBtn">Kirim</button>
+          </div>
+
+          <div class="quick-prompts">
+            <button class="q-btn" onclick="sendQuickPrompt('Bagaimana kondisi lalu lintas saat ini?')">🚦 Cek Macet</button>
+            <button class="q-btn" onclick="sendQuickPrompt('Apakah ada potensi banjir?')">🌧️ Potensi Banjir</button>
+            <button class="q-btn" onclick="sendQuickPrompt('Beri rekomendasi optimasi kota Medan')">✨ Rekomendasi AI</button>
+          </div>
+        </div>
+
+        <div class="ai-side-panel">
+          <div class="radar-anim-card">
+            <div class="radar-circle">
+              <div class="radar-sweep"></div>
+              <span style="font-size:14px">🛰️</span>
+            </div>
+            <div>
+              <strong style="font-size:12px;color:#fff;display:block">AI Neural Network Active</strong>
+              <small style="font-size:10px;color:var(--muted)">Memindai 5 Kecamatan Utama Medan</small>
+            </div>
+          </div>
+
+          <div class="ai-predict-grid">
+            <div class="predict-item">
+              <small>AI Traffic Forecast</small>
+              <strong id="aiTrafficPredict">Optimasi +18%</strong>
+            </div>
+            <div class="predict-item">
+              <small>AI Flood Alert</small>
+              <strong id="aiFloodPredict" style="color:var(--green)">Rendah (Aman)</strong>
+            </div>
+            <div class="predict-item">
+              <small>AI Eco Score</small>
+              <strong id="aiEcoPredict" style="color:var(--cyan)">88 / 100</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-grid">
       <article class="panel" id="simulator">
         <div class="panel-head"><div><h2>Kontrol Simulasi</h2><div class="panel-desc">Ubah parameter atau jalankan simulasi gerak otomatis</div></div><span class="pill">INTERAKTIF</span></div>
         <div class="control-list">
@@ -134,12 +248,14 @@
           <div class="control"><div class="control-top"><strong>🌧️ Intensitas curah hujan</strong><output id="rainOut">25 mm/jam</output></div><input type="range" id="rainRange" min="0" max="150" value="25"><div class="range-labels"><span>0 mm</span><span>150 mm</span></div><div class="control-note">Mengubah efek turunnya hujan secara real-time di animasi 3D dan peta 2D.</div></div>
           <div class="control"><div class="control-top"><strong>♻️ Volume sampah</strong><output id="wasteOut">64%</output></div><input type="range" id="wasteRange" min="0" max="100" value="64"><div class="range-labels"><span>Rendah</span><span>Penuh</span></div></div>
         </div>
-        <div class="run-row"><button class="btn primary" id="runBtn">▶ Jalankan simulasi</button><button class="btn" id="randomBtn">Acak skenario</button></div>
+        <div class="run-row">
+          <button class="btn primary" id="runBtn">▶ Jalankan simulasi</button>
+          <button class="btn ai-btn" id="randomBtn">🎲 Skenario Acak AI</button>
+        </div>
         <div class="scenario" id="scenarioText">Skenario awal: arus lalu lintas sedang, curah hujan ringan, dan kapasitas sampah perlu dipantau. Semua nilai adalah data simulasi.</div>
       </article>
     </section>
 
-    <!-- Kolom Pertanyaan / Tanya Jawab (FAQ) -->
     <section class="panel" id="tanyajawab" style="margin-bottom:20px;">
       <div class="panel-head">
         <div>
@@ -150,12 +266,12 @@
       </div>
       <div class="faq-section">
         <div class="faq-item">
-          <div class="faq-question">1. Apa itu Medan Smart City?</div>
-          <div class="faq-answer">Medan Smart City adalah sebuah konsep pengembangan perkotaan berbasis teknologi informasi dan komunikasi (TIK) yang bertujuan untuk mengoptimalkan pengelolaan sumber daya kota, meningkatkan efisiensi pelayanan publik, serta memberikan kenyamanan dan keamanan bagi warga Kota Medan.</div>
+          <div class="faq-question">1. Apa itu Medan Smart City & Modul Asisten AI?</div>
+          <div class="faq-answer">Medan Smart City adalah konsep pengelolaan kota berbasis teknologi. Dalam simulator ini, Modul Asisten AI (AI Urban Advisory) ditambahkan untuk membantu pengguna menganalisis kemacetan, risiko genangan hujan, serta memberikan rekomendasi otomatis secara interaktif.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">2. Bagaimana cara kerja Tab Switcher Peta 2D & 3D?</div>
-          <div class="faq-answer">Pengguna dapat dengan mudah beralih antara tampilan Peta 2D berdeteksi radar cuaca dan Simulasi 3D Realistis secara langsung di pojok kanan atas panel tanpa kehilangan status simulasi yang sedang berjalan.</div>
+          <div class="faq-question">2. Bagaimana cara mengontrol Kamera Simulasi 3D?</div>
+          <div class="faq-answer">Gunakan scroll pada mouse untuk Zoom in / Zoom out, dan tahan klik kiri/kanan lalu geser mouse Anda untuk memutar sudut pandang seluruh area kota Medan secara 360 derajat.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question">3. Bagaimana cara kerja Sistem Himbauan Pintar?</div>
@@ -184,18 +300,18 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
 <script>
 (() => {
   const $ = id => document.getElementById(id);
   const controls = {traffic:$('trafficRange'), rain:$('rainRange'), waste:$('wasteRange')};
   let map2d, markers = [];
-  let scene, camera, renderer, cars = [], pedestrians = [], trafficLights = [], rainDrops = [], clouds = [], animationFrameId;
+  let scene, camera, renderer, orbitControls, cars = [], trafficLights = [], rainDrops = [], animationFrameId;
   let isAutoRunning = false, autoInterval = null;
   let trafficLightTimer = 0;
   let trafficLightState = 'GREEN';
 
-  // --- Logika Tab Switcher Peta 2D / 3D ---
   const btnMap2D = $('btnMap2D');
   const btnSim3D = $('btnSim3D');
   const map2dContainer = $('map2dContainer');
@@ -274,11 +390,10 @@
     const container = $('canvas3d');
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x040b14);
-    scene.fog = new THREE.FogExp2(0x040b14, 0.0015);
+    scene.fog = new THREE.FogExp2(0x040b14, 0.0012);
 
-    camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1800);
-    camera.position.set(0, 110, 160);
-    camera.lookAt(0, 0, 0);
+    camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 2000);
+    camera.position.set(0, 140, 200);
 
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(container.clientWidth, container.clientHeight);
@@ -287,6 +402,16 @@
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.35;
     container.appendChild(renderer.domElement);
+
+    if (THREE.OrbitControls) {
+      orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+      orbitControls.enableDamping = true;
+      orbitControls.dampingFactor = 0.05;
+      orbitControls.maxPolarAngle = Math.PI / 2 - 0.05;
+      orbitControls.minDistance = 30;
+      orbitControls.maxDistance = 500;
+      orbitControls.target.set(0, 0, 0);
+    }
 
     const ambientLight = new THREE.AmbientLight(0x1a2d42, 1.1);
     scene.add(ambientLight);
@@ -298,30 +423,30 @@
     dirLight.shadow.mapSize.height = 2048;
     dirLight.shadow.camera.near = 10;
     dirLight.shadow.camera.far = 600;
-    const d = 280;
-    dirLight.shadow.camera.left = -d;
-    dirLight.shadow.camera.right = d;
-    dirLight.shadow.camera.top = d;
-    dirLight.shadow.camera.bottom = -d;
+    const d = 300;
+    dirLight.shadow.camera.left = -d; dirLight.shadow.camera.right = d;
+    dirLight.shadow.camera.top = d; dirLight.shadow.camera.bottom = -d;
     scene.add(dirLight);
 
     const groundMat = new THREE.MeshStandardMaterial({color: 0x080e16, roughness: 0.9});
-    const ground = new THREE.Mesh(new THREE.PlaneGeometry(800, 800), groundMat);
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000), groundMat);
     ground.rotation.x = -Math.PI / 2;
     ground.receiveShadow = true;
     scene.add(ground);
 
     const roadMat = new THREE.MeshStandardMaterial({color: 0x111924, roughness: 0.5});
-    const roadMain1 = new THREE.Mesh(new THREE.BoxGeometry(800, 0.1, 32), roadMat);
-    roadMain1.position.y = 0.05; roadMain1.receiveShadow = true; scene.add(roadMain1);
-    const roadMain2 = new THREE.Mesh(new THREE.BoxGeometry(32, 0.1, 800), roadMat);
-    roadMain2.position.y = 0.05; roadMain2.receiveShadow = true; scene.add(roadMain2);
+    
+    // KISI-KISI JALAN KOTA (Lebar jalan = 24 unit)
+    const roadOffsets = [-240, -120, 0, 120, 240];
+    const roadHalfWidth = 12; // Setengah dari lebar jalan 24
+    const treeBuffer = 5;      // Jarak aman luar jalan
 
-    [-200, 200].forEach(offset => {
-      const roadSub1 = new THREE.Mesh(new THREE.BoxGeometry(800, 0.08, 20), roadMat);
-      roadSub1.position.set(0, 0.04, offset); roadSub1.receiveShadow = true; scene.add(roadSub1);
-      const roadSub2 = new THREE.Mesh(new THREE.BoxGeometry(20, 0.08, 800), roadMat);
-      roadSub2.position.set(offset, 0.04, 0); roadSub2.receiveShadow = true; scene.add(roadSub2);
+    roadOffsets.forEach(offset => {
+      const roadX = new THREE.Mesh(new THREE.BoxGeometry(1000, 0.1, 24), roadMat);
+      roadX.position.set(0, 0.05, offset); roadX.receiveShadow = true; scene.add(roadX);
+
+      const roadZ = new THREE.Mesh(new THREE.BoxGeometry(24, 0.1, 1000), roadMat);
+      roadZ.position.set(offset, 0.05, 0); roadZ.receiveShadow = true; scene.add(roadZ);
     });
 
     function createTree() {
@@ -336,16 +461,42 @@
       return group;
     }
 
-    for(let x = -350; x <= 350; x += 28) {
-      if(Math.abs(x) < 35) continue;
-      const t1 = createTree(); t1.position.set(x, 0, 18.5); scene.add(t1);
-      const t2 = createTree(); t2.position.set(x, 0, -18.5); scene.add(t2);
+    // FUNGSI CEK ATAU CEGAH POHON DIPASANG DI ATAS JALAN
+    function isPositionOnRoad(x, z) {
+      for (let i = 0; i < roadOffsets.forEach; i++) {}
+      for (let ro of roadOffsets) {
+        if (Math.abs(z - ro) < (roadHalfWidth + 1)) return true;
+        if (Math.abs(x - ro) < (roadHalfWidth + 1)) return true;
+      }
+      return false;
     }
-    for(let z = -350; z <= 350; z += 28) {
-      if(Math.abs(z) < 35) continue;
-      const t3 = createTree(); t3.position.set(18.5, 0, z); scene.add(t3);
-      const t4 = createTree(); t4.position.set(-18.5, 0, z); scene.add(t4);
-    }
+
+    // PENEMPATAN POHON DI PINGGIR TROTOAR (TIDAK MASUK AREA JALAN)
+    roadOffsets.forEach(offset => {
+      for(let pos = -450; pos <= 450; pos += 32) {
+        const sideDistance = roadHalfWidth + treeBuffer; // 12 + 5 = 17 unit dari pusat jalan
+
+        // Sisi jalan Horizontal (X)
+        const zUpper = offset + sideDistance;
+        const zLower = offset - sideDistance;
+        if (!isPositionOnRoad(pos, zUpper)) {
+          const t1 = createTree(); t1.position.set(pos, 0, zUpper); scene.add(t1);
+        }
+        if (!isPositionOnRoad(pos, zLower)) {
+          const t2 = createTree(); t2.position.set(pos, 0, zLower); scene.add(t2);
+        }
+
+        // Sisi jalan Vertikal (Z)
+        const xUpper = offset + sideDistance;
+        const xLower = offset - sideDistance;
+        if (!isPositionOnRoad(xUpper, pos)) {
+          const t3 = createTree(); t3.position.set(xUpper, 0, pos); scene.add(t3);
+        }
+        if (!isPositionOnRoad(xLower, pos)) {
+          const t4 = createTree(); t4.position.set(xLower, 0, pos); scene.add(t4);
+        }
+      }
+    });
 
     function createTrafficLight() {
       const group = new THREE.Group();
@@ -373,16 +524,23 @@
       return group;
     }
 
-    const tl1 = createTrafficLight(); tl1.position.set(17, 0, 17); tl1.rotation.y = -Math.PI/4; scene.add(tl1); trafficLights.push(tl1);
-    const tl2 = createTrafficLight(); tl2.position.set(-17, 0, 17); tl2.rotation.y = Math.PI/4; scene.add(tl2); trafficLights.push(tl2);
-    const tl3 = createTrafficLight(); tl3.position.set(-17, 0, -17); tl3.rotation.y = 3*Math.PI/4; scene.add(tl3); trafficLights.push(tl3);
-    const tl4 = createTrafficLight(); tl4.position.set(17, 0, -17); tl4.rotation.y = -3*Math.PI/4; scene.add(tl4); trafficLights.push(tl4);
+    roadOffsets.forEach(rx => {
+      roadOffsets.forEach(rz => {
+        const tl = createTrafficLight();
+        tl.position.set(rx + 14, 0, rz + 14);
+        scene.add(tl);
+        trafficLights.push(tl);
+      });
+    });
 
     const bColors = [0x1e3552, 0x14273d, 0x244263, 0x19304a, 0x2b4f75];
-    for(let x = -340; x <= 340; x += 36) {
-      for(let z = -340; z <= 340; z += 36) {
-        if(Math.abs(x) < 36 || Math.abs(z) < 36) continue; 
-        const height = 35 + Math.random() * 85;
+    for(let x = -400; x <= 400; x += 36) {
+      for(let z = -400; z <= 400; z += 36) {
+        let onRoad = false;
+        roadOffsets.forEach(ro => { if(Math.abs(x - ro) < 18 || Math.abs(z - ro) < 18) onRoad = true; });
+        if(onRoad) continue; 
+
+        const height = 30 + Math.random() * 85;
         const bMat = new THREE.MeshStandardMaterial({color: bColors[Math.floor(Math.random()*bColors.length)], roughness: 0.15, metalness: 0.6});
         const building = new THREE.Mesh(new THREE.BoxGeometry(22, height, 22), bMat);
         building.position.set(x, height / 2, z); building.castShadow = true; building.receiveShadow = true;
@@ -396,278 +554,320 @@
 
     function createDetailedCar(colorHex) {
       const group = new THREE.Group();
-      const bodyMat = new THREE.MeshStandardMaterial({color: colorHex, metalness: 0.85, roughness: 0.2});
-      const glassMat = new THREE.MeshStandardMaterial({color: 0x050505, roughness: 0.1});
-      const wheelMat = new THREE.MeshStandardMaterial({color: 0x111111, roughness: 0.8});
-      
-      const body = new THREE.Mesh(new THREE.BoxGeometry(4.4, 1.15, 2.2), bodyMat);
-      body.position.y = 0.65; body.castShadow = true; group.add(body);
-      
-      const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.9, 1.8), glassMat);
-      cabin.position.set(-0.2, 1.45, 0); group.add(cabin);
+      const bodyMat = new THREE.MeshStandardMaterial({color: colorHex, roughness: 0.3, metalness: 0.5});
+      const body = new THREE.Mesh(new THREE.BoxGeometry(4.2, 1.2, 2.0), bodyMat);
+      body.position.y = 0.8; body.castShadow = true; group.add(body);
 
-      [-1.4, 1.4].forEach(wx => {
-        [-1.15, 1.15].forEach(wz => {
-          const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.25, 12), wheelMat);
-          wheel.rotation.x = Math.PI / 2; wheel.position.set(wx, 0.38, wz); group.add(wheel);
-        });
-      });
+      const cabinMat = new THREE.MeshStandardMaterial({color: 0x050a10, roughness: 0.1, metalness: 0.9});
+      const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.9, 1.8), cabinMat);
+      cabin.position.set(-0.2, 1.65, 0); cabin.castShadow = true; group.add(cabin);
 
-      const hlMat = new THREE.MeshBasicMaterial({color: 0xffffff});
-      const hl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat); hl1.position.set(2.2, 0.7, 0.7); group.add(hl1);
-      const hl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), hlMat); hl2.position.set(2.2, 0.7, -0.7); group.add(hl2);
+      const lightMat = new THREE.MeshBasicMaterial({color: 0xffffaa});
+      const h1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), lightMat);
+      h1.position.set(2.1, 0.8, 0.7); group.add(h1);
+      const h2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), lightMat);
+      h2.position.set(2.1, 0.8, -0.7); group.add(h2);
 
-      const tailMat = new THREE.MeshBasicMaterial({color: 0xff1a3c});
-      const tl1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat); tl1.position.set(-2.2, 0.7, 0.7); group.add(tl1);
-      const tl2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.25, 0.35), tailMat); tl2.position.set(-2.2, 0.7, -0.7); group.add(tl2);
+      const tailMat = new THREE.MeshBasicMaterial({color: 0xff2222});
+      const t1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), tailMat);
+      t1.position.set(-2.1, 0.8, 0.7); group.add(t1);
+      const t2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), tailMat);
+      t2.position.set(-2.1, 0.8, -0.7); group.add(t2);
 
       return group;
     }
 
-    const carColors = [0xffd166, 0xff526d, 0x36d9ff, 0x4ce0a1, 0xf0f4f8, 0x4388ff];
-    for(let i = 0; i < 40; i++) {
-      const isOpposite = i % 2 === 0;
-      const car = createDetailedCar(carColors[i % carColors.length]);
-      const startX = -360 + (i * 18);
-      const startZ = isOpposite ? 7.5 : -7.5;
-      car.position.set(startX, 0, startZ);
-      if(!isOpposite) car.rotation.y = Math.PI;
-      scene.add(car);
-      cars.push({mesh: car, direction: isOpposite ? 1 : -1, speedOffset: 0.8 + Math.random()*0.4});
-    }
+    const carColors = [0x36d9ff, 0xff647c, 0xffd166, 0x4ce0a1, 0xe0e6ed];
+    
+    roadOffsets.forEach((offset, idx) => {
+      for(let i = 0; i < 4; i++) {
+        const carX = createDetailedCar(carColors[(i + idx) % carColors.length]);
+        const dirX = i % 2 === 0 ? 1 : -1;
+        carX.position.set((Math.random() - 0.5) * 800, 0, offset + (dirX === 1 ? 4 : -4));
+        if(dirX === -1) carX.rotation.y = Math.PI;
+        carX.userData = { axis: 'x', dir: dirX, baseSpeed: 0.4 + Math.random() * 0.3 };
+        scene.add(carX); cars.push(carX);
 
-    function createHD_Pedestrian() {
-      const group = new THREE.Group();
-      const clothesColors = [0x36d9ff, 0xffd166, 0xff647c, 0xf0f4f8, 0x4ce0a1, 0x9b59b6];
-      const shirtMat = new THREE.MeshStandardMaterial({color: clothesColors[Math.floor(Math.random()*clothesColors.length)], roughness: 0.5});
-      const pantsMat = new THREE.MeshStandardMaterial({color: 0x1b2838, roughness: 0.7});
-      const skinMat = new THREE.MeshStandardMaterial({color: 0xffdbac, roughness: 0.6});
-      const bagMat = new THREE.MeshStandardMaterial({color: 0x5c4033, roughness: 0.8});
-
-      const legLeft = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.12), pantsMat);
-      legLeft.position.set(-0.1, 0.25, 0); group.add(legLeft);
-      const legRight = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.12), pantsMat);
-      legRight.position.set(0.1, 0.25, 0); group.add(legRight);
-
-      const body = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.65, 0.22), shirtMat);
-      body.position.y = 0.82; body.castShadow = true; group.add(body);
-
-      const backpack = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.38, 0.18), bagMat);
-      backpack.position.set(0, 0.85, -0.18); group.add(backpack);
-
-      const head = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.28, 0.26), skinMat);
-      head.position.y = 1.32; head.castShadow = true; group.add(head);
-
-      group.userData = {legLeft, legRight};
-      return group;
-    }
-
-    for(let i = 0; i < 30; i++) {
-      const p = createHD_Pedestrian();
-      const startZ = -340 + (i * 22);
-      p.position.set(20.5, 0, startZ);
-      scene.add(p);
-      pedestrians.push({mesh: p, speed: 0.025 + Math.random() * 0.015});
-    }
-
-    const cloudMat = new THREE.MeshStandardMaterial({color: 0x8cb7ff, transparent: true, opacity: 0.25, roughness: 1.0});
-    for(let i = 0; i < 25; i++) {
-      const cloud = new THREE.Mesh(new THREE.DodecahedronGeometry(20 + Math.random()*15), cloudMat);
-      cloud.position.set((Math.random()-0.5)*700, 100 + Math.random()*30, (Math.random()-0.5)*700);
-      scene.add(cloud); clouds.push(cloud);
-    }
+        const carZ = createDetailedCar(carColors[(i + idx + 2) % carColors.length]);
+        const dirZ = i % 2 === 0 ? 1 : -1;
+        carZ.position.set(offset + (dirZ === 1 ? -4 : 4), 0, (Math.random() - 0.5) * 800);
+        carZ.rotation.y = dirZ === 1 ? -Math.PI / 2 : Math.PI / 2;
+        carZ.userData = { axis: 'z', dir: dirZ, baseSpeed: 0.4 + Math.random() * 0.3 };
+        scene.add(carZ); cars.push(carZ);
+      }
+    });
 
     const rainGeo = new THREE.BufferGeometry();
-    const rainCount = 2500;
-    const rainPositions = new Float32Array(rainCount * 3);
+    const rainCount = 1500;
+    const rainPos = new Float32Array(rainCount * 3);
     for(let i = 0; i < rainCount * 3; i += 3) {
-      rainPositions[i] = (Math.random() - 0.5) * 720;
-      rainPositions[i+1] = Math.random() * 180;
-      rainPositions[i+2] = (Math.random() - 0.5) * 720;
+      rainPos[i] = (Math.random() - 0.5) * 800;
+      rainPos[i+1] = Math.random() * 200;
+      rainPos[i+2] = (Math.random() - 0.5) * 800;
     }
-    rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPositions, 3));
-    const rainMat = new THREE.PointsMaterial({color: 0x36d9ff, size: 0.6, transparent: true, opacity: 0.85});
+    rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPos, 3));
+    const rainMat = new THREE.PointsMaterial({color: 0x36d9ff, size: 0.7, transparent: true, opacity: 0.6});
     const rainSystem = new THREE.Points(rainGeo, rainMat);
-    scene.add(rainSystem); rainDrops.push(rainSystem);
+    scene.add(rainSystem);
 
-    animate3D();
-  }
+    function animate3D() {
+      animationFrameId = requestAnimationFrame(animate3D);
 
-  function updateAdvisorySystem() {
-    const bannerText = $('advisoryText');
-    const bannerDot = $('advisoryDot');
-    const trafficVal = +controls.traffic.value;
-    const rainVal = +controls.rain.value;
+      if (orbitControls) orbitControls.update();
 
-    if (trafficLightState === 'RED') {
-      bannerText.textContent = "Himbauan Dishub: Lampu Merah Menyala. Kendaraan Berhenti di Garis Hentian.";
-      bannerDot.style.background = 'var(--red)';
-      bannerDot.style.boxShadow = '0 0 6px var(--red)';
-    } else if (trafficVal > 75) {
-      bannerText.textContent = "Himbauan ATCS: Lalu Lintas Padat. Gunakan Jalur Alternatif Kota.";
-      bannerDot.style.background = 'var(--yellow)';
-      bannerDot.style.boxShadow = '0 0 6px var(--yellow)';
-    } else if (rainVal > 60) {
-      bannerText.textContent = "Peringatan Dini Cuaca: Hujan Lebat. Waspada Potensi Genangan Air.";
-      bannerDot.style.background = 'var(--cyan)';
-      bannerDot.style.boxShadow = '0 0 6px var(--cyan)';
-    } else {
-      bannerText.textContent = "Sistem Cerdas: Arus Lalu Lintas Terkendali & Lancar.";
-      bannerDot.style.background = 'var(--green)';
-      bannerDot.style.boxShadow = '0 0 6px var(--green)';
-    }
-  }
+      const trafficVal = parseInt(controls.traffic.value);
+      const rainVal = parseInt(controls.rain.value);
 
-  function animate3D() {
-    animationFrameId = requestAnimationFrame(animate3D);
+      trafficLightTimer++;
+      if(trafficLightTimer > 180) {
+        trafficLightTimer = 0;
+        trafficLightState = trafficLightState === 'GREEN' ? 'RED' : 'GREEN';
+      }
 
-    trafficLightTimer += 1;
-    if (trafficLightTimer > 200) { 
-      trafficLightState = trafficLightState === 'GREEN' ? 'RED' : 'GREEN';
-      trafficLightTimer = 0;
       trafficLights.forEach(tl => {
-        if (trafficLightState === 'RED') {
-          tl.userData.redMat.color.setHex(0xff3333);
-          tl.userData.greenMat.color.setHex(0x005522);
+        if(trafficLightState === 'RED') {
+          tl.userData.redMat.color.setHex(0xff0000);
+          tl.userData.greenMat.color.setHex(0x003300);
         } else {
-          tl.userData.redMat.color.setHex(0x550000);
-          tl.userData.greenMat.color.setHex(0x00ff55);
+          tl.userData.redMat.color.setHex(0x330000);
+          tl.userData.greenMat.color.setHex(0x00ff00);
         }
       });
-    }
 
-    updateAdvisorySystem();
+      const advText = $('advisoryText');
+      const advDot = $('advisoryDot');
 
-    const trafficVal = +controls.traffic.value;
-    const congestionFactor = trafficVal > 70 ? 0.3 : (100 - trafficVal) / 100;
-
-    cars.forEach(c => {
-      let currentSpeed = 0.05 + congestionFactor * 0.4;
-      
-      if (trafficLightState === 'RED') {
-        if (c.direction === -1 && c.mesh.position.x > 18 && c.mesh.position.x < 48) {
-          currentSpeed = 0; 
-        } else if (c.direction === 1 && c.mesh.position.x < -18 && c.mesh.position.x > -48) {
-          currentSpeed = 0; 
-        }
+      if (rainVal > 80) {
+        advText.textContent = "HIMBAUAN PINTAR: Hujan Sangat Lebat! Kurangi Kecepatan & Waspada Genangan Air.";
+        advDot.style.background = "var(--red)";
+      } else if (trafficLightState === 'RED' && trafficVal > 60) {
+        advText.textContent = "HIMBAUAN PINTAR: Lampu Merah Persimpangan Utama Aktif — Kendaraan Berhenti Padat.";
+        advDot.style.background = "var(--yellow)";
+      } else if (trafficLightState === 'RED') {
+        advText.textContent = "HIMBAUAN PINTAR: Lampu Merah Aktif — Harap Berhenti di Belakang Garis Stop.";
+        advDot.style.background = "var(--yellow)";
+      } else {
+        advText.textContent = "HIMBAUAN PINTAR: Arus Lalu Lintas Normal — Silakan Melaju dengan Aman.";
+        advDot.style.background = "var(--green)";
       }
 
-      c.mesh.position.x += currentSpeed * c.speedOffset;
-      if (c.mesh.position.x > 380) c.mesh.position.x = -380;
-      if (c.mesh.position.x < -380) c.mesh.position.x = 380;
-    });
+      cars.forEach(car => {
+        let speedMultiplier = (trafficVal / 50);
+        if (speedMultiplier < 0.2) speedMultiplier = 0.2;
+        let speed = car.userData.baseSpeed * speedMultiplier;
 
-    pedestrians.forEach(p => {
-      p.mesh.position.z += p.speed;
-      const walkCycle = Math.sin(Date.now() * 0.02 + p.mesh.position.z);
-      p.mesh.userData.legLeft.rotation.x = walkCycle * 0.5;
-      p.mesh.userData.legRight.rotation.x = -walkCycle * 0.5;
-      p.mesh.position.y = Math.abs(walkCycle) * 0.08;
+        if (trafficLightState === 'RED') {
+          roadOffsets.forEach(ro => {
+            if (car.userData.axis === 'x') {
+              if (car.userData.dir === 1 && car.position.x < ro - 12 && car.position.x > ro - 35) speed = 0;
+              if (car.userData.dir === -1 && car.position.x > ro + 12 && car.position.x < ro + 35) speed = 0;
+            } else if (car.userData.axis === 'z') {
+              if (car.userData.dir === 1 && car.position.z < ro - 12 && car.position.z > ro - 35) speed = 0;
+              if (car.userData.dir === -1 && car.position.z > ro + 12 && car.position.z < ro + 35) speed = 0;
+            }
+          });
+        }
 
-      if (p.mesh.position.z > 360) p.mesh.position.z = -360;
-    });
+        if (car.userData.axis === 'x') {
+          car.position.x += speed * car.userData.dir;
+          if(car.position.x > 450) car.position.x = -450;
+          if(car.position.x < -450) car.position.x = 450;
+        } else {
+          car.position.z += speed * car.userData.dir;
+          if(car.position.z > 450) car.position.z = -450;
+          if(car.position.z < -450) car.position.z = 450;
+        }
+      });
 
-    clouds.forEach(cl => {
-      cl.position.x += 0.015;
-      if(cl.position.x > 360) cl.position.x = -360;
-    });
-
-    const rainVal = +controls.rain.value;
-    if(rainDrops.length > 0) {
-      const rainSystem = rainDrops[0];
-      rainSystem.visible = rainVal > 2;
-      if(rainSystem.visible) {
+      if(rainVal > 5) {
+        rainSystem.visible = true;
         const positions = rainSystem.geometry.attributes.position.array;
-        const fallSpeed = 1.2 + (rainVal / 150) * 3.5;
-        for(let i = 1; i < positions.length; i += 3) {
-          positions[i] -= fallSpeed;
-          if(positions[i] < 0) positions[i] = 180;
+        for(let i = 1; i < rainCount * 3; i += 3) {
+          positions[i] -= (2 + (rainVal / 20));
+          if(positions[i] < 0) positions[i] = 200;
         }
         rainSystem.geometry.attributes.position.needsUpdate = true;
+      } else {
+        rainSystem.visible = false;
       }
+
+      renderer.render(scene, camera);
     }
 
-    const time = Date.now() * 0.00008;
-    camera.position.x = Math.cos(time) * 170;
-    camera.position.z = Math.sin(time) * 170;
-    camera.position.y = 105 + Math.sin(time * 2) * 15;
-    camera.lookAt(0, 4, 0);
+    animate3D();
 
-    renderer.render(scene, camera);
+    window.addEventListener('resize', () => {
+      if (!renderer) return;
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
   }
 
-  function airIndex(traffic,rain){return Math.max(12,Math.min(180,Math.round(22+traffic*.72+Math.max(0,30-rain)*.22)))}
-  function floodIndex(rain){return Math.min(98,Math.round(Math.max(0,rain-5)*.62+Math.max(0,rain-55)*.18+8))}
-  function labelClass(el, text, level){el.textContent='● '+text;el.className=level}
-  
-  function render(){
-    const t=+controls.traffic.value, r=+controls.rain.value, w=+controls.waste.value;
-    const f=floodIndex(r), a=airIndex(t,r);
-    $('trafficOut').textContent=t+'\%';$('rainOut').textContent=r+' mm/jam'; $('wasteOut').textContent=w+'\%';$('trafficMetric').innerHTML=t+'<span style="font-size:15px;color:var(--muted)">%</span>';
-    $('floodMetric').innerHTML=f+'<span style="font-size:15px;color:var(--muted)">%</span>';
-    $('airMetric').innerHTML=a+' <span style="font-size:15px;color:var(--muted)">AQI</span>';
-    $('wasteMetric').innerHTML=w+'<span style="font-size:15px;color:var(--muted)">%</span>';
-    labelClass($('trafficState'),t<35?'Lancar':t<68?'Mulai padat':'Padat',t<35?'positive':t<68?'warning':'danger');
-    labelClass($('floodState'),f<30?'Rendah':f<65?'Sedang':'Tinggi',f<30?'positive':f<65?'warning':'danger');
-    labelClass($('airState'),a<=50?'Baik':a<=100?'Sedang':'Kurang sehat',a<=50?'positive':a<=100?'warning':'danger');
-    labelClass($('wasteState'),w<50?'Terkendali':w<80?'Perlu dipantau':'Hampir penuh',w<50?'positive':w<80?'warning':'danger');
-    $('serviceTraffic').innerHTML=t+'\%<small>kepadatan</small>';$('serviceFlood').innerHTML=f+'%<small>risiko</small>';
-    $('serviceAir').innerHTML=a+' AQI<small>'+(a<=50?'baik':a<=100?'sedang':'perlu perhatian')+'</small>';$('serviceWaste').innerHTML=w+'%<small>terisi</small>';
-    const condition= t>68?'lalu lintas padat':t>35?'arus lalu lintas sedang':'arus lalu lintas lancar';
-    const rainText=f>65?'risiko genangan tinggi':f>30?'risiko genangan sedang':'risiko genangan rendah';
-    const wasteText=w>80?'kapasitas sampah hampir penuh':w>50?'kapasitas sampah perlu dipantau':'kapasitas sampah masih terkendali';
-    $('scenarioText').textContent=`Hasil skenario: ${condition}, ${rainText} (${r} mm/jam), dan ${wasteText}. Seluruh elemen terhubung dengan simulator 3D realistis.`;
-    const vals=[Math.max(8,100-t),Math.max(8,100-f),Math.max(8,100-Math.min(100,a)),Math.max(8,100-w)];
-    const names=['Lalu lintas','Genangan','Udara','Sampah'];
-    $('chart').innerHTML=vals.map((v,i)=>`<div class="bar-group"><div class="bar-value">${v}</div><div class="bar" style="height:${v}%"></div><div class="bar-label">${names[i]}</div></div>`).join('');
-    refreshMarkers(t, f);
-    updateWeatherDetection(r);
+  function renderChart(traffic, flood, waste) {
+    const chart = $('chart');
+    if (!chart) return;
+    chart.innerHTML = '';
+    zones.forEach((z, i) => {
+      const score = Math.max(10, Math.min(100, Math.round(100 - ((traffic * 0.4) + (flood * 0.4) + (waste * 0.2)) + (i * 3))));
+      const group = document.createElement('div');
+      group.className = 'bar-group';
+      group.innerHTML = `
+        <div class="bar-value">${score}</div>
+        <div class="bar" style="height:${Math.max(6, score)}%"></div>
+        <div class="bar-label">${z.name.replace('Kecamatan Medan ', '')}</div>
+      `;
+      chart.appendChild(group);
+    });
   }
 
-  function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2500)}
-  Object.values(controls).forEach(el=>el.addEventListener('input',render));
+  function updateAll() {
+    const traffic = parseInt(controls.traffic.value);
+    const rain = parseInt(controls.rain.value);
+    const waste = parseInt(controls.waste.value);
 
-  function toggleAutoSimulation() {
-    isAutoRunning = !isAutoRunning;
-    const runBtn = $('runBtn');
-    
-    if (isAutoRunning) {
-      runBtn.textContent = '⏸ Jeda simulasi gerak';
-      runBtn.style.background = 'linear-gradient(120deg, #ff647c, #ffd166)';
-      toast('Simulasi gerak otomatis diaktifkan.');
-      
-      autoInterval = setInterval(() => {
-        let t = parseInt(controls.traffic.value) + (Math.floor(Math.random() * 21) - 10);
-        let r = parseInt(controls.rain.value) + (Math.floor(Math.random() * 15) - 7);
-        let w = parseInt(controls.waste.value) + (Math.floor(Math.random() * 9) - 4);
+    const flood = Math.min(100, Math.round((rain * 0.55) + (waste * 0.25)));
 
-        controls.traffic.value = Math.max(10, Math.min(95, t));
-        controls.rain.value = Math.max(0, Math.min(130, r));
-        controls.waste.value = Math.max(20, Math.min(90, w));
+    $('trafficOut').textContent = traffic + '%';
+    $('rainOut').textContent = rain + ' mm/jam';$('wasteOut').textContent = waste + '%';
 
-        render();
-      }, 2500);
+    $('trafficMetric').innerHTML = `${traffic}<span style="font-size:15px;color:var(--muted)">%</span>`;
+    $('trafficState').className = traffic > 70 ? 'danger' : traffic > 40 ? 'warning' : 'positive';$('trafficState').textContent = traffic > 70 ? '● Sangat Padat' : traffic > 40 ? '● Padat' : '● Arus Lancar';
+
+    $('floodMetric').innerHTML = `${flood}<span style="font-size:15px;color:var(--muted)">%</span>`;
+    $('floodState').className = flood > 65 ? 'danger' : flood > 35 ? 'warning' : 'positive';$('floodState').textContent = flood > 65 ? '● Risiko Tinggi' : flood > 35 ? '● Waspada' : '● Rendah';
+
+    $('serviceTraffic').innerHTML = `${traffic}%<small>kepadatan</small>`;
+    $('serviceFlood').innerHTML = `${flood}%<small>risiko</small>`;
+    $('serviceWaste').innerHTML = `${waste}%<small>terisi</small>`;
+
+    $('aiTrafficPredict').textContent = traffic > 65 ? 'Pengalihan AI' : 'Optimasi +18\%';$('aiFloodPredict').textContent = flood > 65 ? '⚠️ Bahaya' : flood > 35 ? 'Waspada' : 'Rendah (Aman)';
+    $('aiFloodPredict').style.color = flood > 65 ? 'var(--red)' : flood > 35 ? 'var(--yellow)' : 'var(--green)';
+
+    const ecoScore = Math.max(10, Math.round(100 - (traffic * 0.3 + rain * 0.2 + waste * 0.3)));
+    $('aiEcoPredict').textContent = `${ecoScore} / 100`;
+
+    updateWeatherDetection(rain);
+    refreshMarkers(traffic, flood);
+    renderChart(traffic, flood, waste);
+  }
+
+  const aiChatBox = $('aiChatBox');
+  const aiInput = $('aiInput');
+  const aiSendBtn = $('aiSendBtn');
+
+  function appendMessage(sender, text) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `msg ${sender}`;
+    if (sender === 'bot') {
+      msgDiv.innerHTML = `<div class="msg-ai-header">🤖 AI Urban Advisory</div>${text}`;
     } else {
-      runBtn.textContent = '▶ Jalankan simulasi';
-      runBtn.style.background = '';
-      clearInterval(autoInterval);
-      toast('Simulasi bergerak dijeda.');
+      msgDiv.textContent = text;
     }
+    aiChatBox.appendChild(msgDiv);
+    aiChatBox.scrollTop = aiChatBox.scrollHeight;
   }
 
-  $('runBtn').onclick = toggleAutoSimulation;
+  function processAiQuery(query) {
+    const traffic = controls.traffic.value;
+    const rain = controls.rain.value;
+    const waste = controls.waste.value;
+    const q = query.toLowerCase();
 
-  $('randomBtn').addEventListener('click', () => {
-    controls.traffic.value = Math.floor(Math.random() * 101);
-    controls.rain.value = Math.floor(Math.random() * 151);
-    controls.waste.value = Math.floor(Math.random() * 101);
-    render();
-    toast('Skenario acak berhasil dimuat.');
+    let response = "";
+
+    if (q.includes("macet") || q.includes("lalu lintas") || q.includes("traffic")) {
+      response = `Saat ini kepadatan lalu lintas berada pada level **${traffic}%**. ${traffic > 60 ? 'AI merekomendasikan pengalihan rute lalu lintas di kawasan utama Medan.' : 'Arus lalu lintas terpantau relatif lancar dan stabil.'}`;
+    } else if (q.includes("banjir") || q.includes("hujan") || q.includes("genangan")) {
+      const floodRisk = Math.min(100, Math.round((rain * 0.55) + (waste * 0.25)));
+      response = `Dengan intensitas hujan **${rain} mm/jam** dan volume sampah **${waste}%**, estimasi risiko genangan air adalah **${floodRisk}%**. ${floodRisk > 50 ? '⚠️ AI menyarankan pembersihan gorong-gorong dan siaga pintu air di wilayah Medan Johor & Sunggal.' : 'Kondisi drainase masih dalam batas normal.'}`;
+    } else if (q.includes("rekomendasi") || q.includes("optimasi") || q.includes("saran")) {
+      response = `✨ **Rekomendasi AI Medan Smart City**:
+1. Sesuaikan interval durasi lampu merah di simpang padat.
+2. Siagakan tim kebersihan di zona sampah berkapasitas > 60%.
+3. Pantau sistem peringatan dini hujan di wilayah Medan Johor.`;
+    } else {
+      response = `Terima kasih atas pertanyaannya. Berdasarkan parameter saat ini (Kepadatan: ${traffic}%, Hujan: ${rain} mm/jam), sistem AI terus memantau dan mengoptimalkan simulasi perkotaan Medan secara real-time.`;
+    }
+
+    setTimeout(() => {
+      appendMessage('bot', response);
+    }, 400);
+  }
+
+  aiSendBtn.onclick = () => {
+    const txt = aiInput.value.trim();
+    if (!txt) return;
+    appendMessage('user', txt);
+    aiInput.value = '';
+    processAiQuery(txt);
+  };
+
+  aiInput.onkeypress = (e) => {
+    if (e.key === 'Enter') aiSendBtn.click();
+  };
+
+  window.sendQuickPrompt = (promptText) => {
+    appendMessage('user', promptText);
+    processAiQuery(promptText);
+  };
+
+  $('aiOptimizeBtn').onclick = () => {
+    controls.traffic.value = 32;
+    controls.rain.value = 15;
+    controls.waste.value = 35;
+    updateAll();
+    showToast("✨ Parameter dioptimalkan secara otomatis oleh AI!");
+    appendMessage('bot', '✨ **AI Optimization Active**: Kepadatan kendaraan diturunkan ke 32% dan curah hujan dijaga pada tingkat aman.');
+  };
+
+  $('randomBtn').onclick = () => {
+    controls.traffic.value = Math.floor(Math.random() * 85) + 10;
+    controls.rain.value = Math.floor(Math.random() * 130);
+    controls.waste.value = Math.floor(Math.random() * 80) + 10;
+    updateAll();
+    showToast("🎲 Skenario acak AI diterapkan");
+  };
+
+  $('resetBtn').onclick = () => {
+    controls.traffic.value = 42;
+    controls.rain.value = 25;
+    controls.waste.value = 64;
+    updateAll();
+    showToast("↻ Simulasi direset");
+  };
+
+  $('runBtn').onclick = () => {
+    isAutoRunning = !isAutoRunning;
+    const btn = $('runBtn');
+    if (isAutoRunning) {
+      btn.textContent = "⏸ Hentikan simulasi";
+      autoInterval = setInterval(() => {
+        controls.traffic.value = (parseInt(controls.traffic.value) + 7) % 100;
+        updateAll();
+      }, 1500);
+      showToast("▶ Simulasi gerak otomatis berjalan");
+    } else {
+      btn.textContent = "▶ Jalankan simulasi";
+      clearInterval(autoInterval);
+      showToast("⏸ Simulasi dihentikan");
+    }
+  };
+
+  function showToast(msg) {
+    const toast = $('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+
+  Object.values(controls).forEach(c => c.addEventListener('input', updateAll));
+
+  window.addEventListener('DOMContentLoaded', () => {
+    initMap2D();
+    init3D();
+    updateAll();
   });
-
-  initMap2D();
-  init3D();
-  render();
 })();
 </script>
 </body>
