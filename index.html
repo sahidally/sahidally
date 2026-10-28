@@ -12,7 +12,7 @@
   <style>
     :root{--bg:#071426;--panel:#0c1d33;--panel2:#102641;--line:#1b3857;--text:#edf6ff;--muted:#8ca7c4;--cyan:#36d9ff;--blue:#4388ff;--green:#4ce0a1;--yellow:#ffd166;--red:#ff647c;--purple:#a855f7;--pink:#ec4899}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123c63 0,transparent 38%),radial-gradient(ellipse at -10% 50%,#1a1033 0,transparent 35%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:rgba(5,17,32,.92);border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;color:#041426;font-size:22px;box-shadow:0 0 28px #36d9ff30}.brand strong{font-family:"Space Grotesk";font-size:16px;display:block}.brand small{font-size:11px;color:var(--muted)}.nav-label{color:#587797;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:700;padding:0 12px}.nav{display:grid;gap:7px}.nav a{display:flex;align-items:center;gap:12px;color:#91aac5;text-decoration:none;padding:12px;border-radius:10px;font-size:13px;transition:.2s}.nav a:hover,.nav a.active{color:#fff;background:linear-gradient(90deg,#163a5b,#102641);border:1px solid #234b70}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;background:#0c2037;border:1px solid var(--line);padding:14px;border-radius:14px}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);margin-right:7px}.side-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:9px 0 0}.main{padding:27px clamp(16px,3vw,38px) 30px;min-width:0;max-width:1700px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase;font-weight:700}.topbar h1{font:600 clamp(23px,3vw,31px) "Space Grotesk";margin:6px 0}.sub{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.status{padding:9px 12px;border:1px solid #245342;background:#0d2b2a;border-radius:10px;font-size:11px;color:#8af0c3;white-space:nowrap}.btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:10px 14px;border-radius:10px;font-weight:600;font-size:12px;transition:.2s;display:inline-flex;align-items:center;gap:6px}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}.btn.ai-btn{border:0;background:linear-gradient(120deg,var(--purple),var(--pink));color:#fff}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}.metric{padding:17px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-38px;background:#36d9ff0c}.metric-head{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.metric-icon{width:32px;height:32px;border-radius:9px;background:#173754;display:grid;place-items:center;font-size:16px}.metric-value{font:700 28px "Space Grotesk";margin:15px 0 7px}.metric-foot{font-size:11px;color:var(--muted)}.positive{color:var(--green)}.warning{color:var(--yellow)}.danger{color:var(--red)}.content-grid{display:grid;grid-template-columns:1fr;gap:17px;margin-bottom:17px}.panel{padding:18px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font:600 16px "Space Grotesk";margin:0 0 5px}.panel-desc{font-size:11px;color:var(--muted);line-height:1.5}
-    
+
     .tab-switcher{display:flex;gap:8px;background:#081726;padding:4px;border-radius:10px;border:1px solid #1c3854;}
     .tab-btn{border:0;background:transparent;color:var(--muted);padding:8px 14px;border-radius:8px;font-size:11px;font-weight:600;transition:.2s;}
     .tab-btn.active{background:var(--cyan);color:#041426;box-shadow:0 0 12px rgba(54,217,255,0.3);}
@@ -21,9 +21,16 @@
     #map2dContainer, #canvas3dContainer{height:100%;width:100%;position:absolute;top:0;left:0;display:none;}
     #map2dContainer.active, #canvas3dContainer.active{display:block;}
     #map2d, #canvas3d{height:100%;width:100%;}
-    
+
     .map-overlay{position:absolute;z-index:500;left:10px;bottom:10px;background:#071426e8;border:1px solid #24415e;padding:6px 12px;border-radius:8px;font-size:11px;color:#c5d9ee;backdrop-filter:blur(8px);display:flex;align-items:center;gap:8px}
-    
+
+    .signal-badge{position:absolute;z-index:500;right:10px;bottom:10px;background:#071426e8;border:1px solid #24415e;padding:6px 10px;border-radius:8px;font-size:10px;color:#c5d9ee;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .sig-chip{padding:2px 7px;border-radius:6px;font-weight:700;border:1px solid}
+    .sig-chip.green{background:#0d2b20;border-color:#1f6b4a;color:#4ce0a1}
+    .sig-chip.red{background:#33121a;border-color:#7a2a3a;color:#ff647c}
+    .sig-chip.yellow{background:#33290d;border-color:#7a6a1f;color:#ffd166}
+    .sig-timer{font:700 12px "Space Grotesk";color:var(--cyan);min-width:22px;text-align:right}
+
     .weather-radar-badge{position:absolute;top:10px;left:10px;z-index:500;background:rgba(12,29,51,0.9);border:1px solid var(--cyan);padding:6px 12px;border-radius:10px;font-size:10px;color:#e8faff;backdrop-filter:blur(6px);display:flex;align-items:center;gap:6px;}
     .weather-radar-badge span.pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);animation:pulse 1.5s infinite;}
 
@@ -115,7 +122,7 @@
   </aside>
   <main class="main" id="dashboard">
     <header class="topbar">
-      <div><div class="eyebrow">Pusat kendali perkotaan • Integrated AI Engine</div><h1>Medan Smart City</h1><div class="sub">Simulator Kota Medan dengan Navigasi Kamera 3D, Lampu Merah Interaktif & Asisten AI Chatbot</div></div>
+      <div><div class="eyebrow">Pusat kendali perkotaan • Integrated AI Engine</div><h1>Medan Smart City</h1><div class="sub">Simulator Kota Medan dengan Navigasi Kamera 3D, Lampu Merah Interlocking & Asisten AI Chatbot</div></div>
       <div class="top-actions">
         <div class="status"><span class="live-dot"></span>3D MAP & AI ONLINE</div>
         <button class="btn ai-btn" id="aiOptimizeBtn">✨ Optimasi AI</button>
@@ -128,7 +135,7 @@
       <article class="metric"><div class="metric-head">Kualitas udara <span class="metric-icon">🌿</span></div><div class="metric-value" id="airMetric">32 <span style="font-size:15px;color:var(--muted)">AQI</span></div><div class="metric-foot"><span class="positive" id="airState">● Baik</span> · nilai contoh</div></article>
       <article class="metric"><div class="metric-head">Kapasitas sampah <span class="metric-icon">♻️</span></div><div class="metric-value" id="wasteMetric">64<span style="font-size:15px;color:var(--muted)">%</span></div><div class="metric-foot"><span class="warning" id="wasteState">● Perlu dipantau</span> · kapasitas contoh</div></article>
     </section>
-    
+
     <section class="content-grid">
       <article class="panel" id="peta">
         <div class="panel-head">
@@ -141,7 +148,7 @@
             <button class="tab-btn active" id="btnSim3D">Simulasi 3D Realistis</button>
           </div>
         </div>
-        
+
         <div class="map-box">
           <div id="map2dContainer">
             <div id="map2d"></div>
@@ -159,7 +166,7 @@
               <span class="dot" id="advisoryDot"></span>
               <span id="advisoryText">Memuat status lalu lintas...</span>
             </div>
-            
+
             <div class="ai-sensor-widget">
               <div class="sensor-signal">
                 <div class="signal-bar"></div>
@@ -173,9 +180,16 @@
             <div class="map-overlay">
               <span>🖱️ Scroll: Zoom | Klik + Geser: Putar Kamera Kota 3D</span>
             </div>
+
+            <div class="signal-badge">
+              <strong style="color:var(--cyan)">INTERLOCKING</strong>
+              <span class="sig-chip green" id="sigEW">T–B: HIJAU</span>
+              <span class="sig-chip red" id="sigNS">U–S: MERAH</span>
+              <span class="sig-timer" id="sigTimer">5s</span>
+            </div>
           </div>
         </div>
-        
+
         <div class="legend"><span><i style="background:#4ce0a1"></i>Lancar/Aman</span><span><i style="background:#ffd166"></i>Padat</span><span><i style="background:#ff647c"></i>Risiko tinggi</span><span>ⓘ Kamera Orbit 3D Bebas Di-Scroll</span></div>
       </article>
     </section>
@@ -244,7 +258,7 @@
       <article class="panel" id="simulator">
         <div class="panel-head"><div><h2>Kontrol Simulasi</h2><div class="panel-desc">Ubah parameter atau jalankan simulasi gerak otomatis</div></div><span class="pill">INTERAKTIF</span></div>
         <div class="control-list">
-          <div class="control"><div class="control-top"><strong>🚗 Kepadatan kendaraan (Kecepatan Mobil 3D)</strong><output id="trafficOut">42%</output></div><input type="range" id="trafficRange" min="0" max="100" value="42"><div class="range-labels"><span>Sepi</span><span>Padat</span></div><div class="control-note">Mengatur jumlah lalu lintas dan kecepatan mobil yang bergerak di model 3D kota.</div></div>
+          <div class="control"><div class="control-top"><strong>🚗 Kepadatan kendaraan (Jumlah Kendaraan 3D)</strong><output id="trafficOut">42%</output></div><input type="range" id="trafficRange" min="0" max="100" value="42"><div class="range-labels"><span>Sepi</span><span>Padat</span></div><div class="control-note">Mengatur jumlah kendaraan di model 3D kota. Semakin padat, semakin panjang antrean yang berbaris rapi di lampu merah.</div></div>
           <div class="control"><div class="control-top"><strong>🌧️ Intensitas curah hujan</strong><output id="rainOut">25 mm/jam</output></div><input type="range" id="rainRange" min="0" max="150" value="25"><div class="range-labels"><span>0 mm</span><span>150 mm</span></div><div class="control-note">Mengubah efek turunnya hujan secara real-time di animasi 3D dan peta 2D.</div></div>
           <div class="control"><div class="control-top"><strong>♻️ Volume sampah</strong><output id="wasteOut">64%</output></div><input type="range" id="wasteRange" min="0" max="100" value="64"><div class="range-labels"><span>Rendah</span><span>Penuh</span></div></div>
         </div>
@@ -275,10 +289,14 @@
         </div>
         <div class="faq-item">
           <div class="faq-question">3. Bagaimana cara kerja Sistem Himbauan Pintar?</div>
-          <div class="faq-answer">Sistem himbauan otomatis mendeteksi status lampu merah, tingkat kepadatan kendaraan, serta intensitas curah hujan secara real-time, lalu memunculkan banner peringatan atau instruksi keselamatan secara langsung di layar simulator untuk pengendara dan warga.</div>
+          <div class="faq-answer">Sistem himbauan otomatis mendeteksi status lampu lalu lintas, tingkat kepadatan kendaraan, serta intensitas curah hujan secara real-time, lalu memunculkan banner peringatan atau instruksi keselamatan secara langsung di layar simulator untuk pengendara dan warga.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">4. Siapa pengembang proyek demonstrasi ini?</div>
+          <div class="faq-question">4. Bagaimana lampu interlocking dan antrean kendaraan bekerja?</div>
+          <div class="faq-answer">Di setiap persimpangan, jalur Timur–Barat dan Utara–Selatan tidak pernah hijau bersamaan. Siklusnya: Timur–Barat hijau 5 detik, kuning (semua berhenti) 2 detik, lalu Utara–Selatan hijau 5 detik, kuning 2 detik, dan seterusnya. Kendaraan berhenti tepat di garis stop saat lampu tidak hijau, dan kendaraan di belakangnya berhenti berbaris rapi menjaga jarak aman tanpa bertabrakan.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">5. Siapa pengembang proyek demonstrasi ini?</div>
           <div class="faq-answer">Proyek demonstrasi ini dikembangkan oleh tim di bawah pimpinan Sahid Ally (Leader), Andrea Gilbert (Deputy Leader), dan Fany Yosevin S. (Manajer) dari PT Masa Depan Telkom University.</div>
         </div>
       </div>
@@ -307,10 +325,109 @@
   const $ = id => document.getElementById(id);
   const controls = {traffic:$('trafficRange'), rain:$('rainRange'), waste:$('wasteRange')};
   let map2d, markers = [];
-  let scene, camera, renderer, orbitControls, cars = [], trafficLights = [], rainDrops = [], animationFrameId;
+  let scene, camera, renderer, orbitControls, animationFrameId;
   let isAutoRunning = false, autoInterval = null;
-  let trafficLightTimer = 0;
-  let trafficLightState = 'GREEN';
+
+  // ====== PARAMETER LALU LINTAS (dari simulator Kotamobagu: interlocking + antrean) ======
+  const ROAD_OFFSETS = [-240, -120, 0, 120, 240];   // posisi jalan di grid kota
+  const STOP_OFFSET = 14;                            // jarak garis stop dari pusat persimpangan
+  const MAX_PER_LANE = 14;                           // kendaraan maksimum per lajur
+  const MIN_GAP = 3;                                 // jarak aman antar bumper
+  const WRAP_LIMIT = 450;                            // batas peta; kendaraan muncul lagi di sisi seberang
+
+  // Fase interlocking: sumbu x = Timur-Barat, sumbu z = Utara-Selatan.
+  // Fase kuning/semua-berhenti memberi waktu persimpangan dikosongkan sebelum arah lain hijau.
+  const PHASES = [
+    {id:'X_GREEN', dur:5, x:'GREEN',  z:'RED'},
+    {id:'X_CLEAR', dur:2, x:'YELLOW', z:'RED'},
+    {id:'Z_GREEN', dur:5, x:'RED',    z:'GREEN'},
+    {id:'Z_CLEAR', dur:2, x:'RED',    z:'YELLOW'}
+  ];
+
+  let lanes = [];            // setiap lajur: {axis, dir, fixed, cars:[]}
+  let signalMats = null;     // material bohlam bersama: {x:{red,yellow,green}, z:{...}}
+  let signal = {i:0, t:0};   // indeks fase & waktu berjalan (detik)
+  let lastBadgeKey = '';
+  let lastAdvisory = '';
+
+  function applySignalColors() {
+    if (!signalMats) return;
+    const p = PHASES[signal.i];
+    ['x', 'z'].forEach(ax => {
+      const s = p[ax], m = signalMats[ax];
+      m.red.color.setHex(s === 'RED' ? 0xff2222 : 0x330000);
+      m.yellow.color.setHex(s === 'YELLOW' ? 0xffcc00 : 0x332900);
+      m.green.color.setHex(s === 'GREEN' ? 0x00ff55 : 0x003311);
+    });
+  }
+
+  function updateSignalBadge(force) {
+    const p = PHASES[signal.i];
+    const remain = Math.max(0, Math.ceil(p.dur - signal.t));
+    const key = signal.i + ':' + remain;
+    if (!force && key === lastBadgeKey) return;
+    lastBadgeKey = key;
+    const label = s => s === 'GREEN' ? 'HIJAU' : s === 'YELLOW' ? 'KUNING' : 'MERAH';
+    const ew = $('sigEW'), ns = $('sigNS');
+    ew.textContent = 'T–B: ' + label(p.x);
+    ew.className = 'sig-chip ' + p.x.toLowerCase();
+    ns.textContent = 'U–S: ' + label(p.z);
+    ns.className = 'sig-chip ' + p.z.toLowerCase();
+    $('sigTimer').textContent = remain + 's';
+  }
+
+  function stepSignal(dt) {
+    signal.t += dt;
+    const p = PHASES[signal.i];
+    if (signal.t >= p.dur) {
+      signal.t -= p.dur;
+      signal.i = (signal.i + 1) % PHASES.length;
+      applySignalColors();
+    }
+    updateSignalBadge(false);
+  }
+
+  function resetSignalCycle() {
+    signal.i = 0;
+    signal.t = 0;
+    applySignalColors();
+    updateSignalBadge(true);
+  }
+
+  function updateAdvisory(rainVal, trafficVal) {
+    const p = PHASES[signal.i];
+    let text, color;
+    if (rainVal > 80) {
+      text = 'HIMBAUAN PINTAR: Hujan Sangat Lebat! Kurangi Kecepatan & Waspada Genangan Air.';
+      color = 'var(--red)';
+    } else if (p.x === 'YELLOW' || p.z === 'YELLOW') {
+      text = 'HIMBAUAN PINTAR: Lampu Kuning — Kendaraan Bersiap Berhenti di Belakang Garis Stop.';
+      color = 'var(--yellow)';
+    } else if (p.x === 'GREEN') {
+      text = 'HIMBAUAN PINTAR: Jalur Timur–Barat HIJAU (Maju) — Jalur Utara–Selatan MERAH (Berhenti Berbaris Rapi).';
+      color = trafficVal > 60 ? 'var(--yellow)' : 'var(--green)';
+    } else {
+      text = 'HIMBAUAN PINTAR: Jalur Utara–Selatan HIJAU (Maju) — Jalur Timur–Barat MERAH (Berhenti Berbaris Rapi).';
+      color = trafficVal > 60 ? 'var(--yellow)' : 'var(--green)';
+    }
+    const key = text + color;
+    if (key !== lastAdvisory) {
+      lastAdvisory = key;
+      $('advisoryText').textContent = text;
+      $('advisoryDot').style.background = color;
+    }
+  }
+
+  // Slider kepadatan -> jumlah kendaraan aktif per lajur
+  function applyDensity(traffic) {
+    if (!lanes.length) return;
+    const count = Math.round(3 + (traffic / 100) * (MAX_PER_LANE - 3));
+    lanes.forEach(l => l.cars.forEach(c => {
+      const on = c.userData.rank < count;
+      c.userData.active = on;
+      c.visible = on;
+    }));
+  }
 
   const btnMap2D = $('btnMap2D');
   const btnSim3D = $('btnSim3D');
@@ -386,7 +503,7 @@
   }
 
   function init3D(){
-    if (scene) return; 
+    if (scene) return;
     const container = $('canvas3d');
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x040b14);
@@ -435,11 +552,11 @@
     scene.add(ground);
 
     const roadMat = new THREE.MeshStandardMaterial({color: 0x111924, roughness: 0.5});
-    
+
     // KISI-KISI JALAN KOTA (Lebar jalan = 24 unit)
-    const roadOffsets = [-240, -120, 0, 120, 240];
-    const roadHalfWidth = 12; // Setengah dari lebar jalan 24
-    const treeBuffer = 5;      // Jarak aman luar jalan
+    const roadOffsets = ROAD_OFFSETS;
+    const roadHalfWidth = 12;
+    const treeBuffer = 5;
 
     roadOffsets.forEach(offset => {
       const roadX = new THREE.Mesh(new THREE.BoxGeometry(1000, 0.1, 24), roadMat);
@@ -461,9 +578,7 @@
       return group;
     }
 
-    // FUNGSI CEK ATAU CEGAH POHON DIPASANG DI ATAS JALAN
     function isPositionOnRoad(x, z) {
-      for (let i = 0; i < roadOffsets.forEach; i++) {}
       for (let ro of roadOffsets) {
         if (Math.abs(z - ro) < (roadHalfWidth + 1)) return true;
         if (Math.abs(x - ro) < (roadHalfWidth + 1)) return true;
@@ -474,9 +589,8 @@
     // PENEMPATAN POHON DI PINGGIR TROTOAR (TIDAK MASUK AREA JALAN)
     roadOffsets.forEach(offset => {
       for(let pos = -450; pos <= 450; pos += 32) {
-        const sideDistance = roadHalfWidth + treeBuffer; // 12 + 5 = 17 unit dari pusat jalan
+        const sideDistance = roadHalfWidth + treeBuffer;
 
-        // Sisi jalan Horizontal (X)
         const zUpper = offset + sideDistance;
         const zLower = offset - sideDistance;
         if (!isPositionOnRoad(pos, zUpper)) {
@@ -486,7 +600,6 @@
           const t2 = createTree(); t2.position.set(pos, 0, zLower); scene.add(t2);
         }
 
-        // Sisi jalan Vertikal (Z)
         const xUpper = offset + sideDistance;
         const xLower = offset - sideDistance;
         if (!isPositionOnRoad(xUpper, pos)) {
@@ -498,47 +611,78 @@
       }
     });
 
-    function createTrafficLight() {
+    // ====== TIANG LAMPU INTERLOCKING ======
+    // Bohlam memakai material bersama per sumbu, jadi satu perubahan warna langsung berlaku di semua persimpangan.
+    signalMats = {};
+    ['x', 'z'].forEach(ax => {
+      signalMats[ax] = {
+        red:    new THREE.MeshBasicMaterial({color: 0x330000}),
+        yellow: new THREE.MeshBasicMaterial({color: 0x332900}),
+        green:  new THREE.MeshBasicMaterial({color: 0x003311})
+      };
+    });
+
+    const poleGeo = new THREE.CylinderGeometry(0.2, 0.2, 5, 8);
+    const poleMat = new THREE.MeshStandardMaterial({color: 0x222222, metalness: 0.8});
+    const boxGeo = new THREE.BoxGeometry(0.6, 1.4, 0.5);
+    const boxMat = new THREE.MeshStandardMaterial({color: 0x111111});
+    const bulbGeo = new THREE.SphereGeometry(0.18, 12, 12);
+
+    function createSignalPole(mats, rotY) {
       const group = new THREE.Group();
-      const poleMat = new THREE.MeshStandardMaterial({color: 0x222222, metalness: 0.8});
-      const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 5, 8), poleMat);
+      const pole = new THREE.Mesh(poleGeo, poleMat);
       pole.position.y = 2.5; pole.castShadow = true; group.add(pole);
 
-      const boxMat = new THREE.MeshStandardMaterial({color: 0x111111});
-      const box = new THREE.Mesh(new THREE.BoxGeometry(0.6, 1.4, 0.5), boxMat);
+      const box = new THREE.Mesh(boxGeo, boxMat);
       box.position.set(0, 4.5, 0); group.add(box);
 
-      const redMat = new THREE.MeshBasicMaterial({color: 0xff3333});
-      const redLight = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), redMat);
-      redLight.position.set(0, 5.0, 0.28); group.add(redLight);
+      const red = new THREE.Mesh(bulbGeo, mats.red);
+      red.position.set(0, 5.0, 0.28); group.add(red);
+      const yellow = new THREE.Mesh(bulbGeo, mats.yellow);
+      yellow.position.set(0, 4.5, 0.28); group.add(yellow);
+      const green = new THREE.Mesh(bulbGeo, mats.green);
+      green.position.set(0, 4.0, 0.28); group.add(green);
 
-      const yellowMat = new THREE.MeshBasicMaterial({color: 0x555500});
-      const yellowLight = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), yellowMat);
-      yellowLight.position.set(0, 4.5, 0.28); group.add(yellowLight);
-
-      const greenMat = new THREE.MeshBasicMaterial({color: 0x00ff55});
-      const greenLight = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), greenMat);
-      greenLight.position.set(0, 4.0, 0.28); group.add(greenLight);
-
-      group.userData = {redLight, redMat, greenLight, greenMat};
+      group.rotation.y = rotY;
       return group;
     }
 
+    // Garis stop (putih) di tiap mulut persimpangan
+    const stopMat = new THREE.MeshBasicMaterial({color: 0xcfd8e3});
+    const stopGeoX = new THREE.BoxGeometry(1.2, 0.04, 11); // untuk lajur sumbu x
+    const stopGeoZ = new THREE.BoxGeometry(11, 0.04, 1.2); // untuk lajur sumbu z
+
+    function addStopLine(geo, x, z) {
+      const m = new THREE.Mesh(geo, stopMat);
+      m.position.set(x, 0.12, z);
+      scene.add(m);
+    }
+
+    const S = STOP_OFFSET;
     roadOffsets.forEach(rx => {
       roadOffsets.forEach(rz => {
-        const tl = createTrafficLight();
-        tl.position.set(rx + 14, 0, rz + 14);
-        scene.add(tl);
-        trafficLights.push(tl);
+        // Sumbu x (Timur-Barat): tiang menghadap pengemudi yang mendekat
+        let p;
+        p = createSignalPole(signalMats.x, -Math.PI / 2); p.position.set(rx - S, 0, rz + S); scene.add(p); // arah timur (+x)
+        p = createSignalPole(signalMats.x,  Math.PI / 2); p.position.set(rx + S, 0, rz - S); scene.add(p); // arah barat (-x)
+        // Sumbu z (Utara-Selatan)
+        p = createSignalPole(signalMats.z,  Math.PI);     p.position.set(rx - S, 0, rz - S); scene.add(p); // arah +z
+        p = createSignalPole(signalMats.z,  0);           p.position.set(rx + S, 0, rz + S); scene.add(p); // arah -z
+
+        addStopLine(stopGeoX, rx - S, rz + 6);  // timur (+x)
+        addStopLine(stopGeoX, rx + S, rz - 6);  // barat (-x)
+        addStopLine(stopGeoZ, rx - 6, rz - S);  // +z
+        addStopLine(stopGeoZ, rx + 6, rz + S);  // -z
       });
     });
+    applySignalColors();
 
     const bColors = [0x1e3552, 0x14273d, 0x244263, 0x19304a, 0x2b4f75];
     for(let x = -400; x <= 400; x += 36) {
       for(let z = -400; z <= 400; z += 36) {
         let onRoad = false;
         roadOffsets.forEach(ro => { if(Math.abs(x - ro) < 18 || Math.abs(z - ro) < 18) onRoad = true; });
-        if(onRoad) continue; 
+        if(onRoad) continue;
 
         const height = 30 + Math.random() * 85;
         const bMat = new THREE.MeshStandardMaterial({color: bColors[Math.floor(Math.random()*bColors.length)], roughness: 0.15, metalness: 0.6});
@@ -552,50 +696,98 @@
       }
     }
 
-    function createDetailedCar(colorHex) {
+    // ====== KENDARAAN (mobil & bus) ======
+    const vGeo = {
+      carBody:  new THREE.BoxGeometry(4.2, 1.2, 2.0),
+      carCabin: new THREE.BoxGeometry(2.2, 0.9, 1.8),
+      carLamp:  new THREE.BoxGeometry(0.1, 0.25, 1.6),
+      busBody:  new THREE.BoxGeometry(8.6, 2.4, 2.3),
+      busWin:   new THREE.BoxGeometry(8.0, 0.8, 2.34),
+      busLamp:  new THREE.BoxGeometry(0.1, 0.35, 2.0)
+    };
+    const cabinMat = new THREE.MeshStandardMaterial({color: 0x050a10, roughness: 0.1, metalness: 0.9});
+    const headMat = new THREE.MeshBasicMaterial({color: 0xffffaa});
+    const tailMat = new THREE.MeshBasicMaterial({color: 0xff2222});
+    const bodyMatCache = {};
+
+    function createVehicle(colorHex, isBus) {
       const group = new THREE.Group();
-      const bodyMat = new THREE.MeshStandardMaterial({color: colorHex, roughness: 0.3, metalness: 0.5});
-      const body = new THREE.Mesh(new THREE.BoxGeometry(4.2, 1.2, 2.0), bodyMat);
-      body.position.y = 0.8; body.castShadow = true; group.add(body);
+      if (!bodyMatCache[colorHex]) {
+        bodyMatCache[colorHex] = new THREE.MeshStandardMaterial({color: colorHex, roughness: 0.3, metalness: 0.5});
+      }
+      const bodyMat = bodyMatCache[colorHex];
 
-      const cabinMat = new THREE.MeshStandardMaterial({color: 0x050a10, roughness: 0.1, metalness: 0.9});
-      const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.9, 1.8), cabinMat);
-      cabin.position.set(-0.2, 1.65, 0); cabin.castShadow = true; group.add(cabin);
-
-      const lightMat = new THREE.MeshBasicMaterial({color: 0xffffaa});
-      const h1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), lightMat);
-      h1.position.set(2.1, 0.8, 0.7); group.add(h1);
-      const h2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), lightMat);
-      h2.position.set(2.1, 0.8, -0.7); group.add(h2);
-
-      const tailMat = new THREE.MeshBasicMaterial({color: 0xff2222});
-      const t1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), tailMat);
-      t1.position.set(-2.1, 0.8, 0.7); group.add(t1);
-      const t2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.4), tailMat);
-      t2.position.set(-2.1, 0.8, -0.7); group.add(t2);
-
+      if (!isBus) {
+        const body = new THREE.Mesh(vGeo.carBody, bodyMat);
+        body.position.y = 0.8; body.castShadow = true; group.add(body);
+        const cabin = new THREE.Mesh(vGeo.carCabin, cabinMat);
+        cabin.position.set(-0.2, 1.65, 0); group.add(cabin);
+        const head = new THREE.Mesh(vGeo.carLamp, headMat);
+        head.position.set(2.1, 0.8, 0); group.add(head);
+        const tail = new THREE.Mesh(vGeo.carLamp, tailMat);
+        tail.position.set(-2.1, 0.8, 0); group.add(tail);
+      } else {
+        const body = new THREE.Mesh(vGeo.busBody, bodyMat);
+        body.position.y = 1.5; body.castShadow = true; group.add(body);
+        const win = new THREE.Mesh(vGeo.busWin, cabinMat);
+        win.position.set(0, 2.0, 0); group.add(win);
+        const head = new THREE.Mesh(vGeo.busLamp, headMat);
+        head.position.set(4.3, 0.9, 0); group.add(head);
+        const tail = new THREE.Mesh(vGeo.busLamp, tailMat);
+        tail.position.set(-4.3, 0.9, 0); group.add(tail);
+      }
       return group;
     }
 
-    const carColors = [0x36d9ff, 0xff647c, 0xffd166, 0x4ce0a1, 0xe0e6ed];
-    
-    roadOffsets.forEach((offset, idx) => {
-      for(let i = 0; i < 4; i++) {
-        const carX = createDetailedCar(carColors[(i + idx) % carColors.length]);
-        const dirX = i % 2 === 0 ? 1 : -1;
-        carX.position.set((Math.random() - 0.5) * 800, 0, offset + (dirX === 1 ? 4 : -4));
-        if(dirX === -1) carX.rotation.y = Math.PI;
-        carX.userData = { axis: 'x', dir: dirX, baseSpeed: 0.4 + Math.random() * 0.3 };
-        scene.add(carX); cars.push(carX);
+    const carColors = [0x36d9ff, 0xff647c, 0xffd166, 0x4ce0a1, 0xe0e6ed, 0x8b5cf6, 0x3b82f6];
 
-        const carZ = createDetailedCar(carColors[(i + idx + 2) % carColors.length]);
-        const dirZ = i % 2 === 0 ? 1 : -1;
-        carZ.position.set(offset + (dirZ === 1 ? -4 : 4), 0, (Math.random() - 0.5) * 800);
-        carZ.rotation.y = dirZ === 1 ? -Math.PI / 2 : Math.PI / 2;
-        carZ.userData = { axis: 'z', dir: dirZ, baseSpeed: 0.4 + Math.random() * 0.3 };
-        scene.add(carZ); cars.push(carZ);
+    function shuffledRanks(n) {
+      const a = Array.from({length: n}, (_, i) => i);
+      for (let i = n - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
       }
+      return a;
+    }
+
+    function makeLane(axis, dir, fixed, laneIdx) {
+      const lane = {axis, dir, fixed, cars: []};
+      const ranks = shuffledRanks(MAX_PER_LANE);
+      const spacing = (WRAP_LIMIT * 2 - 20) / MAX_PER_LANE;
+      for (let i = 0; i < MAX_PER_LANE; i++) {
+        const isBus = Math.random() < 0.15;
+        const color = carColors[(laneIdx + i) % carColors.length];
+        const v = createVehicle(color, isBus);
+        const pos = -WRAP_LIMIT + 10 + i * spacing + (Math.random() - 0.5) * 14;
+        if (axis === 'x') {
+          v.position.set(pos, 0, fixed);
+          v.rotation.y = dir === 1 ? 0 : Math.PI;
+        } else {
+          v.position.set(fixed, 0, pos);
+          v.rotation.y = dir === 1 ? -Math.PI / 2 : Math.PI / 2;
+        }
+        const base = 0.4 + Math.random() * 0.3;
+        v.userData = {
+          length: isBus ? 8.6 : 4.2,
+          baseSpeed: base,
+          currentSpeed: base,
+          rank: ranks[i],
+          active: true
+        };
+        scene.add(v);
+        lane.cars.push(v);
+      }
+      return lane;
+    }
+
+    let laneCounter = 0;
+    roadOffsets.forEach(offset => {
+      [1, -1].forEach(dir => {
+        lanes.push(makeLane('x', dir, offset + (dir === 1 ? 4 : -4), laneCounter++));
+        lanes.push(makeLane('z', dir, offset + (dir === 1 ? -4 : 4), laneCounter++));
+      });
     });
+    applyDensity(parseInt(controls.traffic.value));
 
     const rainGeo = new THREE.BufferGeometry();
     const rainCount = 1500;
@@ -610,72 +802,78 @@
     const rainSystem = new THREE.Points(rainGeo, rainMat);
     scene.add(rainSystem);
 
+    const clock = new THREE.Clock();
+
     function animate3D() {
       animationFrameId = requestAnimationFrame(animate3D);
 
       if (orbitControls) orbitControls.update();
 
+      const dt = Math.min(clock.getDelta(), 0.1);  // detik
+      const frame = dt * 60;                        // 1.0 = satu frame pada 60 FPS
+      const ease = 1 - Math.pow(1 - 0.15, frame);   // akselerasi/pengereman halus
+
       const trafficVal = parseInt(controls.traffic.value);
       const rainVal = parseInt(controls.rain.value);
 
-      trafficLightTimer++;
-      if(trafficLightTimer > 180) {
-        trafficLightTimer = 0;
-        trafficLightState = trafficLightState === 'GREEN' ? 'RED' : 'GREEN';
-      }
+      // Siklus lampu interlocking (berbasis waktu nyata)
+      stepSignal(dt);
+      updateAdvisory(rainVal, trafficVal);
+      const phase = PHASES[signal.i];
 
-      trafficLights.forEach(tl => {
-        if(trafficLightState === 'RED') {
-          tl.userData.redMat.color.setHex(0xff0000);
-          tl.userData.greenMat.color.setHex(0x003300);
-        } else {
-          tl.userData.redMat.color.setHex(0x330000);
-          tl.userData.greenMat.color.setHex(0x00ff00);
-        }
-      });
+      // Mesin gerak kendaraan: berhenti di garis stop + antre bumper-to-bumper
+      lanes.forEach(lane => {
+        const axis = lane.axis, dir = lane.dir;
+        const lightState = phase[axis];
+        const cars = lane.cars;
 
-      const advText = $('advisoryText');
-      const advDot = $('advisoryDot');
+        for (let a = 0; a < cars.length; a++) {
+          const v = cars[a];
+          const u = v.userData;
+          if (!u.active) continue;
 
-      if (rainVal > 80) {
-        advText.textContent = "HIMBAUAN PINTAR: Hujan Sangat Lebat! Kurangi Kecepatan & Waspada Genangan Air.";
-        advDot.style.background = "var(--red)";
-      } else if (trafficLightState === 'RED' && trafficVal > 60) {
-        advText.textContent = "HIMBAUAN PINTAR: Lampu Merah Persimpangan Utama Aktif — Kendaraan Berhenti Padat.";
-        advDot.style.background = "var(--yellow)";
-      } else if (trafficLightState === 'RED') {
-        advText.textContent = "HIMBAUAN PINTAR: Lampu Merah Aktif — Harap Berhenti di Belakang Garis Stop.";
-        advDot.style.background = "var(--yellow)";
-      } else {
-        advText.textContent = "HIMBAUAN PINTAR: Arus Lalu Lintas Normal — Silakan Melaju dengan Aman.";
-        advDot.style.background = "var(--green)";
-      }
+          const pos = v.position[axis];
+          const front = pos + dir * u.length / 2;
+          let target = u.baseSpeed;
 
-      cars.forEach(car => {
-        let speedMultiplier = (trafficVal / 50);
-        if (speedMultiplier < 0.2) speedMultiplier = 0.2;
-        let speed = car.userData.baseSpeed * speedMultiplier;
-
-        if (trafficLightState === 'RED') {
-          roadOffsets.forEach(ro => {
-            if (car.userData.axis === 'x') {
-              if (car.userData.dir === 1 && car.position.x < ro - 12 && car.position.x > ro - 35) speed = 0;
-              if (car.userData.dir === -1 && car.position.x > ro + 12 && car.position.x < ro + 35) speed = 0;
-            } else if (car.userData.axis === 'z') {
-              if (car.userData.dir === 1 && car.position.z < ro - 12 && car.position.z > ro - 35) speed = 0;
-              if (car.userData.dir === -1 && car.position.z > ro + 12 && car.position.z < ro + 35) speed = 0;
+          // Aturan 1: berhenti tepat di garis stop saat lampu tidak hijau
+          if (lightState !== 'GREEN') {
+            let best = Infinity;
+            for (let k = 0; k < ROAD_OFFSETS.length; k++) {
+              const ro = ROAD_OFFSETS[k];
+              const stopCoord = dir === 1 ? ro - STOP_OFFSET : ro + STOP_OFFSET;
+              const dist = (stopCoord - front) * dir;   // jarak bumper depan ke garis stop
+              if (dist >= -1.5 && dist < best) best = dist;
             }
-          });
-        }
+            if (best < 45) {
+              target = Math.min(target, Math.max(0, (best - 0.5) * 0.03));
+            }
+          }
 
-        if (car.userData.axis === 'x') {
-          car.position.x += speed * car.userData.dir;
-          if(car.position.x > 450) car.position.x = -450;
-          if(car.position.x < -450) car.position.x = 450;
-        } else {
-          car.position.z += speed * car.userData.dir;
-          if(car.position.z > 450) car.position.z = -450;
-          if(car.position.z < -450) car.position.z = 450;
+          // Aturan 2: antre di belakang kendaraan di depan (jaga jarak aman)
+          for (let b = 0; b < cars.length; b++) {
+            const o = cars[b];
+            if (o === v || !o.userData.active) continue;
+            const centerDist = (o.position[axis] - pos) * dir;
+            if (centerDist <= 0) continue;
+            const gap = centerDist - u.length / 2 - o.userData.length / 2;
+            if (gap < MIN_GAP + 18) {
+              if (gap < MIN_GAP) {
+                target = 0;
+              } else {
+                target = Math.min(target, o.userData.currentSpeed * 0.8 + (gap - MIN_GAP) * 0.01);
+              }
+            }
+          }
+
+          u.currentSpeed += (target - u.currentSpeed) * ease;
+          if (target === 0 && u.currentSpeed < 0.003) u.currentSpeed = 0;
+
+          v.position[axis] += u.currentSpeed * dir * frame;
+
+          // Loop: muncul lagi di sisi seberang peta
+          if (v.position[axis] > WRAP_LIMIT) v.position[axis] = -WRAP_LIMIT;
+          else if (v.position[axis] < -WRAP_LIMIT) v.position[axis] = WRAP_LIMIT;
         }
       });
 
@@ -694,6 +892,7 @@
       renderer.render(scene, camera);
     }
 
+    updateSignalBadge(true);
     animate3D();
 
     window.addEventListener('resize', () => {
@@ -729,24 +928,29 @@
     const flood = Math.min(100, Math.round((rain * 0.55) + (waste * 0.25)));
 
     $('trafficOut').textContent = traffic + '%';
-    $('rainOut').textContent = rain + ' mm/jam';$('wasteOut').textContent = waste + '%';
+    $('rainOut').textContent = rain + ' mm/jam';
+    $('wasteOut').textContent = waste + '%';
 
     $('trafficMetric').innerHTML = `${traffic}<span style="font-size:15px;color:var(--muted)">%</span>`;
-    $('trafficState').className = traffic > 70 ? 'danger' : traffic > 40 ? 'warning' : 'positive';$('trafficState').textContent = traffic > 70 ? '● Sangat Padat' : traffic > 40 ? '● Padat' : '● Arus Lancar';
+    $('trafficState').className = traffic > 70 ? 'danger' : traffic > 40 ? 'warning' : 'positive';
+    $('trafficState').textContent = traffic > 70 ? '● Sangat Padat' : traffic > 40 ? '● Padat' : '● Arus Lancar';
 
     $('floodMetric').innerHTML = `${flood}<span style="font-size:15px;color:var(--muted)">%</span>`;
-    $('floodState').className = flood > 65 ? 'danger' : flood > 35 ? 'warning' : 'positive';$('floodState').textContent = flood > 65 ? '● Risiko Tinggi' : flood > 35 ? '● Waspada' : '● Rendah';
+    $('floodState').className = flood > 65 ? 'danger' : flood > 35 ? 'warning' : 'positive';
+    $('floodState').textContent = flood > 65 ? '● Risiko Tinggi' : flood > 35 ? '● Waspada' : '● Rendah';
 
     $('serviceTraffic').innerHTML = `${traffic}%<small>kepadatan</small>`;
     $('serviceFlood').innerHTML = `${flood}%<small>risiko</small>`;
     $('serviceWaste').innerHTML = `${waste}%<small>terisi</small>`;
 
-    $('aiTrafficPredict').textContent = traffic > 65 ? 'Pengalihan AI' : 'Optimasi +18\%';$('aiFloodPredict').textContent = flood > 65 ? '⚠️ Bahaya' : flood > 35 ? 'Waspada' : 'Rendah (Aman)';
+    $('aiTrafficPredict').textContent = traffic > 65 ? 'Pengalihan AI' : 'Optimasi +18%';
+    $('aiFloodPredict').textContent = flood > 65 ? '⚠️ Bahaya' : flood > 35 ? 'Waspada' : 'Rendah (Aman)';
     $('aiFloodPredict').style.color = flood > 65 ? 'var(--red)' : flood > 35 ? 'var(--yellow)' : 'var(--green)';
 
     const ecoScore = Math.max(10, Math.round(100 - (traffic * 0.3 + rain * 0.2 + waste * 0.3)));
     $('aiEcoPredict').textContent = `${ecoScore} / 100`;
 
+    applyDensity(traffic);
     updateWeatherDetection(rain);
     refreshMarkers(traffic, flood);
     renderChart(traffic, flood, waste);
@@ -777,7 +981,7 @@
     let response = "";
 
     if (q.includes("macet") || q.includes("lalu lintas") || q.includes("traffic")) {
-      response = `Saat ini kepadatan lalu lintas berada pada level **${traffic}%**. ${traffic > 60 ? 'AI merekomendasikan pengalihan rute lalu lintas di kawasan utama Medan.' : 'Arus lalu lintas terpantau relatif lancar dan stabil.'}`;
+      response = `Saat ini kepadatan lalu lintas berada pada level **${traffic}%**. ${traffic > 60 ? 'AI merekomendasikan pengalihan rute lalu lintas di kawasan utama Medan.' : 'Arus lalu lintas terpantau relatif lancar dan stabil.'} Lampu interlocking menjaga kendaraan berhenti berbaris rapi di garis stop.`;
     } else if (q.includes("banjir") || q.includes("hujan") || q.includes("genangan")) {
       const floodRisk = Math.min(100, Math.round((rain * 0.55) + (waste * 0.25)));
       response = `Dengan intensitas hujan **${rain} mm/jam** dan volume sampah **${waste}%**, estimasi risiko genangan air adalah **${floodRisk}%**. ${floodRisk > 50 ? '⚠️ AI menyarankan pembersihan gorong-gorong dan siaga pintu air di wilayah Medan Johor & Sunggal.' : 'Kondisi drainase masih dalam batas normal.'}`;
@@ -833,6 +1037,7 @@
     controls.traffic.value = 42;
     controls.rain.value = 25;
     controls.waste.value = 64;
+    resetSignalCycle();
     updateAll();
     showToast("↻ Simulasi direset");
   };
