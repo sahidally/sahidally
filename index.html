@@ -16,6 +16,11 @@
     .tab-switcher{display:flex;gap:8px;background:#081726;padding:4px;border-radius:10px;border:1px solid #1c3854;}
     .tab-btn{border:0;background:transparent;color:var(--muted);padding:8px 14px;border-radius:8px;font-size:11px;font-weight:600;transition:.2s;}
     .tab-btn.active{background:var(--cyan);color:#041426;box-shadow:0 0 12px rgba(54,217,255,0.3);}
+    .day-mode-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:12px}
+    .day-mode-tools span{font-size:11px;color:var(--muted);margin-right:4px}
+    .day-mode-btn{border:1px solid #2b5276;background:#102944;color:#e9f7ff;padding:8px 12px;border-radius:9px;font-size:11px;font-weight:700}
+    .day-mode-btn.active{background:#36d9ff;color:#041426;border-color:#36d9ff}
+    .day-mode-btn[data-mode="night"].active{background:#a855f7;color:white;border-color:#a855f7}
 
     .map-box{height:560px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}
     #map2dContainer, #canvas3dContainer{height:100%;width:100%;position:absolute;top:0;left:0;display:none;}
@@ -147,6 +152,13 @@
             <button class="tab-btn" id="btnMap2D">Peta 2D</button>
             <button class="tab-btn active" id="btnSim3D">Simulasi 3D Realistis</button>
           </div>
+        </div>
+        <div class="day-mode-tools" aria-label="Mode waktu">
+          <span>🌤️ Waktu kota:</span>
+          <button class="day-mode-btn active" data-mode="morning" id="modeMorning">🌅 Pagi</button>
+          <button class="day-mode-btn" data-mode="day" id="modeDay">☀️ Siang</button>
+          <button class="day-mode-btn" data-mode="night" id="modeNight">🌙 Malam</button>
+          <button class="day-mode-btn" data-mode="auto" id="modeAuto">🔄 Otomatis</button>
         </div>
 
         <div class="map-box">
@@ -677,6 +689,11 @@
     });
     applySignalColors();
 
+    const buildingGlassMaterial = new THREE.MeshStandardMaterial({
+      color: 0x63d9ff, metalness: 0.45, roughness: 0.18,
+      emissive: 0x103044, emissiveIntensity: 0.12
+    });
+    const buildingDoorMaterial = new THREE.MeshStandardMaterial({color: 0x182b40, metalness: 0.35, roughness: 0.3});
     const bColors = [0x1e3552, 0x14273d, 0x244263, 0x19304a, 0x2b4f75];
     for(let x = -400; x <= 400; x += 36) {
       for(let z = -400; z <= 400; z += 36) {
@@ -689,6 +706,27 @@
         const building = new THREE.Mesh(new THREE.BoxGeometry(22, height, 22), bMat);
         building.position.set(x, height / 2, z); building.castShadow = true; building.receiveShadow = true;
         scene.add(building);
+
+        // TAMBAHAN: jendela kaca di empat sisi dan pintu masuk gedung.
+        const floorCount = Math.max(2, Math.floor(height / 9));
+        const windowRows = Math.min(12, floorCount);
+        for (let row = 0; row < windowRows; row++) {
+          for (let col = 0; col < 3; col++) {
+            const wy = 3.2 + row * ((height - 7) / windowRows);
+            const wx = x - 6.5 + col * 6.5;
+            const wz = z - 6.5 + col * 6.5;
+            [-1, 1].forEach(side => {
+              const paneFront = new THREE.Mesh(new THREE.BoxGeometry(3.0, 2.2, 0.16), buildingGlassMaterial);
+              paneFront.position.set(wx, wy, z + side * 11.12); scene.add(paneFront);
+              const paneSide = new THREE.Mesh(new THREE.BoxGeometry(0.16, 2.2, 3.0), buildingGlassMaterial);
+              paneSide.position.set(x + side * 11.12, wy, wz); scene.add(paneSide);
+            });
+          }
+        }
+        const frontDoor = new THREE.Mesh(new THREE.BoxGeometry(3.2, 5.4, 0.28), buildingDoorMaterial);
+        frontDoor.position.set(x, 2.7, z + 11.16); scene.add(frontDoor);
+        const doorGlass = new THREE.Mesh(new THREE.BoxGeometry(1.6, 3.4, 0.08), buildingGlassMaterial);
+        doorGlass.position.set(x, 3.0, z + 11.34); scene.add(doorGlass);
 
         const roofMat = new THREE.MeshBasicMaterial({color: Math.random() > 0.5 ? 0x36d9ff : 0xff647c});
         const roofBeacon = new THREE.Mesh(new THREE.BoxGeometry(3, 0.5, 3), roofMat);
@@ -802,6 +840,36 @@
     const rainSystem = new THREE.Points(rainGeo, rainMat);
     scene.add(rainSystem);
 
+    // Mode pencahayaan kota: pagi, siang, malam, atau pergantian otomatis.
+    let dayMode = 'morning';
+    let autoTime = 0;
+    function applyDayMode(mode, quiet = false) {
+      const presets = {
+        morning: {sky:0x9bc9e8, ambient:1.35, sun:2.0, exposure:1.35, windows:0.12},
+        day: {sky:0xb9dcf4, ambient:1.7, sun:2.5, exposure:1.55, windows:0.02},
+        night: {sky:0x030817, ambient:0.38, sun:0.25, exposure:1.05, windows:1.8}
+      };
+      if (mode === 'auto') { dayMode = 'auto'; return; }
+      dayMode = mode;
+      const p = presets[mode];
+      scene.background.setHex(p.sky); scene.fog.color.setHex(p.sky);
+      ambientLight.intensity = p.ambient; dirLight.intensity = p.sun;
+      renderer.toneMappingExposure = p.exposure;
+      buildingGlassMaterial.emissiveIntensity = p.windows;
+      buildingGlassMaterial.color.setHex(mode === 'night' ? 0xffd98a : 0x63d9ff);
+      document.querySelectorAll('.day-mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+      if (!quiet) showToast(mode === 'morning' ? '🌅 Mode pagi aktif' : mode === 'day' ? '☀️ Mode siang aktif' : '🌙 Mode malam aktif');
+    }
+    document.querySelectorAll('.day-mode-btn').forEach(b => b.addEventListener('click', () => {
+      autoTime = 0;
+      if (b.dataset.mode === 'auto') {
+        dayMode = 'auto';
+        document.querySelectorAll('.day-mode-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.mode === 'auto'));
+        showToast('🔄 Pergantian pagi, siang, malam otomatis aktif');
+      } else applyDayMode(b.dataset.mode);
+    }));
+    applyDayMode('morning', true);
+
     const clock = new THREE.Clock();
 
     function animate3D() {
@@ -820,6 +888,20 @@
       stepSignal(dt);
       updateAdvisory(rainVal, trafficVal);
       const phase = PHASES[signal.i];
+
+
+      if (dayMode === 'auto') {
+        autoTime += dt;
+        if (autoTime >= 18) {
+          autoTime = 0;
+          const modes = ['morning', 'day', 'night'];
+          const current = modes.indexOf(window.__unusedDayMode);
+          const next = modes[(Math.floor(performance.now() / 18000)) % modes.length];
+          applyDayMode(next, true);
+          dayMode = 'auto';
+          document.querySelectorAll('.day-mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === 'auto'));
+        }
+      }
 
       // Mesin gerak kendaraan: berhenti di garis stop + antre bumper-to-bumper
       lanes.forEach(lane => {
