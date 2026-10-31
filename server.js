@@ -1,4 +1,3 @@
-
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
@@ -18,6 +17,25 @@ const contentTypes = {
   ".ico": "image/x-icon"
 };
 
+const weatherUrl =
+  "https://api.open-meteo.com/v1/forecast?latitude=3.5897&longitude=98.6738" +
+  "&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m" +
+  "&timezone=Asia%2FJakarta";
+
+async function sendWeather(res) {
+  try {
+    const r = await fetch(weatherUrl, { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) throw new Error("Open-Meteo HTTP " + r.status);
+    const data = await r.json();
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8" });
+    res.end(JSON.stringify(data));
+  } catch (e) {
+    console.error("Cuaca gagal:", e.message);
+    res.writeHead(502, { "Content-Type": "application/json; charset=utf-8" });
+    res.end(JSON.stringify({ error: e.message }));
+  }
+}
+
 http.createServer((req, res) => {
   let requested;
 
@@ -29,6 +47,8 @@ http.createServer((req, res) => {
     res.writeHead(400);
     return res.end("Bad Request");
   }
+
+  if (requested === "/api/cuaca") return sendWeather(res);
 
   const safePath = requested === "/" ? "/index.html" : requested;
   const filePath = path.resolve(root, "." + safePath);
