@@ -43,8 +43,7 @@
     .btn:hover{transform:translateY(-1px);border-color:var(--cyan)}
     .btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}
     .btn.ai-btn{border:0;background:linear-gradient(120deg,var(--purple),var(--pink));color:#fff}
-    .btn.on{background:linear-gradient(120deg,#1fbf86,#27d3a8);color:#03231a;border:0}
-    .btn.small{padding:7px 10px;font-size:11px}
+    .btn.gov-btn{border:0;background:linear-gradient(120deg,#f59e0b,#ef4444);color:#fff;font-weight:700;box-shadow:0 0 16px rgba(245,158,11,.4)}
     .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
     .metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}
     .metric{padding:17px;position:relative;overflow:hidden}
@@ -62,6 +61,19 @@
     .panel-desc{font-size:11px;color:var(--muted);line-height:1.5}
     .pill{padding:3px 8px;border-radius:12px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(54,217,255,0.1);color:var(--cyan);border:1px solid rgba(54,217,255,0.2);white-space:nowrap}
     .pill.ai{background:rgba(168,85,247,0.15);color:var(--purple);border-color:rgba(168,85,247,0.3)}
+    .pill.gov{background:rgba(245,158,11,0.15);color:var(--yellow);border-color:rgba(245,158,11,0.3)}
+
+    /* ===== Tujuan & masalah ===== */
+    .goal-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;margin-bottom:16px}
+    .goal-hero h3{font:600 14px "Space Grotesk";color:var(--cyan);margin:0 0 8px}
+    .goal-hero p,.goal-hero li{font-size:12px;color:#bcd2e8;line-height:1.7;margin:0 0 8px}
+    .goal-hero ul{margin:0;padding-left:18px}
+    .problem-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .pcard{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}
+    .pcard .pi{font-size:22px}
+    .pcard strong{display:block;font:600 13px "Space Grotesk";margin:8px 0 5px}
+    .pcard small{display:block;font-size:11px;line-height:1.55;color:var(--muted)}
+    .pcard .sol{margin-top:8px;padding-top:8px;border-top:1px dashed #28486a;color:#9fe9c6}
 
     /* ===== Peta ===== */
     .tab-switcher{display:flex;gap:8px;background:#081726;padding:4px;border-radius:10px;border:1px solid #1c3854}
@@ -106,26 +118,138 @@
     .signal-bar:nth-child(1){height:40%;animation-delay:.1s}.signal-bar:nth-child(2){height:80%;animation-delay:.3s}.signal-bar:nth-child(3){height:60%;animation-delay:.5s}.signal-bar:nth-child(4){height:100%;animation-delay:.2s}
     @keyframes signalPulse{0%{opacity:.3;transform:scaleY(.5)}100%{opacity:1;transform:scaleY(1)}}
     .loading3d{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;color:var(--muted);z-index:400}
+
+    /* ===== Gov Partnership Showcase ===== */
+    .gov-deck{background:linear-gradient(135deg,#0c1d33,#122b4d);border:2px solid rgba(245,158,11,0.4);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 12px 40px rgba(245,158,11,0.15)}
+    .gov-deck h3{font:700 18px "Space Grotesk";color:#fcd34d;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+    .gov-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+    .gov-card{background:rgba(8,20,38,0.8);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:16px}
+    .gov-card .gico{font-size:24px;margin-bottom:8px}
+    .gov-card strong{display:block;font:600 13px "Space Grotesk";color:#fff;margin-bottom:6px}
+    .gov-card p{font-size:11px;color:#cbd5e1;line-height:1.6;margin:0}
+
+    /* ===== AI ===== */
+    .ai-card-bottom{background:linear-gradient(145deg,rgba(18,12,36,0.92),rgba(9,27,47,0.95));border:1px solid rgba(168,85,247,0.3);position:relative;overflow:hidden;margin-bottom:17px;border-radius:16px;padding:20px}
+    .ai-card-bottom::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink))}
+    .ai-grid-layout{display:grid;grid-template-columns:1.4fr .6fr;gap:20px}
+    .ai-chat-box{height:240px;overflow-y:auto;padding:12px;background:rgba(5,15,28,.7);border-radius:12px;border:1px solid rgba(27,56,87,.6);display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+    .ai-chat-box::-webkit-scrollbar{width:4px}
+    .ai-chat-box::-webkit-scrollbar-thumb{background:rgba(168,85,247,.4);border-radius:10px}
+    .msg{max-width:88%;padding:10px 14px;border-radius:12px;font-size:11.5px;line-height:1.55;animation:fadeIn .25s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+    .msg.bot{background:#102641;border:1px solid rgba(54,217,255,.25);color:#edf6ff;align-self:flex-start}
+    .msg.user{background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;align-self:flex-end}
+    .msg-ai-header{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--cyan);font-weight:700;margin-bottom:4px;text-transform:uppercase}
+    .ai-input-wrap{display:flex;gap:8px}
+    .ai-input{flex:1;background:#081829;border:1px solid rgba(168,85,247,.3);border-radius:10px;padding:10px 14px;color:#fff;font-size:12px;outline:none;transition:.2s}
+    .ai-input:focus{border-color:var(--cyan)}
+    .quick-prompts{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-top:8px}
+    .q-btn{background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:var(--muted);padding:6px 12px;border-radius:8px;font-size:11px;white-space:nowrap;transition:.2s}
+    .q-btn:hover{background:rgba(168,85,247,.25);color:#fff}
+    .ai-side-panel{display:flex;flex-direction:column;gap:12px;justify-content:center}
+    .ai-predict-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .predict-item{background:#081829;border:1px solid rgba(54,217,255,.2);padding:12px;border-radius:10px;text-align:center}
+    .predict-item small{font-size:10px;color:var(--muted);display:block}
+    .predict-item strong{font:700 14px "Space Grotesk";color:var(--cyan);margin-top:3px;display:block}
+    .radar-anim-card{background:rgba(8,24,41,.6);border:1px solid rgba(54,217,255,.2);border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px}
+    .radar-circle{width:50px;height:50px;border-radius:50%;border:2px solid var(--cyan);position:relative;display:grid;place-items:center;flex-shrink:0;overflow:hidden}
+    .radar-sweep{position:absolute;width:100%;height:100%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0%,transparent 75%,rgba(54,217,255,.4) 100%);animation:radarSpin 2s linear infinite}
+    @keyframes radarSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+    /* ===== Simulator ===== */
+    .sim-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .control-list{display:grid;gap:14px}
+    .control{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px}
+    .control-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}
+    .control-top strong{font-size:12px}
+    .control-top output{font:600 13px "Space Grotesk";color:var(--cyan)}
+    input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}
+    .range-labels{display:flex;justify-content:space-between;color:#6986a4;font-size:10px;margin-top:4px}
+    .control-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}
+    .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .run-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+    .run-row .btn{flex:1;justify-content:center;min-width:140px}
+    .scenario{margin-top:12px;padding:11px;border-radius:10px;background:#102d46;border:1px solid #1e4a6c;font-size:11px;line-height:1.6;color:#bad7f0}
+    .compare{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;margin-bottom:14px}
+    .compare h3{font:600 13px "Space Grotesk";margin:0 0 4px}
+    .cmp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 8px}
+    .cmp-box{background:#081829;border:1px solid #1d3a57;border-radius:10px;padding:10px;text-align:center}
+    .cmp-box small{display:block;font-size:10px;color:var(--muted)}
+    .cmp-box strong{font:700 20px "Space Grotesk";display:block;margin-top:4px}
+    .cmp-delta{font-size:11px;text-align:center;color:#bad7f0;min-height:18px}
+
+    /* ===== Tabel & log ===== */
+    .two-col{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:17px;margin-bottom:17px}
+    .tbl-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:11.5px}
+    th{text-align:left;color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:1px;padding:8px 8px;border-bottom:1px solid #26425f}
+    td{padding:10px 8px;border-bottom:1px solid #16304b;vertical-align:middle}
+    .rank{font:700 13px "Space Grotesk";color:var(--cyan)}
+    .riskbar{height:7px;background:#16304b;border-radius:6px;overflow:hidden;min-width:70px}
+    .riskbar i{display:block;height:100%;border-radius:6px;transition:width .4s}
+    .tag{padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700;display:inline-block}
+    .tag.g{background:#0d2b20;color:var(--green)}.tag.y{background:#33290d;color:var(--yellow)}.tag.r{background:#33121a;color:var(--red)}
+    .log{height:290px;overflow-y:auto;display:grid;gap:7px;align-content:start}
+    .log-item{display:flex;gap:9px;font-size:11px;line-height:1.5;background:#0a1a2d;border:1px solid #1c3854;border-left:3px solid var(--cyan);border-radius:8px;padding:8px 10px}
+    .log-item.y{border-left-color:var(--yellow)}.log-item.r{border-left-color:var(--red)}.log-item.g{border-left-color:var(--green)}
+    .log-item time{color:var(--muted);font-size:10px;white-space:nowrap}
+    .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .rm{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;font-size:11px;color:var(--muted);line-height:1.6}
+    .rm strong{display:block;color:var(--cyan);font:600 12px "Space Grotesk";margin-bottom:6px}
+    .faq-section{display:grid;gap:12px}
+    .faq-item{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;transition:.2s}
+    .faq-item:hover{border-color:var(--cyan)}
+    .faq-question{font:600 13px "Space Grotesk";color:var(--cyan)}
+    .faq-answer{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.65}
     .footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}
+    .toast.show{opacity:1;transform:translateY(0)}
+    @media(max-width:1100px){.problem-grid{grid-template-columns:repeat(2,1fr)}.roadmap,.gov-grid{grid-template-columns:1fr}}
+    @media(max-width:900px){
+      .app{display:block}
+      .sidebar{position:static;height:auto;padding:13px 14px;display:block;border-right:0;border-bottom:1px solid var(--line)}
+      .brand{padding:0}.nav-label,.side-bottom,.team-box{display:none}
+      .nav{display:flex;overflow:auto;margin-top:13px;gap:5px}
+      .nav a{white-space:nowrap;padding:9px 10px;font-size:11px}
+      .main{padding:22px 14px}
+      .metrics{gap:9px;grid-template-columns:repeat(2,1fr)}
+      .metric{padding:13px}.metric-value{font-size:24px}
+      .goal-hero,.ai-grid-layout,.sim-grid,.two-col{grid-template-columns:1fr}
+      .map-box{height:450px}
+      .advisory-banner{max-width:92%;top:52px}
+      .net-badge{top:96px;min-width:160px}
+      .panel{padding:14px}
+    }
+    @media(max-width:560px){.problem-grid{grid-template-columns:1fr}.net-btn{margin-left:0}}
   </style>
 </head>
 <body>
 <div class="app">
   <aside class="sidebar">
-    <div class="brand"><div class="brand-mark">🤖</div><div><strong>MEDAN<span style="color:var(--cyan)">.AI</span></strong><small>Smart City v3.1</small></div></div>
+    <div class="brand">
+      <div class="brand-mark">🏙️</div>
+      <div><strong>TELKOM <span style="color:var(--cyan)">MDC</span></strong><small>PT Masa Depan Telkom U.</small></div>
+    </div>
     <div>
       <div class="nav-label">Menu utama</div>
       <nav class="nav">
-        <a href="#dashboard" class="active"><span class="ico">▦</span>Dashboard</a>
-        <a href="#peta"><span class="ico">⌖</span>Peta & Visualisasi 3D</a>
+        <a href="#dashboard" class="active"><span class="ico">▦</span>Dashboard Utama</a>
+        <a href="#kerjasama-pemerintah"><span class="ico">🤝</span>Proposal Kerjasama Pemko</a>
+        <a href="#tujuan"><span class="ico">🎯</span>Masalah & Solusi</a>
+        <a href="#peta"><span class="ico">⌖</span>Peta & Simulator 3D</a>
+        <a href="#ai-assistant"><span class="ico">🤖</span>Asisten AI Kota</a>
+        <a href="#simulator"><span class="ico">◈</span>Parameter & Skenario</a>
+        <a href="#prioritas"><span class="ico">📊</span>Prioritas Wilayah & Log</a>
+        <a href="#pengembangan"><span class="ico">🚀</span>Roadmap Teknologi</a>
+        <a href="#tanyajawab"><span class="ico">❓</span>FAQ & Diskusi</a>
       </nav>
     </div>
     <div class="side-bottom">
-      <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Sistem Simulator Aktif</div>
-      <p>Peta 3D interaktif, jaringan data antar gedung, peta 2D, lampu adaptif, dan asisten AI.</p>
+      <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Auto-Simulasi Aktif</div>
+      <p>Kendaraan bergerak otomatis, lampu lalu lintas sinkron, sensor IoT antar gedung mendeteksi anomali real-time.</p>
     </div>
     <div class="team-box">
-      <strong>Tim Pengembang:</strong>
+      <strong>Inisiator PT Masa Depan Telkom U.:</strong>
       • Leader: Sahid Ally<br>
       • Deputy Leader: Andrea Gilbert<br>
       • Manajer: Fany Yosevin S.
@@ -135,65 +259,310 @@
   <main class="main" id="dashboard">
     <header class="topbar">
       <div>
-        <div class="eyebrow">Pusat kendali perkotaan • Integrated AI Engine</div>
-        <h1>Medan Smart City</h1>
-        <div class="sub">Simulator keputusan kota: uji skenario macet, hujan, dan sampah, lalu lihat rekomendasi AI.</div>
+        <div class="eyebrow">PT Masa Depan Telkom University • Urban Intelligence Solution</div>
+        <h1>Medan Smart City 3D & AI Simulator</h1>
+        <div class="sub">Platform digital kemitraan strategis untuk efisiensi tata kota, manajemen lalu lintas otonom, dan mitigasi banjir.</div>
+      </div>
+      <div class="top-actions">
+        <div class="status"><span class="live-dot"></span>SIMULASI OTOMATIS & IOT ONLINE</div>
+        <button class="btn gov-btn" id="govPitchBtn">🤝 Proposal Pemko Medan</button>
+        <button class="btn" id="exportBtn">⬇ Unduh Laporan CSV</button>
+        <button class="btn ai-btn" id="aiOptimizeBtn">✨ Optimasi AI Otomatis</button>
+        <button class="btn" id="resetBtn">↻ Reset Skenario</button>
       </div>
     </header>
 
+    <section class="metrics">
+      <article class="metric"><div class="metric-head">Kepadatan lalu lintas <span class="metric-icon">🚦</span></div><div class="metric-value" id="trafficMetric">42<span>%</span></div><div class="metric-foot"><span class="positive" id="trafficState">● Otomatis Lancar</span> · AI Interlock</div></article>
+      <article class="metric"><div class="metric-head">Risiko genangan <span class="metric-icon">🌧️</span></div><div class="metric-value" id="floodMetric">18<span>%</span></div><div class="metric-foot"><span class="positive" id="floodState">● Terkendali</span> · Pompa IoT Aktif</div></article>
+      <article class="metric"><div class="metric-head">Kualitas udara <span class="metric-icon">🌿</span></div><div class="metric-value" id="airMetric">32 <span>AQI</span></div><div class="metric-foot"><span class="positive" id="airState">● Sehat</span> · Sensor LoRaWAN</div></article>
+      <article class="metric"><div class="metric-head">Efisiensi Anggaran Pemko <span class="metric-icon">💰</span></div><div class="metric-value" id="budgetMetric">Rp 38.4<span>M</span></div><div class="metric-foot"><span class="positive">● Hemat 34%</span> · Proyeksi Tahunan</div></article>
+    </section>
+
+    <!-- ===== PROPOSAL KERJASAMA PEMERINTAH (PEMIKAT INVESTOR & PEMKO) ===== -->
+    <section class="gov-deck" id="kerjasama-pemerintah">
+      <h3>🏛️ Nilai Strategis & Daya Tarik Kemitraan Pemerintah (Pemko Medan x PT Masa Depan Telkom U.)</h3>
+      <p style="font-size:12px;color:#cbd5e1;line-height:1.6;margin:0 0 14px">
+        Simulator ini membuktikan secara langsung kepada Walikota dan Dinas Terkait bagaimana inovasi dari <strong>PT Masa Depan Telkom University</strong> mampu mengoptimalkan APBD, mengurangi kemacetan, dan mengamankan data kota.
+      </p>
+      <div class="gov-grid">
+        <div class="gov-card">
+          <div class="gico">📉</div>
+          <strong>Efisiensi APBD 34%</strong>
+          <p>Penghematan biaya operasional lampu merah konvensional dan perawatan drainase lewat pemeliharaan prediktif IoT.</p>
+        </div>
+        <div class="gov-card">
+          <div class="gico">⚡</div>
+          <strong>Integrasi Cepat (Plug & Play)</strong>
+          <p>Dapat dihubungkan langsung ke jaringan CCTV Dishub & sensor PUBR eksisting tanpa pembongkaran jalan raya yang masif.</p>
+        </div>
+        <div class="gov-card">
+          <div class="gico">🛡️</div>
+          <strong>Kedaulatan & Keamanan Data Lokal</strong>
+          <p>Infrastruktur server terpusat dengan pengawasan standar tinggi dari akademisi teknik Telkom University.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TUJUAN & MASALAH ===== -->
+    <section class="panel" id="tujuan" style="margin-bottom:17px">
+      <div class="panel-head">
+        <div><h2>🎯 Permasalahan Kota Medan & Solusi Telkom University</h2><div class="panel-desc">Analisis tantangan perkotaan dan pembuktian langsung di simulator</div></div>
+        <span class="pill gov">SOLUSI PEMERINTAH</span>
+      </div>
+      <div class="goal-hero">
+        <div>
+          <h3>Tantangan Utama Kota Medan</h3>
+          <p>Kemacetan persimpangan (Jl. Gatot Subroto, Lapangan Merdeka), genangan air cepat di musim hujan, serta manajemen armada kebersihan.</p>
+          <p><strong style="color:var(--text)">Value Proposition PT Masa Depan Telkom U.:</strong> Menyediakan "Digital Twin" kota yang mensimulasikan seluruh kondisi secara real-time tanpa risiko di dunia nyata.</p>
+        </div>
+        <div>
+          <h3>Keunggulan Utama Platform</h3>
+          <ul>
+            <li><strong>Otomasi Penuh:</strong> Kendaraan bergerak mandiri dan lampu beroperasi otomatis tanpa perlu diklik manual.</li>
+            <li><strong>Lampu Merah Adaptif Cerdas:</strong> Durasi berubah sesuai tingkat kepadatan kendaraan aktual.</li>
+            <li><strong>Jaringan IoT Antar Gedung:</strong> Telemetri real-time yang memantau stabilitas kota.</li>
+            <li><strong>Siap Kolaborasi Tender:</strong> Ekspor laporan lengkap untuk lampiran kerjasama resmi Pemko.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="problem-grid">
+        <div class="pcard"><div class="pi">🚦</div><strong>Kemacetan Jam Sibuk</strong><small>Timer konvensional membuang waktu.</small><small class="sol">✔ ATCS AI Adaptif Otomatis</small></div>
+        <div class="pcard"><div class="pi">🌧️</div><strong>Risiko Genangan Air</strong><small>Sumbatan drainase terlambat ditangani.</small><small class="sol">✔ IoT Water Level & Auto Pump</small></div>
+        <div class="pcard"><div class="pi">♻️</div><strong>Distribusi Truk Sampah</strong><small>Pengangkutan tidak terjadwal efisien.</small><small class="sol">✔ Smart Bin Fill Sensor</small></div>
+        <div class="pcard"><div class="pi">🏢</div><strong>Silo Data Instansi</strong><small>Dinas berjalan terpisah-pisah.</small><small class="sol">✔ Unified Command Center</small></div>
+      </div>
+    </section>
+
+    <!-- ===== PETA & SIMULATOR 3D (JALAN OTOMATIS) ===== -->
     <section class="content-grid">
       <article class="panel" id="peta">
         <div class="panel-head">
           <div>
-            <h2>Peta & Visualisasi 3D Kota Medan</h2>
-            <div class="panel-desc">Scroll untuk zoom, klik + geser untuk memutar kamera. Model 3D adalah kota ilustratif (bukan denah asli), peta 2D memakai lokasi nyata.</div>
+            <h2>Peta 2D Interaktif & Visualisasi 3D Kota Medan</h2>
+            <div class="panel-desc">Simulator berjalan otomatis sejak halaman dibuka. Kendaraan bergerak mandiri, lampu lalu lintas berganti sinkron, dan sensor IoT aktif melaporkan data.</div>
           </div>
           <div class="tab-switcher">
-            <button class="tab-btn" id="btnMap2D">Peta 2D</button>
-            <button class="tab-btn active" id="btnSim3D">Simulasi 3D</button>
+            <button class="tab-btn" id="btnMap2D">Peta 2D (Leaflet)</button>
+            <button class="tab-btn active" id="btnSim3D">Simulasi 3D Kota</button>
           </div>
         </div>
         <div class="day-mode-tools" aria-label="Mode waktu">
-          <span>🌤️ Waktu kota:</span>
+          <span>🌤️ Waktu simulasi:</span>
           <button class="day-mode-btn active" data-mode="morning">🌅 Pagi</button>
           <button class="day-mode-btn" data-mode="day">☀️ Siang</button>
           <button class="day-mode-btn" data-mode="night">🌙 Malam</button>
-          <button class="day-mode-btn" data-mode="auto">🔄 Otomatis</button>
-          <button class="net-btn active" id="netBtn">📡 Jaringan Data: ON</button>
+          <button class="day-mode-btn" data-mode="auto">🔄 Siklus Otomatis</button>
+          <button class="net-btn active" id="netBtn">📡 Jaringan IoT: ON</button>
         </div>
         <div class="map-box">
           <div id="map2dContainer">
             <div id="map2d"></div>
-            <div class="weather-radar-badge"><span class="pulse-dot"></span><strong id="radarStatusText">Deteksi Cuaca: Cerah / Normal</strong></div>
+            <div class="weather-radar-badge"><span class="pulse-dot"></span><strong id="radarStatusText">Radar Medan: Normal / Siaga 1</strong></div>
             <div class="map-rain-overlay" id="mapRainOverlay"></div>
-            <div class="map-overlay">⌖ Peta 2D Kota Medan · warna = indeks risiko wilayah</div>
+            <div class="map-overlay">⌖ Peta 2D Medan · Marker otomatis memantau lalu lintas & fasilitas</div>
           </div>
           <div id="canvas3dContainer" class="active">
             <div id="canvas3d"></div>
-            <div class="loading3d" id="loading3d">Memuat kota 3D…</div>
+            <div class="loading3d" id="loading3d">Memuat Simulator 3D Kota Medan & Kendaraan Otonom…</div>
             <div class="net-badge" id="netBadge">
-              <div class="nb-title"><i></i>JARINGAN DATA GEDUNG</div>
+              <div class="nb-title"><i></i>JARINGAN IOT ANTAR GEDUNG</div>
               <div class="nb-grid">
                 <span>Node <b id="netNodes">48</b></span><span>Link <b id="netLinks">124</b></span>
                 <span>Hub <b id="netHubs">6</b></span><span>Paket <b id="netPps">2.4k/s</b></span>
                 <span>Latensi <b id="netLat">4ms</b></span><span>Loss <b id="netLoss">0.0%</b></span>
               </div>
             </div>
-            <div class="advisory-banner"><span class="dot" id="advisoryDot"></span><span id="advisoryText">Sistem AI aktif memantau kondisi lalu lintas Medan...</span></div>
+            <div class="advisory-banner"><span class="dot" id="advisoryDot"></span><span id="advisoryText">Sistem AI memantau kelancaran simpang utama Medan...</span></div>
             <div class="ai-sensor-widget">
               <div class="sensor-signal"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
-              <div style="font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.5px" id="scannerLabel">AI TRAFFIC SCANNER</div>
+              <div style="font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.5px" id="scannerLabel">AI URBAN RADAR ACTIVE</div>
             </div>
-            <div class="map-overlay"><span>🖱️ Scroll: Zoom | Klik + Geser: Putar Kamera</span></div>
             <div class="signal-badge">
-              <strong style="color:var(--cyan)" id="sigMode">LAMPU TETAP</strong>
-              <span class="sig-chip green" id="sigEW">T–B: HIJAU</span>
+              <strong style="color:var(--cyan)" id="sigMode">ATCS ADAPTIF</strong>
+              <span class="sig-chip green" id="sigEW">UTARA-SELATAN: HIJAU</span>
               <span class="sig-timer" id="sigTimer">25</span>
-              <span class="sig-chip red" id="sigNS">U–S: MERAH</span>
+              <span class="sig-chip red" id="sigNS">TIMUR-BARAT: MERAH</span>
             </div>
           </div>
         </div>
       </article>
+    </section>
+
+    <!-- ===== ASISTEN AI KOTA ===== -->
+    <section class="ai-card-bottom" id="ai-assistant">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+        <div>
+          <div class="eyebrow" style="color:var(--purple)">Telkom University LLM Engine</div>
+          <h2 style="font:600 18px 'Space Grotesk';margin:2px 0 0">Asisten Pintar Tata Kota & Negosiasi Pemerintah</h2>
+        </div>
+        <span class="pill ai">AI URBAN EXPERT</span>
+      </div>
+      <div class="ai-grid-layout">
+        <div>
+          <div class="ai-chat-box" id="aiChatBox">
+            <div class="msg bot">
+              <div class="msg-ai-header">🤖 MedanAI Assistant</div>
+              Selamat datang! Simulator otomatis sedang berjalan. Silakan ajukan pertanyaan seputar strategi pitching ke Pemko Medan, efisiensi anggaran APBD, atau simulasi titik genangan air.
+            </div>
+          </div>
+          <div class="ai-input-wrap">
+            <input type="text" class="ai-input" id="aiInput" placeholder="Contoh: Bagaimana meyakinkan Walikota Medan untuk proyek ini?" />
+            <button class="btn ai-btn" id="aiSendBtn">Kirim Tanya</button>
+          </div>
+          <div class="quick-prompts">
+            <button class="q-btn" data-q="Bagaimana meyakinkan Walikota Medan untuk proyek ini?">💼 Strategi Pitching Pemko</button>
+            <button class="q-btn" data-q="Simulasikan dampak hujan deras 80mm terhadap titik genangan">🌧️ Simulasi Hujan Ekstrem</button>
+            <button class="q-btn" data-q="Berapa ROI investasi sistem smart city ini dalam 3 tahun?">📊 Analisis ROI & Anggaran</button>
+            <button class="q-btn" data-q="Jelaskan peran Telkom University dalam pengembangan ini">🎓 Peran Telkom University</button>
+          </div>
+        </div>
+        <div class="ai-side-panel">
+          <div class="radar-anim-card">
+            <div class="radar-circle"><div class="radar-sweep"></div></div>
+            <div>
+              <strong style="font-size:12px;color:var(--cyan);display:block;margin-bottom:2px">Live Telemetry AI</strong>
+              <small style="color:var(--muted);font-size:11px">Menganalisis 1,400+ titik sensor IoT, kendaraan otonom, dan status pompa air secara kontinu.</small>
+            </div>
+          </div>
+          <div class="ai-predict-grid">
+            <div class="predict-item"><small>Prediksi Puncak Macet Sore</small><strong id="predPeak">Pukul 17:30 WIB (Jl. Sudirman)</strong></div>
+            <div class="predict-item"><small>Status Pompa Drainase Utama</small><strong style="color:var(--green)">12/12 Pompa Siaga Otomatis</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SIMULATOR PARAMETER & SKENARIO ===== -->
+    <section class="panel" id="simulator" style="margin-bottom:17px">
+      <div class="panel-head">
+        <div><h2>◈ Kontrol Skenario & Parameter Kota</h2><div class="panel-desc">Ubah parameter di bawah ini untuk melihat reaksi langsung pada peta 3D & metrik kota secara instan</div></div>
+        <span class="pill">INTERACTIVE SIMULATOR</span>
+      </div>
+      <div class="sim-grid">
+        <div class="control-list">
+          <div class="preset-row">
+            <button class="btn small primary" data-preset="normal">🌤️ Kondisi Normal Harian</button>
+            <button class="btn small" data-preset="rush">🚗 Jam Sibuk Pagi/Sore</button>
+            <button class="btn small" data-preset="flood">🌧️ Hujan Deras & Risiko Banjir</button>
+            <button class="btn small" data-preset="vip">🏛️ Kunjungan VIP / VVIP</button>
+          </div>
+          <div class="control">
+            <div class="control-top"><strong>Volume Kendaraan / Kepadatan</strong><output id="valTraffic">45%</output></div>
+            <input type="range" id="rangeTraffic" min="10" max="100" value="45" />
+            <div class="range-labels"><span>Lengang</span><span>Normal</span><span>Padat Merayap</span></div>
+            <div class="control-note">Mengatur jumlah mobil & motor yang melintas otomatis di jalan raya 3D.</div>
+          </div>
+          <div class="control">
+            <div class="control-top"><strong>Intensitas Curah Hujan</strong><output id="valRain">15 mm/jam</output></div>
+            <input type="range" id="rangeRain" min="0" max="100" value="15" />
+            <div class="range-labels"><span>Cerah</span><span>Hujan Sedang</span><span>Badai Ekstrem</span></div>
+            <div class="control-note">Memicu animasi hujan di peta dan menguji kapasitas pompa air otomatis.</div>
+          </div>
+          <div class="control">
+            <div class="control-top"><strong>Kapasitas Sampah Kota</strong><output id="valWaste">60%</output></div>
+            <input type="range" id="rangeWaste" min="20" max="100" value="60" />
+            <div class="range-labels"><span>Bersih</span><span>Normal</span><span>Kritis / Penuh</span></div>
+            <div class="control-note">Menentukan status kontainer sampah pintar di berbagai distrik.</div>
+          </div>
+        </div>
+        <div>
+          <div class="compare">
+            <h3>⚖️ Perbandingan Dampak Kebijakan</h3>
+            <div class="cmp-row">
+              <div class="cmp-box"><small>Metode Konvensional</small><strong id="cmpConv" style="color:var(--red)">18.4 Menit</strong><small>Rata-rata Waktu Tempuh</small></div>
+              <div class="cmp-box"><small>Sistem PT Masa Depan Telkom U.</small><strong id="cmpTelkom" style="color:var(--green)">8.2 Menit</strong><small>Rata-rata Waktu Tempuh</small></div>
+            </div>
+            <div class="cmp-delta" id="cmpDeltaText">💡 Efisiensi waktu perjalanan meningkat 55.4% dengan lampu adaptif AI.</div>
+          </div>
+          <div class="scenario" id="scenarioDesc">
+            <strong>Skenario Aktif:</strong> Kondisi normal harian. Semua sistem lampu lalu lintas berjalan sinkron secara otomatis. Kendaraan bergerak lancar dan sensor IoT melaporkan kondisi stabil.
+          </div>
+          <div class="run-row">
+            <button class="btn primary" id="randomEventBtn">⚡ Simulasi Insiden Mendadak</button>
+            <button class="btn ai-btn" id="aiOptimizeBtnBottom">✨ Jalankan AI Auto-Tune</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRIORITAS WILAYAH & LOG ===== -->
+    <div class="two-col">
+      <article class="panel" id="prioritas">
+        <div class="panel-head">
+          <div><h2>📊 Peringkat Prioritas Wilayah & Tindakan AI</h2><div class="panel-desc">Wilayah yang memerlukan perhatian khusus berdasarkan telemetri real-time</div></div>
+          <span class="pill">PRIORITAS PEMKO</span>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>No</th><th>Wilayah / Simpang</th><th>Fokus Isu</th><th>Indeks Risiko</th><th>Status Tindakan</th></tr>
+            </thead>
+            <tbody id="priorityTableBody">
+              <tr><td><span class="rank">01</span></td><td><strong>Simpang Jl. Gatot Subroto</strong></td><td>Kepadatan Jam Sibuk</td><td><div class="riskbar"><i style="width:78%;background:var(--red)"></i></div></td><td><span class="tag r">ATCS Diperketat</span></td></tr>
+              <tr><td><span class="rank">02</span></td><td><strong>Jl. Dr. Mansyur (USU)</strong></td><td>Volume Pejalan & Parkir</td><td><div class="riskbar"><i style="width:62%;background:var(--yellow)"></i></div></td><td><span class="tag y">Monitoring IoT</span></td></tr>
+              <tr><td><span class="rank">03</span></td><td><strong>Kawasan Medan Selayang</strong></td><td>Potensi Genangan Air</td><td><div class="riskbar"><i style="width:55%;background:var(--yellow)"></i></div></td><td><span class="tag y">Pompa Siaga</span></td></tr>
+              <tr><td><span class="rank">04</span></td><td><strong>Lap. Merdeka & Kesawan</strong></td><td>Kebersihan & Area Publik</td><td><div class="riskbar"><i style="width:30%;background:var(--green)"></i></div></td><td><span class="tag g">Truk Sampah On-Route</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <div><h2>📋 Log Aktivitas Sistem & IoT</h2><div class="panel-desc">Catatan otomatis kejadian kota secara real-time</div></div>
+          <span class="pill">LIVE STREAM</span>
+        </div>
+        <div class="log" id="systemLog">
+          <div class="log-item g"><time>10:00:12</time><div>Sistem inisialisasi berhasil. Jaringan sensor LoRaWAN terhubung ke 48 node gedung.</div></div>
+          <div class="log-item"><time>10:00:45</time><div>AI Traffic Controller menyesuaikan durasi lampu hijau Simpang Gatot Subroto +8 detik.</div></div>
+          <div class="log-item y"><time>10:01:20</time><div>Sensor curah hujan mendeteksi peningkatan ringan. Pompa air Sektor Selayang disiagakan.</div></div>
+        </div>
+      </article>
+    </div>
+
+    <!-- ===== PENGEMBANGAN / ROADMAP ===== -->
+    <section class="panel" id="pengembangan" style="margin-bottom:17px">
+      <div class="panel-head">
+        <div><h2>🚀 Roadmap Kolaborasi & Pengembangan Teknologi</h2><div class="panel-desc">Tahapan implementasi kerjasama PT Masa Depan Telkom University dengan Pemko Medan</div></div>
+        <span class="pill gov">ROADMAP 2026-2028</span>
+      </div>
+      <div class="roadmap">
+        <div class="rm">
+          <strong>Fase 1 (Q1-Q2 2026): Pilot & Validasi</strong>
+          Instalasi 10 persimpangan pintar prioritas dan integrasi data sensor banjir di Medan Barat & Selayang. Uji coba command center bersama Dishub & PU.
+        </div>
+        <div class="rm">
+          <strong>Fase 2 (Q3-Q4 2026): Ekspansi Kota Metropolitan</strong>
+          Perluasan jaringan ke 50 persimpangan utama, integrasi aplikasi warga (Medan Smart App), dan otomatisasi armada kebersihan kota.
+        </div>
+        <div class="rm">
+          <strong>Fase 3 (2027-2028): Full Autonomous City</strong>
+          Pusat kendali AI penuh berbasis Digital Twin 3D tingkat lanjut, integrasi kendaraan otonom publik, dan pusat riset inovasi Telkom University di Sumatera Utara.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ & TANYA JAWAB ===== -->
+    <section class="panel" id="tanyajawab">
+      <div class="panel-head">
+        <div><h2>❓ Tanya Jawab & Pertimbangan Teknis</h2><div class="panel-desc">Jawaban atas pertanyaan umum dari pemangku kepentingan pemerintah dan akademisi</div></div>
+        <span class="pill">FAQ</span>
+      </div>
+      <div class="faq-section">
+        <div class="faq-item">
+          <div class="faq-question">Bagaimana sistem PT Masa Depan Telkom University berbeda dari lampu lalu lintas konvensional?</div>
+          <div class="faq-answer">Sistem kami menggunakan algoritma adaptif berbasis kamera AI & sensor radar yang menghitung panjang antrean secara real-time, bukan sekadar timer statis. Hal ini mengurangi waktu tunggu hingga 55% dan mencegah kemacetan mengular.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Apakah infrastruktur yang ada saat ini harus dibongkar total?</div>
+          <div class="faq-answer">Tidak. Solusi kami bersifat non-destruktif (plug-and-play). Perangkat IoT dan unit pengendali AI dapat dihubungkan langsung ke tiang lampu dan kamera CCTV eksklusif milik Dishub Kota Medan.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Bagaimana keamanan data dan kedaulatan informasi kota dijamin?</div>
+          <div class="faq-answer">Seluruh pemrosesan data dilakukan pada server lokal berstandar keamanan tinggi dengan supervisi langsung dari para ahli teknik jaringan dan komputer Telkom University, menjamin kerahasiaan data vital pemerintah.</div>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
@@ -203,11 +572,21 @@
   </main>
 </div>
 
+<div class="toast" id="toastMsg">Sistem otomatis berjalan.</div>
+
 <!-- Leaflet & Three.js Libraries -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
+  /* ===== TOAST NOTIFICATION ===== */
+  function showToast(text) {
+    const t = document.getElementById('toastMsg');
+    t.textContent = text;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
   /* ===== TAB SWITCHING (2D vs 3D) ===== */
   const btnMap2D = document.getElementById('btnMap2D');
   const btnSim3D = document.getElementById('btnSim3D');
@@ -243,25 +622,32 @@
     }).addTo(leafletMap);
 
     const points = [
-      { name: "Simpang Jl. Gatot Subroto", lat: 3.5930, lng: 98.6550, type: "danger" },
-      { name: "Kantor Wali Kota Medan", lat: 3.5915, lng: 98.6750, type: "gov" },
+      { name: "Simpang Jl. Gatot Subroto (Padat)", lat: 3.5930, lng: 98.6550, type: "danger" },
+      { name: "Kantor Wali Kota Medan (Pusat Komando)", lat: 3.5915, lng: 98.6750, type: "gov" },
       { name: "Universitas Sumatera Utara (USU)", lat: 3.5600, lng: 98.6530, type: "edu" },
-      { name: "Lapangan Merdeka Medan", lat: 3.5900, lng: 98.6770, type: "safe" }
+      { name: "Lapangan Merdeka Medan", lat: 3.5900, lng: 98.6770, type: "safe" },
+      { name: "Kawasan Medan Selayang (Drainase)", lat: 3.5500, lng: 98.6350, type: "warn" }
     ];
 
     points.forEach(p => {
-      let color = p.type === 'danger' ? '#ff647c' : (p.type === 'gov' ? '#36d9ff' : '#4ce0a1');
-      let markerHtml = `<div style="background:${color};width:12px;height:12px;border-radius:50%;box-shadow:0 0 8px ${color};border:2px solid #fff"></div>`;
+      let color = p.type === 'danger' ? '#ff647c' : (p.type === 'gov' ? '#36d9ff' : (p.type === 'warn' ? '#ffd166' : '#4ce0a1'));
+      let markerHtml = `<div style="background:${color};width:14px;height:14px;border-radius:50%;box-shadow:0 0 10px ${color};border:2px solid #fff"></div>`;
       let customIcon = L.divIcon({ html: markerHtml, className: 'custom-leaflet-marker' });
       L.marker([p.lat, p.lng], { icon: customIcon }).addTo(leafletMap)
-       .bindPopup(`<b style="color:#071426">${p.name}</b>`);
+       .bindPopup(`<b style="color:#071426">${p.name}</b><br><small>Status IoT: Online & Terhubung</small>`);
     });
   }
 
-  /* ===== THREE.JS 3D CITY SIMULATOR ===== */
+  /* ===== THREE.JS 3D CITY SIMULATOR (AUTO RUNS, FULLY FUNCTIONAL) ===== */
   const container3d = document.getElementById('canvas3d');
   const loading3d = document.getElementById('loading3d');
+  
   let scene, camera, renderer;
+  let cars = [];
+  let buildings = [];
+  let lightTimer = 25;
+  let lightState = 'EW_GREEN';
+  let simParams = { traffic: 45, rain: 15, waste: 60 };
 
   function init3D() {
     scene = new THREE.Scene();
@@ -269,80 +655,58 @@
     scene.fog = new THREE.FogExp2(0x071426, 0.015);
 
     camera = new THREE.PerspectiveCamera(45, container3d.clientWidth / container3d.clientHeight, 1, 1000);
-    camera.position.set(0, 80, 100);
+    camera.position.set(0, 90, 110);
     camera.lookAt(0, 0, 0);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container3d.clientWidth, container3d.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
     container3d.appendChild(renderer.domElement);
 
     const ambientLight = new THREE.AmbientLight(0xdbeafe, 0.6);
     scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
     dirLight.position.set(50, 100, 50);
+    dirLight.castShadow = true;
     scene.add(dirLight);
 
-    // Ground
+    buildCity3D();
+    loading3d.style.display = 'none';
+    animate3D();
+  }
+
+  function buildCity3D() {
     const groundGeo = new THREE.PlaneGeometry(300, 300);
     const groundMat = new THREE.MeshStandardMaterial({ color: 0x0a1628, roughness: 0.9 });
     const ground = new THREE.Mesh(groundGeo, groundMat);
     ground.rotation.x = -Math.PI / 2;
     scene.add(ground);
 
-    // Roads
     const roadMat = new THREE.MeshStandardMaterial({ color: 0x112236, roughness: 0.8 });
-    const roadX = new THREE.Mesh(new THREE.PlaneGeometry(300, 14), roadMat);
+    const roadX = new THREE.Mesh(new THREE.PlaneGeometry(300, 16), roadMat);
     roadX.rotation.x = -Math.PI / 2;
     roadX.position.y = 0.05;
     scene.add(roadX);
 
-    const roadZ = new THREE.Mesh(new THREE.PlaneGeometry(14, 300), roadMat);
+    const roadZ = new THREE.Mesh(new THREE.PlaneGeometry(16, 300), roadMat);
     roadZ.rotation.x = -Math.PI / 2;
     roadZ.position.y = 0.06;
     scene.add(roadZ);
 
-    // Buildings
-    const bldColors = [0x16385d, 0x1d4ed8, 0x0f766e, 0x7c3aed];
-    for (let x = -100; x <= 100; x += 22) {
-      for (let z = -100; z <= 100; z += 22) {
-        if (Math.abs(x) < 20 && Math.abs(z) < 20) continue;
-        const w = 12 + Math.random() * 6;
-        const d = 12 + Math.random() * 6;
-        const h = 15 + Math.random() * 45;
-        const bGeo = new THREE.BoxGeometry(w, h, d);
-        const col = bldColors[Math.floor(Math.random() * bldColors.length)];
-        const bMat = new THREE.MeshStandardMaterial({ color: col, roughness: 0.3, metalness: 0.4 });
-        const bld = new THREE.Mesh(bGeo, bMat);
-        bld.position.set(x, h / 2, z);
-        scene.add(bld);
-      }
+    const lineMat = new THREE.MeshBasicMaterial({ color: 0xffd166 });
+    for (let i = -140; i < 140; i += 15) {
+      const dashX = new THREE.Mesh(new THREE.PlaneGeometry(6, 0.6), lineMat);
+      dashX.rotation.x = -Math.PI / 2;
+      dashX.position.set(i, 0.08, 0);
+      scene.add(dashX);
+
+      const dashZ = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 6), lineMat);
+      dashZ.rotation.x = -Math.PI / 2;
+      dashZ.position.set(0, 0.08, i);
+      scene.add(dashZ);
     }
 
-    loading3d.style.display = 'none';
-    animate3D();
-  }
-
-  function animate3D() {
-    requestAnimationFrame(animate3D);
-    const time = Date.now() * 0.0003;
-    camera.position.x = Math.cos(time) * 100;
-    camera.position.z = Math.sin(time) * 100;
-    camera.lookAt(0, 0, 0);
-    renderer.render(scene, camera);
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    init3D();
-  });
-
-  window.addEventListener('resize', () => {
-    if (!container3d || !renderer) return;
-    camera.aspect = container3d.clientWidth / container3d.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container3d.clientWidth, container3d.clientHeight);
-  });
-</script>
-</body>
-</html>
+    const bldColors = [0x16385d, 0x1d4ed8, 0x0f766e, 0x7c3aed, 0xb45309];
+    for (let x = -110; x <= 110;
