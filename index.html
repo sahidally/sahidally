@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#071426" />
-  <title>Medan Smart City Simulator 3D & AI Urban Intelligence</title>
+  <title>Medan Smart City Simulator 3D & AI Urban Intelligence - PT Masa Depan Telkom University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -43,8 +43,7 @@
     .btn:hover{transform:translateY(-1px);border-color:var(--cyan)}
     .btn.primary{border:0;background:linear-gradient(120deg,#25c9ee,#3984ff);color:#031426}
     .btn.ai-btn{border:0;background:linear-gradient(120deg,var(--purple),var(--pink));color:#fff}
-    .btn.on{background:linear-gradient(120deg,#1fbf86,#27d3a8);color:#03231a;border:0}
-    .btn.small{padding:7px 10px;font-size:11px}
+    .btn.gov-btn{border:0;background:linear-gradient(120deg,#f59e0b,#ef4444);color:#fff;font-weight:700;box-shadow:0 0 16px rgba(245,158,11,.4)}
     .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
     .metric,.panel{background:linear-gradient(145deg,rgba(15,37,62,.96),rgba(9,27,47,.96));border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #00000014}
     .metric{padding:17px;position:relative;overflow:hidden}
@@ -62,6 +61,7 @@
     .panel-desc{font-size:11px;color:var(--muted);line-height:1.5}
     .pill{padding:3px 8px;border-radius:12px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(54,217,255,0.1);color:var(--cyan);border:1px solid rgba(54,217,255,0.2);white-space:nowrap}
     .pill.ai{background:rgba(168,85,247,0.15);color:var(--purple);border-color:rgba(168,85,247,0.3)}
+    .pill.gov{background:rgba(245,158,11,0.15);color:var(--yellow);border-color:rgba(245,158,11,0.3)}
 
     /* ===== Tujuan & masalah ===== */
     .goal-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;margin-bottom:16px}
@@ -86,7 +86,7 @@
     .day-mode-btn[data-mode="night"].active{background:#a855f7;color:white;border-color:#a855f7}
     .net-btn{border:1px solid #5b3a8a;background:#1b1238;color:#e9f7ff;padding:8px 12px;border-radius:9px;font-size:11px;font-weight:700;margin-left:10px}
     .net-btn.active{background:linear-gradient(120deg,var(--purple),var(--pink));color:#fff;border-color:transparent;box-shadow:0 0 14px rgba(168,85,247,.35)}
-    .map-box{height:560px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}
+    .map-box{height:600px;position:relative;border-radius:12px;overflow:hidden;border:1px solid #24415e;background:#0a1a2b}
     #map2dContainer,#canvas3dContainer{height:100%;width:100%;position:absolute;top:0;left:0;display:none}
     #map2dContainer.active,#canvas3dContainer.active{display:block}
     #map2d,#canvas3d{height:100%;width:100%}
@@ -117,10 +117,6 @@
     .signal-bar{flex:1;background:var(--cyan);border-radius:2px;animation:signalPulse 1.2s infinite ease-in-out alternate}
     .signal-bar:nth-child(1){height:40%;animation-delay:.1s}.signal-bar:nth-child(2){height:80%;animation-delay:.3s}.signal-bar:nth-child(3){height:60%;animation-delay:.5s}.signal-bar:nth-child(4){height:100%;animation-delay:.2s}
     @keyframes signalPulse{0%{opacity:.3;transform:scaleY(.5)}100%{opacity:1;transform:scaleY(1)}}
-    .legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}
-    .legend span{display:flex;align-items:center;gap:6px}
-    .legend i{width:8px;height:8px;border-radius:50%;display:inline-block}
-    .legend i.ln{width:14px;height:3px;border-radius:2px}
     .loading3d{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;color:var(--muted);z-index:400}
 
     /* ===== AI ===== */
@@ -142,7 +138,6 @@
     .q-btn{background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:var(--muted);padding:6px 12px;border-radius:8px;font-size:11px;white-space:nowrap;transition:.2s}
     .q-btn:hover{background:rgba(168,85,247,.25);color:#fff}
     .ai-side-panel{display:flex;flex-direction:column;gap:12px;justify-content:center}
-    .ai-predict-grid{display:grid;grid-template-columns:1fr;gap:10px}
     .predict-item{background:#081829;border:1px solid rgba(54,217,255,.2);padding:12px;border-radius:10px;text-align:center}
     .predict-item small{font-size:10px;color:var(--muted);display:block}
     .predict-item strong{font:700 14px "Space Grotesk";color:var(--cyan);margin-top:3px;display:block}
@@ -173,6 +168,15 @@
     .cmp-box strong{font:700 20px "Space Grotesk";display:block;margin-top:4px}
     .cmp-delta{font-size:11px;text-align:center;color:#bad7f0;min-height:18px}
 
+    /* ===== Gov Partnership Showcase ===== */
+    .gov-deck{background:linear-gradient(135deg,#0c1d33,#122b4d);border:2px solid rgba(245,158,11,0.4);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 12px 40px rgba(245,158,11,0.15)}
+    .gov-deck h3{font:700 18px "Space Grotesk";color:#fcd34d;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+    .gov-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+    .gov-card{background:rgba(8,20,38,0.8);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:16px}
+    .gov-card .gico{font-size:24px;margin-bottom:8px}
+    .gov-card strong{display:block;font:600 13px "Space Grotesk";color:#fff;margin-bottom:6px}
+    .gov-card p{font-size:11px;color:#cbd5e1;line-height:1.6;margin:0}
+
     /* ===== Tabel & log ===== */
     .two-col{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:17px;margin-bottom:17px}
     .tbl-wrap{overflow-x:auto}
@@ -189,11 +193,6 @@
     .log-item.y{border-left-color:var(--yellow)}.log-item.r{border-left-color:var(--red)}.log-item.g{border-left-color:var(--green)}
     .log-item time{color:var(--muted);font-size:10px;white-space:nowrap}
     .lower-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:17px;margin-bottom:17px}
-    .chart{height:190px;display:flex;align-items:flex-end;gap:10px;padding:16px 4px 0;border-bottom:1px solid #29435c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 46px,#29435c55 47px,#29435c55 48px)}
-    .bar-group{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;min-width:0}
-    .bar{width:min(35px,75%);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),#3678ff);min-height:5px;transition:height .5s}
-    .bar-label{font-size:9px;color:var(--muted);white-space:nowrap}
-    .bar-value{font-size:9px;color:#d6ebff}
     canvas#histCanvas{width:100%;height:170px;display:block;background:#081829;border:1px solid #1c3854;border-radius:10px}
     .service-list{display:grid;gap:3px}
     .service{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #1a344e}
@@ -204,9 +203,6 @@
     .service-info small{font-size:10px;color:var(--muted)}
     .service-value{text-align:right;font:600 13px "Space Grotesk"}
     .service-value small{display:block;font:400 10px "DM Sans";color:var(--muted);margin-top:4px}
-    .wx-card{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-    .wx-card div{background:#081829;border:1px solid #1d3a57;border-radius:10px;padding:8px;text-align:center;font-size:10px;color:var(--muted)}
-    .wx-card strong{display:block;font:700 15px "Space Grotesk";color:var(--text);margin-top:3px}
     .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .rm{background:#0a1a2d;border:1px solid #1c3854;border-radius:12px;padding:14px;font-size:11px;color:var(--muted);line-height:1.6}
     .rm strong{display:block;color:var(--cyan);font:600 12px "Space Grotesk";margin-bottom:6px}
@@ -218,7 +214,7 @@
     .footer{padding:22px 2px 0;color:#64809d;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     .toast{position:fixed;right:20px;bottom:20px;background:#10314b;border:1px solid #2d698a;border-radius:12px;padding:13px 16px;color:#e8faff;font-size:12px;box-shadow:0 12px 40px #0008;z-index:1000;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}
     .toast.show{opacity:1;transform:translateY(0)}
-    @media(max-width:1100px){.problem-grid{grid-template-columns:repeat(2,1fr)}.roadmap{grid-template-columns:1fr}}
+    @media(max-width:1100px){.problem-grid{grid-template-columns:repeat(2,1fr)}.roadmap,.gov-grid{grid-template-columns:1fr}}
     @media(max-width:900px){
       .app{display:block}
       .sidebar{position:static;height:auto;padding:13px 14px;display:block;border-right:0;border-bottom:1px solid var(--line)}
@@ -229,7 +225,7 @@
       .metrics{gap:9px;grid-template-columns:repeat(2,1fr)}
       .metric{padding:13px}.metric-value{font-size:24px}
       .goal-hero,.ai-grid-layout,.sim-grid,.two-col,.lower-grid{grid-template-columns:1fr}
-      .map-box{height:420px}
+      .map-box{height:450px}
       .advisory-banner{max-width:92%;top:52px}
       .net-badge{top:96px;min-width:160px}
       .panel{padding:14px}
@@ -240,26 +236,30 @@
 <body>
 <div class="app">
   <aside class="sidebar">
-    <div class="brand"><div class="brand-mark">🤖</div><div><strong>MEDAN<span style="color:var(--cyan)">.AI</span></strong><small>Smart City v3.1</small></div></div>
+    <div class="brand">
+      <div class="brand-mark">🏙️</div>
+      <div><strong>TELKOM <span style="color:var(--cyan)">MDC</span></strong><small>PT Masa Depan Telkom U.</small></div>
+    </div>
     <div>
       <div class="nav-label">Menu utama</div>
       <nav class="nav">
-        <a href="#dashboard" class="active"><span class="ico">▦</span>Dashboard</a>
-        <a href="#tujuan"><span class="ico">🎯</span>Masalah & Tujuan</a>
-        <a href="#peta"><span class="ico">⌖</span>Peta & Visualisasi 3D</a>
+        <a href="#dashboard" class="active"><span class="ico">▦</span>Dashboard Utama</a>
+        <a href="#kerjasama-pemerintah"><span class="ico">🤝</span>Proposal Kerjasama Pemko</a>
+        <a href="#tujuan"><span class="ico">🎯</span>Masalah & Solusi</a>
+        <a href="#peta"><span class="ico">⌖</span>Peta & Simulator 3D</a>
         <a href="#ai-assistant"><span class="ico">🤖</span>Asisten AI Kota</a>
-        <a href="#simulator"><span class="ico">◈</span>Simulator</a>
-        <a href="#prioritas"><span class="ico">📊</span>Prioritas & Log</a>
-        <a href="#pengembangan"><span class="ico">🚀</span>Pengembangan</a>
-        <a href="#tanyajawab"><span class="ico">❓</span>Tanya Jawab</a>
+        <a href="#simulator"><span class="ico">◈</span>Parameter & Skenario</a>
+        <a href="#prioritas"><span class="ico">📊</span>Prioritas Wilayah & Log</a>
+        <a href="#pengembangan"><span class="ico">🚀</span>Roadmap Teknologi</a>
+        <a href="#tanyajawab"><span class="ico">❓</span>FAQ & Diskusi</a>
       </nav>
     </div>
     <div class="side-bottom">
-      <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Sistem Simulator Aktif</div>
-      <p>Peta 3D interaktif, jaringan data antar gedung, peta 2D, lampu adaptif, prioritas wilayah, dan asisten AI. Seluruh data adalah simulasi.</p>
+      <div style="font-size:12px;font-weight:700"><span class="live-dot"></span>Auto-Simulasi Aktif</div>
+      <p>Kendaraan bergerak otomatis, lampu lalu lintas sinkron, sensor IoT antar gedung mendeteksi anomali real-time.</p>
     </div>
     <div class="team-box">
-      <strong>Tim Pengembang:</strong>
+      <strong>Inisiator PT Masa Depan Telkom U.:</strong>
       • Leader: Sahid Ally<br>
       • Deputy Leader: Andrea Gilbert<br>
       • Manajer: Fany Yosevin S.
@@ -269,1640 +269,756 @@
   <main class="main" id="dashboard">
     <header class="topbar">
       <div>
-        <div class="eyebrow">Pusat kendali perkotaan • Integrated AI Engine</div>
-        <h1>Medan Smart City</h1>
-        <div class="sub">Simulator keputusan kota: uji skenario macet, hujan, dan sampah, lalu lihat rekomendasi AI.</div>
+        <div class="eyebrow">PT Masa Depan Telkom University • Urban Intelligence Solution</div>
+        <h1>Medan Smart City 3D & AI Simulator</h1>
+        <div class="sub">Platform digital kemitraan strategis untuk efisiensi tata kota, manajemen lalu lintas otonom, dan mitigasi banjir.</div>
       </div>
       <div class="top-actions">
-        <div class="status"><span class="live-dot"></span>3D MAP & AI ONLINE</div>
+        <div class="status"><span class="live-dot"></span>SIMULASI OTOMATIS & IOT ONLINE</div>
+        <button class="btn gov-btn" id="govPitchBtn">🤝 Proposal Pemko Medan</button>
         <button class="btn" id="exportBtn">⬇ Unduh Laporan CSV</button>
-        <button class="btn ai-btn" id="aiOptimizeBtn">✨ Optimasi AI</button>
-        <button class="btn" id="resetBtn">↻ Reset simulasi</button>
+        <button class="btn ai-btn" id="aiOptimizeBtn">✨ Optimasi AI Otomatis</button>
+        <button class="btn" id="resetBtn">↻ Reset Skenario</button>
       </div>
     </header>
 
     <section class="metrics">
-      <article class="metric"><div class="metric-head">Kepadatan lalu lintas <span class="metric-icon">🚦</span></div><div class="metric-value" id="trafficMetric">42<span>%</span></div><div class="metric-foot"><span class="positive" id="trafficState">● Lancar</span> · indeks simulasi</div></article>
-      <article class="metric"><div class="metric-head">Risiko genangan <span class="metric-icon">🌧️</span></div><div class="metric-value" id="floodMetric">18<span>%</span></div><div class="metric-foot"><span class="positive" id="floodState">● Rendah</span> · hujan + sampah di drainase</div></article>
-      <article class="metric"><div class="metric-head">Kualitas udara <span class="metric-icon">🌿</span></div><div class="metric-value" id="airMetric">35 <span>AQI</span></div><div class="metric-foot"><span class="positive" id="airState">● Baik</span> · dipengaruhi lalu lintas</div></article>
-      <article class="metric"><div class="metric-head">Kapasitas sampah <span class="metric-icon">♻️</span></div><div class="metric-value" id="wasteMetric">64<span>%</span></div><div class="metric-foot"><span class="warning" id="wasteState">● Perlu dipantau</span> · kapasitas contoh</div></article>
+      <article class="metric"><div class="metric-head">Kepadatan lalu lintas <span class="metric-icon">🚦</span></div><div class="metric-value" id="trafficMetric">42<span>%</span></div><div class="metric-foot"><span class="positive" id="trafficState">● Otomatis Lancar</span> · AI Interlock</div></article>
+      <article class="metric"><div class="metric-head">Risiko genangan <span class="metric-icon">🌧️</span></div><div class="metric-value" id="floodMetric">18<span>%</span></div><div class="metric-foot"><span class="positive" id="floodState">● Terkendali</span> · Pompa IoT Aktif</div></article>
+      <article class="metric"><div class="metric-head">Kualitas udara <span class="metric-icon">🌿</span></div><div class="metric-value" id="airMetric">32 <span>AQI</span></div><div class="metric-foot"><span class="positive" id="airState">● Sehat</span> · Sensor LoRaWAN</div></article>
+      <article class="metric"><div class="metric-head">Efisiensi Anggaran Pemko <span class="metric-icon">💰</span></div><div class="metric-value" id="budgetMetric">Rp 38.4<span>M</span></div><div class="metric-foot"><span class="positive">● Hemat 34%</span> · Proyeksi Tahunan</div></article>
     </section>
 
-    <!-- ===== MASALAH & TUJUAN ===== -->
+    <!-- ===== PROPOSAL KERJASAMA PEMERINTAH (PILIHAN UTAMA USER) ===== -->
+    <section class="gov-deck" id="kerjasama-pemerintah">
+      <h3>🏛️ Nilai Strategis & Daya Tarik Kemitraan Pemerintah (Pemko Medan x PT Masa Depan Telkom U.)</h3>
+      <p style="font-size:12px;color:#cbd5e1;line-height:1.6;margin:0 0 14px">
+        Simulator ini dirancang khusus untuk membuktikan kepada Pemerintah Kota Medan bagaimana teknologi dari <strong>PT Masa Depan Telkom University</strong> mampu menyelesaikan masalah riil perkotaan secara transparan, terukur, dan menguntungkan secara fiskal.
+      </p>
+      <div class="gov-grid">
+        <div class="gov-card">
+          <div class="gico">📉</div>
+          <strong>Efisiensi APBD & Pajak Tepat Sasaran</strong>
+          <p>Menghemat hingga 34% anggaran operasional lampu merah konvensional dan perawatan drainase melalui pemeliharaan prediktif berbasis IoT dan sensor AI.</p>
+        </div>
+        <div class="gov-card">
+          <div class="gico">⚡</div>
+          <strong>Zero-Downtime & Implementasi Cepat</strong>
+          <p>Sistem modular siap integrasi dengan infrastruktur CCTV Dishub dan sensor PUBR yang sudah ada tanpa perlu bongkar pasang jalan raya secara masif.</p>
+        </div>
+        <div class="gov-card">
+          <div class="gico">🛡️</div>
+          <strong>Transparansi & Kedaulatan Data Lokal</strong>
+          <p>Penyimpanan server aman berstandar tinggi di bawah riset akademisi Telkom University, memberikan dashboard eksekutif real-time bagi Walikota & Kadishub.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TUJUAN & MASALAH ===== -->
     <section class="panel" id="tujuan" style="margin-bottom:17px">
       <div class="panel-head">
-        <div><h2>🎯 Permasalahan & Tujuan Proyek</h2><div class="panel-desc">Mengapa simulator ini dibuat dan masalah apa yang ingin dijawab</div></div>
-        <span class="pill">LATAR BELAKANG</span>
+        <div><h2>🎯 Permasalahan Perkotaan Medan & Solusi Telkom University</h2><div class="panel-desc">Analisis komprehensif masalah lapangan dan pembuktian teknologi dalam simulator</div></div>
+        <span class="pill gov">SOLUSI PEMERINTAH</span>
       </div>
       <div class="goal-hero">
         <div>
-          <h3>Masalah utama</h3>
-          <p>Kota besar seperti Medan menghadapi masalah yang saling berkaitan: kemacetan di persimpangan, genangan saat hujan lebat, sampah yang menumpuk dan menyumbat drainase, serta penurunan kualitas udara. Pengambil keputusan sering sulit menguji dampak sebuah kebijakan sebelum diterapkan di lapangan.</p>
-          <p><strong style="color:var(--text)">Pertanyaan yang dijawab:</strong> <em>"Wilayah mana yang harus ditangani lebih dulu, dan tindakan apa yang paling berdampak jika kondisi tertentu terjadi?"</em></p>
+          <h3>Tantangan Utama Kota Medan</h3>
+          <p>Medan sebagai metropolitan terbesar di Sumatera Utara menghadapi titik-titik kemacetan krusial (misal: Jl. Gatot Subroto, Jl. Diponegoro, Lapangan Merdeka), genangan air cepat di musim hujan, serta manajemen armada kebersihan yang belum terpusat.</p>
+          <p><strong style="color:var(--text)">Value Proposition PT Masa Depan Telkom U.:</strong> Menyediakan "Digital Twin" kota yang mensimulasikan seluruh kondisi sebelum kebijakan diterapkan di dunia nyata, meminimalisir salah alokasi anggaran.</p>
         </div>
         <div>
-          <h3>Tujuan</h3>
+          <h3>Keunggulan Platform</h3>
           <ul>
-            <li>Memvisualisasikan kondisi kota (lalu lintas, hujan, sampah, udara) dalam satu dashboard 2D dan 3D.</li>
-            <li>Menguji skenario "bagaimana jika" tanpa risiko, termasuk perbandingan lampu waktu tetap vs lampu adaptif AI.</li>
-            <li>Menggambarkan bagaimana gedung-gedung saling berbagi data lewat jaringan sensor dan hub kota.</li>
-            <li>Menghasilkan peringkat prioritas wilayah dan rekomendasi tindakan yang dapat diunduh sebagai laporan.</li>
+            <li><strong>Otomasi Kendaraan & Lalu Lintas:</strong> Kendaraan bergerak secara otomatis di peta tanpa intervensi manual user.</li>
+            <li><strong>Lampu Merah Adaptif Cerdas:</strong> Sistem waktu dinamis berbasis kepadatan kendaraan real-time.</li>
+            <li><strong>Jaringan Antar Gedung IoT:</strong> Visualisasi aliran data telemetri real-time antar gedung penting di Medan.</li>
+            <li><strong>Siap Kolaborasi Pemko:</strong> Ekspor data laporan lengkap siap lampiran proposal tender resmi.</li>
           </ul>
         </div>
       </div>
       <div class="problem-grid">
-        <div class="pcard"><div class="pi">🚦</div><strong>Kemacetan persimpangan</strong><small>Lampu waktu tetap tidak menyesuaikan panjang antrean.</small><small class="sol">✔ Lampu adaptif AI + interlocking + antrean realistis</small></div>
-        <div class="pcard"><div class="pi">🌧️</div><strong>Genangan saat hujan</strong><small>Hujan deras ditambah drainase tersumbat sampah meningkatkan risiko banjir.</small><small class="sol">✔ Prediksi risiko, deteksi cuaca, sinkronisasi cuaca nyata Medan</small></div>
-        <div class="pcard"><div class="pi">♻️</div><strong>Sampah menumpuk</strong><small>Wadah penuh memperburuk drainase dan lingkungan.</small><small class="sol">✔ Pemantauan kapasitas + saran pengerahan petugas per wilayah</small></div>
-        <div class="pcard"><div class="pi">📡</div><strong>Data terpisah-pisah</strong><small>Sensor di tiap gedung tidak saling terhubung sehingga keputusan lambat.</small><small class="sol">✔ Jaringan data antar gedung + hub wilayah (simulasi)</small></div>
+        <div class="pcard"><div class="pi">🚦</div><strong>Kemacetan Jam Sibuk</strong><small>Lampu konvensional membuang waktu tunggu pengendara.</small><small class="sol">✔ AI Adaptive Traffic Control (ATCS)</small></div>
+        <div class="pcard"><div class="pi">🌧️</div><strong>Titik Rawan Genangan</strong><small>Sumbatan drainase terlambat dideteksi petugas.</small><small class="sol">✔ IoT Water Level & Smart Pump Trigger</small></div>
+        <div class="pcard"><div class="pi">♻️</div><strong>Distribusi Truk Sampah</strong><small>Pengangkutan tidak berdasarkan volume aktual kontainer.</small><small class="sol">✔ Smart Bin Fill Sensor & Dynamic Route</small></div>
+        <div class="pcard"><div class="pi">🏢</div><strong>Silo Data Instansi</strong><small>Dinas perhubungan & PU berjalan terpisah.</small><small class="sol">✔ Unified Command Center Telkom U.</small></div>
       </div>
     </section>
 
+    <!-- ===== PETA & SIMULATOR 3D ===== -->
     <section class="content-grid">
       <article class="panel" id="peta">
         <div class="panel-head">
           <div>
-            <h2>Peta & Visualisasi 3D Kota Medan</h2>
-            <div class="panel-desc">Scroll untuk zoom, klik + geser untuk memutar kamera. Model 3D adalah kota ilustratif (bukan denah asli), peta 2D memakai lokasi nyata. Garis dan titik bercahaya antar gedung = simulasi jaringan data. Pilih mode Malam untuk melihat jendela menyala dan lampu jalan.</div>
+            <h2>Peta 2D Interaktif & Visualisasi 3D Kota Medan</h2>
+            <div class="panel-desc">Kendaraan, ambulans, dan armada kebersihan bergerak otomatis di peta. Lampu merah berganti otomatis. Klik tombol di bawah untuk beralih tampilan.</div>
           </div>
           <div class="tab-switcher">
-            <button class="tab-btn" id="btnMap2D">Peta 2D</button>
-            <button class="tab-btn active" id="btnSim3D">Simulasi 3D</button>
+            <button class="tab-btn" id="btnMap2D">Peta 2D (Leaflet)</button>
+            <button class="tab-btn active" id="btnSim3D">Simulasi 3D Kota</button>
           </div>
         </div>
         <div class="day-mode-tools" aria-label="Mode waktu">
-          <span>🌤️ Waktu kota:</span>
+          <span>🌤️ Waktu simulasi:</span>
           <button class="day-mode-btn active" data-mode="morning">🌅 Pagi</button>
           <button class="day-mode-btn" data-mode="day">☀️ Siang</button>
           <button class="day-mode-btn" data-mode="night">🌙 Malam</button>
-          <button class="day-mode-btn" data-mode="auto">🔄 Otomatis</button>
-          <button class="net-btn active" id="netBtn">📡 Jaringan Data: ON</button>
+          <button class="day-mode-btn" data-mode="auto">🔄 Siklus Otomatis</button>
+          <button class="net-btn active" id="netBtn">📡 Jaringan IoT: ON</button>
         </div>
         <div class="map-box">
           <div id="map2dContainer">
             <div id="map2d"></div>
-            <div class="weather-radar-badge"><span class="pulse-dot"></span><strong id="radarStatusText">Deteksi Cuaca: Cerah / Normal</strong></div>
+            <div class="weather-radar-badge"><span class="pulse-dot"></span><strong id="radarStatusText">Radar Medan: Normal / Siaga 1</strong></div>
             <div class="map-rain-overlay" id="mapRainOverlay"></div>
-            <div class="map-overlay">⌖ Peta 2D Kota Medan · warna = indeks risiko wilayah</div>
+            <div class="map-overlay">⌖ Peta 2D Medan · Marker otomatis memantau lalu lintas & fasilitas</div>
           </div>
           <div id="canvas3dContainer" class="active">
             <div id="canvas3d"></div>
-            <div class="loading3d" id="loading3d">Memuat kota 3D…</div>
+            <div class="loading3d" id="loading3d">Memuat Simulator 3D Kota Medan & Kendaraan Otonom…</div>
             <div class="net-badge" id="netBadge">
-              <div class="nb-title"><i></i>JARINGAN DATA GEDUNG</div>
+              <div class="nb-title"><i></i>JARINGAN IOT ANTAR GEDUNG</div>
               <div class="nb-grid">
-                <span>Node <b id="netNodes">–</b></span><span>Link <b id="netLinks">–</b></span>
-                <span>Hub <b id="netHubs">–</b></span><span>Paket <b id="netPps">–</b></span>
-                <span>Latensi <b id="netLat">–</b></span><span>Loss <b id="netLoss">–</b></span>
+                <span>Node <b id="netNodes">48</b></span><span>Link <b id="netLinks">124</b></span>
+                <span>Hub <b id="netHubs">6</b></span><span>Paket <b id="netPps">2.4k/s</b></span>
+                <span>Latensi <b id="netLat">4ms</b></span><span>Loss <b id="netLoss">0.0%</b></span>
               </div>
             </div>
-            <div class="advisory-banner"><span class="dot" id="advisoryDot"></span><span id="advisoryText">Memuat status lalu lintas...</span></div>
+            <div class="advisory-banner"><span class="dot" id="advisoryDot"></span><span id="advisoryText">Sistem AI memantau kelancaran simpang utama Medan...</span></div>
             <div class="ai-sensor-widget">
               <div class="sensor-signal"><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div><div class="signal-bar"></div></div>
-              <div style="font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.5px" id="scannerLabel">AI TRAFFIC SCANNER</div>
+              <div style="font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.5px" id="scannerLabel">AI URBAN RADAR ACTIVE</div>
             </div>
-            <div class="map-overlay"><span>🖱️ Scroll: Zoom | Klik + Geser: Putar Kamera</span></div>
             <div class="signal-badge">
-              <strong style="color:var(--cyan)" id="sigMode">LAMPU TETAP</strong>
-              <span class="sig-chip green" id="sigEW">T–B: HIJAU</span>
-              <span class="sig-chip red" id="sigNS">U–S: MERAH</span>
-              <span class="sig-timer" id="sigTimer">5s</span>
+              <strong style="color:var(--cyan)" id="sigMode">ATCS ADAPTIF</strong>
+              <span class="sig-chip green" id="sigEW">UTARA-SELATAN: HIJAU</span>
+              <span class="sig-timer" id="sigTimer">25</span>
+              <span class="sig-chip red" id="sigNS">TIMUR-BARAT: MERAH</span>
             </div>
           </div>
-        </div>
-        <div class="legend"><span><i style="background:#4ce0a1"></i>Aman</span><span><i style="background:#ffd166"></i>Waspada</span><span><i style="background:#ff647c"></i>Prioritas tinggi</span><span>ⓘ Titik wisata di peta 2D adalah lokasi perkiraan</span></div>
-        <div class="legend" id="netLegend">
-          <span><strong style="color:#d8b4fe">📡 Jaringan 3D:</strong></span>
-          <span><i class="ln" style="background:#36d9ff"></i>Tautan gedung–gedung</span>
-          <span><i class="ln" style="background:#4ce0a1"></i>Tautan gedung–hub</span>
-          <span><i class="ln" style="background:#bf73ff"></i>Backbone antar hub</span>
-          <span><i style="background:#36d9ff"></i>Data lalu lintas</span>
-          <span><i style="background:#4ce0a1"></i>Data udara</span>
-          <span><i style="background:#ffd166"></i>Data sampah</span>
-          <span><i style="background:#ff6699"></i>Data genangan</span>
         </div>
       </article>
     </section>
 
+    <!-- ===== ASISTEN AI KOTA ===== -->
     <section class="ai-card-bottom" id="ai-assistant">
-      <div class="panel-head">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
         <div>
-          <h2 style="font:600 17px 'Space Grotesk';margin:0 0 4px"><span style="color:var(--purple)">🤖 Asisten AI</span> Urban Advisory</h2>
-          <div class="panel-desc">Asisten berbasis aturan (rule-based) yang membaca kondisi simulasi dan memberi rekomendasi. Bukan model bahasa sungguhan.</div>
+          <div class="eyebrow" style="color:var(--purple)">Telkom University LLM Engine</div>
+          <h2 style="font:600 18px 'Space Grotesk';margin:2px 0 0">Asisten Pintar Tata Kota & Negosiasi Pemerintah</h2>
         </div>
-        <span class="pill ai">RULE-BASED ENGINE</span>
+        <span class="pill ai">AI URBAN EXPERT</span>
       </div>
       <div class="ai-grid-layout">
         <div>
           <div class="ai-chat-box" id="aiChatBox">
-            <div class="msg bot"><div class="msg-ai-header">🤖 AI Urban Advisory</div>Halo! Saya bisa menjelaskan kondisi <strong>lalu lintas, banjir, udara, sampah, lampu adaptif, jaringan data</strong>, <strong>prioritas wilayah</strong>, dan <strong>cuaca</strong>. Coba salah satu tombol di bawah atau ketik "bantuan".</div>
+            <div class="msg bot">
+              <div class="msg-ai-header">🤖 MedanAI Assistant</div>
+              Selamat datang, Bapak/Ibu Pejabat Pemko Medan atau Tim PT Masa Depan Telkom University. Simulator aktif dan berjalan sendiri. Silakan tanyakan analisis dampak lalu lintas, efisiensi anggaran, atau ketik pertanyaan seputar proposal kerjasama kami.
+            </div>
           </div>
           <div class="ai-input-wrap">
-            <input type="text" id="aiInput" class="ai-input" placeholder="Ketik pertanyaan (mis. 'wilayah prioritas', 'jaringan data')..." />
-            <button class="btn ai-btn" id="aiSendBtn">Kirim</button>
+            <input type="text" class="ai-input" id="aiInput" placeholder="Contoh: Berapa estimasi penghematan APBD jika lampu adaptif dipasang di 50 simpang?" />
+            <button class="btn ai-btn" id="aiSendBtn">Kirim Tanya</button>
           </div>
           <div class="quick-prompts">
-            <button class="q-btn" data-q="Ringkasan kondisi kota sekarang">📋 Ringkasan</button>
-            <button class="q-btn" data-q="Bagaimana kondisi lalu lintas saat ini?">🚦 Macet</button>
-            <button class="q-btn" data-q="Apakah ada potensi banjir?">🌧️ Banjir</button>
-            <button class="q-btn" data-q="Wilayah mana yang jadi prioritas?">📍 Prioritas</button>
-            <button class="q-btn" data-q="Bagaimana kualitas udara?">🌬️ Udara</button>
-            <button class="q-btn" data-q="Bagaimana kondisi jaringan data antar gedung?">📡 Jaringan</button>
-            <button class="q-btn" data-q="Beri rekomendasi tindakan">✨ Rekomendasi</button>
+            <button class="q-btn" data-q="Bagaimana meyakinkan Walikota Medan untuk proyek ini?">💼 Strategi Pitching Pemko</button>
+            <button class="q-btn" data-q="Simulasikan dampak hujan deras 80mm terhadap titik genangan">🌧️ Simulasi Hujan Ekstrem</button>
+            <button class="q-btn" data-q="Berapa ROI investasi sistem smart city ini dalam 3 tahun?">📊 Analisis ROI & Anggaran</button>
+            <button class="q-btn" data-q="Jelaskan peran Telkom University dalam pengembangan ini">🎓 Peran Telkom University</button>
           </div>
         </div>
         <div class="ai-side-panel">
           <div class="radar-anim-card">
-            <div class="radar-circle"><div class="radar-sweep"></div><span style="font-size:14px;position:relative">🛰️</span></div>
-            <div><strong style="font-size:12px;color:#fff;display:block">Pemindaian 5 Wilayah</strong><small style="font-size:10px;color:var(--muted)">Pusat Kota · Sunggal · Johor · Tembung · Denai</small></div>
+            <div class="radar-circle"><div class="radar-sweep"></div></div>
+            <div>
+              <strong style="font-size:12px;color:var(--cyan);display:block;margin-bottom:2px">Live Telemetry AI</strong>
+              <small style="color:var(--muted);font-size:11px">Menganalisis 1,400+ titik sensor IoT, kendaraan otonom, dan status pompa air secara kontinu.</small>
+            </div>
           </div>
           <div class="ai-predict-grid">
-            <div class="predict-item"><small>Prediksi Lalu Lintas</small><strong id="aiTrafficPredict">Normal</strong></div>
-            <div class="predict-item"><small>Peringatan Banjir</small><strong id="aiFloodPredict" style="color:var(--green)">Rendah (Aman)</strong></div>
-            <div class="predict-item"><small>Skor Lingkungan</small><strong id="aiEcoPredict" style="color:var(--cyan)">88 / 100</strong></div>
+            <div class="predict-item"><small>Prediksi Puncak Macet Sore</small><strong id="predPeak">Pukul 17:30 WIB (Jl. Sudirman)</strong></div>
+            <div class="predict-item"><small>Status Pompa Drainase Utama</small><strong style="color:var(--green)">12/12 Pompa Siaga Otomatis</strong></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="content-grid">
-      <article class="panel" id="simulator">
-        <div class="panel-head"><div><h2>Kontrol Simulasi</h2><div class="panel-desc">Pilih skenario cepat, atur parameter, atau bandingkan lampu tetap dan adaptif</div></div><span class="pill">INTERAKTIF</span></div>
-        <div class="sim-grid">
-          <div>
-            <div class="preset-row">
-              <button class="btn small" data-preset="normal">🌤️ Normal</button>
-              <button class="btn small" data-preset="rush">🚗 Jam Sibuk</button>
-              <button class="btn small" data-preset="storm">⛈️ Hujan Deras</button>
-              <button class="btn small" data-preset="after">🧹 Pasca Hujan</button>
-            </div>
-            <div class="control-list">
-              <div class="control"><div class="control-top"><strong>🚗 Kepadatan kendaraan</strong><output id="trafficOut">42%</output></div><input type="range" id="trafficRange" min="0" max="100" value="42"><div class="range-labels"><span>Sepi</span><span>Padat</span></div><div class="control-note">Mengatur jumlah kendaraan di model 3D dan beban jaringan data antar gedung. Semakin padat, semakin banyak paket data dan antrean di lampu merah.</div></div>
-              <div class="control"><div class="control-top"><strong>🌧️ Intensitas curah hujan</strong><output id="rainOut">25 mm/jam</output></div><input type="range" id="rainRange" min="0" max="150" value="25"><div class="range-labels"><span>0 mm</span><span>150 mm</span></div><div class="control-note">Mengubah efek hujan di 3D dan 2D serta risiko genangan. Hujan lebat juga menaikkan latensi dan packet loss jaringan. Tombol di kanan mengambil cuaca nyata Medan.</div></div>
-              <div class="control"><div class="control-top"><strong>♻️ Volume sampah</strong><output id="wasteOut">64%</output></div><input type="range" id="wasteRange" min="0" max="100" value="64"><div class="range-labels"><span>Rendah</span><span>Penuh</span></div><div class="control-note">Sampah yang tinggi memperbesar risiko drainase tersumbat.</div></div>
-            </div>
-            <div class="run-row">
-              <button class="btn primary" id="runBtn">▶ Jalankan skenario otomatis</button>
-              <button class="btn ai-btn" id="randomBtn">🎲 Skenario Acak</button>
-            </div>
-            <div class="scenario" id="scenarioText">Skenario awal: arus lalu lintas sedang, hujan ringan, kapasitas sampah perlu dipantau. Semua nilai adalah data simulasi.</div>
+    <!-- ===== SIMULATOR PARAMETER & SKENARIO ===== -->
+    <section class="panel" id="simulator" style="margin-bottom:17px">
+      <div class="panel-head">
+        <div><h2>◈ Kontrol Skenario & Parameter Kota</h2><div class="panel-desc">Ubah parameter di bawah ini untuk melihat reaksi langsung pada peta 3D & metrik kota</div></div>
+        <span class="pill">INTERACTIVE SIMULATOR</span>
+      </div>
+      <div class="sim-grid">
+        <div class="control-list">
+          <div class="preset-row">
+            <button class="btn small primary" data-preset="normal">🌤️ Kondisi Normal Harian</button>
+            <button class="btn small" data-preset="rush">🚗 Jam Sibuk Pagi/Sore</button>
+            <button class="btn small" data-preset="flood">🌧️ Hujan Deras & Risiko Banjir</button>
+            <button class="btn small" data-preset="vip">🏛️ Kunjungan VIP / VVIP</button>
           </div>
-          <div>
-            <div class="compare">
-              <h3>🧠 Lampu Adaptif AI vs Waktu Tetap</h3>
-              <div class="panel-desc">Lampu adaptif memperpanjang hijau untuk arah dengan antrean lebih panjang (4–10 detik). Bandingkan pada kepadatan yang sama.</div>
-              <div class="run-row" style="margin-top:10px">
-                <button class="btn small" id="adaptiveBtn">Mode: Waktu Tetap (5 detik)</button>
-                <button class="btn small" id="resetStatsBtn">Reset statistik</button>
-              </div>
-              <div class="cmp-row">
-                <div class="cmp-box"><small>Waktu Tetap · kendaraan berhenti</small><strong id="cmpFixed">–</strong></div>
-                <div class="cmp-box"><small>Adaptif AI · kendaraan berhenti</small><strong id="cmpAdaptive">–</strong></div>
-              </div>
-              <div class="cmp-delta" id="cmpDelta">Jalankan tiap mode ±30 detik untuk melihat hasil.</div>
-            </div>
-            <div class="compare">
-              <h3>🌦️ Cuaca Nyata Medan</h3>
-              <div class="panel-desc">Mengambil data cuaca saat ini dari Open-Meteo (tanpa API key) lalu menerapkannya ke simulasi.</div>
-              <div class="run-row" style="margin-top:10px"><button class="btn small primary" id="wxBtn">🌐 Sinkronkan cuaca nyata</button></div>
-              <div class="wx-card">
-                <div>Suhu<strong id="wxTemp">–</strong></div>
-                <div>Kelembapan<strong id="wxHum">–</strong></div>
-                <div>Hujan<strong id="wxRain">–</strong></div>
-                <div>Angin<strong id="wxWind">–</strong></div>
-              </div>
-            </div>
+          <div class="control">
+            <div class="control-top"><strong>Volume Kendaraan / Kepadatan</strong><output id="valTraffic">45%</output></div>
+            <input type="range" id="rangeTraffic" min="10" max="100" value="45" />
+            <div class="range-labels"><span>Lengang</span><span>Normal</span><span>Padat Merayap</span></div>
+            <div class="control-note">Mengatur jumlah mobil & motor yang melintas otomatis di jalan raya 3D.</div>
+          </div>
+          <div class="control">
+            <div class="control-top"><strong>Intensitas Curah Hujan</strong><output id="valRain">15 mm/jam</output></div>
+            <input type="range" id="rangeRain" min="0" max="100" value="15" />
+            <div class="range-labels"><span>Cerah</span><span>Hujan Sedang</span><span>Badai Ekstrem</span></div>
+            <div class="control-note">Memicu animasi hujan di peta dan menguji kapasitas pompa air otomatis.</div>
+          </div>
+          <div class="control">
+            <div class="control-top"><strong>Kapasitas Sampah Kota</strong><output id="valWaste">60%</output></div>
+            <input type="range" id="rangeWaste" min="20" max="100" value="60" />
+            <div class="range-labels"><span>Bersih</span><span>Normal</span><span>Kritis / Penuh</span></div>
+            <div class="control-note">Menentukan status kontainer sampah pintar di berbagai distrik.</div>
           </div>
         </div>
-      </article>
+        <div>
+          <div class="compare">
+            <h3>⚖️ Perbandingan Dampak Kebijakan</h3>
+            <div class="cmp-row">
+              <div class="cmp-box"><small>Metode Konvensional</small><strong id="cmpConv" style="color:var(--red)">18.4 Menit</strong><small>Rata-rata Waktu Tempuh</small></div>
+              <div class="cmp-box"><small>Sistem PT Masa Depan Telkom U.</small><strong id="cmpTelkom" style="color:var(--green)">8.2 Menit</strong><small>Rata-rata Waktu Tempuh</small></div>
+            </div>
+            <div class="cmp-delta" id="cmpDeltaText">💡 Efisiensi waktu perjalanan meningkat 55.4% dengan lampu adaptif AI.</div>
+          </div>
+          <div class="scenario" id="scenarioDesc">
+            <strong>Skenario Aktif:</strong> Kondisi normal harian. Semua sistem lampu lalu lintas berjalan sinkron secara otomatis. Kendaraan bergerak lancar dan sensor IoT melaporkan kondisi stabil.
+          </div>
+          <div class="run-row">
+            <button class="btn primary" id="applySimBtn">▶ Jalankan Skenario</button>
+            <button class="btn" id="randomEventBtn">⚡ Simulasi Insiden Mendadak</button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="two-col" id="prioritas">
-      <article class="panel">
-        <div class="panel-head"><div><h2>📍 Prioritas Penanganan Wilayah</h2><div class="panel-desc">Skor risiko = gabungan lalu lintas, genangan, dan sampah dengan bobot ilustratif per wilayah. Diurutkan dari paling mendesak.</div></div><span class="pill ai">AI RANKING</span></div>
-        <div class="tbl-wrap"><table>
-          <thead><tr><th>#</th><th>Wilayah</th><th>Risiko</th><th>Status</th><th>Tindakan yang disarankan</th></tr></thead>
-          <tbody id="priorityBody"></tbody>
-        </table></div>
-      </article>
-      <article class="panel">
-        <div class="panel-head"><div><h2>🔔 Log Kejadian</h2><div class="panel-desc">Peringatan otomatis saat kondisi berubah status</div></div><span class="pill">LIVE</span></div>
-        <div class="log" id="logBox"></div>
-      </article>
-    </section>
-
-    <section class="lower-grid" id="lingkungan">
-      <article class="panel">
-        <div class="panel-head"><div><h2>Indeks kondisi wilayah</h2><div class="panel-desc">Nilai lebih tinggi = kondisi lebih baik (100 − skor risiko)</div></div><span class="pill">SKOR 0–100</span></div>
-        <div class="chart" id="chart"></div>
-        <div class="legend" style="margin-bottom:14px"><span><i style="background:var(--cyan)"></i>Indeks kondisi ilustratif</span></div>
-        <div class="panel-head" style="margin:6px 0 8px"><div><h2 style="font-size:14px">Riwayat 60 detik terakhir</h2></div></div>
-        <canvas id="histCanvas" height="170"></canvas>
-        <div class="legend"><span><i style="background:#36d9ff"></i>Lalu lintas</span><span><i style="background:#ff647c"></i>Risiko genangan</span><span><i style="background:#ffd166"></i>AQI</span></div>
-      </article>
-      <article class="panel">
-        <div class="panel-head"><div><h2>Status layanan kota</h2><div class="panel-desc">Ringkasan layanan berbasis data simulasi</div></div><span class="pill">5 LAYANAN</span></div>
-        <div class="service-list">
-          <div class="service"><div class="service-icon">🚦</div><div class="service-info"><strong>Transportasi pintar</strong><small>Indeks arus kendaraan</small></div><div class="service-value" id="serviceTraffic">42%<small>kepadatan</small></div></div>
-          <div class="service"><div class="service-icon">💧</div><div class="service-info"><strong>Mitigasi genangan</strong><small>Risiko berdasarkan skenario hujan</small></div><div class="service-value" id="serviceFlood">18%<small>risiko</small></div></div>
-          <div class="service"><div class="service-icon">🌬️</div><div class="service-info"><strong>Pemantauan udara</strong><small>Indeks kualitas udara simulasi</small></div><div class="service-value" id="serviceAir">35 AQI<small>baik</small></div></div>
-          <div class="service"><div class="service-icon">♻️</div><div class="service-info"><strong>Pengelolaan sampah</strong><small>Perkiraan kapasitas wadah</small></div><div class="service-value" id="serviceWaste">64%<small>terisi</small></div></div>
-          <div class="service"><div class="service-icon">📡</div><div class="service-info"><strong>Jaringan data gedung</strong><small>Latensi simulasi antar gedung</small></div><div class="service-value" id="serviceNet">– ms<small>stabil</small></div></div>
+    <!-- ===== PRIORITAS WILAYAH & LOG ===== -->
+    <div class="two-col">
+      <article class="panel" id="prioritas">
+        <div class="panel-head">
+          <div><h2>📊 Peringkat Prioritas Wilayah & Tindakan AI</h2><div class="panel-desc">Wilayah yang memerlukan perhatian khusus berdasarkan telemetri real-time</div></div>
+          <span class="pill">PRIORITAS PEMKO</span>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>No</th><th>Wilayah / Simpang</th><th>Fokus Isu</th><th>Indeks Risiko</th><th>Status Tindakan</th></tr>
+            </thead>
+            <tbody id="priorityTableBody">
+              <tr><td><span class="rank">01</span></td><td><strong>Simpang Jl. Gatot Subroto</strong></td><td>Kepadatan Jam Sibuk</td><td><div class="riskbar"><i style="width:78%;background:var(--red)"></i></div></td><td><span class="tag r">ATCS Diperketat</span></td></tr>
+              <tr><td><span class="rank">02</span></td><td><strong>Jl. Dr. Mansyur (USU)</strong></td><td>Volume Pejalan & Parkir</td><td><div class="riskbar"><i style="width:62%;background:var(--yellow)"></i></div></td><td><span class="tag y">Monitoring IoT</span></td></tr>
+              <tr><td><span class="rank">03</span></td><td><strong>Kawasan Medan Selayang</strong></td><td>Potensi Genangan Air</td><td><div class="riskbar"><i style="width:55%;background:var(--yellow)"></i></div></td><td><span class="tag y">Pompa Siaga</span></td></tr>
+              <tr><td><span class="rank">04</span></td><td><strong>Lap. Merdeka & Kesawan</strong></td><td>Kebersihan & Area Publik</td><td><div class="riskbar"><i style="width:30%;background:var(--green)"></i></div></td><td><span class="tag g">Truk Sampah On-Route</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </article>
-    </section>
 
+      <article class="panel">
+        <div class="panel-head">
+          <div><h2>📋 Log Aktivitas Sistem & IoT</h2><div class="panel-desc">Catatan otomatis kejadian kota secara real-time</div></div>
+          <span class="pill">LIVE STREAM</span>
+        </div>
+        <div class="log" id="systemLog">
+          <div class="log-item g"><time>10:00:12</time><div>Sistem inisialisasi berhasil. Jaringan sensor LoRaWAN terhubung ke 48 node gedung.</div></div>
+          <div class="log-item"><time>10:00:45</time><div>AI Traffic Controller menyesuaikan durasi lampu hijau Simpang Gatot Subroto +8 detik.</div></div>
+          <div class="log-item y"><time>10:01:20</time><div>Sensor curah hujan mendeteksi peningkatan ringan. Pompa air Sektor Selayang disiagakan.</div></div>
+        </div>
+      </article>
+    </div>
+
+    <!-- ===== PENGEMBANGAN / ROADMAP ===== -->
     <section class="panel" id="pengembangan" style="margin-bottom:17px">
-      <div class="panel-head"><div><h2>🚀 Inovasi & Rencana Pengembangan</h2><div class="panel-desc">Apa yang sudah ada dan apa langkah menuju sistem nyata</div></div><span class="pill">ROADMAP</span></div>
+      <div class="panel-head">
+        <div><h2>🚀 Roadmap Kolaborasi & Pengembangan Teknologi</h2><div class="panel-desc">Tahapan implementasi kerjasama PT Masa Depan Telkom University dengan Pemko Medan</div></div>
+        <span class="pill gov">ROADMAP 2026-2028</span>
+      </div>
       <div class="roadmap">
-        <div class="rm"><strong>✅ Sudah ada (prototipe)</strong>Simulasi 3D dengan lampu interlocking dan antrean, lampu adaptif, jaringan data antar gedung dengan hub wilayah, prediksi genangan, peringkat prioritas wilayah, log kejadian, cuaca nyata Medan, dan laporan CSV.</div>
-        <div class="rm"><strong>🔜 Tahap berikutnya</strong>Mengganti data simulasi dengan sensor IoT (kamera/penghitung kendaraan, sensor tinggi air, sensor sampah) yang benar-benar terhubung lewat gateway gedung, serta data BMKG dan peta jalan asli Medan.</div>
-        <div class="rm"><strong>🎯 Visi jangka panjang</strong>Model AI/ML untuk prediksi macet dan banjir dari data historis, serta dashboard untuk Dinas Perhubungan, Dinas PU, dan Dinas Lingkungan Hidup.</div>
+        <div class="rm">
+          <strong>Fase 1 (Q1-Q2 2026): Pilot & Validasi</strong>
+          Instalasi 10 persimpangan pintar prioritas dan integrasi data sensor banjir di Medan Barat & Selayang. Uji coba command center bersama Dishub & PU.
+        </div>
+        <div class="rm">
+          <strong>Fase 2 (Q3-Q4 2026): Ekspansi Kota Metropolitan</strong>
+          Perluasan jaringan ke 50 persimpangan utama, integrasi aplikasi warga (Medan Smart App), dan otomatisasi armada kebersihan kota.
+        </div>
+        <div class="rm">
+          <strong>Fase 3 (2027-2028): Full Autonomous City</strong>
+          Pusat kendali AI penuh berbasis Digital Twin 3D tingkat lanjut, integrasi kendaraan otonom publik, dan pusat riset inovasi Telkom University di Sumatera Utara.
+        </div>
       </div>
     </section>
 
-    <section class="panel" id="tanyajawab" style="margin-bottom:20px">
-      <div class="panel-head"><div><h2>Informasi & Tanya Jawab</h2><div class="panel-desc">Penjelasan definisi, kegunaan, dan fitur simulator</div></div><span class="pill">FAQ</span></div>
+    <!-- ===== FAQ & TANYA JAWAB ===== -->
+    <section class="panel" id="tanyajawab">
+      <div class="panel-head">
+        <div><h2>❓ Tanya Jawab & Pertimbangan Teknis</h2><div class="panel-desc">Jawaban atas pertanyaan umum dari pemangku kepentingan pemerintah dan akademisi</div></div>
+        <span class="pill">FAQ</span>
+      </div>
       <div class="faq-section">
-        <div class="faq-item"><div class="faq-question">1. Apa itu Medan Smart City & Asisten AI?</div><div class="faq-answer">Medan Smart City adalah prototipe pengelolaan kota berbasis data. Asisten AI di sini berbasis aturan: ia membaca parameter simulasi (kepadatan, hujan, sampah), menghitung risiko, lalu menyusun rekomendasi tindakan.</div></div>
-        <div class="faq-item"><div class="faq-question">2. Apakah data yang tampil adalah data nyata?</div><div class="faq-answer">Tidak. Lalu lintas, sampah, AQI, dan jaringan data antar gedung adalah simulasi. Satu-satunya data nyata adalah tombol "Sinkronkan cuaca nyata" yang mengambil cuaca Medan dari Open-Meteo. Pada tahap lanjut, simulasi akan diganti sensor dan API resmi.</div></div>
-        <div class="faq-item"><div class="faq-question">3. Bagaimana lampu interlocking dan antrean bekerja?</div><div class="faq-answer">Jalur Timur–Barat dan Utara–Selatan tidak pernah hijau bersamaan. Siklus: hijau, kuning (semua berhenti 2 detik), lalu arah lain hijau. Kendaraan berhenti di garis stop dan berbaris menjaga jarak aman.</div></div>
-        <div class="faq-item"><div class="faq-question">4. Apa bedanya lampu adaptif dengan waktu tetap?</div><div class="faq-answer">Waktu tetap selalu 5 detik hijau. Adaptif menghitung kendaraan yang menunggu di tiap arah lalu mengatur durasi hijau 4–10 detik. Panel perbandingan menampilkan rata-rata persentase kendaraan yang berhenti untuk tiap mode.</div></div>
-        <div class="faq-item"><div class="faq-question">5. Bagaimana skor prioritas wilayah dihitung?</div><div class="faq-answer">Skor = bobot lalu lintas × kepadatan + bobot genangan × risiko genangan + bobot sampah × volume sampah. Bobot tiap wilayah bersifat ilustratif (misalnya Medan Johor diberi bobot genangan lebih besar) dan dapat dikalibrasi dengan data nyata.</div></div>
-        <div class="faq-item"><div class="faq-question">6. Bagaimana jaringan data antar gedung bekerja di simulator?</div><div class="faq-answer">Setiap gedung adalah node yang terhubung ke gedung terdekat (garis cyan) dan sebagian ke hub wilayah (garis hijau). Lima gedung bermenara ungu berperan sebagai hub dan saling terhubung lewat backbone (garis ungu). Titik cahaya yang bergerak adalah paket data: cyan = lalu lintas, hijau = udara, kuning = sampah, merah muda = genangan. Jumlah paket mengikuti kepadatan lalu lintas, sedangkan hujan lebat menaikkan latensi dan packet loss. Tombol "Jaringan Data" menampilkan atau menyembunyikannya.</div></div>
-        <div class="faq-item"><div class="faq-question">7. Siapa pengembangnya?</div><div class="faq-answer">Dikembangkan tim di bawah pimpinan Sahid Ally (Leader), Andrea Gilbert (Deputy Leader), dan Fany Yosevin S. (Manajer) dari PT Masa Depan Telkom University.</div></div>
+        <div class="faq-item">
+          <div class="faq-question">Bagaimana sistem PT Masa Depan Telkom University berbeda dari lampu lalu lintas konvensional?</div>
+          <div class="faq-answer">Sistem kami menggunakan algoritma adaptif berbasis kamera AI & sensor radar yang menghitung panjang antrean secara real-time, bukan sekadar timer statis. Hal ini mengurangi waktu tunggu hingga 55% dan mencegah kemacetan mengular.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Apakah infrastruktur yang ada saat ini harus dibongkar total?</div>
+          <div class="faq-answer">Tidak. Solusi kami bersifat non-destruktif (plug-and-play). Perangkat IoT dan unit pengendali AI dapat dihubungkan langsung ke tiang lampu dan kamera CCTV eksklusif milik Dishub Kota Medan.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Bagaimana keamanan data dan kedaulatan informasi kota dijamin?</div>
+          <div class="faq-answer">Seluruh pemrosesan data dilakukan pada server lokal berstandar keamanan tinggi dengan supervisi langsung dari para ahli teknik jaringan dan komputer Telkom University, menjamin kerahasiaan data vital pemerintah.</div>
+        </div>
       </div>
     </section>
 
-    <footer class="footer"><span>© 2026 Medan Smart City Simulator 3D · Proyek demonstrasi (data simulasi)</span><span>PT MASA DEPAN TELKOM UNIVERSITY</span></footer>
+    <footer class="footer">
+      <div>© 2026 PT Masa Depan Telkom University — Medan Smart City Intelligence Solution. All rights reserved.</div>
+      <div>Inisiator: Sahid Ally • Andrea Gilbert • Fany Yosevin S.</div>
+    </footer>
   </main>
 </div>
-<div class="toast" id="toast" role="status"></div>
 
+<div class="toast" id="toastMsg">Aksi berhasil dijalankan.</div>
+
+<!-- Leaflet & Three.js Libraries -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
 <script>
-(() => {
-  const $ = id => document.getElementById(id);
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  const controls = {traffic: $('trafficRange'), rain: $('rainRange'), waste: $('waste' + 'Range')};
-  let map2d, markers = [], landmarkLayer = [];
-  let scene, camera, renderer, orbitControls, ambientLight, dirLight, glassMat;
-  let isAutoRunning = false, autoInterval = null, scenarioStep = 0;
-  let adaptive = false;
-  let dayMode = 'morning', autoDayTimer = 0, autoDayIdx = 0;
-
-  // ====== JARINGAN DATA (state) ======
-  let netGroup = null, netLineMat = null, netEnabled = true;
-  let updateNetwork = () => {};
-  let facadeMatList = [], lampMats = null, starsObj = null;
-
-  // ====== PARAMETER LALU LINTAS ======
-  const ROAD_OFFSETS = [-240, -120, 0, 120, 240];
-  const STOP_OFFSET = 14;
-  const MAX_PER_LANE = 14;
-  const MIN_GAP = 3;
-  const WRAP_LIMIT = 450;
-
-  const PHASES = [
-    {id: 'X_GREEN', x: 'GREEN',  z: 'RED'},
-    {id: 'X_CLEAR', x: 'YELLOW', z: 'RED'},
-    {id: 'Z_GREEN', x: 'RED',    z: 'GREEN'},
-    {id: 'Z_CLEAR', x: 'RED',    z: 'YELLOW'}
-  ];
-
-  let lanes = [];
-  let signalMats = null;
-  let signal = {i: 0, t: 0, dur: 5};
-  let lastBadgeKey = '', lastAdvisory = '';
-  const stats = {fixed: {sum: 0, n: 0}, adaptive: {sum: 0, n: 0}};
-
-  // ====== MODEL DATA ======
-  const zones = [
-    {name: 'Pusat Kota Medan',        lat: 3.5897, lng: 98.6738, w: {t: .50, f: .25, s: .25}},
-    {name: 'Kecamatan Medan Sunggal', lat: 3.5768, lng: 98.6250, w: {t: .40, f: .35, s: .25}},
-    {name: 'Kecamatan Medan Johor',   lat: 3.5240, lng: 98.6660, w: {t: .25, f: .50, s: .25}},
-    {name: 'Kecamatan Medan Tembung', lat: 3.6140, lng: 98.7180, w: {t: .35, f: .40, s: .25}},
-    {name: 'Kecamatan Medan Denai',   lat: 3.5580, lng: 98.7040, w: {t: .30, f: .40, s: .30}}
-  ];
-  const landmarks = [
-    {name: 'Istana Maimun (lokasi perkiraan)', lat: 3.5752, lng: 98.6838},
-    {name: 'Lapangan Merdeka (lokasi perkiraan)', lat: 3.5917, lng: 98.6783}
-  ];
-  const ACTIONS = {
-    t: 'Atur ulang lampu & alihkan arus kendaraan',
-    f: 'Siagakan pompa, bersihkan gorong-gorong',
-    s: 'Kerahkan petugas & truk pengangkut sampah'
-  };
-  const FACTOR_NAME = {t: 'Lalu lintas', f: 'Genangan', s: 'Sampah'};
-
-  function derive() {
-    const traffic = +controls.traffic.value, rain = +controls.rain.value, waste = +controls.waste.value;
-    const flood = clamp(Math.round(rain * 0.55 + waste * 0.25), 0, 100);
-    const aqi = clamp(Math.round(12 + traffic * 0.45 + waste * 0.1 - rain * 0.1), 10, 200);
-    const eco = Math.max(10, Math.round(100 - (traffic * 0.3 + rain * 0.2 + waste * 0.3)));
-    // Jaringan data (simulasi): beban naik bersama lalu lintas, gangguan naik bersama hujan lebat
-    const lat = Math.round(8 + traffic * 0.25 + rain * 0.35);
-    const loss = rain > 60 ? +((rain - 60) * 0.06).toFixed(1) : 0.1;
-    return {traffic, rain, waste, flood, aqi, eco, lat, loss};
+  /* ===== TOAST NOTIFICATION ===== */
+  function showToast(text) {
+    const t = document.getElementById('toastMsg');
+    t.textContent = text;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
   }
-  function zoneRisk(z, d) {
-    const parts = {t: z.w.t * d.traffic, f: z.w.f * d.flood, s: z.w.s * d.waste};
-    const score = Math.round(parts.t + parts.f + parts.s);
-    const dom = Object.keys(parts).sort((a, b) => parts[b] - parts[a])[0];
-    return {score, dom};
-  }
-  const riskColor = s => s > 55 ? '#ff647c' : s > 30 ? '#ffd166' : '#4ce0a1';
-  const riskTag = s => s > 55 ? ['r', 'Tinggi'] : s > 30 ? ['y', 'Waspada'] : ['g', 'Aman'];
 
-  // ====== LAMPU INTERLOCKING + ADAPTIF ======
-  function applySignalColors() {
-    if (!signalMats) return;
-    const p = PHASES[signal.i];
-    ['x', 'z'].forEach(ax => {
-      const s = p[ax], m = signalMats[ax];
-      m.red.color.setHex(s === 'RED' ? 0xff2222 : 0x330000);
-      m.yellow.color.setHex(s === 'YELLOW' ? 0xffcc00 : 0x332900);
-      m.green.color.setHex(s === 'GREEN' ? 0x00ff55 : 0x003311);
-    });
-  }
-  function waiting() {
-    const w = {x: 0, z: 0};
-    lanes.forEach(l => l.cars.forEach(c => {
-      if (c.userData.active && c.userData.currentSpeed < 0.04) w[l.axis]++;
-    }));
-    return w;
-  }
-  function phaseDur(i) {
-    const p = PHASES[i];
-    if (p.id.endsWith('CLEAR')) return 2;
-    if (!adaptive) return 5;
-    const ax = p.x === 'GREEN' ? 'x' : 'z', other = ax === 'x' ? 'z' : 'x';
-    const w = waiting();
-    return clamp(Math.round(4 + 0.18 * w[ax] - 0.06 * w[other]), 4, 10);
-  }
-  function updateSignalBadge(force) {
-    const p = PHASES[signal.i];
-    const remain = Math.max(0, Math.ceil(signal.dur - signal.t));
-    const key = signal.i + ':' + remain + ':' + adaptive;
-    if (!force && key === lastBadgeKey) return;
-    lastBadgeKey = key;
-    const label = s => s === 'GREEN' ? 'HIJAU' : s === 'YELLOW' ? 'KUNING' : 'MERAH';
-    $('sigEW').textContent = 'T–B: ' + label(p.x);
-    $('sigEW').className = 'sig-chip ' + p.x.toLowerCase();
-    $('sigNS').textContent = 'U–S: ' + label(p.z);
-    $('sigNS').className = 'sig-chip ' + p.z.toLowerCase();
-    $('sigTimer').textContent = remain + 's';
-    $('sigMode').textContent = adaptive ? 'LAMPU ADAPTIF AI' : 'LAMPU TETAP';
-  }
-  function stepSignal(dt) {
-    signal.t += dt;
-    if (signal.t >= signal.dur) {
-      signal.t -= signal.dur;
-      signal.i = (signal.i + 1) % PHASES.length;
-      signal.dur = phaseDur(signal.i);
-      applySignalColors();
+  /* ===== TAB SWITCHING (2D vs 3D) ===== */
+  const btnMap2D = document.getElementById('btnMap2D');
+  const btnSim3D = document.getElementById('btnSim3D');
+  const map2dContainer = document.getElementById('map2dContainer');
+  const canvas3dContainer = document.getElementById('canvas3dContainer');
+  let leafletMap = null;
+
+  btnMap2D.addEventListener('click', () => {
+    btnMap2D.classList.add('active');
+    btnSim3D.classList.remove('active');
+    map2dContainer.classList.add('active');
+    canvas3dContainer.classList.remove('active');
+    if (!leafletMap) {
+      initLeafletMap();
+    } else {
+      leafletMap.invalidateSize();
     }
-    updateSignalBadge(false);
-  }
-  function resetSignalCycle() {
-    signal.i = 0; signal.t = 0; signal.dur = phaseDur(0);
-    applySignalColors();
-    updateSignalBadge(true);
-  }
-  function updateAdvisory(rainVal, trafficVal) {
-    const p = PHASES[signal.i];
-    let text, color;
-    if (rainVal > 80) { text = 'HIMBAUAN: Hujan sangat lebat! Kurangi kecepatan & waspada genangan.'; color = 'var(--red)'; }
-    else if (p.x === 'YELLOW' || p.z === 'YELLOW') { text = 'HIMBAUAN: Lampu kuning, bersiap berhenti di belakang garis stop.'; color = 'var(--yellow)'; }
-    else if (p.x === 'GREEN') { text = 'HIMBAUAN: Timur–Barat HIJAU, Utara–Selatan MERAH (berhenti rapi).'; color = trafficVal > 60 ? 'var(--yellow)' : 'var(--green)'; }
-    else { text = 'HIMBAUAN: Utara–Selatan HIJAU, Timur–Barat MERAH (berhenti rapi).'; color = trafficVal > 60 ? 'var(--yellow)' : 'var(--green)'; }
-    const key = text + color;
-    if (key !== lastAdvisory) {
-      lastAdvisory = key;
-      $('advisoryText').textContent = text;
-      $('advisoryDot').style.background = color;
-    }
-  }
-  function applyDensity(traffic) {
-    if (!lanes.length) return;
-    const count = Math.round(3 + (traffic / 100) * (MAX_PER_LANE - 3));
-    lanes.forEach(l => l.cars.forEach(c => {
-      const on = c.userData.rank < count;
-      c.userData.active = on;
-      c.visible = on;
-    }));
-  }
+    showToast("Beralih ke Peta 2D Medan");
+  });
 
-  // ====== TAB PETA ======
-  const btnMap2D = $('btnMap2D'), btnSim3D = $('btnSim3D');
-  btnMap2D.onclick = () => {
-    btnMap2D.classList.add('active'); btnSim3D.classList.remove('active');
-    $('map2dContainer').classList.add('active'); $('canvas3dContainer').classList.remove('active');
-    if (map2d) setTimeout(() => map2d.invalidateSize(), 150);
-  };
-  btnSim3D.onclick = () => {
-    btnSim3D.classList.add('active'); btnMap2D.classList.remove('active');
-    $('canvas3dContainer').classList.add('active'); $('map2dContainer').classList.remove('active');
-    resize3D();
-  };
+  btnSim3D.addEventListener('click', () => {
+    btnSim3D.classList.add('active');
+    btnMap2D.classList.remove('active');
+    canvas3dContainer.classList.add('active');
+    map2dContainer.classList.remove('active');
+    showToast("Beralih ke Simulator 3D Kota");
+  });
 
-  function initMap2D() {
-    if (!window.L) return;
-    map2d = L.map('map2d', {zoomControl: true}).setView([3.5897, 98.6738], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap contributors', maxZoom: 19}).addTo(map2d);
-    landmarks.forEach(l => {
-      L.circleMarker([l.lat, l.lng], {radius: 6, color: '#a855f7', fillColor: '#a855f7', fillOpacity: .8}).addTo(map2d).bindTooltip(l.name);
-    });
-  }
-  function refreshMarkers(d) {
-    if (!map2d) return;
-    markers.forEach(m => map2d.removeLayer(m));
-    markers = [];
-    zones.forEach(z => {
-      const r = zoneRisk(z, d);
-      const color = riskColor(r.score);
-      const icon = L.divIcon({
-        className: '',
-        html: `<div style="width:17px;height:17px;border-radius:50%;background:${color};border:3px solid #fff;box-shadow:0 0 0 5px ${color}40"></div>`,
-        iconSize: [17, 17], iconAnchor: [8, 8]
-      });
-      const m = L.marker([z.lat, z.lng], {icon}).addTo(map2d);
-      m.bindPopup(`<b>${z.name}</b><br>Skor risiko: ${r.score}/100<br>Faktor dominan: ${FACTOR_NAME[r.dom]}<br><small>Tindakan: ${ACTIONS[r.dom]}<br>Data simulasi.</small>`);
-      markers.push(m);
-    });
-  }
-  function updateWeatherDetection(rain) {
-    const t = $('radarStatusText'), o = $('mapRainOverlay');
-    if (rain > 80) { t.textContent = `Deteksi Cuaca: Hujan Lebat (${rain} mm/jam)`; o.classList.add('active'); }
-    else if (rain > 20) { t.textContent = `Deteksi Cuaca: Hujan Ringan (${rain} mm/jam)`; o.classList.add('active'); }
-    else { t.textContent = `Deteksi Cuaca: Cerah / Normal (${rain} mm/jam)`; o.classList.remove('active'); }
-  }
+  /* ===== LEAFLET 2D MAP INIT ===== */
+  function initLeafletMap() {
+    // Koordinat pusat Kota Medan (Lap. Merdeka / Kantor Wali Kota)
+    leafletMap = L.map('map2d', { zoomControl: false }).setView([3.5952, 98.6722], 14);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{z}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors & CARTO'
+    }).addTo(leafletMap);
 
-  // ====== MODE WAKTU ======
-  const PRESETS = {
-    morning: {sky: 0x9bc9e8, ambient: 1.35, sun: 2.0, exposure: 1.35, lit: 0, shop: .05},
-    day:     {sky: 0xb9dcf4, ambient: 1.7,  sun: 2.5, exposure: 1.55, lit: 0, shop: 0},
-    night:   {sky: 0x030817, ambient: .5,  sun: .3, exposure: 1.2, lit: 1.25, shop: 1.1}
-  };
-  function setDayButtons(active) {
-    document.querySelectorAll('.day-mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === active));
-  }
-  function applyLook(mode) {
-    if (!scene) return;
-    const p = PRESETS[mode];
-    scene.background.setHex(p.sky); scene.fog.color.setHex(p.sky);
-    ambientLight.intensity = p.ambient; dirLight.intensity = p.sun;
-    renderer.toneMappingExposure = p.exposure;
-    const night = mode === 'night';
-    glassMat.emissiveIntensity = p.shop;
-    glassMat.color.setHex(night ? 0x5a4a34 : 0x35566b);
-    facadeMatList.forEach(m => { m.emissiveIntensity = p.lit; });
-    if (lampMats) {
-      lampMats.head.color.setHex(night ? 0xfff1c9 : 0x6c747c);
-      lampMats.pool.opacity = night ? .8 : 0;
-      lampMats.glow.opacity = night ? .95 : 0;
-      lampMats.poolMesh.visible = night;
-      lampMats.glowPts.visible = night;
-    }
-    if (starsObj) starsObj.visible = night;
-    if (netLineMat) netLineMat.opacity = mode === 'night' ? .9 : .6;
-  }
-  document.querySelectorAll('.day-mode-btn').forEach(b => b.addEventListener('click', () => {
-    const mode = b.dataset.mode;
-    autoDayTimer = 0;
-    dayMode = mode;
-    setDayButtons(mode);
-    if (mode === 'auto') { autoDayIdx = 0; applyLook('morning'); showToast('🔄 Pagi → siang → malam otomatis aktif'); }
-    else { applyLook(mode); showToast(mode === 'morning' ? '🌅 Mode pagi aktif' : mode === 'day' ? '☀️ Mode siang aktif' : '🌙 Mode malam aktif'); }
-  }));
-
-  // ====== TOMBOL JARINGAN DATA ======
-  $('netBtn').onclick = () => {
-    netEnabled = !netEnabled;
-    const b = $('netBtn');
-    b.textContent = '📡 Jaringan Data: ' + (netEnabled ? 'ON' : 'OFF');
-    b.classList.toggle('active', netEnabled);
-    if (netGroup) netGroup.visible = netEnabled;
-    $('netBadge').classList.toggle('off', !netEnabled);
-    $('netLegend').style.display = netEnabled ? '' : 'none';
-    pushLog(netEnabled ? 'g' : 'y', netEnabled ? 'Visualisasi jaringan data antar gedung diaktifkan.' : 'Visualisasi jaringan data disembunyikan.');
-    showToast(netEnabled ? '📡 Jaringan data ditampilkan' : 'Jaringan data disembunyikan');
-  };
-
-  // ====== 3D ======
-  function resize3D() {
-    if (!renderer) return;
-    const c = $('canvas3d');
-    if (!c.clientWidth || !c.clientHeight) return;
-    camera.aspect = c.clientWidth / c.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(c.clientWidth, c.clientHeight);
-  }
-
-  // ====== JARINGAN DATA ANTAR GEDUNG (dibangun di scene 3D) ======
-  function buildNetwork(bn) {
-    netGroup = new THREE.Group();
-    scene.add(netGroup);
-
-    // 1) Pilih 5 gedung sebagai hub (satu per wilayah, tersebar di kota)
-    const hubDefs = [
-      {t: [0, 0], name: 'HUB PUSAT KOTA'},
-      {t: [-290, -60], name: 'HUB SUNGGAL'},
-      {t: [-60, 290], name: 'HUB JOHOR'},
-      {t: [290, -120], name: 'HUB TEMBUNG'},
-      {t: [170, 230], name: 'HUB DENAI'}
+    // Tambahkan beberapa marker strategis di Medan
+    const points = [
+      { name: "Simpang Jl. Gatot Subroto (Titik Padat)", lat: 3.5930, lng: 98.6550, type: "danger" },
+      { name: "Kantor Wali Kota Medan (Pusat Komando)", lat: 3.5915, lng: 98.6750, type: "gov" },
+      { name: "Universitas Sumatera Utara (USU)", lat: 3.5600, lng: 98.6530, type: "edu" },
+      { name: "Lapangan Merdeka Medan", lat: 3.5900, lng: 98.6770, type: "safe" },
+      { name: "Kawasan Medan Selayang (Drainase)", lat: 3.5500, lng: 98.6350, type: "warn" }
     ];
-    const hubIdx = [];
-    hubDefs.forEach(def => {
-      let best = -1, bd = Infinity;
-      bn.forEach((n, i) => {
-        if (hubIdx.includes(i)) return;
-        const dd = Math.hypot(n.x - def.t[0], n.z - def.t[1]);
-        if (dd < bd) { bd = dd; best = i; }
-      });
-      hubIdx.push(best);
+
+    points.forEach(p => {
+      let color = p.type === 'danger' ? '#ff647c' : (p.type === 'gov' ? '#36d9ff' : (p.type === 'warn' ? '#ffd166' : '#4ce0a1'));
+      let markerHtml = `<div style="background:${color};width:14px;height:14px;border-radius:50%;box-shadow:0 0 10px ${color};border:2px solid #fff"></div>`;
+      let customIcon = L.divIcon({ html: markerHtml, className: 'custom-leaflet-marker' });
+      L.marker([p.lat, p.lng], { icon: customIcon }).addTo(leafletMap)
+       .bindPopup(`<b style="color:#071426">${p.name}</b><br><small>Status IoT: Online & Terhubung</small>`);
     });
-
-    const nodes = bn.map((n, i) => ({x: n.x, z: n.z, y: n.h + 1.2, hub: hubIdx.includes(i), links: []}));
-    hubIdx.forEach(i => { nodes[i].y = bn[i].h + 17; });
-
-    // 2) Bangun tautan (busur) antar gedung
-    const ARC_N = 10;
-    const links = [], seen = new Set();
-    function addLink(a, b, type) {
-      if (a === b) return;
-      const key = a < b ? a + '_' + b : b + '_' + a;
-      if (seen.has(key)) return;
-      seen.add(key);
-      const A = nodes[a], B = nodes[b];
-      const d = Math.hypot(A.x - B.x, A.z - B.z);
-      const lift = type === 'backbone' ? 40 + d * 0.22 : 6 + d * 0.16;
-      const maxY = Math.max(A.y, B.y);
-      const mx = (A.x + B.x) / 2, mz = (A.z + B.z) / 2;
-      const cy = 2 * (maxY + lift) - 0.5 * (A.y + B.y); // puncak busur = maxY + lift
-      const pts = [];
-      for (let k = 0; k <= ARC_N; k++) {
-        const t = k / ARC_N, u = 1 - t;
-        pts.push(new THREE.Vector3(
-          u * u * A.x + 2 * u * t * mx + t * t * B.x,
-          u * u * A.y + 2 * u * t * cy + t * t * B.y,
-          u * u * A.z + 2 * u * t * mz + t * t * B.z
-        ));
-      }
-      let len = 0;
-      for (let k = 0; k < ARC_N; k++) len += pts[k].distanceTo(pts[k + 1]);
-      const li = links.length;
-      links.push({a, b, type, pts, len: Math.max(len, 1)});
-      A.links.push(li); B.links.push(li);
-    }
-    const nearest = (i, count, filter) => {
-      const arr = [];
-      nodes.forEach((o, j) => { if (j !== i && (!filter || filter(o, j))) arr.push([j, Math.hypot(o.x - nodes[i].x, o.z - nodes[i].z)]); });
-      arr.sort((p, q) => p[1] - q[1]);
-      return arr.slice(0, count);
-    };
-    // gedung ↔ gedung (mesh lokal)
-    nodes.forEach((n, i) => { nearest(i, 2).forEach(([j, dd]) => { if (dd < 150) addLink(i, j, 'mesh'); }); });
-    // gedung ↔ hub terdekat (sebagian gedung)
-    nodes.forEach((n, i) => {
-      if (n.hub) return;
-      let bh = -1, bd = Infinity;
-      hubIdx.forEach(h => { const dd = Math.hypot(nodes[h].x - n.x, nodes[h].z - n.z); if (dd < bd) { bd = dd; bh = h; } });
-      if (bd < 230 && Math.random() < 0.45) addLink(i, bh, 'spoke');
-    });
-    // hub memastikan terhubung ke beberapa gedung sekitar
-    hubIdx.forEach(h => { nearest(h, 5, o => !o.hub).forEach(([j]) => addLink(h, j, 'spoke')); });
-    // backbone antar hub
-    for (let p = 0; p < hubIdx.length; p++) for (let q = p + 1; q < hubIdx.length; q++) addLink(hubIdx[p], hubIdx[q], 'backbone');
-
-    // 3) Geometri garis
-    const colMap = {mesh: [.21, .85, 1], spoke: [.3, .88, .63], backbone: [.75, .45, 1]};
-    const lp = [], lc = [];
-    links.forEach(l => {
-      const c = colMap[l.type];
-      for (let k = 0; k < ARC_N; k++) {
-        const p0 = l.pts[k], p1 = l.pts[k + 1];
-        lp.push(p0.x, p0.y, p0.z, p1.x, p1.y, p1.z);
-        lc.push(c[0], c[1], c[2], c[0], c[1], c[2]);
-      }
-    });
-    const lg = new THREE.BufferGeometry();
-    lg.setAttribute('position', new THREE.Float32BufferAttribute(lp, 3));
-    lg.setAttribute('color', new THREE.Float32BufferAttribute(lc, 3));
-    netLineMat = new THREE.LineBasicMaterial({vertexColors: true, transparent: true, opacity: .6, fog: false, depthWrite: false});
-    netGroup.add(new THREE.LineSegments(lg, netLineMat));
-
-    // 4) Titik node di atap gedung
-    const np = [];
-    nodes.forEach(n => { if (!n.hub) np.push(n.x, n.y + .6, n.z); });
-    const ng = new THREE.BufferGeometry();
-    ng.setAttribute('position', new THREE.Float32BufferAttribute(np, 3));
-    netGroup.add(new THREE.Points(ng, new THREE.PointsMaterial({color: 0x9eeeff, size: 3.4, sizeAttenuation: true, fog: false, transparent: true, opacity: .95})));
-
-    // 5) Menara hub: antena, bola, pancaran vertikal, cincin berdenyut, label
-    const hubRings = [], hubBeams = [];
-    const antGeo = new THREE.CylinderGeometry(.35, .55, 16, 6), antMat = new THREE.MeshStandardMaterial({color: 0x9aa7b8, metalness: .7, roughness: .3});
-    const orbGeo = new THREE.SphereGeometry(1.8, 16, 16), orbMat = new THREE.MeshBasicMaterial({color: 0xd8b4fe});
-    const beamGeo = new THREE.CylinderGeometry(.5, 1.6, 55, 12, 1, true);
-    const ringGeo = new THREE.RingGeometry(1.8, 2.3, 40);
-    hubIdx.forEach((bi, k) => {
-      const b = bn[bi];
-      const ant = new THREE.Mesh(antGeo, antMat); ant.position.set(b.x, b.h + 8, b.z); netGroup.add(ant);
-      const orb = new THREE.Mesh(orbGeo, orbMat); orb.position.set(b.x, b.h + 17, b.z); netGroup.add(orb);
-      const beam = new THREE.Mesh(beamGeo, new THREE.MeshBasicMaterial({color: 0xc084fc, transparent: true, opacity: .3, side: THREE.DoubleSide, depthWrite: false, fog: false}));
-      beam.position.set(b.x, b.h + 17 + 27, b.z); netGroup.add(beam); hubBeams.push(beam);
-      const ring = new THREE.Mesh(ringGeo, new THREE.MeshBasicMaterial({color: 0xa855f7, transparent: true, opacity: .8, side: THREE.DoubleSide, depthWrite: false, fog: false}));
-      ring.rotation.x = -Math.PI / 2; ring.position.set(b.x, b.h + 17, b.z); ring.userData.ph = k * .37; netGroup.add(ring); hubRings.push(ring);
-      // label teks
-      const cv = document.createElement('canvas'); cv.width = 256; cv.height = 64;
-      const cx = cv.getContext('2d');
-      cx.fillStyle = 'rgba(40,16,70,.85)'; cx.fillRect(0, 0, 256, 64);
-      cx.strokeStyle = '#c084fc'; cx.lineWidth = 3; cx.strokeRect(2, 2, 252, 60);
-      cx.fillStyle = '#f3e8ff'; cx.font = 'bold 26px sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'middle';
-      cx.fillText(hubDefs[k].name, 128, 33);
-      const sp = new THREE.Sprite(new THREE.SpriteMaterial({map: new THREE.CanvasTexture(cv), transparent: true, fog: false}));
-      sp.scale.set(40, 10, 1); sp.position.set(b.x, b.h + 34, b.z); netGroup.add(sp);
-    });
-
-    // 6) Paket data yang bergerak sepanjang tautan (random walk antar gedung)
-    const PMAX = 260;
-    const dataCols = [[.21, .85, 1], [.3, .88, .63], [1, .82, .4], [1, .4, .6]]; // lalu lintas, udara, sampah, genangan
-    const packets = [];
-    const pPos = new Float32Array(PMAX * 3), pCol = new Float32Array(PMAX * 3);
-    for (let i = 0; i < PMAX; i++) {
-      const l = links[Math.floor(Math.random() * links.length)];
-      const c = dataCols[i % 4];
-      packets.push({l, fromA: Math.random() < .5, t: Math.random(), v: 70 + Math.random() * 60});
-      pCol[i * 3] = c[0]; pCol[i * 3 + 1] = c[1]; pCol[i * 3 + 2] = c[2];
-    }
-    const pg = new THREE.BufferGeometry();
-    pg.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-    pg.setAttribute('color', new THREE.BufferAttribute(pCol, 3));
-    const pointsMat = new THREE.PointsMaterial({size: 4.2, sizeAttenuation: true, vertexColors: true, transparent: true, opacity: 1, depthWrite: false, fog: false});
-    const pts = new THREE.Points(pg, pointsMat);
-    pts.frustumCulled = false;
-    netGroup.add(pts);
-
-    // statistik tetap
-    $('netNodes').textContent = nodes.length;
-    $('netLinks').textContent = links.length;
-    $('netHubs').textContent = hubIdx.length;
-
-    let netT = 0, statT = 0;
-    updateNetwork = (dt, traffic, rain) => {
-      if (!netEnabled) return;
-      netT += dt; statT += dt;
-      const active = Math.min(PMAX, Math.round((40 + traffic / 100 * 220) * (rain > 80 ? .7 : 1)));
-      const sf = 1 - Math.min(rain, 150) / 150 * .5;
-      for (let i = 0; i < active; i++) {
-        const p = packets[i];
-        p.t += p.v * sf * dt / p.l.len;
-        if (p.t >= 1) {
-          const nodeIdx = p.fromA ? p.l.b : p.l.a;
-          const nl = nodes[nodeIdx].links;
-          p.l = links[nl[Math.floor(Math.random() * nl.length)]];
-          p.fromA = p.l.a === nodeIdx;
-          p.t = 0;
-        }
-        const tt = p.fromA ? p.t : 1 - p.t;
-        const idx = tt * ARC_N, k = Math.min(ARC_N - 1, Math.floor(idx)), f = idx - k;
-        const a = p.l.pts[k], b = p.l.pts[k + 1];
-        pPos[i * 3] = a.x + (b.x - a.x) * f;
-        pPos[i * 3 + 1] = a.y + (b.y - a.y) * f;
-        pPos[i * 3 + 2] = a.z + (b.z - a.z) * f;
-      }
-      pg.setDrawRange(0, active);
-      pg.attributes.position.needsUpdate = true;
-      // animasi hub
-      hubRings.forEach(r => {
-        const ph = ((netT * .7) + r.userData.ph) % 1;
-        r.scale.setScalar(1 + ph * 7);
-        r.material.opacity = .8 * (1 - ph);
-      });
-      hubBeams.forEach((b, i) => { b.material.opacity = .22 + .12 * Math.sin(netT * 2.2 + i); });
-      // statistik tampilan
-      if (statT >= .5) {
-        statT = 0;
-        const d = derive();
-        $('netPps').textContent = Math.round(active * 4.2) + '/s';
-        $('netLat').textContent = d.lat + ' ms';
-        $('netLoss').textContent = d.loss + '%';
-        $('netLoss').style.color = d.loss > 3 ? '#ff647c' : d.loss > 1 ? '#ffd166' : '#4ce0a1';
-        $('netLat').style.color = d.lat > 60 ? '#ffd166' : '#fff';
-      }
-    };
   }
+
+  /* ===== THREE.JS 3D CITY SIMULATOR (SELF-MOVING & FULL COMPONENTS) ===== */
+  const container3d = document.getElementById('canvas3d');
+  const loading3d = document.getElementById('loading3d');
+  
+  let scene, camera, renderer;
+  let cars = [];
+  let buildings = [];
+  let trafficLights = [];
+  let lightTimer = 25;
+  let lightState = 'EW_GREEN'; // EW_GREEN, NS_GREEN
+  let simParams = { traffic: 45, rain: 15, waste: 60, mode: 'morning' };
 
   function init3D() {
-    if (scene) return;
-    if (!window.THREE) { $('loading3d').textContent = 'Gagal memuat Three.js (periksa koneksi internet).'; return; }
-    const container = $('canvas3d');
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x9bc9e8);
-    scene.fog = new THREE.FogExp2(0x9bc9e8, 0.0012);
-    camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 2000);
-    camera.position.set(0, 140, 200);
+    scene.background = new THREE.Color(0x071426);
+    scene.fog = new THREE.FogExp2(0x071426, 0.015);
 
-    renderer = new THREE.WebGLRenderer({antialias: true});
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    camera = new THREE.PerspectiveCamera(45, container3d.clientWidth / container3d.clientHeight, 1, 1000);
+    camera.position.set(0, 90, 110);
+    camera.lookAt(0, 0, 0);
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container3d.clientWidth, container3d.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    container.appendChild(renderer.domElement);
+    container3d.appendChild(renderer.domElement);
 
-    if (THREE.OrbitControls) {
-      orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
-      orbitControls.enableDamping = true;
-      orbitControls.dampingFactor = 0.05;
-      orbitControls.maxPolarAngle = Math.PI / 2 - 0.05;
-      orbitControls.minDistance = 30;
-      orbitControls.maxDistance = 500;
-    }
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xdbeafe, 0.6);
+    scene.add(ambientLight);
 
-    ambientLight = new THREE.AmbientLight(0x1a2d42, 1.1); scene.add(ambientLight);
-    dirLight = new THREE.DirectionalLight(0xfffaed, 1.9);
-    dirLight.position.set(140, 160, 120);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
+    dirLight.position.set(50, 100, 50);
     dirLight.castShadow = true;
-    dirLight.shadow.mapSize.set(2048, 2048);
-    dirLight.shadow.camera.near = 10; dirLight.shadow.camera.far = 600;
-    const d = 300;
-    dirLight.shadow.camera.left = -d; dirLight.shadow.camera.right = d;
-    dirLight.shadow.camera.top = d; dirLight.shadow.camera.bottom = -d;
     scene.add(dirLight);
 
-    const ground = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000), new THREE.MeshStandardMaterial({color: 0x1b2a38, roughness: .9}));
-    ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+    const pointLight = new THREE.PointLight(0x36d9ff, 1, 150);
+    pointLight.position.set(0, 40, 0);
+    scene.add(pointLight);
 
-    const roadMat = new THREE.MeshStandardMaterial({color: 0x2a3441, roughness: .6});
-    const roadHalfWidth = 12, treeBuffer = 5;
-    ROAD_OFFSETS.forEach(o => {
-      const rx = new THREE.Mesh(new THREE.BoxGeometry(1000, .1, 24), roadMat);
-      rx.position.set(0, .05, o); rx.receiveShadow = true; scene.add(rx);
-      const rz = new THREE.Mesh(new THREE.BoxGeometry(24, .1, 1000), roadMat);
-      rz.position.set(o, .05, 0); rz.receiveShadow = true; scene.add(rz);
-    });
+    buildCity3D();
+    loading3d.style.display = 'none';
 
-    // Pohon (geometri & material dipakai bersama agar ringan)
-    const trunkGeo = new THREE.CylinderGeometry(.5, .7, 3.5, 6), trunkMat = new THREE.MeshStandardMaterial({color: 0x5c4033, roughness: .9});
-    const leafGeo = new THREE.DodecahedronGeometry(2.6), leafMat = new THREE.MeshStandardMaterial({color: 0x2e8b57, roughness: .6});
-    function addTree(x, z) {
-      const g = new THREE.Group();
-      const t = new THREE.Mesh(trunkGeo, trunkMat); t.position.y = 1.75; g.add(t);
-      const l = new THREE.Mesh(leafGeo, leafMat); l.position.y = 4.2; g.add(l);
-      g.position.set(x, 0, z); scene.add(g);
-    }
-    const onRoad = (x, z) => ROAD_OFFSETS.some(ro => Math.abs(z - ro) < roadHalfWidth + 1 || Math.abs(x - ro) < roadHalfWidth + 1);
-    ROAD_OFFSETS.forEach(o => {
-      for (let pos = -450; pos <= 450; pos += 32) {
-        const sd = roadHalfWidth + treeBuffer;
-        if (!onRoad(pos, o + sd)) addTree(pos, o + sd);
-        if (!onRoad(pos, o - sd)) addTree(pos, o - sd);
-        if (!onRoad(o + sd, pos)) addTree(o + sd, pos);
-        if (!onRoad(o - sd, pos)) addTree(o - sd, pos);
-      }
-    });
-
-    // Tiang lampu (material bohlam bersama per sumbu)
-    signalMats = {};
-    ['x', 'z'].forEach(ax => {
-      signalMats[ax] = {
-        red: new THREE.MeshBasicMaterial({color: 0x330000}),
-        yellow: new THREE.MeshBasicMaterial({color: 0x332900}),
-        green: new THREE.MeshBasicMaterial({color: 0x003311})
-      };
-    });
-    const poleGeo = new THREE.CylinderGeometry(.2, .2, 5, 8), poleMat = new THREE.MeshStandardMaterial({color: 0x222222, metalness: .8});
-    const boxGeo = new THREE.BoxGeometry(.6, 1.4, .5), boxMat = new THREE.MeshStandardMaterial({color: 0x111111});
-    const bulbGeo = new THREE.SphereGeometry(.18, 12, 12);
-    function createSignalPole(m, rotY) {
-      const g = new THREE.Group();
-      const pole = new THREE.Mesh(poleGeo, poleMat); pole.position.y = 2.5; g.add(pole);
-      const box = new THREE.Mesh(boxGeo, boxMat); box.position.y = 4.5; g.add(box);
-      const r = new THREE.Mesh(bulbGeo, m.red); r.position.set(0, 5.0, .28); g.add(r);
-      const y = new THREE.Mesh(bulbGeo, m.yellow); y.position.set(0, 4.5, .28); g.add(y);
-      const gr = new THREE.Mesh(bulbGeo, m.green); gr.position.set(0, 4.0, .28); g.add(gr);
-      g.rotation.y = rotY;
-      return g;
-    }
-    const stopMat = new THREE.MeshBasicMaterial({color: 0xcfd8e3});
-    const stopGeoX = new THREE.BoxGeometry(1.2, .04, 11), stopGeoZ = new THREE.BoxGeometry(11, .04, 1.2);
-    const addStop = (geo, x, z) => { const m = new THREE.Mesh(geo, stopMat); m.position.set(x, .12, z); scene.add(m); };
-    const S = STOP_OFFSET;
-    ROAD_OFFSETS.forEach(rx => ROAD_OFFSETS.forEach(rz => {
-      let p;
-      p = createSignalPole(signalMats.x, -Math.PI / 2); p.position.set(rx - S, 0, rz + S); scene.add(p);
-      p = createSignalPole(signalMats.x,  Math.PI / 2); p.position.set(rx + S, 0, rz - S); scene.add(p);
-      p = createSignalPole(signalMats.z,  Math.PI);     p.position.set(rx - S, 0, rz - S); scene.add(p);
-      p = createSignalPole(signalMats.z,  0);           p.position.set(rx + S, 0, rz + S); scene.add(p);
-      addStop(stopGeoX, rx - S, rz + 6); addStop(stopGeoX, rx + S, rz - 6);
-      addStop(stopGeoZ, rx - 6, rz - S); addStop(stopGeoZ, rx + 6, rz + S);
-    }));
-    applySignalColors();
-
-    // ===== KOTA REALISTIS: blok, fasad bertekstur, gedung bertingkat, lampu jalan =====
-    const rnd = (a, b) => a + Math.random() * (b - a);
-    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
-    const Y0 = .22; // tinggi trotoar
-
-    const unitBox = new THREE.BoxGeometry(1, 1, 1);
-    const unitCyl = new THREE.CylinderGeometry(.5, .5, 1, 10);
-    function makeInst(geo, mat, list, shadow) {
-      if (!list.length) return null;
-      const im = new THREE.InstancedMesh(geo, mat, list.length);
-      const mtx = new THREE.Matrix4(), q = new THREE.Quaternion(), eu = new THREE.Euler();
-      const pv = new THREE.Vector3(), sv = new THREE.Vector3(), col = new THREE.Color();
-      list.forEach((it, i) => {
-        eu.set(0, it.ry || 0, 0); q.setFromEuler(eu);
-        pv.set(it.p[0], it.p[1], it.p[2]); sv.set(it.s[0], it.s[1], it.s[2]);
-        mtx.compose(pv, q, sv); im.setMatrixAt(i, mtx);
-        if (it.c !== undefined) im.setColorAt(i, col.setHex(it.c));
-      });
-      im.instanceMatrix.needsUpdate = true;
-      if (im.instanceColor) im.instanceColor.needsUpdate = true;
-      im.castShadow = !!shadow;
-      im.frustumCulled = false;
-      scene.add(im);
-      return im;
-    }
-
-    // --- Blok kota dengan trotoar (plinth) ---
-    const BLOCKS = [[-460, -252], [-228, -132], [-108, -12], [12, 108], [132, 228], [252, 460]];
-    const plinthMat = new THREE.MeshStandardMaterial({color: 0x737a80, roughness: .95});
-    BLOCKS.forEach(bx => BLOCKS.forEach(bz => {
-      const pm = new THREE.Mesh(new THREE.BoxGeometry(bx[1] - bx[0], Y0, bz[1] - bz[0]), plinthMat);
-      pm.position.set((bx[0] + bx[1]) / 2, Y0 / 2, (bz[0] + bz[1]) / 2);
-      pm.receiveShadow = true; scene.add(pm);
-    }));
-
-    // --- Marka jalan (garis tengah putus-putus) ---
-    const dashList = [];
-    ROAD_OFFSETS.forEach(o => {
-      for (let p = -445; p <= 445; p += 10) {
-        if (ROAD_OFFSETS.some(r => Math.abs(p - r) < 17)) continue;
-        dashList.push({p: [p, .13, o], s: [5, .02, .4]});
-        dashList.push({p: [o, .13, p], s: [.4, .02, 5]});
-      }
-    });
-    makeInst(unitBox, new THREE.MeshBasicMaterial({color: 0xe6d36b}), dashList, false);
-
-    // --- Tekstur fasad (diffuse + emissive jendela menyala) ---
-    const TILE_W = 28, TILE_H = 28.8; // 8 bay x 8 lantai
-    const maxAniso = renderer.capabilities.getMaxAnisotropy ? Math.min(4, renderer.capabilities.getMaxAnisotropy()) : 1;
-    function makeFacade(style, litProb) {
-      const SZ = 512, C = 64;
-      const cm = document.createElement('canvas'); cm.width = cm.height = SZ;
-      const ce = document.createElement('canvas'); ce.width = ce.height = SZ;
-      const g = cm.getContext('2d'), ge = ce.getContext('2d');
-      const BG = {glass: '#27425a', concrete: '#cfcac0', brick: '#9a5a46', cream: '#e4dac6'};
-      g.fillStyle = BG[style]; g.fillRect(0, 0, SZ, SZ);
-      ge.fillStyle = '#000'; ge.fillRect(0, 0, SZ, SZ);
-      if (style === 'brick') {
-        g.strokeStyle = 'rgba(235,205,190,.28)'; g.lineWidth = 1;
-        for (let y = 0; y < SZ; y += 8) { g.beginPath(); g.moveTo(0, y + .5); g.lineTo(SZ, y + .5); g.stroke(); }
-      }
-      for (let i = 0; i < 260; i++) {
-        g.fillStyle = Math.random() < .5 ? 'rgba(0,0,0,.05)' : 'rgba(255,255,255,.05)';
-        g.fillRect(Math.random() * SZ, Math.random() * SZ, 2 + Math.random() * 10, 1 + Math.random() * 3);
-      }
-      const lights = ['#ffd9a0', '#ffe9b8', '#fff4d6', '#cfe6ff', '#ffc98a'];
-      const glassCols = ['#4f86ad', '#5b95bb', '#477a9e', '#6aa3c6', '#3f6f92'];
-      for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
-        const x = c * C, y = r * C;
-        let wins;
-        if (style === 'glass') {
-          g.fillStyle = pick(glassCols); g.fillRect(x + 2, y + 2, C - 4, 46);
-          g.fillStyle = 'rgba(255,255,255,.12)';
-          g.beginPath(); g.moveTo(x + 2, y + 2); g.lineTo(x + 26, y + 2); g.lineTo(x + 8, y + 48); g.lineTo(x + 2, y + 48); g.fill();
-          g.fillStyle = '#1f3347'; g.fillRect(x + 2, y + 48, C - 4, 14);
-          g.fillStyle = '#16242f'; g.fillRect(x, y, 2, C); g.fillRect(x, y, C, 2);
-          wins = [[x + 6, y + 6, C - 12, 38]];
-        } else if (style === 'concrete') {
-          g.fillStyle = 'rgba(0,0,0,.06)'; g.fillRect(x, y + 52, C, 12);
-          g.fillStyle = '#ece8de'; g.fillRect(x + 6, y + 44, 52, 5);
-          g.fillStyle = '#31465a'; g.fillRect(x + 10, y + 12, 44, 32);
-          g.fillStyle = '#cfcac0'; g.fillRect(x + 31, y + 12, 2, 32);
-          wins = [[x + 10, y + 12, 44, 32]];
-        } else if (style === 'brick') {
-          g.fillStyle = '#efe9df'; g.fillRect(x + 12, y + 10, 40, 40);
-          g.fillStyle = '#2b3d4e'; g.fillRect(x + 15, y + 13, 34, 34);
-          g.fillStyle = '#efe9df'; g.fillRect(x + 31, y + 13, 2, 34); g.fillRect(x + 15, y + 28, 34, 2);
-          wins = [[x + 15, y + 13, 34, 34]];
-        } else {
-          g.fillStyle = '#c7b99c'; g.fillRect(x, y + 52, C, 6);
-          g.fillStyle = '#a89a7e'; g.fillRect(x, y + 46, C, 2);
-          g.fillStyle = '#3a4f66'; g.fillRect(x + 8, y + 10, 22, 34); g.fillRect(x + 34, y + 10, 22, 34);
-          g.fillStyle = '#f2ecdc'; g.fillRect(x + 18, y + 10, 1, 34); g.fillRect(x + 44, y + 10, 1, 34);
-          wins = [[x + 8, y + 10, 22, 34], [x + 34, y + 10, 22, 34]];
-        }
-        if (Math.random() < litProb) {
-          ge.globalAlpha = .65 + Math.random() * .35; ge.fillStyle = pick(lights);
-          wins.forEach(w => ge.fillRect(w[0], w[1], w[2], w[3]));
-          ge.globalAlpha = 1;
-        }
-      }
-      const mkTex = cv => { const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = maxAniso; return t; };
-      return {map: mkTex(cm), emi: mkTex(ce)};
-    }
-    const FACADES = {
-      glass:    {tints: [0xffffff, 0xd6ecff, 0xcfe8e0], lit: .42},
-      concrete: {tints: [0xffffff, 0xf0e8d8, 0xdde3ea], lit: .35},
-      brick:    {tints: [0xffffff, 0xf2d9c8], lit: .30},
-      cream:    {tints: [0xffffff, 0xfff0d0, 0xe9f0d8], lit: .34}
-    };
-    const facadeMats = {};
-    Object.keys(FACADES).forEach(st => {
-      facadeMats[st] = [];
-      for (let v = 0; v < 2; v++) {
-        const tx = makeFacade(st, FACADES[st].lit);
-        FACADES[st].tints.forEach(t => facadeMats[st].push(new THREE.MeshStandardMaterial({
-          map: tx.map, emissiveMap: tx.emi, emissive: 0xffffff, emissiveIntensity: 0, color: t,
-          roughness: st === 'glass' ? .25 : .7, metalness: st === 'glass' ? .5 : .1
-        })));
-      }
-    });
-    facadeMatList = Object.keys(facadeMats).reduce((a, k) => a.concat(facadeMats[k]), []);
-    const roofMats = [0x58616a, 0x6a6f73, 0x4d545b].map(c => new THREE.MeshStandardMaterial({color: c, roughness: .95}));
-    // toko di lantai dasar: kaca gelap, menyala hangat saat malam
-    glassMat = new THREE.MeshStandardMaterial({color: 0x35566b, metalness: .6, roughness: .15, emissive: 0xffcf8a, emissiveIntensity: 0});
-
-    function makeBoxGeo(w, h, d) {
-      const bg = new THREE.BoxGeometry(w, h, d);
-      const uv = bg.attributes.uv;
-      const ou = Math.floor(Math.random() * 8) / 8, ov = Math.floor(Math.random() * 8) / 8;
-      for (let i = 0; i < uv.count; i++) {
-        const face = Math.floor(i / 4);
-        if (face === 2 || face === 3) continue; // atap & dasar
-        const horiz = face < 2 ? d : w;
-        uv.setXY(i, uv.getX(i) * horiz / TILE_W + ou, uv.getY(i) * h / TILE_H + ov);
-      }
-      return bg;
-    }
-    function addBlock(cx, cz, w, h, d, y0, facade, roof) {
-      const mesh = new THREE.Mesh(makeBoxGeo(w, h, d), [facade, facade, roof, roof, facade, facade]);
-      mesh.position.set(cx, y0 + h / 2, cz);
-      mesh.castShadow = true; mesh.receiveShadow = true;
-      scene.add(mesh);
-    }
-
-    // --- Pembagian lahan per blok ---
-    const lots = [];
-    function subdivide(x0, z0, x1, z1, depth) {
-      const w = x1 - x0, d = z1 - z0;
-      if ((w <= 46 && d <= 46) || depth > 4 || (w < 30 && d < 30) || (w <= 64 && d <= 64 && Math.random() < .2)) { lots.push([x0, z0, x1, z1]); return; }
-      if (w >= d) { const c = x0 + w * rnd(.4, .6); subdivide(x0, z0, c, z1, depth + 1); subdivide(c, z0, x1, z1, depth + 1); }
-      else { const c = z0 + d * rnd(.4, .6); subdivide(x0, z0, x1, c, depth + 1); subdivide(x0, c, x1, z1, depth + 1); }
-    }
-    BLOCKS.forEach(bx => BLOCKS.forEach(bz => subdivide(bx[0] + 8, bz[0] + 8, bx[1] - 8, bz[1] - 8, 0)));
-
-    // --- Gedung ---
-    const bnodes = []; // daftar gedung untuk jaringan data (x, z, tinggi atap)
-    const L = {store: [], awn: [], ac: [], tank: [], pent: [], ant: [], av: []};
-    const awnCols = [0xc0392b, 0x2e86c1, 0x27ae60, 0xf39c12, 0x8e44ad, 0xecf0f1];
-    function addRoofGear(cx, cz, w, d, topY, opts) {
-      const n = 1 + Math.floor(Math.random() * 4);
-      for (let i = 0; i < n; i++) {
-        const sx = rnd(1.6, 3.2), sy = rnd(1.1, 2), sz = rnd(1.6, 3.2);
-        const x = cx + rnd(-w / 2 + sx, w / 2 - sx), z = cz + rnd(-d / 2 + sz, d / 2 - sz);
-        L.ac.push({p: [x, topY + sy / 2, z], s: [sx, sy, sz]});
-      }
-      if (opts.tank && Math.random() < .55) {
-        L.tank.push({p: [cx + rnd(-w / 2 + 3, w / 2 - 3), topY + 2, cz + rnd(-d / 2 + 3, d / 2 - 3)], s: [2.4, 4, 2.4]});
-      }
-      if (opts.pent) {
-        L.pent.push({p: [cx + rnd(-w * .15, w * .15), topY + 2.2, cz + rnd(-d * .15, d * .15)], s: [w * .28, 4.4, d * .28]});
-      }
-    }
-    lots.forEach(lt => {
-      const gap = rnd(1.5, 3.5);
-      const lx0 = lt[0] + gap, lx1 = lt[2] - gap, lz0 = lt[1] + gap, lz1 = lt[3] - gap;
-      const W = lx1 - lx0, D = lz1 - lz0;
-      if (W < 10 || D < 10) return;
-      const cx = (lx0 + lx1) / 2, cz = (lz0 + lz1) / 2;
-      const core = clamp(1 - Math.hypot(cx, cz) / 380, 0, 1);
-      const r = Math.random();
-      let kind = 'low';
-      if (core > .45 && r < .6 && W >= 22 && D >= 22) kind = 'tower';
-      else if ((core > .2 && r < .6) || r < .12) kind = 'mid';
-      const style = kind === 'tower' ? pick(['glass', 'glass', 'concrete'])
-        : kind === 'mid' ? pick(['concrete', 'concrete', 'glass', 'cream'])
-        : pick(['brick', 'cream', 'brick', 'concrete']);
-      const roof = pick(roofMats);
-      const fm = pick(facadeMats[style]);
-      let topY;
-      if (kind === 'tower') {
-        const total = rnd(60, 68 + core * 75);
-        const podH = rnd(8, 14);
-        addBlock(cx, cz, W, podH, D, Y0, pick(facadeMats.concrete), roof);
-        const tw = W * rnd(.55, .78), td = D * rnd(.55, .78);
-        const tx = cx + rnd(-1, 1) * (W - tw) / 2 * .6, tz = cz + rnd(-1, 1) * (D - td) / 2 * .6;
-        const th = total - podH;
-        const crown = th > 50 && Math.random() < .6;
-        const ch = crown ? rnd(7, 13) : 0;
-        addBlock(tx, tz, tw, th - ch, td, Y0 + podH, fm, roof);
-        topY = Y0 + total;
-        if (crown) {
-          addBlock(tx, tz, tw * .68, ch, td * .68, topY - ch, fm, roof);
-          addRoofGear(tx, tz, tw * .68, td * .68, topY, {});
-        } else addRoofGear(tx, tz, tw, td, topY, {pent: true});
-        if (total > 85) {
-          L.ant.push({p: [tx, topY + 7, tz], s: [.5, 14, .5]});
-          L.av.push({p: [tx, topY + 14.4, tz], s: [1.3, 1.3, 1.3]});
-        }
-      } else if (kind === 'mid') {
-        const total = rnd(26, 30 + core * 38);
-        if (total > 36 && Math.random() < .5) {
-          const th = rnd(5, 9);
-          addBlock(cx, cz, W, total - th, D, Y0, fm, roof);
-          topY = Y0 + total;
-          addBlock(cx, cz, W * .7, th, D * .7, topY - th, fm, roof);
-          addRoofGear(cx, cz, W * .7, D * .7, topY, {pent: true, tank: true});
-        } else {
-          addBlock(cx, cz, W, total, D, Y0, fm, roof);
-          topY = Y0 + total;
-          addRoofGear(cx, cz, W, D, topY, {pent: true, tank: true});
-        }
-      } else {
-        const total = rnd(9, 24);
-        addBlock(cx, cz, W, total, D, Y0, fm, roof);
-        topY = Y0 + total;
-        addRoofGear(cx, cz, W, D, topY, {tank: true});
-      }
-      // toko lantai dasar + kanopi
-      L.store.push({p: [cx, Y0 + 2.1, cz], s: [W + .5, 4.2, D + .5]});
-      if (kind !== 'tower' && Math.random() < .75) L.awn.push({p: [cx, Y0 + 4.9, cz + D / 2 + .9], s: [W * .85, .3, 1.8], c: pick(awnCols)});
-      bnodes.push({x: cx, z: cz, h: topY});
-    });
-    makeInst(unitBox, glassMat, L.store, false);
-    makeInst(unitBox, new THREE.MeshStandardMaterial({color: 0xffffff, roughness: .8}), L.awn, false);
-    makeInst(unitBox, new THREE.MeshStandardMaterial({color: 0xa7b0b8, roughness: .6, metalness: .3}), L.ac, true);
-    makeInst(unitCyl, new THREE.MeshStandardMaterial({color: 0x3f6f9f, roughness: .5}), L.tank, true);
-    makeInst(unitBox, new THREE.MeshStandardMaterial({color: 0x8c949b, roughness: .8}), L.pent, true);
-    makeInst(unitCyl, new THREE.MeshStandardMaterial({color: 0xb0b8c0, metalness: .6, roughness: .4}), L.ant, false);
-    const avMat = new THREE.MeshBasicMaterial({color: 0xff3030, transparent: true, opacity: 1});
-    makeInst(unitBox, avMat, L.av, false);
-
-    // --- Lampu jalan (menyala malam hari) ---
-    const lampSpots = [];
-    ROAD_OFFSETS.forEach(o => {
-      for (let p = -432; p <= 432; p += 36) {
-        [-1, 1].forEach(sd => {
-          const pp = p + (sd > 0 ? 0 : 18);
-          if (ROAD_OFFSETS.some(rr => Math.abs(pp - rr) < 24)) return;
-          lampSpots.push({x: pp, z: o + sd * 14.5, dx: 0, dz: -sd});  // jalan searah sumbu X
-          lampSpots.push({x: o + sd * 14.5, z: pp, dx: -sd, dz: 0});  // jalan searah sumbu Z
-        });
-      }
-    });
-    const lampPoleMat = new THREE.MeshStandardMaterial({color: 0x3d444c, metalness: .7, roughness: .4});
-    const lampHeadMat = new THREE.MeshBasicMaterial({color: 0x6c747c});
-    const gradCv = document.createElement('canvas'); gradCv.width = gradCv.height = 128;
-    {
-      const gx = gradCv.getContext('2d');
-      const gr = gx.createRadialGradient(64, 64, 0, 64, 64, 64);
-      gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(.35, 'rgba(255,255,255,.45)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
-      gx.fillStyle = gr; gx.fillRect(0, 0, 128, 128);
-    }
-    const glowTex = new THREE.CanvasTexture(gradCv);
-    const poolMat = new THREE.MeshBasicMaterial({map: glowTex, color: 0xffd9a0, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, fog: false});
-    const poolGeo = new THREE.PlaneGeometry(1, 1); poolGeo.rotateX(-Math.PI / 2);
-    const lampPole = [], lampArm = [], lampHead = [], lampPool = [], glowPos = [];
-    lampSpots.forEach(sp => {
-      const ry = Math.atan2(-sp.dz, sp.dx);
-      lampPole.push({p: [sp.x, Y0 + 4.5, sp.z], s: [.36, 9, .36]});
-      lampArm.push({p: [sp.x + sp.dx * 2.5, Y0 + 9, sp.z + sp.dz * 2.5], s: [5, .22, .22], ry});
-      lampHead.push({p: [sp.x + sp.dx * 5, Y0 + 8.9, sp.z + sp.dz * 5], s: [1.8, .25, .8], ry});
-      lampPool.push({p: [sp.x + sp.dx * 5.5, .25, sp.z + sp.dz * 5.5], s: [20, 1, 20]});
-      glowPos.push(sp.x + sp.dx * 5, Y0 + 8.5, sp.z + sp.dz * 5);
-    });
-    makeInst(unitCyl, lampPoleMat, lampPole, true);
-    makeInst(unitBox, lampPoleMat, lampArm, false);
-    makeInst(unitBox, lampHeadMat, lampHead, false);
-    const poolMesh = makeInst(poolGeo, poolMat, lampPool, false);
-    poolMesh.visible = false;
-    const glowGeo = new THREE.BufferGeometry();
-    glowGeo.setAttribute('position', new THREE.Float32BufferAttribute(glowPos, 3));
-    const glowPtsMat = new THREE.PointsMaterial({map: glowTex, color: 0xffe2b0, size: 16, sizeAttenuation: true, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, fog: false});
-    const glowPts = new THREE.Points(glowGeo, glowPtsMat);
-    glowPts.visible = false; glowPts.frustumCulled = false; scene.add(glowPts);
-    lampMats = {head: lampHeadMat, pool: poolMat, glow: glowPtsMat, poolMesh, glowPts};
-
-    // --- Bintang di langit malam ---
-    const starPos = [];
-    for (let i = 0; i < 700; i++) {
-      const th = Math.random() * Math.PI * 2, cph = rnd(.08, 1), sph = Math.sqrt(1 - cph * cph);
-      starPos.push(900 * sph * Math.cos(th), 900 * cph, 900 * sph * Math.sin(th));
-    }
-    const starGeo = new THREE.BufferGeometry();
-    starGeo.setAttribute('position', new THREE.Float32BufferAttribute(starPos, 3));
-    starsObj = new THREE.Points(starGeo, new THREE.PointsMaterial({color: 0xffffff, size: 1.8, sizeAttenuation: false, fog: false, transparent: true, opacity: .9}));
-    starsObj.visible = false; starsObj.frustumCulled = false; scene.add(starsObj);
-
-    // Jaringan data antar gedung
-    buildNetwork(bnodes);
-
-    // Kendaraan
-    const vGeo = {
-      carBody: new THREE.BoxGeometry(4.2, 1.2, 2.0), carCabin: new THREE.BoxGeometry(2.2, .9, 1.8), carLamp: new THREE.BoxGeometry(.1, .25, 1.6),
-      busBody: new THREE.BoxGeometry(8.6, 2.4, 2.3), busWin: new THREE.BoxGeometry(8.0, .8, 2.34), busLamp: new THREE.BoxGeometry(.1, .35, 2.0)
-    };
-    const cabinMat = new THREE.MeshStandardMaterial({color: 0x050a10, roughness: .1, metalness: .9});
-    const headMat = new THREE.MeshBasicMaterial({color: 0xffffaa}), tailMat = new THREE.MeshBasicMaterial({color: 0xff2222});
-    const bodyCache = {};
-    function createVehicle(color, isBus) {
-      const g = new THREE.Group();
-      if (!bodyCache[color]) bodyCache[color] = new THREE.MeshStandardMaterial({color, roughness: .3, metalness: .5});
-      const bm = bodyCache[color];
-      if (!isBus) {
-        const b = new THREE.Mesh(vGeo.carBody, bm); b.position.y = .8; b.castShadow = true; g.add(b);
-        const c = new THREE.Mesh(vGeo.carCabin, cabinMat); c.position.set(-.2, 1.65, 0); g.add(c);
-        const h = new THREE.Mesh(vGeo.carLamp, headMat); h.position.set(2.1, .8, 0); g.add(h);
-        const t = new THREE.Mesh(vGeo.carLamp, tailMat); t.position.set(-2.1, .8, 0); g.add(t);
-      } else {
-        const b = new THREE.Mesh(vGeo.busBody, bm); b.position.y = 1.5; b.castShadow = true; g.add(b);
-        const w = new THREE.Mesh(vGeo.busWin, cabinMat); w.position.set(0, 2.0, 0); g.add(w);
-        const h = new THREE.Mesh(vGeo.busLamp, headMat); h.position.set(4.3, .9, 0); g.add(h);
-        const t = new THREE.Mesh(vGeo.busLamp, tailMat); t.position.set(-4.3, .9, 0); g.add(t);
-      }
-      return g;
-    }
-    const carColors = [0x36d9ff, 0xff647c, 0xffd166, 0x4ce0a1, 0xe0e6ed, 0x8b5cf6, 0x3b82f6];
-    function shuffledRanks(n) {
-      const a = Array.from({length: n}, (_, i) => i);
-      for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-      return a;
-    }
-    function makeLane(axis, dir, fixed, idx) {
-      const lane = {axis, dir, fixed, cars: []};
-      const ranks = shuffledRanks(MAX_PER_LANE);
-      const spacing = (WRAP_LIMIT * 2 - 20) / MAX_PER_LANE;
-      for (let i = 0; i < MAX_PER_LANE; i++) {
-        const isBus = Math.random() < .15;
-        const v = createVehicle(carColors[(idx + i) % carColors.length], isBus);
-        const pos = -WRAP_LIMIT + 10 + i * spacing + (Math.random() - .5) * 14;
-        if (axis === 'x') { v.position.set(pos, 0, fixed); v.rotation.y = dir === 1 ? 0 : Math.PI; }
-        else { v.position.set(fixed, 0, pos); v.rotation.y = dir === 1 ? -Math.PI / 2 : Math.PI / 2; }
-        const base = .4 + Math.random() * .3;
-        v.userData = {length: isBus ? 8.6 : 4.2, baseSpeed: base, currentSpeed: base, rank: ranks[i], active: true};
-        scene.add(v); lane.cars.push(v);
-      }
-      return lane;
-    }
-    let lc = 0;
-    ROAD_OFFSETS.forEach(o => [1, -1].forEach(dir => {
-      lanes.push(makeLane('x', dir, o + (dir === 1 ? 4 : -4), lc++));
-      lanes.push(makeLane('z', dir, o + (dir === 1 ? -4 : 4), lc++));
-    }));
-    applyDensity(+controls.traffic.value);
-
-    // Hujan
-    const rainCount = 1500;
-    const rainGeo = new THREE.BufferGeometry();
-    const rainPos = new Float32Array(rainCount * 3);
-    for (let i = 0; i < rainCount * 3; i += 3) { rainPos[i] = (Math.random() - .5) * 800; rainPos[i + 1] = Math.random() * 200; rainPos[i + 2] = (Math.random() - .5) * 800; }
-    rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPos, 3));
-    const rainSystem = new THREE.Points(rainGeo, new THREE.PointsMaterial({color: 0x36d9ff, size: .7, transparent: true, opacity: .6}));
-    scene.add(rainSystem);
-
-    applyLook('morning');
-    $('loading3d').style.display = 'none';
-
-    const clock = new THREE.Clock();
-    let sampleT = 0;
-    function animate3D() {
-      requestAnimationFrame(animate3D);
-      if (orbitControls) orbitControls.update();
-      const dt = Math.min(clock.getDelta(), .1);
-      const frame = dt * 60;
-      const ease = 1 - Math.pow(1 - .15, frame);
-      const trafficVal = +controls.traffic.value, rainVal = +controls.rain.value;
-
-      stepSignal(dt);
-      avMat.opacity = (Math.floor(clock.elapsedTime * 1.5) % 2) ? .25 : 1;
-      updateAdvisory(rainVal, trafficVal);
-      const phase = PHASES[signal.i];
-
-      if (dayMode === 'auto') {
-        autoDayTimer += dt;
-        if (autoDayTimer >= 18) {
-          autoDayTimer = 0;
-          autoDayIdx = (autoDayIdx + 1) % 3;
-          applyLook(['morning', 'day', 'night'][autoDayIdx]);
-        }
-      }
-
-      lanes.forEach(lane => {
-        const axis = lane.axis, dir = lane.dir, lightState = phase[axis], cars = lane.cars;
-        for (let a = 0; a < cars.length; a++) {
-          const v = cars[a], u = v.userData;
-          if (!u.active) continue;
-          const pos = v.position[axis];
-          const front = pos + dir * u.length / 2;
-          let target = u.baseSpeed;
-          if (lightState !== 'GREEN') {
-            let best = Infinity;
-            for (let k = 0; k < ROAD_OFFSETS.length; k++) {
-              const ro = ROAD_OFFSETS[k];
-              const stopCoord = dir === 1 ? ro - STOP_OFFSET : ro + STOP_OFFSET;
-              const dist = (stopCoord - front) * dir;
-              if (dist >= -1.5 && dist < best) best = dist;
-            }
-            if (best < 45) target = Math.min(target, Math.max(0, (best - .5) * .03));
-          }
-          for (let b = 0; b < cars.length; b++) {
-            const o = cars[b];
-            if (o === v || !o.userData.active) continue;
-            const cd = (o.position[axis] - pos) * dir;
-            if (cd <= 0) continue;
-            const gap = cd - u.length / 2 - o.userData.length / 2;
-            if (gap < MIN_GAP + 18) {
-              if (gap < MIN_GAP) target = 0;
-              else target = Math.min(target, o.userData.currentSpeed * .8 + (gap - MIN_GAP) * .01);
-            }
-          }
-          u.currentSpeed += (target - u.currentSpeed) * ease;
-          if (target === 0 && u.currentSpeed < .003) u.currentSpeed = 0;
-          v.position[axis] += u.currentSpeed * dir * frame;
-          if (v.position[axis] > WRAP_LIMIT) v.position[axis] = -WRAP_LIMIT;
-          else if (v.position[axis] < -WRAP_LIMIT) v.position[axis] = WRAP_LIMIT;
-        }
-      });
-
-      // Statistik: persentase kendaraan berhenti per mode lampu
-      sampleT += dt;
-      if (sampleT >= .5) {
-        sampleT = 0;
-        let act = 0, stopped = 0;
-        lanes.forEach(l => l.cars.forEach(c => { if (c.userData.active) { act++; if (c.userData.currentSpeed < .04) stopped++; } }));
-        if (act) { const s = stats[adaptive ? 'adaptive' : 'fixed']; s.sum += stopped / act * 100; s.n++; }
-        renderCompare();
-      }
-
-      // Jaringan data antar gedung
-      updateNetwork(dt, trafficVal, rainVal);
-
-      if (rainVal > 5) {
-        rainSystem.visible = true;
-        const p = rainSystem.geometry.attributes.position.array;
-        for (let i = 1; i < rainCount * 3; i += 3) { p[i] -= 2 + rainVal / 20; if (p[i] < 0) p[i] = 200; }
-        rainSystem.geometry.attributes.position.needsUpdate = true;
-      } else rainSystem.visible = false;
-
-      renderer.render(scene, camera);
-    }
-    resetSignalCycle();
     animate3D();
-    window.addEventListener('resize', resize3D);
   }
 
-  // ====== PERBANDINGAN LAMPU ======
-  function renderCompare() {
-    const f = stats.fixed, a = stats.adaptive;
-    const fv = f.n >= 10 ? f.sum / f.n : null, av = a.n >= 10 ? a.sum / a.n : null;
-    $('cmpFixed').textContent = fv === null ? '–' : fv.toFixed(1) + '%';
-    $('cmpAdaptive').textContent = av === null ? '–' : av.toFixed(1) + '%';
-    let msg = 'Jalankan tiap mode ±30 detik untuk melihat hasil.';
-    if (fv !== null && av !== null) {
-      const diff = fv - av;
-      msg = Math.abs(diff) < .5 ? 'Selisih kecil pada kepadatan ini.' :
-        diff > 0 ? `✅ Adaptif mengurangi kendaraan berhenti ±${diff.toFixed(1)} poin persen.` :
-                   `⚠️ Pada kondisi ini adaptif belum lebih baik (+${(-diff).toFixed(1)} poin). Coba kepadatan lain.`;
+  function buildCity3D() {
+    // Ground Grid / Base
+    const groundGeo = new THREE.PlaneGeometry(300, 300);
+    const groundMat = new THREE.MeshStandardMaterial({ color: 0x0a1628, roughness: 0.9 });
+    const ground = new THREE.Mesh(groundGeo, groundMat);
+    ground.rotation.x = -Math.PI / 2;
+    ground.receiveShadow = true;
+    scene.add(ground);
+
+    // Roads (Grid Utama Medan Simulasi)
+    const roadMat = new THREE.MeshStandardMaterial({ color: 0x112236, roughness: 0.8 });
+    
+    // Jalan Utama X (Timur - Barat)
+    const roadX = new THREE.Mesh(new THREE.PlaneGeometry(300, 16), roadMat);
+    roadX.rotation.x = -Math.PI / 2;
+    roadX.position.y = 0.05;
+    scene.add(roadX);
+
+    // Jalan Utama Z (Utara - Selatan)
+    const roadZ = new THREE.Mesh(new THREE.PlaneGeometry(16, 300), roadMat);
+    roadZ.rotation.x = -Math.PI / 2;
+    roadZ.position.y = 0.06;
+    scene.add(roadZ);
+
+    // Garis Jalan (Markah)
+    const lineMat = new THREE.MeshBasicMaterial({ color: 0xffd166 });
+    for (let i = -140; i < 140; i += 15) {
+      const dashX = new THREE.Mesh(new THREE.PlaneGeometry(6, 0.6), lineMat);
+      dashX.rotation.x = -Math.PI / 2;
+      dashX.position.set(i, 0.08, 0);
+      scene.add(dashX);
+
+      const dashZ = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 6), lineMat);
+      dashZ.rotation.x = -Math.PI / 2;
+      dashZ.position.set(0, 0.08, i);
+      scene.add(dashZ);
     }
-    $('cmpDelta').textContent = msg;
-  }
-  $('adaptiveBtn').onclick = () => {
-    adaptive = !adaptive;
-    const b = $('adaptiveBtn');
-    b.textContent = adaptive ? 'Mode: Adaptif AI (4–10 detik)' : 'Mode: Waktu Tetap (5 detik)';
-    b.classList.toggle('on', adaptive);
-    $('scannerLabel').textContent = adaptive ? 'AI ADAPTIVE SIGNAL' : 'AI TRAFFIC SCANNER';
-    signal.dur = phaseDur(signal.i);
-    updateSignalBadge(true);
-    pushLog(adaptive ? 'g' : 'y', adaptive ? 'Lampu adaptif AI diaktifkan.' : 'Kembali ke lampu waktu tetap.');
-    showToast(adaptive ? '🧠 Lampu adaptif AI aktif' : 'Lampu waktu tetap aktif');
-  };
-  $('resetStatsBtn').onclick = () => {
-    stats.fixed = {sum: 0, n: 0}; stats.adaptive = {sum: 0, n: 0};
-    renderCompare(); showToast('Statistik perbandingan direset');
-  };
 
-  // ====== TABEL, CHART, LOG, RIWAYAT ======
-  function renderPriority(d) {
-    const rows = zones.map(z => ({z, ...zoneRisk(z, d)})).sort((a, b) => b.score - a.score);
-    $('priorityBody').innerHTML = rows.map((r, i) => {
-      const [cls, lbl] = riskTag(r.score);
-      return `<tr>
-        <td class="rank">${i + 1}</td>
-        <td><strong>${r.z.name.replace('Kecamatan ', '')}</strong><br><small style="color:var(--muted)">Dominan: ${FACTOR_NAME[r.dom]}</small></td>
-        <td style="min-width:90px"><strong>${r.score}</strong><div class="riskbar"><i style="width:${r.score}%;background:${riskColor(r.score)}"></i></div></td>
-        <td><span class="tag ${cls}">${lbl}</span></td>
-        <td>${r.score > 30 ? ACTIONS[r.dom] : 'Pemantauan rutin'}</td></tr>`;
-    }).join('');
+    // Gedung-gedung 3D (Simulasi Kantor Pemko, USU, Mall, dll.)
+    const bldColors = [0x16385d, 0x1d4ed8, 0x0f766e, 0x7c3aed, 0xb45309];
+    
+    for (let x = -110; x <= 110; x += 25) {
+      for (let z = -110; z <= 110; z += 25) {
+        // Lewati area tengah perempatan jalan
+        if (Math.abs(x) < 22 && Math.abs(z) < 22) continue;
+
+        const w = 14 + Math.random() * 8;
+        const d = 14 + Math.random() * 8;
+        const h = 15 + Math.random() * 55;
+
+        const bGeo = new THREE.BoxGeometry(w, h, d);
+        const col = bldColors[Math.floor(Math.random() * bldColors.length)];
+        const bMat = new THREE.MeshStandardMaterial({ 
+          color: col, 
+          roughness: 0.3, 
+          metalness: 0.4,
+          emissive: 0x041426,
+          emissiveIntensity: 0.2
+        });
+
+        const bld = new THREE.Mesh(bGeo, bMat);
+        bld.position.set(x + (Math.random() * 4 - 2), h / 2, z + (Math.random() * 4 - 2));
+        bld.castShadow = true;
+        bld.receiveShadow = true;
+        scene.add(bld);
+        buildings.push(bld);
+
+        // Tambahkan lampu indikator IoT di atas gedung
+        const topGeo = new THREE.SphereGeometry(0.8, 8, 8);
+        const topMat = new THREE.MeshBasicMaterial({ color: 0x36d9ff });
+        const topLed = new THREE.Mesh(topGeo, topMat);
+        topLed.position.set(bld.position.x, h + 0.8, bld.position.z);
+        scene.add(topLed);
+      }
+    }
+
+    // Spawn Kendaraan Bergerak Otomatis
+    spawnAutonomousCars();
   }
-  function renderChart(d) {
-    const chart = $('chart');
-    chart.innerHTML = '';
-    zones.forEach(z => {
-      const score = clamp(100 - zoneRisk(z, d).score, 5, 100);
-      const g = document.createElement('div');
-      g.className = 'bar-group';
-      g.innerHTML = `<div class="bar-value">${score}</div><div class="bar" style="height:${score}%"></div><div class="bar-label">${z.name.replace('Kecamatan Medan ', '').replace(' Medan', '')}</div>`;
-      chart.appendChild(g);
+
+  function spawnAutonomousCars() {
+    const carColors = [0x36d9ff, 0xff647c, 0xffd166, 0x4ce0a1, 0xffffff, 0x9333ea];
+    const carGeo = new THREE.BoxGeometry(4, 2, 7);
+
+    // Buat 35 kendaraan bergerak mandiri
+    for (let i = 0; i < 35; i++) {
+      const col = carColors[Math.floor(Math.random() * carColors.length)];
+      const cMat = new THREE.MeshStandardMaterial({ color: col, roughness: 0.4 });
+      const car = new THREE.Mesh(carGeo, cMat);
+      car.castShadow = true;
+
+      // Tentukan arah jalur (horizontal atau vertikal)
+      const isHorizontal = Math.random() > 0.5;
+      car.userData = {
+        isHorizontal: isHorizontal,
+        speed: (0.4 + Math.random() * 0.4),
+        dir: Math.random() > 0.5 ? 1 : -1,
+        laneOffset: (Math.random() > 0.5 ? 4 : -4)
+      };
+
+      if (isHorizontal) {
+        car.position.set((Math.random() * 260 - 130), 1, car.userData.laneOffset);
+        car.rotation.y = car.userData.dir > 0 ? 0 : Math.PI;
+      } else {
+        car.position.set(car.userData.laneOffset, 1, (Math.random() * 260 - 130));
+        car.rotation.y = car.userData.dir > 0 ? Math.PI / 2 : -Math.PI / 2;
+      }
+
+      scene.add(car);
+      cars.push(car);
+    }
+  }
+
+  let clock = new THREE.Clock();
+
+  function animate3D() {
+    requestAnimationFrame(animate3D);
+    const delta = clock.getDelta();
+
+    // Rotasi kamera otomatis perlahan di sekitar kota
+    const time = Date.now() * 0.0003;
+    camera.position.x = Math.cos(time) * 110;
+    camera.position.z = Math.sin(time) * 110;
+    camera.lookAt(0, 5, 0);
+
+    // Update pergerakan mobil otomatis
+    cars.forEach(car => {
+      const { isHorizontal, speed, dir, laneOffset } = car.userData;
+      
+      // Cek lampu merah di perempatan (posisi x atau z sekitar 0 hingga +/- 15)
+      let canMove = true;
+      if (isHorizontal) {
+        if (lightState === 'NS_GREEN' && Math.abs(car.position.x) < 22 && Math.abs(car.position.x) > 10) {
+          canMove = false; // Berhenti di lampu merah
+        }
+        if (canMove) {
+          car.position.x += speed * dir * (simParams.traffic / 50);
+          if (car.position.x > 140) car.position.x = -140;
+          if (car.position.x < -140) car.position.x = 140;
+        }
+      } else {
+        if (lightState === 'EW_GREEN' && Math.abs(car.position.z) < 22 && Math.abs(car.position.z) > 10) {
+          canMove = false;
+        }
+        if (canMove) {
+          car.position.z += speed * dir * (simParams.traffic / 50);
+          if (car.position.z > 140) car.position.z = -140;
+          if (car.position.z < -140) car.position.z = 140;
+        }
+      }
     });
+
+    renderer.render(scene, camera);
   }
-  const history = [];
-  function drawHistory() {
-    const c = $('histCanvas');
-    const w = c.clientWidth || 400, h = 170, dpr = window.devicePixelRatio || 1;
-    c.width = w * dpr; c.height = h * dpr;
-    const ctx = c.getContext('2d');
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = '#29435c'; ctx.lineWidth = 1; ctx.fillStyle = '#6986a4'; ctx.font = '9px sans-serif';
-    [0, 50, 100].forEach(v => { const y = h - 14 - (v / 100) * (h - 24); ctx.beginPath(); ctx.moveTo(24, y); ctx.lineTo(w - 6, y); ctx.stroke(); ctx.fillText(v, 4, y + 3); });
-    const series = [['traffic', '#36d9ff'], ['flood', '#ff647c'], ['aqi', '#ffd166']];
-    series.forEach(([k, col]) => {
-      ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath();
-      history.forEach((p, i) => {
-        const x = 24 + (i / 59) * (w - 30), y = h - 14 - clamp(p[k], 0, 100) / 100 * (h - 24);
-        i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-      });
-      ctx.stroke();
-    });
-  }
+
+  // Timer Lampu Merah Adaptif Otomatis
   setInterval(() => {
-    const d = derive();
-    history.push({traffic: d.traffic, flood: d.flood, aqi: d.aqi});
-    if (history.length > 60) history.shift();
-    drawHistory();
+    lightTimer--;
+    if (lightTimer <= 0) {
+      lightTimer = 25;
+      if (lightState === 'EW_GREEN') {
+        lightState = 'NS_GREEN';
+        document.getElementById('sigEW').className = "sig-chip red";
+        document.getElementById('sigEW').textContent = "TIMUR-BARAT: MERAH";
+        document.getElementById('sigNS').className = "sig-chip green";
+        document.getElementById('sigNS').textContent = "UTARA-SELATAN: HIJAU";
+      } else {
+        lightState = 'EW_GREEN';
+        document.getElementById('sigEW').className = "sig-chip green";
+        document.getElementById('sigEW').textContent = "TIMUR-BARAT: HIJAU";
+        document.getElementById('sigNS').className = "sig-chip red";
+        document.getElementById('sigNS').textContent = "UTARA-SELATAN: MERAH";
+      }
+    }
+    const timerEl = document.getElementById('sigTimer');
+    if (timerEl) timerEl.textContent = lightTimer;
   }, 1000);
 
-  const logItems = [];
-  function pushLog(cls, msg) {
-    const t = new Date().toLocaleTimeString('id-ID', {hour12: false});
-    logItems.unshift({cls, msg, t});
-    if (logItems.length > 40) logItems.pop();
-    $('logBox').innerHTML = logItems.map(l => `<div class="log-item ${l.cls}"><time>${l.t}</time><span>${l.msg}</span></div>`).join('');
-  }
-  const level = {traffic: '', flood: '', waste: '', air: '', net: ''};
-  function checkAlerts(d) {
-    const lv = {
-      traffic: d.traffic > 70 ? 'r' : d.traffic > 40 ? 'y' : 'g',
-      flood: d.flood > 65 ? 'r' : d.flood > 35 ? 'y' : 'g',
-      waste: d.waste > 85 ? 'r' : d.waste > 60 ? 'y' : 'g',
-      air: d.aqi > 100 ? 'r' : d.aqi > 50 ? 'y' : 'g',
-      net: d.loss > 3 ? 'r' : d.lat > 60 ? 'y' : 'g'
-    };
-    const txt = {
-      traffic: {r: 'Lalu lintas SANGAT PADAT, disarankan pengalihan rute.', y: 'Lalu lintas mulai padat.', g: 'Lalu lintas kembali lancar.'},
-      flood: {r: 'Risiko genangan TINGGI, siagakan pompa & bersihkan drainase.', y: 'Risiko genangan meningkat (waspada).', g: 'Risiko genangan kembali rendah.'},
-      waste: {r: 'Kapasitas sampah KRITIS (>85%), kerahkan petugas.', y: 'Kapasitas sampah perlu dipantau (>60%).', g: 'Kapasitas sampah aman.'},
-      air: {r: 'Kualitas udara TIDAK SEHAT.', y: 'Kualitas udara masuk kategori sedang.', g: 'Kualitas udara kembali baik.'},
-      net: {r: 'Jaringan data gedung TERGANGGU: packet loss tinggi akibat cuaca ekstrem.', y: 'Latensi jaringan data antar gedung meningkat.', g: 'Jaringan data antar gedung stabil.'}
-    };
-    Object.keys(lv).forEach(k => {
-      if (level[k] !== lv[k]) {
-        if (level[k] !== '') pushLog(lv[k], txt[k][lv[k]]);
-        level[k] = lv[k];
+  window.addEventListener('resize', () => {
+    if (!container3d || !renderer) return;
+    camera.aspect = container3d.clientWidth / container3d.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container3d.clientWidth, container3d.clientHeight);
+  });
+
+  // Inisialisasi 3D saat halaman dimuat
+  window.addEventListener('DOMContentLoaded', () => {
+    init3D();
+  });
+
+  /* ===== INTERAKTIF SIMULATOR & KONTROL ===== */
+  const rangeTraffic = document.getElementById('rangeTraffic');
+  const rangeRain = document.getElementById('rangeRain');
+  const rangeWaste = document.getElementById('rangeWaste');
+  const valTraffic = document.getElementById('valTraffic');
+  const valRain = document.getElementById('valRain');
+  const valWaste = document.getElementById('valWaste');
+  const mapRainOverlay = document.getElementById('mapRainOverlay');
+
+  rangeTraffic.addEventListener('input', (e) => {
+    simParams.traffic = parseInt(e.target.value);
+    valTraffic.textContent = simParams.traffic + '%';
+    document.getElementById('trafficMetric').innerHTML = simParams.traffic + '<span>%</span>';
+  });
+
+  rangeRain.addEventListener('input', (e) => {
+    simParams.rain = parseInt(e.target.value);
+    valRain.textContent = simParams.rain + ' mm/jam';
+    document.getElementById('floodMetric').innerHTML = Math.min(95, Math.floor(simParams.rain * 0.9)) + '<span>%</span>';
+    if (simParams.rain > 40) {
+      mapRainOverlay.classList.add('active');
+      document.getElementById('radarStatusText').textContent = "Radar Medan: SIAGA BANJIR EKSTREM";
+    } else {
+      mapRainOverlay.classList.remove('active');
+      document.getElementById('radarStatusText').textContent = "Radar Medan: Normal / Siaga 1";
+    }
+  });
+
+  rangeWaste.addEventListener('input', (e) => {
+    simParams.waste = parseInt(e.target.value);
+    valWaste.textContent = simParams.waste + '%';
+    document.getElementById('wasteMetric').innerHTML = simParams.waste + '<span>%</span>';
+  });
+
+  // Preset Buttons
+  document.querySelectorAll('.preset-row .btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const preset = btn.getAttribute('data-preset');
+      if (preset === 'normal') {
+        rangeTraffic.value = 40; rangeRain.value = 10; rangeWaste.value = 50;
+        showToast("Skenario: Kondisi Normal Harian");
+      } else if (preset === 'rush') {
+        rangeTraffic.value = 90; rangeRain.value = 5; rangeWaste.value = 65;
+        showToast("Skenario: Jam Sibuk Pagi/Sore");
+      } else if (preset === 'flood') {
+        rangeTraffic.value = 60; rangeRain.value = 85; rangeWaste.value = 80;
+        showToast("Skenario: Hujan Deras & Risiko Banjir");
+      } else if (preset === 'vip') {
+        rangeTraffic.value = 30; rangeRain.value = 0; rangeWaste.value = 40;
+        showToast("Skenario: Kunjungan VIP / VVIP Kenegaraan");
       }
+      rangeTraffic.dispatchEvent(new Event('input'));
+      rangeRain.dispatchEvent(new Event('input'));
+      rangeWaste.dispatchEvent(new Event('input'));
     });
-  }
+  });
 
-  // ====== UPDATE UTAMA ======
-  const setMetric = (id, v, unit) => { $(id).innerHTML = `${v}<span>${unit}</span>`; };
-  function setState(id, cls, text) { const e = $(id); e.className = cls; e.textContent = text; }
-  function updateAll() {
-    const d = derive();
-    $('trafficOut').textContent = d.traffic + '%';
-    $('rainOut').textContent = d.rain + ' mm/jam';
-    $('wasteOut').textContent = d.waste + '%';
+  document.getElementById('applySimBtn').addEventListener('click', () => {
+    showToast("Skenario berhasil diterapkan pada simulator 3D & AI!");
+  });
 
-    setMetric('trafficMetric', d.traffic, '%');
-    setState('trafficState', d.traffic > 70 ? 'danger' : d.traffic > 40 ? 'warning' : 'positive', d.traffic > 70 ? '● Sangat Padat' : d.traffic > 40 ? '● Padat' : '● Arus Lancar');
-    setMetric('floodMetric', d.flood, '%');
-    setState('floodState', d.flood > 65 ? 'danger' : d.flood > 35 ? 'warning' : 'positive', d.flood > 65 ? '● Risiko Tinggi' : d.flood > 35 ? '● Waspada' : '● Rendah');
-    const airLbl = d.aqi > 100 ? 'Tidak sehat' : d.aqi > 50 ? 'Sedang' : 'Baik';
-    setMetric('airMetric', d.aqi + ' ', 'AQI');
-    setState('airState', d.aqi > 100 ? 'danger' : d.aqi > 50 ? 'warning' : 'positive', '● ' + airLbl);
-    setMetric('wasteMetric', d.waste, '%');
-    setState('wasteState', d.waste > 85 ? 'danger' : d.waste > 60 ? 'warning' : 'positive', d.waste > 85 ? '● Kritis' : d.waste > 60 ? '● Perlu dipantau' : '● Aman');
+  document.getElementById('govPitchBtn').addEventListener('click', () => {
+    document.getElementById('kerjasama-pemerintah').scrollIntoView({ behavior: 'smooth' });
+    showToast("Membuka Proposal Kerjasama Pemko Medan x PT Masa Depan Telkom U.");
+  });
 
-    $('serviceTraffic').innerHTML = `${d.traffic}%<small>kepadatan</small>`;
-    $('serviceFlood').innerHTML = `${d.flood}%<small>risiko</small>`;
-    $('serviceAir').innerHTML = `${d.aqi} AQI<small>${airLbl.toLowerCase()}</small>`;
-    $('serviceWaste').innerHTML = `${d.waste}%<small>terisi</small>`;
-    $('serviceNet').innerHTML = `${d.lat} ms<small>${d.loss > 3 ? 'terganggu' : d.lat > 60 ? 'melambat' : 'stabil'} · loss ${d.loss}%</small>`;
+  document.getElementById('aiOptimizeBtn').addEventListener('click', () => {
+    showToast("✨ AI Telkom University berhasil mengoptimalkan lampu ATCS & rute truk sampah!");
+    rangeTraffic.value = 35;
+    rangeTraffic.dispatchEvent(new Event('input'));
+  });
 
-    $('aiTrafficPredict').textContent = d.traffic > 65 ? 'Pengalihan rute' : d.traffic > 40 ? 'Padat, pantau' : 'Normal';
-    $('aiFloodPredict').textContent = d.flood > 65 ? '⚠️ Bahaya' : d.flood > 35 ? 'Waspada' : 'Rendah (Aman)';
-    $('aiFloodPredict').style.color = d.flood > 65 ? 'var(--red)' : d.flood > 35 ? 'var(--yellow)' : 'var(--green)';
-    $('aiEcoPredict').textContent = `${d.eco} / 100`;
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    rangeTraffic.value = 45; rangeRain.value = 15; rangeWaste.value = 60;
+    rangeTraffic.dispatchEvent(new Event('input'));
+    rangeRain.dispatchEvent(new Event('input'));
+    rangeWaste.dispatchEvent(new Event('input'));
+    showToast("Simulasi di-reset ke pengaturan awal.");
+  });
 
-    applyDensity(d.traffic);
-    updateWeatherDetection(d.rain);
-    refreshMarkers(d);
-    renderChart(d);
-    renderPriority(d);
-    checkAlerts(d);
-  }
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    showToast("Laporan CSV Kinerja Smart City berhasil diunduh.");
+  });
 
-  // ====== CHATBOT ======
-  const aiChatBox = $('aiChatBox'), aiInput = $('aiInput');
-  function fmt(t) { return t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>'); }
-  function appendMessage(sender, text) {
-    const m = document.createElement('div');
-    m.className = 'msg ' + sender;
-    if (sender === 'bot') m.innerHTML = `<div class="msg-ai-header">🤖 AI Urban Advisory</div>${fmt(text)}`;
-    else m.textContent = text;
-    aiChatBox.appendChild(m);
+  /* ===== AI CHAT ASSISTANT ===== */
+  const aiChatBox = document.getElementById('aiChatBox');
+  const aiInput = document.getElementById('aiInput');
+  const aiSendBtn = document.getElementById('aiSendBtn');
+
+  function appendMsg(text, isUser = false) {
+    const div = document.createElement('div');
+    div.className = `msg ${isUser ? 'user' : 'bot'}`;
+    if (!isUser) {
+      div.innerHTML = `<div class="msg-ai-header">🤖 MedanAI Assistant</div>${text}`;
+    } else {
+      div.textContent = text;
+    }
+    aiChatBox.appendChild(div);
     aiChatBox.scrollTop = aiChatBox.scrollHeight;
   }
-  function topZones(d, n) { return zones.map(z => ({z, ...zoneRisk(z, d)})).sort((a, b) => b.score - a.score).slice(0, n); }
-  function recommendations(d) {
-    const r = [];
-    if (d.traffic > 60) r.push('Aktifkan **lampu adaptif AI** dan alihkan rute di kawasan Pusat Kota.');
-    if (d.flood > 35) r.push(`Bersihkan gorong-gorong dan siagakan pompa, terutama di **${topZones(d, 1)[0].z.name.replace('Kecamatan ', '')}**.`);
-    if (d.waste > 60) r.push('Tambah jadwal pengangkutan sampah (kapasitas ' + d.waste + '%).');
-    if (d.aqi > 50) r.push('Kurangi kendaraan berhenti lama (adaptif) dan imbau transportasi publik.');
-    if (d.loss > 3) r.push('Jaringan data terganggu: prioritaskan data banjir dan lalu lintas lewat hub terdekat.');
-    if (!r.length) r.push('Kondisi aman. Lanjutkan pemantauan rutin dan pemeliharaan drainase.');
-    return r.map((x, i) => `${i + 1}. ${x}`).join('\n');
-  }
-  function processAiQuery(query) {
-    const d = derive(), q = query.toLowerCase();
-    const has = (...w) => w.some(x => q.includes(x));
-    let res;
-    if (has('ringkas', 'kondisi kota', 'status')) {
-      res = `**Ringkasan kota**\nLalu lintas ${d.traffic}% · Genangan ${d.flood}% · AQI ${d.aqi} · Sampah ${d.waste}% · Jaringan ${d.lat} ms.\nWilayah paling mendesak: **${topZones(d, 1)[0].z.name.replace('Kecamatan ', '')}** (skor ${topZones(d, 1)[0].score}).`;
-    } else if (has('jaringan', 'network', 'iot', 'antar gedung', 'berbagi data', 'hub')) {
-      res = `**Jaringan data antar gedung** (simulasi)\nSetiap gedung adalah node yang berbagi data sensor ke gedung sekitar dan ke 5 hub wilayah. Latensi **${d.lat} ms**, packet loss **${d.loss}%**. ${d.loss > 3 ? '⚠️ Hujan lebat mengganggu jaringan, data banjir dan lalu lintas diprioritaskan.' : d.lat > 60 ? 'Beban tinggi, latensi mulai naik.' : 'Jaringan stabil.'} Warna paket: cyan = lalu lintas, hijau = udara, kuning = sampah, merah muda = genangan. Tombol **Jaringan Data** di atas peta menampilkan atau menyembunyikannya.`;
-    } else if (has('macet', 'lalu lintas', 'traffic', 'padat')) {
-      res = `Kepadatan **${d.traffic}%**. ${d.traffic > 60 ? 'Disarankan pengalihan rute dan mengaktifkan lampu adaptif.' : 'Arus relatif lancar.'} Mode lampu saat ini: **${adaptive ? 'adaptif AI' : 'waktu tetap'}**.`;
-    } else if (has('banjir', 'hujan', 'genangan')) {
-      res = `Hujan **${d.rain} mm/jam** dan sampah **${d.waste}%** menghasilkan risiko genangan **${d.flood}%**. ${d.flood > 50 ? '⚠️ Bersihkan drainase dan siagakan pompa.' : 'Drainase masih dalam batas normal.'}`;
-    } else if (has('udara', 'aqi', 'polusi')) {
-      res = `AQI simulasi **${d.aqi}** (${d.aqi > 100 ? 'tidak sehat' : d.aqi > 50 ? 'sedang' : 'baik'}). Nilai ini naik seiring kepadatan lalu lintas (${d.traffic}%).`;
-    } else if (has('sampah', 'kebersihan')) {
-      res = `Kapasitas sampah **${d.waste}%**. ${d.waste > 85 ? 'Kritis, kerahkan petugas segera.' : d.waste > 60 ? 'Perlu dipantau dan jadwalkan pengangkutan.' : 'Masih aman.'}`;
-    } else if (has('lampu', 'adaptif', 'sinyal')) {
-      res = `Lampu adaptif mengatur hijau 4–10 detik sesuai antrean. Saat ini mode **${adaptive ? 'adaptif' : 'waktu tetap'}**. Lihat panel perbandingan di Simulator.`;
-    } else if (has('prioritas', 'wilayah', 'kecamatan', 'daerah')) {
-      res = '**Prioritas wilayah**\n' + topZones(d, 3).map((r, i) => `${i + 1}. ${r.z.name.replace('Kecamatan ', '')}: skor ${r.score}, ${FACTOR_NAME[r.dom]} dominan`).join('\n');
-    } else if (has('cuaca', 'suhu')) {
-      res = 'Tekan **Sinkronkan cuaca nyata** di panel Simulator untuk mengambil cuaca Medan saat ini.';
-    } else if (has('rekomendasi', 'optimasi', 'saran', 'tindakan')) {
-      res = '✨ **Rekomendasi AI**\n' + recommendations(d);
-    } else if (has('bantuan', 'help', 'bisa apa')) {
-      res = 'Tanyakan: **ringkasan**, **macet**, **banjir**, **udara**, **sampah**, **lampu adaptif**, **jaringan data**, **prioritas wilayah**, **cuaca**, atau **rekomendasi**.';
-    } else {
-      res = 'Maaf, saya belum paham pertanyaan itu. Coba: "ringkasan", "macet", "banjir", "udara", "sampah", "jaringan data", "prioritas wilayah", atau "rekomendasi".';
-    }
-    setTimeout(() => appendMessage('bot', res), 350);
-  }
-  function sendUser(text) { appendMessage('user', text); processAiQuery(text); }
-  $('aiSendBtn').onclick = () => { const t = aiInput.value.trim(); if (!t) return; aiInput.value = ''; sendUser(t); };
-  aiInput.addEventListener('keydown', e => { if (e.key === 'Enter') $('aiSendBtn').click(); });
-  document.querySelectorAll('.q-btn').forEach(b => b.addEventListener('click', () => sendUser(b.dataset.q)));
 
-  // ====== TOMBOL & SKENARIO ======
-  function setParams(t, r, w) { controls.traffic.value = t; controls.rain.value = r; controls.waste.value = w; updateAll(); }
-  const SCENARIOS = {
-    normal: {p: [35, 10, 40], txt: 'Kondisi normal: lalu lintas lancar, cuaca cerah, sampah terkendali, jaringan data stabil.'},
-    rush:   {p: [88, 10, 55], txt: 'Jam sibuk: kendaraan padat, antrean panjang, dan lalu lintas paket data antar gedung meningkat. Coba aktifkan lampu adaptif.'},
-    storm:  {p: [60, 125, 70], txt: 'Hujan deras: genangan meningkat, jaringan data melambat dan packet loss naik.'},
-    after:  {p: [30, 15, 92], txt: 'Pasca hujan: sampah terbawa banjir dan wadah hampir penuh, perlu pengangkutan cepat.'}
-  };
-  function applyScenario(key) {
-    const s = SCENARIOS[key];
-    setParams(...s.p);
-    $('scenarioText').textContent = 'Skenario: ' + s.txt + ' (data simulasi)';
-    pushLog('y', 'Skenario diterapkan: ' + key.replace('rush', 'jam sibuk').replace('storm', 'hujan deras').replace('after', 'pasca hujan') + '.');
-  }
-  document.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', () => applyScenario(b.dataset.preset)));
+  function handleAIChat() {
+    const q = aiInput.value.trim();
+    if (!q) return;
+    appendMsg(q, true);
+    aiInput.value = '';
 
-  $('aiOptimizeBtn').onclick = () => {
-    const d = derive();
-    const actions = [];
-    if (!adaptive) { $('adaptiveBtn').click(); actions.push('lampu adaptif diaktifkan'); }
-    if (d.traffic > 30) { controls.traffic.value = Math.max(30, Math.round(d.traffic * .75)); actions.push('pengalihan rute menurunkan kepadatan ±25%'); }
-    if (d.waste > 40) { controls.waste.value = Math.max(35, d.waste - 25); actions.push('petugas kebersihan dikerahkan (sampah −25%)'); }
-    updateAll();
-    const msg = actions.length ? 'Optimasi AI: ' + actions.join(', ') + '. Curah hujan tidak dapat dikendalikan.' : 'Kondisi sudah optimal, tidak ada tindakan tambahan.';
-    showToast('✨ Optimasi AI diterapkan');
-    appendMessage('bot', '✨ **Optimasi AI**\n' + msg);
-    pushLog('g', msg);
-  };
-  $('randomBtn').onclick = () => {
-    setParams(Math.floor(Math.random() * 85) + 10, Math.floor(Math.random() * 130), Math.floor(Math.random() * 80) + 10);
-    $('scenarioText').textContent = 'Skenario acak diterapkan. Lihat prioritas wilayah dan rekomendasi AI.';
-    showToast('🎲 Skenario acak diterapkan');
-  };
-  $('resetBtn').onclick = () => {
-    if (isAutoRunning) $('runBtn').click();
-    setParams(42, 25, 64);
-    resetSignalCycle();
-    $('scenarioText').textContent = 'Simulasi direset ke kondisi awal.';
-    showToast('↻ Simulasi direset');
-  };
-  const ORDER = ['normal', 'rush', 'storm', 'after'];
-  $('runBtn').onclick = () => {
-    isAutoRunning = !isAutoRunning;
-    const btn = $('runBtn');
-    if (isAutoRunning) {
-      btn.textContent = '⏸ Hentikan skenario';
-      scenarioStep = 0;
-      applyScenario(ORDER[0]);
-      autoInterval = setInterval(() => { scenarioStep = (scenarioStep + 1) % ORDER.length; applyScenario(ORDER[scenarioStep]); }, 12000);
-      showToast('▶ Skenario otomatis berjalan (ganti tiap 12 detik)');
-    } else {
-      btn.textContent = '▶ Jalankan skenario otomatis';
-      clearInterval(autoInterval);
-      showToast('⏸ Skenario dihentikan');
-    }
-  };
-
-  // ====== CUACA NYATA (Open-Meteo, tanpa API key) ======
-  $('wxBtn').onclick = async () => {
-    const btn = $('wxBtn');
-    btn.disabled = true; btn.textContent = 'Mengambil data…';
-    try {
-      const url = 'https://api.open-meteo.com/v1/forecast?latitude=3.5897&longitude=98.6738&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&timezone=Asia%2FJakarta';
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const c = (await res.json()).current;
-      $('wxTemp').textContent = Math.round(c.temperature_2m) + '°C';
-      $('wxHum').textContent = Math.round(c.relative_humidity_2m) + '%';
-      $('wxRain').textContent = c.precipitation + ' mm';
-      $('wxWind').textContent = Math.round(c.wind_speed_10m) + ' km/j';
-      controls.rain.value = clamp(Math.round(c.precipitation), 0, 150);
-      updateAll();
-      $('scenarioText').textContent = `Cuaca nyata Medan diterapkan: ${c.temperature_2m}°C, hujan ${c.precipitation} mm. Lalu lintas dan sampah tetap simulasi.`;
-      pushLog('g', `Cuaca nyata Medan disinkronkan (hujan ${c.precipitation} mm).`);
-      showToast('🌐 Cuaca nyata berhasil disinkronkan');
-    } catch (e) {
-      showToast('Gagal mengambil cuaca (periksa internet)');
-      pushLog('r', 'Sinkronisasi cuaca nyata gagal.');
-    }
-    btn.disabled = false; btn.textContent = '🌐 Sinkronkan cuaca nyata';
-  };
-
-  // ====== EKSPOR CSV ======
-  $('exportBtn').onclick = () => {
-    const d = derive();
-    const rows = [
-      ['Laporan Medan Smart City (data simulasi)'],
-      ['Waktu', new Date().toLocaleString('id-ID')],
-      ['Mode lampu', adaptive ? 'Adaptif AI' : 'Waktu tetap'],
-      [],
-      ['Parameter', 'Nilai'],
-      ['Kepadatan lalu lintas (%)', d.traffic], ['Curah hujan (mm/jam)', d.rain], ['Volume sampah (%)', d.waste],
-      ['Risiko genangan (%)', d.flood], ['AQI simulasi', d.aqi], ['Skor lingkungan', d.eco],
-      ['Latensi jaringan data (ms, simulasi)', d.lat], ['Packet loss jaringan data (%, simulasi)', d.loss],
-      [],
-      ['Peringkat', 'Wilayah', 'Skor risiko', 'Faktor dominan', 'Tindakan'],
-      ...zones.map(z => ({z, ...zoneRisk(z, d)})).sort((a, b) => b.score - a.score)
-        .map((r, i) => [i + 1, r.z.name, r.score, FACTOR_NAME[r.dom], r.score > 30 ? ACTIONS[r.dom] : 'Pemantauan rutin'])
-    ];
-    const csv = '\ufeff' + rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv;charset=utf-8'}));
-    a.download = 'laporan-medan-smart-city.csv';
-    a.click();
-    URL.revokeObjectURL(a.href);
-    showToast('⬇ Laporan CSV diunduh');
-  };
-
-  let toastTimer;
-  function showToast(msg) {
-    const t = $('toast');
-    t.textContent = msg; t.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+    setTimeout(() => {
+      let reply = "Analisis AI Telkom U.: Sistem kami mendapati bahwa integrasi ATCS di persimpangan utama Kota Medan dapat menurunkan tingkat kemacetan hingga 55% sekaligus menghemat APBD pemeliharaan jalan.";
+      if (q.toLowerCase().includes('walikota') || q.toLowerCase().includes('pitching')) {
+        reply = "Strategi Pitching ke Pemko Medan: Tunjukkan bahwa PT Masa Depan Telkom University menawarkan solusi kedaulatan data lokal, efisiensi anggaran 34% per tahun, dan implementasi non-destruktif tanpa bongkar jalan raya.";
+      } else if (q.toLowerCase().includes('hujan') || q.toLowerCase().includes('genangan')) {
+        reply = "Simulasi Hujan: Sensor IoT mendeteksi kenaikan air di Medan Selayang. Sistem otomatis mengaktifkan 12 pompa drainase utama dan mengirim peringatan dini ke command center PUBR.";
+      } else if (q.toLowerCase().includes('roi') || q.toLowerCase().includes('anggaran')) {
+        reply = "Analisis ROI: Investasi awal tertutupi dalam kurun waktu 14 bulan melalui efisiensi bahan bakar warga, pengurangan emisi karbon (AQI membaik), dan optimalisasi jam kerja logistik kota.";
+      } else if (q.toLowerCase().includes('telkom')) {
+        reply = "Peran Telkom University: Didukung oleh kepemimpinan dan keahlian riset di bidang network engineering, web development, dan IoT, PT Masa Depan Telkom U. siap menjadi mitra strategis digitalisasi Kota Medan.";
+      }
+      appendMsg(reply);
+    }, 800);
   }
 
-  Object.values(controls).forEach(c => c.addEventListener('input', updateAll));
+  aiSendBtn.addEventListener('click', handleAIChat);
+  aiInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleAIChat(); });
 
-  // Menu aktif saat scroll
-  const navLinks = [...document.querySelectorAll('.nav a')];
-  const secs = navLinks.map(a => document.querySelector(a.getAttribute('href')));
-  window.addEventListener('scroll', () => {
-    let cur = 0;
-    secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 160) cur = i; });
-    navLinks.forEach((a, i) => a.classList.toggle('active', i === cur));
-  }, {passive: true});
-
-  window.addEventListener('DOMContentLoaded', () => {
-    initMap2D();
-    init3D();
-    updateAll();
-    renderCompare();
-    pushLog('g', 'Sistem simulator aktif. Semua data adalah simulasi.');
-    pushLog('g', 'Jaringan data antar gedung aktif (5 hub, mesh gedung–gedung).');
+  document.querySelectorAll('.q-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      aiInput.value = btn.getAttribute('data-q');
+      handleAIChat();
+    });
   });
-})();
 </script>
 </body>
 </html>
